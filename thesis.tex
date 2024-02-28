@@ -1,0 +1,484 @@
+\documentclass[12pt, a4paper, twoside]{article}
+
+
+
+% PACKAGES %
+
+%--Packages--
+\usepackage[english]{babel} %if you want index titles and bibliography titles in Swedish comment this line and uncomment the following line
+%\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{showkeys} it show the label you have given to environment equation. Useful when you are writing. Remember to uncomment it before submitting
+\usepackage{latexsym,amsfonts,amsmath,amsthm,bm,lmodern,titlesec,xcolor,graphicx,setspace,pdfpages,
+	geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig,vmargin,tikz,hyperref}
+\usepackage[nottoc]{tocbibind}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{lipsum}
+\usepackage{ytableau}
+
+%\usepackage{bbold}
+
+\usepackage{latexsym,amsmath,amsthm,bm,lmodern,titlesec,xcolor,graphicx,setspace,pdfpages,
+	geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig,vmargin,tikz,hyperref}
+\usepackage[nottoc]{tocbibind}
+
+
+\setpapersize{A4}
+\setmarginsrb{30mm}{20mm}{30mm}{30mm}%left top right bottom
+{8mm}{6mm}{10mm}{10mm}%headheight headsep footheight footskip
+
+
+% Some useful colors
+\definecolor{Rosso}{RGB}{232,61,61}
+\definecolor{Viola}{RGB}{188,30,188}
+\definecolor{Celeste}{RGB}{34,186,211}
+\definecolor{Arancione}{RGB}{232,181,19}
+\definecolor{Blu}{RGB}{0, 44, 92}
+\definecolor{Azzurro}{RGB}{57,186,238}
+
+
+\hypersetup{colorlinks=true,linkcolor=Blu,allbordercolors=white, urlcolor=blue, citecolor=Viola}
+%\usepackage{enumitem} 
+\renewcommand\labelitemi{\textbullet} 
+
+%\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+%\author{Daniel Martling\\ Stockholms Universitet}
+%\title{Introduction to Representation Theory and Some Examples of Representations of Finite Groups}
+%\date{}
+
+%--Heading of  section--
+\titleformat{\section}[display]
+{\normalfont\bfseries\color{Blu}}
+{\filleft
+	\begin{tikzpicture}
+		\node[
+		outer sep=0pt,
+		text width=2.5cm,
+		minimum height=3cm,
+		fill=white,
+		font=\color{Blu}\fontsize{80}{0}\selectfont,
+		align=center
+		] (num) {\thesection};
+		\node[
+		rotate=90,
+		anchor=south,
+		font=\color{black}\large\normalfont
+		] at ([xshift=-5pt]num.west) {\Huge\textsc{}};  
+	\end{tikzpicture}%
+}
+{10pt}
+{\titlerule\vskip4pt\Huge\sc\sffamily}
+
+%--Heading of subsection--
+\newcommand*\numb[1]{%
+	\begin{tikzpicture}[baseline=-0.7ex]
+		\node[
+		outer sep=0pt,
+		text width=0.6cm,
+		minimum height=0.6cm,
+		fill=Blu,
+		font=\color{white}\fontsize{12}{20}\selectfont,
+		align=center
+		] (num) {\thesubsection};
+	\end{tikzpicture}%
+}
+\titleformat{\subsection}
+{\normalfont\color{Blu}\large\sc\sffamily}{\numb{\thesubsection}}{0.8em}{}
+
+%--Heading subsubsection--
+\newcommand*\stocaz[1]{%
+	\begin{tikzpicture}[baseline=-0.7ex]
+		\node[
+		outer sep=0pt,
+		text width=0.8cm,
+		minimum height=0.5cm,
+		fill=Blu,
+		font=\color{white}\fontsize{10}{20}\selectfont,
+		align=center
+		] (num) {\thesubsubsection};
+	\end{tikzpicture}%
+}
+\titleformat{\subsubsection}
+{\normalfont\color{Blu}\bfseries\sc\sffamily}{\stocaz{\thesubsubsection}}{0.8em}{}
+
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\Sym}{\text{Sym}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\SO}{\text{SO}}
+\newcommand{\SU}{\text{SU}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\id}{\text{id}}
+\newcommand{\Stab}{\text{Stab}}
+\newcommand{\Cent}{\text{Cent}}
+\newcommand{\Norm}{\text{Norm}}
+\newcommand{\D}{\text{D}}
+\newcommand{\sgn}{\text{sgn}}
+
+% math environments
+%  we use \newtheorem to specify our theorem-like environments
+% (theorem, definition, etc.) and how to display and number them.
+%
+% Note: The \theoremstyle declarations affect the appearance of the
+% Theorems, Definitions, etc.
+% Note 2: If you want swedish names you have to go and change the argument in brackets e.g. \newtheorem{thm}[defi]{Theorem} should become \newtheorem{thm}[defi]{Sats}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\newtheorem*{problem}{Problem}
+\newtheorem{conjecture}[definition]{Conjecture}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+
+\theoremstyle{remark}
+\newtheorem*{question}{Question}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+\newtheorem*{notation}{Notation}
+
+
+\onehalfspacing
+
+\begin{document}
+	
+% This includes the front page (you need to compile the cover.tex separately and have the .pdf available in the same folder as this .tex file).
+%\setlength{\voffset}{0cm}
+%\setlength{\hoffset}{0cm}
+%\includepdf[pages={1,2,3,4}]{cover}
+%\setlength{\voffset}{-2.54cm}
+%\setlength{\hoffset}{-2.54cm}
+
+
+
+%\clearpage{\thispagestyle{empty}\cleardoublepage}
+%\begin{center}
+%	\subsubsection*{Abstract}
+%	\addcontentsline{toc}{section}{Abstract}
+%\end{center}
+%	The summary goes here. \lipsum[1][1-10]
+%	
+%\begin{center}
+%	\item\subsubsection*{Sammanfattning}
+%	\addcontentsline{toc}{section}{Sammanfattning}
+%\end{center}
+%	Sammanfattningen på svenska hamnar här. \lipsum[2][1-10]
+%
+%\begin{center}
+%	\item\subsubsection*{Acknowledgements}
+%	\addcontentsline{toc}{section}{Acknowledgements}
+%\end{center}
+%	Acknowledgements here. \lipsum*[3][1-10]
+
+%create the table of contents
+\clearpage{\thispagestyle{empty}}%\cleardoublepage}
+{\hypersetup{linkcolor=black}
+	\tableofcontents
+}
+
+% your first section
+\clearpage{\thispagestyle{empty}}
+\section{Representation Theory}
+
+	This section is based on the treatment on representation theory from \cite{FultonHarris}.
+	
+	For the rest of this thesis, we are considering finite groups and finite-dimensional vector space over $\C$. Let $G$ be such a group and $V$ such a vector space. The group of all automorphism\footnote{This is equivalent to the set of invertible $n \times n$ matrices with entries from $\C$.} of $V$ is denoted by $\GL(V)$.
+		
+	\begin{definition}[Representation]
+		A representation of $G$ on the vector space $V$ is a homomorphism
+		\[
+		\rho: G \rightarrow \GL(V) 
+		\]
+		defined by taking each element $g$ in $G$ and mapping it to an element of $\GL(V)$. Equivalently it is a mapping $\rho(g): V \rightarrow V$. 
+	\end{definition}
+	\begin{remark}
+		Since $\rho$ is a homomorphism, 
+		\begin{enumerate}[i)]
+			\item $\rho(e) = \1$, or $\rho(e)(v)=v$ for every $v$ in $V$.
+			\item For any $g$ and $g'$ in $G$, $\rho(gg') = \rho(g)\rho(g')$.
+			\item For any $g$ and its inverse $g^{-1}$ in $G$, $\rho(g^{-1}) = \rho(g)^{-1}$.
+		\end{enumerate}
+	\end{remark}
+		
+ 	In other words, the matrix $\rho(g)$ acts acts as a linear map on a vector $v$ in $V$ and maps it to the vector $\rho(g)(v)$ in $V$. Sometimes the vector space $V$ is itself shorthandedly called the representation and $\rho(g)(v)$ is abbreviated to $gv$.
+	
+%	\begin{example}[Trivial representation]
+%		By choosing to represent every $g \in G$ by the identity matrix, we get the trivial representation of $G$. Clearly this is a homomorphism since for $g,h \in G$, $\rho(gh) = 1 = \rho(g) \rho(h)$.
+%	\end{example}
+	
+	\begin{definition}[Subrepresentation]
+		A subrepresentation $W$ of a representation $V$ of $G$ is a subspace $W$ of $V$ invariant under $G$.
+	\end{definition}
+	
+%	\begin{example}[Permutation representation]\label{example:C3}
+%		Studying the action of $S_3$ on coordinates in the complex space $\C^3$, it is natural to consider $\C^3$ as a permutation representation. However, $\C^3$ is not invariant under $S_3$, eg. the line through $(1,1,1)$ and origin is fixed under $S_3$, so the subspace $W = \{ (z_1, z_2, z_3) \in \C^3 \mid z_1+z_2+z_3 = 0 \}$ is invariant under $S_3$.
+%	\end{example}
+	
+	\begin{definition}[Irreducible representation]
+		A representation $V$ is irreducible if it has no proper non-zero invariant subspace.
+	\end{definition}
+	
+%	\begin{example}
+%		The permutation representation $V=\C^3$ is not irredicible since $W$ from example \eqref{example:C3} is a proper non-zero invariant subspace of $V$. However, this subrepresentation $W$ is irreducible. 
+%	\end{example}
+	
+	\subsection{Tensor operations on representations}
+	
+	Let $V$ and $W$ be two representations, then their direct sum $V \oplus W$, their tensor product $V \otimes W$ are representations.
+	
+	The $n$th tensor power of $V$, \[V^{\otimes n} = \underset{n \text{ times}}{\underbrace{V \otimes \cdots \otimes V}}\] is also a representation with the symmetric powers $\Sym^n V$ and the exterior powers $ \bigwedge^n V$ as subrepresentations. Further more, the dual space $V^* = \Hom(V,\C)$ of $V$ and more generally $\Hom(V,W) = V^* \otimes W$ are also representations. Recall that $\Hom(V,W)$ is the set of all linear functions (functionals??) from $V$ to $W$ and in particular $\Hom(V, \C)$ ``is some sort of scalar product''. Cf. quantum physics, if $v$ is a column vector from a ket-space $V$, then $u^\dagger$ is a row vector from the corresponding bra-space $V^*$.
+	
+%\clearpage{\thispagestyle{empty}}
+%\section{Character Theory}
+	
+%\clearpage{\thispagestyle{empty}}
+%\section{Representations of some Finite Groups}
+
+\section{The symmetric group $S_n$}
+
+	(Purpose: Recall the symmetric group and ultimately show that the character function is a class function (=invariant in conjugacy class).)
+	
+	This section is based on the first chapter of \cite{Sagan}.
+
+	Recall that the symmetric group $S_n$ is the set of bijections from $\{ 1, 2, \dots, n\}$ to itself. Its elements are called \textbf{permutations} and it is a group under composition of permutations. A permutation $\sigma$ in $S_n$ can be represented 
+%	in two-line notation
+%	\[ 
+%	\sigma = 
+%	\begin{pmatrix}
+%		1 & 2 & \cdots & n \\
+%		\sigma(1) & \sigma(2) & \cdots & \sigma(n)
+%	\end{pmatrix},
+%	\]
+%	or more commonly 
+	in cycle notation as a composition of disjoint cycles
+	\[
+	\sigma = \big( i, \sigma(i), \sigma^2(i), \cdots, \sigma^{-1}(i) \big) \circ \big( j, \sigma(j), \sigma^2(j), \cdots, \sigma^{-1}(j) \big) \circ \cdots.
+	\]
+	which carries information on how $\{1,2,\dots,n\}$ is permutated. \begin{example}
+		For example, the element $\tau$ of $S_5$ that is defined by 
+		\[
+		\sigma(1) = 2 \quad \sigma(2) = 1 \quad \sigma(3) = 3 \quad \sigma(4) = 5 \quad \sigma(5) = 4
+		\]
+		can be represented as 
+		\[ 
+		\tau = 
+		\begin{pmatrix}
+			1 & 2 & 3 & 4 & 5 \\
+			2 & 1 & 3 & 5 & 4
+		\end{pmatrix}
+		\]
+		or as $\tau = (12)(3)(45) = (12)(45)$, consisting of a 1-cycle that is usually omitted and two 2-cycles. A 2-cycle $(ij)$ is called a \textbf{transposition}.
+	\end{example}
+	
+	The \textbf{cycle type} of $\sigma$ in $S_n$ is an $n$-tuple $(k^{m_k})_{k=1}^n$ where $m_k$ is the number of $k$-cycles in $\sigma$. The cycle type of the example above is $\text{Type}(\tau) = (1^1,2^2,3^0,4^0,5^0) = (1^1,2^2)$, where the cycles of multiplicity 0 are omitted.
+	
+	Another way to describe a permutation in $S_n$ is to compare it to an integer partition of $n$. The integer partition of $n$ associated with $\sigma$ in $S_n$ is denoted by $\lambda(\sigma) = ( \lambda_1, \lambda_2, \dots, \lambda_l)$ with $l \leq n$, $\lambda_i \leq \lambda_{i+1}$ and $\sum_{i=1}^l \lambda_l = n$. The permutation $\tau$ from earlier corresponds to the partition $\lambda(\tau) = (2, 2, 1)$. 
+	 \ytableausetup{smalltableaux}
+	A third equivalent way is to draw the Young diagram of the associated partition, for example the Young diagram of $\tau$ from above is 
+	\begin{table}[hbt!]
+		\centering
+		\ydiagram{2,2,1}.
+	\end{table}
+	
+	\begin{example}[$S_3$]
+	Table \ref{table:S3} present the elements of $S_3$.	
+	\begin{table}[hbt!]
+		\centering
+		\caption{The elements of $S_3$.}
+	\begin{tabular}{r | c c c c c c}
+		\label{table:S3}
+		    $S_3$ & e                & (12)           & (13)           & (23)           & (123)        & (132)        \\ \hline
+		                        Type & $(1^3)$          & $(1^1,2^1)$    & $(1^1,2^1)$    & $(1^1,2^1)$    & $(3^1)$      & $(3^1)$      \\
+		                   $\lambda$ & $(1,1,1)$        & $(2,1)$        & $(2,1)$        & $(2,1)$        & $(3)$        & $(3)$        \\
+		                       Young & \ydiagram{1,1,1} & \ydiagram{2,1} & \ydiagram{2,1} & \ydiagram{2,1} & \ydiagram{3} & \ydiagram{3}
+	\end{tabular}
+	\end{table}
+	\end{example}
+	
+	\subsection{Conjugacy classes of $S_n$}
+	
+	For larger $n$, the number of elements increase very quickly since the size of $S_n$ is $n!$, however as we'll see, we can instead study the conjugacy classes of $S_n$. Recall that two elements $g$ and $g'$ in $G$ are said to be \textbf{conjugate} if there exists an element $h$ in $G$ such that $hgh = g'$. ``Being conjugate'' in a group is an equivalence relation, so the equivalence classes (called \textbf{conjugacy classes}) partition $G$ into disjoint subsets. Denote the conjugacy class of an element $g$ in $G$ as $[g]$. If another element $g'$ is conjugate to $g$, then they share conjugacy class $[g] = [g']$ and both $g$ and $g'$ are said to be \textbf{representatives} of their common conjugacy class.
+	
+	The size of the conjugacy class $[g]$ can be calculated with the centralizer of $g$ in $G$, defined by 
+	\[
+	\Cent(g) = \left\{ h \in G \ \middle\vert \ hgh^{-1} = g \right\}
+	\]
+	and by the orbit-stabilizer theorem\cite[Thm X.X]{DummitFoote}, the relationship between $\Cent(g)$ and the elements of $[g]$ is
+	\[
+	|[g]| = \frac{|G|}{|\Cent(g)|}
+	\]
+	Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share conjugacy class if and only if they are of the same cycle type\cite{DF}. Since the cycle type of a permutation was linked to a integer partition of the degree of the symmetric group, there are as many conjugacy classes of $S_n$ as there are integer partitions of $n$. Eg. there are 3 conjugacy classes in $S_3$ and 7 in $S_5$. Also, if the cycle type of a permutation $\sigma$ is $(k^{m_k})_{k=1}^n$, then the size of its centralizer is $|\Cent(\sigma)| = \prod_{k=1}^{n} k^{m_k}{m_k}!$\cite{Sagan}. 
+
+
+	\begin{example}[$S_5$]
+		The conjugacy classes of $S_5$, along with their sizes and their types are presented in table \ref{table:S5}.
+	\begin{table}[hbt!]
+		\centering
+		\caption{The conjugacy classes of $S_5$.}
+	\begin{tabular}{r | c c c c c c c}
+		\label{table:S5}
+		     $S_5$ & [e]                  & [12]               & [(12)(34)]       & [123]            & [1234]         & [(12)(345)]    & [12345]      \\ \hline
+		            $|\Cent(\sigma)|$ & $5!$                 & 12                 & 8                & 6                & 6              & 4              & 5            \\
+		                 $|[\sigma]|$ & 1                    & 10                 & 15               & 20               & 20             & 30             & 24           \\
+		                         Type & $(1^5)$              & $(1^3,2^1)$        & $(1^1,2^2)$      & $(1^2,3^1)$      & $(1^1,4^1)$    & $(2^1,3^1)$    & $(5^1)$      \\
+		                   $\lambda $ & (1,1,1,1,1)          & (2,1,1,1)          & (2,2,1)          & (3,1,1)          & (4,1)          & (3,2)          & (5)          \\
+		                        Young & \ydiagram{1,1,1,1,1} & \ydiagram{2,1,1,1} & \ydiagram{2,2,1} & \ydiagram{3,1,1} & \ydiagram{4,1} & \ydiagram{3,2} & \ydiagram{5}
+	\end{tabular}\end{table}\end{example}
+	
+	\subsection{Trivial and alternating representation of $S_n$}
+	
+	For the symmetric group $S_n$, the \textbf{trivial representation} is the one-dimensional representation that maps every permutation to 1.
+	\[
+	\rho(\sigma) = \1, \ \forall \sigma \in S_n
+	\]
+	It is a representation because in particular it maps $e$ to 1 and for any $\sigma$, $\tau$ in $S_n$,
+	\[
+	\rho(\sigma \circ \tau) = 1 = 1 \cdot 1 = \rho(\sigma) \cdot \rho(\tau)
+	\]
+	it is a homomorphism.
+	
+	Recall that all of $S_n$ can be generated by its subset of adjacent transpositions $\{(12), (23), \dots, (n,1)\}$, so any permutation in $S_n$ can be written as a product of transpositions. If the number of transpositions required to compose the permutation $\sigma$ is $k$, then the sign of $\sigma$ is defined as
+	\[
+	\sgn(\sigma) = (-1)^k.
+	\]
+	So for an even(odd) $k$, the permutation is called even(odd). The $\sgn$ function arises naturally from the symmetric group and is called the \textbf{alternating\footnote{It is sometimes called the sign or signature representation} representation}. It is a representation because it maps $e$ to 1 and a composition $\sigma \circ \tau$ has the sign $\sgn(\sigma\tau) =\sgn(\sigma)\sgn(\tau)$, hence it is a homomorphism.
+	
+	\subsection{Permutation of coordinates}
+	
+	Instead of letting $S_n$ act naturally on the set $\{1, 2, \dots, n\}$, let $S_n$ act on the coordinates of points in $\C^n$ by permuting the basis vectors $(\hat{e}_i)_{i=1}^n$ by $\sigma(\hat{e}_i) = \hat{e}_{\sigma(i)}$, or in other words, $\sigma$ permutes the $i$th to the $\sigma(i)$th axis. Then we have a representation
+	\[
+	\rho: S_n \longrightarrow \GL_n
+	\]
+	that is defined by 
+	\[
+	\rho(\sigma) = \left(\delta_{i, \sigma(i)}\right)_{n \times n},
+	\]
+	where $\delta_{ij}$ is the Kronecker delta. In other words, every $\rho(\sigma)$ is the unit matrix where the $i$th row is moved to the $\sigma(i)$th row. It is a representation since it maps $e$ to $\1_{n  \times n}$ and it is a homomorphism by matrix multiplication.
+		
+	\begin{example}[Action of $S_3$ on coordinates in $\R^3$.]
+		Letting $S_3$ act on coordinates in space by permuting the axes we obtain:
+		\begin{table}[hbt!]
+			\centering
+			\begin{tabular}{r r r}
+				$\rho(e) = 
+				\begin{pmatrix}
+					1 & 0 & 0 \\
+					0 & 1 & 0 \\
+					0 & 0 & 1
+				\end{pmatrix}$ & 
+				$\rho(123) = 
+				\begin{pmatrix}
+					0 & 0 & 1 \\
+					1 & 0 & 0 \\
+					0 & 1 & 0
+				\end{pmatrix}$ & 
+				$\rho(132) = 
+				\begin{pmatrix}
+					0 & 1 & 0 \\
+					0 & 0 & 1 \\
+					1 & 0 & 0
+				\end{pmatrix}$ \\ & & \\
+				$\rho(12) = 
+				\begin{pmatrix}
+					0 & 1 & 0 \\
+					1 & 0 & 0 \\
+					0 & 0 & 1
+				\end{pmatrix}$ &
+				$\rho(13) = 
+				\begin{pmatrix}
+					0 & 0 & 1 \\
+					0 & 1 & 0 \\
+					1 & 0 & 0
+				\end{pmatrix}$ &
+				$\rho(23) = 
+				\begin{pmatrix}
+					1 & 0 & 0 \\
+					0 & 0 & 1 \\
+					0 & 1 & 0
+				\end{pmatrix}$
+			\end{tabular}
+		\end{table}
+	\end{example}
+	
+	The question is, is this an irreducible representation? It is not since a representation is irreducible if it has no non-zero proper invariant subspace. Coordinates of points in $\R^3$ along the line from the origin through $(1,1,1)$ is invariant, consequently the subspace $$\left\{ (x,y,z) \in \R^3 \ \middle\vert \ x+y+z=0 \right\}$$ is $S_3$-invariant and is irreducible.
+	
+\section{The cyclic group $Z_n$}
+
+Recall that the cyclic group of order $n$ is generated by an element $g$ of order\footnote{The order of an element $g$ is the smallest possible integer $n$ such that $g^n = e$.} $n$ if $Z_n = \{e, g, g^2, \dots, g^{n-1} \}$. Sometimes we denote the cyclic group as $Z_n = \langle g \rangle$ if $g$ is such a generator. A cyclic group may have multiple generators that generate the group separately, for example the integers modulo 12, $\Z/12\Z \cong Z_{12}$ has 1, 5, 7 and 11 as generators. 
+
+Consider a matrix representation of $Z_n$ as a homomorphism
+\[
+\rho: Z_n \longrightarrow \C
+\]
+defined by $\rho(e) = 1$ and $\rho(g^a g^b) = \rho(g^a)\rho(g^b)$. Since $g^n = e$ and $\rho(g^n) = 1$, then $\rho(g)$ must be mapped to an $n$th root of unity. Denote by $\omega = e^{2\pi i/n}$ the first non-real $n$th root of unity. So for $Z_n$, there are $n$ one-dimensional representations $\rho_m: Z_n \rightarrow \C$ that maps $g^k$ to $\omega^{km}$.
+
+\begin{example}[$Z_3$]
+	The three third roots of unity are $1$, $\omega = \frac{-1+i\sqrt{3}}{2}$ and $w^2 = \frac{-1-i\sqrt{3}}{2}$, so the three representations of $Z_3$ are presented in table \ref{table:Z3}.
+	
+	\begin{table}[hbt!]
+		\centering
+		\caption{Three representations of $Z_3$.}
+		\begin{tabular}{c | c c c}
+			\label{table:Z3}
+			 $Z_3$ & $e$ & $g$        & $g^2$      \\ \hline
+			         $\rho_0$          & 1   & 1          & 1          \\
+			         $\rho_1$          & 1   & $\omega$   & $\omega^2$ \\
+			         $\rho_2$          & 1   & $\omega^2$ & $\omega$
+		\end{tabular}
+	\end{table}
+\end{example}
+
+\begin{example}[$Z_5$]
+	The five fifth roots of unity are $e^{\frac{2\pi im}{5}}$, so five representations of $Z_5$ are presented in table \ref{table:Z5}.
+	
+	\begin{table}[hbt!]
+		\centering
+		\caption{Five representations of $Z_5$. $\omega = e^{2 \pi i/5}$.}
+		\begin{tabular}{c | c c c c c}
+			\label{table:Z5}
+								$Z_5$ & $e$ & $g$        & $g^2$      & $g^3$      & $g^4$      \\ \hline
+			           $\rho_0$            & 1   & 1          & 1          & 1          & 1          \\
+			           $\rho_1$            & 1   & $\omega^1$ & $\omega^2$ & $\omega^3$ & $\omega^4$ \\
+			           $\rho_2$            & 1   & $\omega^2$ & $\omega^4$ & $\omega^1$ & $\omega^3$ \\
+			           $\rho_3$            & 1   & $\omega^3$ & $\omega^1$ & $\omega^4$ & $\omega^2$ \\
+			           $\rho_4$            & 1   & $\omega^4$ & $\omega^3$ & $\omega^2$ & $\omega^1$
+		\end{tabular}
+	\end{table}
+\end{example}
+	
+%	\subsection{Representation of the alternating group $A_n$}
+%	\subsection{Representation of the dihedral group $D_{2n}$}
+%	\subsection{Representation of Klein 4-group $V_4$}
+%	\subsection{Something on $\SO(3)$, $\SU(2)$???}
+
+%\clearpage{\thispagestyle{empty}}
+%\section{Discussion}
+%
+%%The section with references.
+%
+\clearpage{\thispagestyle{empty}}
+\bibliographystyle{alphaurl} %This style prints the urls of online sources.
+%
+%
+%% All references are to be stored in the file bibliographyFile.bib! 
+%% It is in the same folder as your main .tex file.
+%% It is using the bibtex syntax, and you can get these entries from google scholar, etc.
+%% Your supervisor should know,
+%
+\bibliography{bibliography} 
+%
+\end{document}

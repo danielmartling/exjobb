@@ -1,0 +1,12 @@
+thesis/
+	main.tex
+	titlepage.tex
+	abstract.tex
+	intro/
+		intro.tex
+	chapter1/
+		etc11.tex
+		etc12.tex
+	chapter2/
+		etc21.tex
+		etc22.tex

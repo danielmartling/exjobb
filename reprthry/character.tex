@@ -1,0 +1,24 @@
+\clearpage{\thispagestyle{empty}}
+\section{Character Theory}
+
+	For a representation $\rho$ of a group $G$ in a vector space $V$, the character of the representation is defined as the trace of the matrix representation in $\GL(V)$ of a element $g$ of $G$. If the matrix representation is given by
+	\begin{align}
+		X(g) = \left( x_{ij} \right)_{n \times n}
+	\end{align}
+	then the character is
+	\begin{align}
+		\chi_V(g) = \Tr X(g) = \sum_{i=1}^{n} x_{ii}.
+	\end{align}
+	Evident from this definition, the character of a degree 1 representation is the same as the representation, since a $1 \times 1$-matrix is usually identified with its only element.
+	
+	The character of the entire group $G$ in a representation $V$ is a vector 
+	\begin{align}
+		\chi_V = \left( \chi_V(g) \right)_{g \in G},
+	\end{align}
+	sometimes abbreviated to just containing a character for every conjugacy class
+	\begin{align}
+		\chi_V = \left( \chi_V([g]) \right)_{[g] \in G},
+	\end{align}
+	since ``character'' is a class function on the elements of $G$.
+	
+	Since the trace of a matrix is invariant under conjugation, the character

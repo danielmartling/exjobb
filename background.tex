@@ -1,0 +1,14 @@
+\clearpage{\thispagestyle{empty}}
+\section{Theoretical background}
+	
+	This is a place where I put any theorems or important definitions or concepts I build upon in my thesis.
+	
+	\subsection{Sign of a permutation}
+
+		Recall that $S_n$ is the group of automorphisms of the set $\{1, 2, \dots, n\}$ and an element of $S_n$, called a permutation, is defined by which of the symbols $\{1, 2, \dots, n\}$ it permutes. Let $\sigma$ be a permutation in $S_n$, then it can be written as a composition of transpositions\footnote{A transposition is a permutation where only two symbols switch places. It is a 2-cycle.}, then the sign of $\sigma$ is defined as a function
+		\begin{table}[hbt!]\centering\begin{tabular}{c c c c}
+			$\sgn:$ & $S_n$    & $\rightarrow$ & $\{+1, -1\}$ \\
+			&\rotatebox[origin=c]{90}{$\in$}&&\rotatebox[origin=c]{90}{$\in$} \\
+			$\sgn:$ & $\sigma$ & $\mapsto$     & $(-1)^k$
+		\end{tabular}\end{table}
+		where $k$ is the number of transpositions required to compose $\sigma$. If $k$ is even, the sign is +1 and the permutation is called even, and the reverse for an odd $k$.
