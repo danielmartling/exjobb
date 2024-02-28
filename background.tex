@@ -12,3 +12,189 @@
 			$\sgn:$ & $\sigma$ & $\mapsto$     & $(-1)^k$
 		\end{tabular}\end{table}
 		where $k$ is the number of transpositions required to compose $\sigma$. If $k$ is even, the sign is +1 and the permutation is called even, and the reverse for an odd $k$.
+		
+	\subsection{Center, centralizer, normalizer and stabilizer}
+	
+		\cite{DummitFoote}
+	
+		\begin{example}[Center]
+			The center of a group $G$ is the set of elements of $G$ that commute and is denoted by $Z(G)$. Since $e$ is in $Z(G)$, it is a subgroup of $G$. If $G$ is abelian, $Z(G) = G$.	
+		\end{example}
+		
+		\begin{example}[Centralizer and Normalizer]
+			The centralizer of a subset $A \subseteq G$ is the set of elements that commutes with every element of $A$.
+			The normalizer of a subset $A \subseteq G$ is the set of elements that leaves the set $A$ fixed  under conjugation. Clearly, both the centralizer and the normalizer are subgroups of $G$, and the centralizer is a subgroup of the normalizer.
+		\end{example}
+		
+		\begin{definition}[Centralizer]
+			The centralizer of an element $a$ of $G$ is the set of elements of $G$ that commutes with $a$, and is denoted by 
+			\[
+			\Cent_G(a) = \{ g \in G \mid ga = ag \}.
+			\]
+			It is non-empty since it contains the identity element.
+		\end{definition}
+		
+		\begin{definition}[Stabilizer]
+			The stabilizer of an element $a$ of $G$ is the set of elements of $G$ that fixes $a$, and is denoted by 
+			\[
+			\Stab_G(a) = \{ g \in G \mid g \star a = a \}.
+			\]
+			It is non-empty since it contains the identity element.
+		\end{definition}
+		
+	\subsection{The symmetric group $\mathfrak{S}_n$}
+	
+	The set of all permutations of the numbers $\{1,2,3,\dots,n\}$ is called the symmetric group of degree $n$ and is denoted by\footnote{The strange symbol is a ``fraktur'' $S$.} $\mathfrak{S}_n$. Equivalently, it is the set of bijections from $\{1,2,3,\dots,n\}$ to itself. The order of $\mathfrak{S}_n$ is $n!$. 
+	
+	\begin{example}
+		The elements of $\mathfrak{S}_3$ are 
+		\[
+		e,(12),(13),(23),(123),(132).
+		\]
+		There are $3!=6$ elements: the identity element, three transpositions\footnote{2-cycles are called transpositions.} and two 3-cycles.
+	\end{example}
+	
+	\begin{definition}[The symmetric group of degree $n$]
+		The set of bijections from the set $\{1, 2, \dots n\}$ to itself if denoted $S_n$ and is called the symmetric group of degree $n$. Clearly $S_n$ has order $n!$.
+	\end{definition}
+	
+	The elements of $S_n$ can be represented in some different ways, one is to decompose every permutation $\sigma \in S_n$ to a product of pairwise disjoint\footnote{Two cycles are disjoint if they have no numbers in common.} cycles. The congruence class an element of $S_n$ is determined by the shape of its cycle decomposition, for example if an element consist of a 2-cycle and a 3-cycle, it is in the same conjugacy class of every other such cycle. A representative of a congruence can be chosen arbitrarily, and is surrounded by square brackets, for example is $\left[ e \right]$ is the conjugacy class consisting of only $e$.
+	
+	
+	\subsection{The alternating group $\mathfrak{A}_n$}
+	
+	A subgroup of $S_n$ is the subset of even\footnote{A permutation is called even(odd) if its order is even(odd) permutations.} permutations. This is called the alternating group. For the examples above,
+	
+	The subset of $\mathfrak{S}_n$ consisting of even\footnote{A permutation is considered even if it can be decomposed to an even number of 2-cycles, or equivalently it is of odd length.} permutations is called the alternating group of degree $n$ and is denoted by $\mathfrak{A}_n$. The order of $\mathfrak{A}_n$ is $n!/2$. The alternating group is a normal subgroup of the symmetric group of same degree.
+	
+	\begin{example}
+		The elements of $\mathfrak{A}_3$ are 
+		\[
+		e,(123),(132).
+		\]
+		There are $3!/2=3$ elements: the identity element, and two 3-cycles. It is isomorphic to $\Z/3\Z$.
+	\end{example}
+	
+	\begin{example}
+		The alternating group of degree 4, $\mathfrak{A}_4$ has a normal subgroup
+		\[
+		V =\{e,(12)(34),(13)(24),(14)(23)\}
+		\]
+		This group is called the Klein-four group and it is isomorphic to $\Z_2^2$.
+	\end{example}
+	
+	\subsection{Dihedral groups $\D_{2n}$}
+	
+	The set of symmetries of a regular $n$-gon centered on the origin in the plane is called the dihedral group of order $2n$ and is denoted by $\D_{2n}$. It can be constructed via two generators $r$ and $s$ where $r$ is the rotation of the $n$-gon by $2\pi/n$ around the origin and $s$ is the reflection along the axis between the origin and an arbitrary ``first'' vertex, and the relations between them. Clearly, the order of $r$ is $n$ and $s$ is 2, so
+	\[
+	D_{2n} = \left\langle r,s \ \middle\vert \ r^n = s^2 = e, sr = rs^{-1} \right\rangle.
+	\] 
+	
+	\begin{example}
+		The symmetries of the triangel is
+		\[
+		D_6 = \{ e, (123), (132), (12), (23), (13) \},
+		\]
+		hence it is isomorphic to $\mathfrak{S}_3$.
+	\end{example}
+	
+	\begin{definition}[The dihedral group of order $2n$]
+		For every integer $n \geq 3$, the set of all symmetries of a regular planar $n$-gon centered on the origin is called the dihedral group of order $2n$ and is denoted by $\D_{2n}$. The vertices of the regular $n$-gon are labeled clockwise from 1 to $n$. The dihedral group is generated by the two kinds of operations permitted on this rigid $n$-gon: rotation and reflexion. We define relection $s$ about the symmetry line through vertex 1 and the origin. Rotation $r$ is defined by either moving every vertex $i$ to the vertex $i+1 \mod n$, or one step clock-wise or equivalently by rotating the $n$-gon $2 \pi /n$ radians. We see that the order\footnote{The order of an element $g \in G$ is the smallest possible positive integer $m$ such that $g^m = e$.} of $s$ is 2 and of $r$ is $n$.
+		
+		The dihedral group can be constructed using $s$ and $r$ as generators along with some information on how $s$ and $r$ relate:
+		$$ \D_{2n} = \left\langle r, s \mid r^n = s^2 = 1, rs = sr^{-1} \right\rangle.$$
+	\end{definition}
+	
+	\subsection{Group action}
+	
+	\begin{definition}[Group action]
+		Group action...
+	\end{definition}
+	
+	
+	\subsection{Vector spaces over a field}
+	
+	In part based on \cite{Jeevanjee}.
+	
+	\begin{remark}[Modules]
+		If $V$ is a vector space over a field $\K$, then $V$ is the same as a $\K$-module.
+	\end{remark}
+	
+	\begin{definition}[Dual space]
+		For any vector space $V$ over the field $\K$ there is a corresponding dual vector space denoted $V^*$. If the elements of $V$ are $\{\mathbf{v}_i\}_{i=1}^n$ and a basis is $\{\mathbf{e}_i\}_{i=1}^n$, then the dual space $V^*$ has elements $\{\mathbf{v}^i\}_{i=1}^n$ and a basis is $\{\mathbf{e}^i\}_{i=1}^n$. An element $v^i$ of $V^*$ can also be interpreted as a $(1,0)$-tensor
+		\[
+		v^i: V \longrightarrow \K,
+		\]
+		in this sense, $V^*$ is the set of linear maps from $V$ to $\K$ denoted by $V^* = \Hom(V,\K)$.
+		The spaces $V$ and $V^*$ carry a ``natural pairing'' that is a bilinear mapping
+		\[
+		\bra{\mathbf{v}^j}\ket{\mathbf{v}_i}: V \times V^* \longrightarrow \K
+		\]
+		that for basis vectors is defined as
+		\[
+		\bra{\mathbf{e}^j}\ket{\mathbf{e}_i} = {\delta_i}^j.
+		\]
+	\end{definition}
+	
+	\subsection{Tensor algebra}
+	
+	Also \cite{Jeevanjee}, but some from \cite{holst}
+	
+	In this section, multilinearity will be presented. Two tensors, operators, matrices etc. are said to be \textbf{bilinear} if when fixing either one, then the other is linear, and vice versa. This is extended to an arbitrary number of pairwise bilinear tensors, then they are called \textbf{multilinear}.
+	
+	In the following few definitions, let $U$ and $V$ be two vector spaces over the same field $\K$ with respective dimensions $m$, $n$ and bases $\{\uhat\}$, $\{\vhat\}$.
+	
+	\begin{definition}[Direct sum of vector spaces]
+		The direct sum of $U$ and $V$, denoted $U \oplus V$ is a vector space over $\K$ with a basis constructed by all $\uhat \oplus \vhat$. The dimension of $U \oplus V$ is $m+n$. Let $F \in \GL(U)$ and $G \in \GL(V)$. Then $F \oplus G \in \GL(U \oplus V)$ is a block matrix
+		\begin{align}
+			\begin{pmatrix}
+				F & \0 \\
+				\0 & G
+			\end{pmatrix},
+		\end{align}
+		where $\0$ are zero matrices ``fitting in the corners'', acting on a basis vector $\uhat \oplus \vhat$ of $U \oplus V$ like.
+		\begin{align}
+			\left(
+			\begin{array}{ccc;{2pt/2pt}ccc}
+				f_{11}                    & \cdots & f_{1m} & 0      & \cdots & 0      \\
+				\vdots                    & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				f_{m1}                    & \cdots & f_{mm} & 0      & \cdots & 0      \\
+				\hdashline[2pt/2pt]
+				0 & \cdots & 0      & g_{11} & \cdots & g_{1n} \\
+				\vdots                    & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				0                         & \cdots & 0      & g_{n1} & \cdots & g_{nn}
+			\end{array}
+			\right)\cdot
+			\begin{pmatrix}
+				\uhat_1                         \\
+				\vdots                          \\
+				\uhat_{m}                       \\
+				\hdashline[2pt/2pt]
+				\vhat_1 \\
+				\vdots                          \\
+				\vhat_{n}
+			\end{pmatrix}.
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}[Tensor product of vector spaces]\label{def:tensorproduct}
+		The tensor product of $U$ and $W$, denoted $U \otimes V$ is a vector space over $\K$ with a basis constructed by all $\uhat \otimes \vhat$. The dimension of $U \otimes V$ is $mn$. Let $F \in \GL(U)$ and $G \in \GL(V)$. Then $F \oplus G \in \GL(U \oplus V)$ is a block matrix
+		\begin{align}
+			(f_{ij}G)_{mn}=
+			\left(
+			\begin{array}{c c c}
+				f_{11}G & \cdots & f_{1m}G \\
+				\vdots & \ddots & \vdots \\
+				f_{m1}G & \cdots & f_{mm}G
+			\end{array}
+			\right)			
+		\end{align}
+	\end{definition}
+		
+	\begin{definition}[Tensor power]
+		If $V$ is a vector space over $\K$, then for a positive integer $n$, the $n$th tensor power of $V$, denoted by $V^{\otimes n}$ is also a vector space, by induction on definition \ref{def:tensorproduct}.
+		\begin{notation}
+			The zeroth power of a vector space is defined as its ground field, that is $V^{\otimes 0} = \K$, and the first power is the vector space itself, that is $V^{\otimes 1} = V$.
+		\end{notation}
+	\end{definition}
+	

@@ -5,107 +5,107 @@
 
 
 
-This section on groups is mostly based on the treatment of \cite{DummitFoote}.
+%This section on groups is mostly based on the treatment of \cite{DummitFoote}.
+%
+%\subsubsection{Introduction to Groups}
+%
+%\begin{definition}[Group]
+%	A group is a set $G$ together with a binary operation\footnote{Examples of binary operators are ordinary addition or multiplication, addition $\mod n$ for some integer $n$, vector addition, composition of functions and matrix addition and multiplication.} $\star: G \times G \rightarrow G$ fulfilling:
+%	\begin{enumerate}[i)]
+%		\item Associativity over the binary operation. For any $a,b,c \in G$, $a \star (b \star c) = (a \star b) \star c = a \star b \star c$.
+%		\item Existence of a unique identity element in $G$. There is an element $e \in G$ such that for any $a \in G$, $a \star e = a = e \star a$.
+%		\item Existence of unique inverses for every element of $G$. For every $a \in G$, there is an element denoted $a^{-1} \in G$ such that $a \star a^{-1} = e = a^{-1} \star a$.
+%	\end{enumerate}
+%\end{definition}
+%
+%Usually the $\star$ symbol is dropped when it is clear from context what operation we are using. In an additive group, the operation is addition. Usually something that looks like zero\footnote{For example 0, the zero vector, the zero matrix...} is the additive identity element and an inverse of an element $a$ is usually denoted by $-a$.
+%
+%\begin{example}[Some additive groups]
+%	Some examples of additive groups are $\Z$, $\Q$, $\R$ and $\C$; any vector space under vector addition and the integers mod $n$, denoted $\Z / n \Z$.
+%\end{example}
+%
+%In a multiplicative group, the operation is usually some sort of multiplication or composition. Usually something that looks like one\footnote{For example 1, the unit matrix $\1_n = (\delta_{ij})_{n \times n}$, the identity permutation $\id = e$...} is the multiplicative identity element.
+%
+%\begin{example}[Some multiplicative groups]	
+%	Some examples of multiplicative groups are $\Z^\times$, $\Q^\times$, $\R^\times$ and $\C^\times$ (these are the subsets of their additive counterpart where zero has been removed since it lacks a multiplicative inverse.); $(\Z / n \Z)^\times$; The set of all invertible square $n \times n$ matrices denoted by $\GL(\C)$; Difference between GL(V) and GL(C)?
+%\end{example}
+%
+%In general, any two elements of a group do not commute, that is for $a,b \in G$, $ab \neq ba$. However the special case when every element is commutative is important.
+%
+%\begin{definition}[Abelian group]
+%	A group $G$ in which every element commutes with every other element (that is $ab = ba$ for every $a,b \in G$) is called a commutative group, or an Abelian group.
+%\end{definition}
+%
+%\subsubsection{Subgroups}
+%
+%\begin{definition}[Subgroup]
+%	A non-empty subset $H$ of $G$ is called a subgroup of $G$ if it fulfills:
+%	\begin{enumerate}[i)]
+%		\item Closure under the operation of $G$. If $h_1, h_2 \in H$, then $h_1 h_2, h_2 h_1 \in H$.
+%		\item Closure under inverses. If $h \in H$, then there is an element $h^{-1} \in H$.
+%	\end{enumerate}
+%	If $H$ is a subgroup $G$, we denote the relation by $H \leq G$. The trivial subgroup is the subset of $G$ only consisting of the identity element of $G$, that is $\{e\}$. A proper subgroup $H$ of $G$ is a proper subset of $G$ and is denoted by $H < G$.
+%\end{definition}
 
-\subsubsection{Introduction to Groups}
-
-\begin{definition}[Group]
-	A group is a set $G$ together with a binary operation\footnote{Examples of binary operators are ordinary addition or multiplication, addition $\mod n$ for some integer $n$, vector addition, composition of functions and matrix addition and multiplication.} $\star: G \times G \rightarrow G$ fulfilling:
-	\begin{enumerate}[i)]
-		\item Associativity over the binary operation. For any $a,b,c \in G$, $a \star (b \star c) = (a \star b) \star c = a \star b \star c$.
-		\item Existence of a unique identity element in $G$. There is an element $e \in G$ such that for any $a \in G$, $a \star e = a = e \star a$.
-		\item Existence of unique inverses for every element of $G$. For every $a \in G$, there is an element denoted $a^{-1} \in G$ such that $a \star a^{-1} = e = a^{-1} \star a$.
-	\end{enumerate}
-\end{definition}
-
-Usually the $\star$ symbol is dropped when it is clear from context what operation we are using. In an additive group, the operation is addition. Usually something that looks like zero\footnote{For example 0, the zero vector, the zero matrix...} is the additive identity element and an inverse of an element $a$ is usually denoted by $-a$.
-
-\begin{example}[Some additive groups]
-	Some examples of additive groups are $\Z$, $\Q$, $\R$ and $\C$; any vector space under vector addition and the integers mod $n$, denoted $\Z / n \Z$.
-\end{example}
-
-In a multiplicative group, the operation is usually some sort of multiplication or composition. Usually something that looks like one\footnote{For example 1, the unit matrix $\1_n = (\delta_{ij})_{n \times n}$, the identity permutation $\id = e$...} is the multiplicative identity element.
-
-\begin{example}[Some multiplicative groups]	
-	Some examples of multiplicative groups are $\Z^\times$, $\Q^\times$, $\R^\times$ and $\C^\times$ (these are the subsets of their additive counterpart where zero has been removed since it lacks a multiplicative inverse.); $(\Z / n \Z)^\times$; The set of all invertible square $n \times n$ matrices denoted by $\GL(\C)$; Difference between GL(V) and GL(C)?
-\end{example}
-
-In general, any two elements of a group do not commute, that is for $a,b \in G$, $ab \neq ba$. However the special case when every element is commutative is important.
-
-\begin{definition}[Abelian group]
-	A group $G$ in which every element commutes with every other element (that is $ab = ba$ for every $a,b \in G$) is called a commutative group, or an Abelian group.
-\end{definition}
-
-\subsubsection{Subgroups}
-
-\begin{definition}[Subgroup]
-	A non-empty subset $H$ of $G$ is called a subgroup of $G$ if it fulfills:
-	\begin{enumerate}[i)]
-		\item Closure under the operation of $G$. If $h_1, h_2 \in H$, then $h_1 h_2, h_2 h_1 \in H$.
-		\item Closure under inverses. If $h \in H$, then there is an element $h^{-1} \in H$.
-	\end{enumerate}
-	If $H$ is a subgroup $G$, we denote the relation by $H \leq G$. The trivial subgroup is the subset of $G$ only consisting of the identity element of $G$, that is $\{e\}$. A proper subgroup $H$ of $G$ is a proper subset of $G$ and is denoted by $H < G$.
-\end{definition}
-
-\begin{definition}[Centralizer]
-	The centralizer of an element $a$ of $G$ is the set of elements of $G$ that commutes with $a$, and is denoted by 
-	\[
-	\Cent_G(a) = \{ g \in G \mid ga = ag \}.
-	\]
-	It is non-empty since it contains the identity element.
-\end{definition}
-
-\begin{definition}[Stabilizer]
-	The stabilizer of an element $a$ of $G$ is the set of elements of $G$ that fixes $a$, and is denoted by 
-	\[
-	\Stab_G(a) = \{ g \in G \mid g \star a = a \}.
-	\]
-	It is non-empty since it contains the identity element.
-\end{definition}
+%\begin{definition}[Centralizer]
+%	The centralizer of an element $a$ of $G$ is the set of elements of $G$ that commutes with $a$, and is denoted by 
+%	\[
+%	\Cent_G(a) = \{ g \in G \mid ga = ag \}.
+%	\]
+%	It is non-empty since it contains the identity element.
+%\end{definition}
+%
+%\begin{definition}[Stabilizer]
+%	The stabilizer of an element $a$ of $G$ is the set of elements of $G$ that fixes $a$, and is denoted by 
+%	\[
+%	\Stab_G(a) = \{ g \in G \mid g \star a = a \}.
+%	\]
+%	It is non-empty since it contains the identity element.
+%\end{definition}
 
 \subsubsection{Some special and interesting groups}
 
-\begin{definition}[The dihedral group of order $2n$]
-	For every integer $n \geq 3$, the set of all symmetries of a regular planar $n$-gon centered on the origin is called the dihedral group of order $2n$ and is denoted by $\D_{2n}$. The vertices of the regular $n$-gon are labeled clockwise from 1 to $n$. The dihedral group is generated by the two kinds of operations permitted on this rigid $n$-gon: rotation and reflexion. We define relection $s$ about the symmetry line through vertex 1 and the origin. Rotation $r$ is defined by either moving every vertex $i$ to the vertex $i+1 \mod n$, or one step clock-wise or equivalently by rotating the $n$-gon $2 \pi /n$ radians. We see that the order\footnote{The order of an element $g \in G$ is the smallest possible positive integer $m$ such that $g^m = e$.} of $s$ is 2 and of $r$ is $n$.
-	
-	The dihedral group can be constructed using $s$ and $r$ as generators along with some information on how $s$ and $r$ relate:
-	$$ \D_{2n} = \left\langle r, s \mid r^n = s^2 = 1, rs = sr^{-1} \right\rangle.$$
-\end{definition}
-
-\begin{definition}[The symmetric group of degree $n$]
-	The set of bijections from the set $\{1, 2, \dots n\}$ to itself if denoted $S_n$ and is called the symmetric group of degree $n$. Clearly $S_n$ has order $n!$. The associated operation is cycle decomposition $\circ$. For two permutations $\sigma, \tau \in S_n$, their decomposition is $\sigma \circ \tau = \sigma \tau$.
-\end{definition}
-
-The elements of $S_n$ can be represented in some different ways, one is to decompose every permutation $\sigma \in S_n$ to a product of pairwise disjoint\footnote{Two cycles are disjoint if they have no numbers in common.} cycles. The congruence class an element of $S_n$ is determined by the shape of its cycle decomposition, for example if an element consist of a 2-cycle and a 3-cycle, it is in the same conjugacy class of every other such cycle. A representative of a congruence can be chosen arbitrarily, and is surrounded by square brackets, for example is $\left[ e \right]$ is the conjugacy class consisting of only $e$.
-
-
-\begin{example}[$S_3$ and $S_4$]
-	The elements of $S_3$ and $S_4$ are presented in the following tables.
-	
-	%			\begin{center}
-		%				\begin{tabular}{r c l }
-			%					                   & $S_3$ &                      \\
-			%					  $\left[e\right]$ & $=$   & $\{e\}$              \\
-			%					 $\left[12\right]$ & $=$   & $\{(12),(13),(23)\}$ \\
-			%					$\left[123\right]$ & $=$   & $\{(123),(132)\}$
-			%				\end{tabular}
-		%				\\
-		%				\begin{tabular}{r c l }
-			%					                        & $S_4$ &                                                       \\
-			%					       $\left[e\right]$ & $=$   & $\{e\}$                                               \\
-			%					      $\left[12\right]$ & $=$   & $\{(12),(13),(14),(23),(24),(34)\}$                   \\
+%\begin{definition}[The dihedral group of order $2n$]
+%	For every integer $n \geq 3$, the set of all symmetries of a regular planar $n$-gon centered on the origin is called the dihedral group of order $2n$ and is denoted by $\D_{2n}$. The vertices of the regular $n$-gon are labeled clockwise from 1 to $n$. The dihedral group is generated by the two kinds of operations permitted on this rigid $n$-gon: rotation and reflexion. We define relection $s$ about the symmetry line through vertex 1 and the origin. Rotation $r$ is defined by either moving every vertex $i$ to the vertex $i+1 \mod n$, or one step clock-wise or equivalently by rotating the $n$-gon $2 \pi /n$ radians. We see that the order\footnote{The order of an element $g \in G$ is the smallest possible positive integer $m$ such that $g^m = e$.} of $s$ is 2 and of $r$ is $n$.
+%	
+%	The dihedral group can be constructed using $s$ and $r$ as generators along with some information on how $s$ and $r$ relate:
+%	$$ \D_{2n} = \left\langle r, s \mid r^n = s^2 = 1, rs = sr^{-1} \right\rangle.$$
+%\end{definition}
+%
+%\begin{definition}[The symmetric group of degree $n$]
+%	The set of bijections from the set $\{1, 2, \dots n\}$ to itself if denoted $S_n$ and is called the symmetric group of degree $n$. Clearly $S_n$ has order $n!$. The associated operation is cycle decomposition $\circ$. For two permutations $\sigma, \tau \in S_n$, their decomposition is $\sigma \circ \tau = \sigma \tau$.
+%\end{definition}
+%
+%The elements of $S_n$ can be represented in some different ways, one is to decompose every permutation $\sigma \in S_n$ to a product of pairwise disjoint\footnote{Two cycles are disjoint if they have no numbers in common.} cycles. The congruence class an element of $S_n$ is determined by the shape of its cycle decomposition, for example if an element consist of a 2-cycle and a 3-cycle, it is in the same conjugacy class of every other such cycle. A representative of a congruence can be chosen arbitrarily, and is surrounded by square brackets, for example is $\left[ e \right]$ is the conjugacy class consisting of only $e$.
+%
+%
+%\begin{example}[$S_3$ and $S_4$]
+%	The elements of $S_3$ and $S_4$ are presented in the following tables.
+%	
+%	%			\begin{center}
+%		%				\begin{tabular}{r c l }
+%			%					                   & $S_3$ &                      \\
+%			%					  $\left[e\right]$ & $=$   & $\{e\}$              \\
+%			%					 $\left[12\right]$ & $=$   & $\{(12),(13),(23)\}$ \\
+%			%					$\left[123\right]$ & $=$   & $\{(123),(132)\}$
+%			%				\end{tabular}
+%		%				\\
+%		%				\begin{tabular}{r c l }
+%			%					                        & $S_4$ &                                                       \\
+%			%					       $\left[e\right]$ & $=$   & $\{e\}$                                               \\
+%			%					      $\left[12\right]$ & $=$   & $\{(12),(13),(14),(23),(24),(34)\}$                   \\
 			%					     $\left[123\right]$ & $=$   & $\{(123),(124),(132),(134),(142),(143),(234),(243)\}$ \\
 			%					    $\left[1234\right]$ & $=$   & $\{(1234),(1243),(1324),(1342),(1423),(1432)\}$       \\
 			%					$\left[(12)(34)\right]$ & $=$   & $\{(12)(34),(13)(24),(14)(23)\}$
 			%				\end{tabular}
 		%			\end{center}
-\end{example}
+%\end{example}
 
-A subgroup of $S_n$ is the subset of even\footnote{A permutation is called even(odd) if its order is even(odd) permutations.} permutations. This is called the alternating group. For the examples above,
+%A subgroup of $S_n$ is the subset of even\footnote{A permutation is called even(odd) if its order is even(odd) permutations.} permutations. This is called the alternating group. For the examples above,
 
-\begin{example}[$A_3$ and $A_4$]
-	The elements of $S_3$ and $S_4$ are presented in the following tables.
-	
+%\begin{example}[$A_3$ and $A_4$]
+%	The elements of $S_3$ and $S_4$ are presented in the following tables.
+%	
 	%			\begin{center}
 		%				\begin{tabular}{r c l }
 			%					                   & $A_3$ &                   \\
@@ -120,21 +120,21 @@ A subgroup of $S_n$ is the subset of even\footnote{A permutation is called even(
 			%					$\left[(12)(34)\right]$ & $=$   & $\{(12)(34),(13)(24),(14)(23)\}$
 			%				\end{tabular}
 		%			\end{center}			
-\end{example}
+%\end{example}
 
-Clearly, $A_n$ is a subgroup of $S_n$. $S_4/S_3 \cong A_3$???
+%Clearly, $A_n$ is a subgroup of $S_n$. $S_4/S_3 \cong A_3$???
 
-\subsubsection{Quotient groups}
-
-Quotient group???
-
-\subsubsection{Group action}
-
-Group action
-Groups acting on themselves - conjugation - class equation
-
-Automorphisms
-
-\subsection{Rings and fields}
-
-\subsection{Vector spaces}
+%\subsubsection{Quotient groups}
+%
+%Quotient group???
+%
+%\subsubsection{Group action}
+%
+%Group action
+%Groups acting on themselves - conjugation - class equation
+%
+%Automorphisms
+%
+%\subsection{Rings and fields}
+%
+%\subsection{Vector spaces}
