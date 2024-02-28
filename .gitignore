@@ -1,4 +1,5 @@
 *.zip
+*.png
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
