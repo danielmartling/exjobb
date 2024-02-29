@@ -1,0 +1,108 @@
+\clearpage{\thispagestyle{empty}}
+\section{Representation theory}
+
+	Detta är syntesen av tre tidigare versioner. 
+	
+	The layout of this section is based on \cite{Serre} and \cite{FultonHarris}.
+	
+	A representation of a group in a vector space is a homomorphism that takes an element of the group into the group of automorphisms of the vector space.
+	
+	For a vector space $V$ over a field $\K$, we denote its group of automorphisms $\GL(V)$. If $V$ is finite with $\dim V = n$ and we provide a basis, usually denoted $\{\ebas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. 
+	
+	\begin{definition}[Representation]
+		Given a finite group $G$, a representation of $G$ in $V$ is a homomorphism
+		\begin{align}
+			\rho: G \rightarrow \GL(V).
+		\end{align}
+	\end{definition}
+	In other words, $\rho$ takes an element of $G$ and maps it to a transformation of $\GL(V)$, or again $\rho(g): V \rightarrow V$ for some $g$ in $G$. In even other words, $\rho(g)$ acts acts as a linear map on a vector $v$ in $V$ and maps it to the vector $\rho(g)(v)$ in $V$.
+	
+	Recall that a homomorphism is defined by, for any two elements $g$ and $h$ in $G$, as
+	\begin{align}\label{eq:homomorphism}
+		\rho(gh) = \rho(g)\rho(h),
+	\end{align}
+	and these two consequences follows:	
+	\begin{proposition}
+		For the identity element $e$ of $G$ and an arbitrary element $g$ with inverse $g^{-1}$ in $G$,
+		\begin{align}
+			\rho(e) = \id
+		\end{align}
+		and
+		\begin{align}
+			\rho(g)^{-1} = \rho\left(g^{-1}\right),
+		\end{align}
+		where $\id$ is the identity transformation and $\rho^{-1}(g)$ is the inverse representation of $g$.
+	\end{proposition}
+	\begin{proof}
+		Take $g$ as an arbitrary element of $G$. The first identity follows from taking $h=e$ in eq.\ref{eq:homomorphism}:
+		\[
+		\rho(g) \overset{!}{=} \rho(eg) = \rho(e)\rho(g)
+		\]
+		and instead taking $h=g^{-1}$:
+		\[
+		\rho(g) \rho(g^{-1}) =  \rho(gg^{-1}) \overset{!}{=} \rho(e) = \id.
+		\]
+		we force the second identity.
+	\end{proof}
+	
+	If the vector space $V$ is provided with a basis, then a matrix representations of $G$ may be found.
+	\begin{definition}[Matrix representation]
+		Given a finite group $G$, a matrix representation of $G$ in $V$ is a homomorphism
+		\begin{align}
+			X: G \rightarrow \GL_n(\K),
+		\end{align}
+		or equivalently, $X(g): V \rightarrow V$.
+	\end{definition}
+	
+	\begin{note}
+		Sometimes the vector space $V$ itself is said to be the representation, instead of the set of maps $\{\rho(g)\}_{g \in G}$.
+	\end{note}
+	
+	\begin{definition}
+		The degree of a representation is said to be the dimension of its vector space.
+	\end{definition}
+	
+	\subsection{Subrepresentations and irreducibility}
+	
+		\begin{definition}[Subrepresentation]
+			A subrepresentation $W$ of a representation $V$ of $G$ is a subspace $W$ of $V$ invariant under $G$, that is for every $w$ in $W$, $\rho(g)(w)$ is also in $W$ for every $g$ in $G$.
+		\end{definition}
+		
+		\begin{definition}[Irreducible representation]
+			A representation $V$ is irreducible if it has no proper non-zero invariant subspace.
+		\end{definition}
+		
+		\begin{theorem}[Maschke's theorem]\label{thm:maschke}
+			Let $G$ be a finite group and let $V$ be any arbitrary representation of $G$, then $V$ is composed of a number of not necessarily distinct irreducible subrepresentations $W_i$ of $V$, or in other words,
+			\begin{align}
+				V = \bigoplus_i W_i.
+			\end{align}
+		\end{theorem}
+		
+		\begin{note}
+			The direct sum can be expressed in terms of \underline{distinct} subrepresentations $W_i$ of $V$ and their multiplicities $a_i$ as
+			\begin{align}
+				V = \bigoplus_i a_i W_i,
+			\end{align}
+			where $a_i W_i$ is the direct sum of $a_i$ copies of $W_i$.
+		\end{note}
+		
+		To prove Maschke's theorem, first we establish a few definitions and lemmas.
+		
+		\begin{corollary}
+			If the representation is of degree 1, $V = W_1$ and $\dim V = 1$, it is clearly irreducible.
+		\end{corollary}
+		
+		\begin{proof}[Proof of Maschke's theorem \ref{thm:maschke}]
+			The theorem will be proved using induction on complementary subspaces. If $V$ itself is irreducible, we are done. If $V$ is not irreducible, then there is a non-trivial proper subrepresentation $W$ of $V$ with a basis $\{\ebas_i\}_i$, then according to lemma \ref{lemma:compsubspace}, there is a complementary ``orthogonal'' subrepresentation $W^\perp$ such that $V = W \oplus W^\perp$. If both of $W$ and $W^\perp$ are irreducible, then we are done. If either are not, then after recursion on $W$ and $W^\perp$ and since $V$ is a finite vector space, we are done.
+		\end{proof}
+	
+	\subsection{Tensor operations on representations}
+	
+	Direct sum, tensor product, tensor powers, symmetric and alternating powers, hom(V,W), dual
+	
+	Let $V$ and $W$ be two representations, then their direct sum $V \oplus W$, their tensor product $V \otimes W$ are representations.
+	
+	The $n$th tensor power of $V$, \[V^{\otimes n} = \underset{n \text{ times}}{\underbrace{V \otimes \cdots \otimes V}}\] is also a representation with the symmetric powers $\Sym^n V$ and the exterior powers $ \bigwedge^n V$ as subrepresentations. Further more, the dual space $V^* = \Hom(V,\C)$ of $V$ and more generally $\Hom(V,W) = V^* \otimes W$ are also representations. Recall that $\Hom(V,W)$ is the set of all linear functions (functionals??) from $V$ to $W$ and in particular $\Hom(V, \C)$ ``is some sort of scalar product''. Cf. quantum physics, if $v$ is a column vector from a ket-space $V$, then $u^\dagger$ is a row vector from the corresponding bra-space $V^*$.
+	
+	

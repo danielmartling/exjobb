@@ -1,0 +1,104 @@
+\subsection{Vector spaces over a field}
+
+In part based on \cite{Jeevanjee}.
+
+\begin{remark}[Modules]
+	If $V$ is a vector space over a field $\K$, then $V$ is the same as a $\K$-module.
+\end{remark}
+
+\begin{definition}[Dual space]
+	For any vector space $V$ over the field $\K$ there is a corresponding dual vector space denoted $V^*$. If the elements of $V$ are $\{\mathbf{v}_i\}_{i=1}^n$ and a basis is $\{\mathbf{e}_i\}_{i=1}^n$, then the dual space $V^*$ has elements $\{\mathbf{v}^i\}_{i=1}^n$ and a basis is $\{\mathbf{e}^i\}_{i=1}^n$. An element $v^i$ of $V^*$ can also be interpreted as a $(1,0)$-tensor
+	\[
+	v^i: V \longrightarrow \K,
+	\]
+	in this sense, $V^*$ is the set of linear maps from $V$ to $\K$ denoted by $V^* = \Hom(V,\K)$.
+	The spaces $V$ and $V^*$ carry a ``natural pairing'' that is a bilinear mapping
+	\[
+	\bra{\mathbf{v}^j}\ket{\mathbf{v}_i}: V \times V^* \longrightarrow \K
+	\]
+	that for basis vectors is defined as
+	\[
+	\bra{\mathbf{e}^j}\ket{\mathbf{e}_i} = {\delta_i}^j.
+	\]
+\end{definition}
+
+\begin{definition}[Orthogonal subspace]
+	\cite[12.7]{holst} If $W$ is a subspace in $V$, then its complementary subspace in $V$ is defined by 
+	\[
+	W^\perp = \left\lbrace \vvec \in V \ \middle\vert \ \wvec^\dagger \vvec = 0, \text{ for any } \wvec \in W \right\rbrace.
+	\]
+\end{definition}
+
+\begin{lemma}[Complementary subspaces]\label{lemma:compsubspace}\cite[Thm 12.16]{holst}
+	Let $W$ be a subspace of a space $V$. Let $\dim V = n$ and $\dim W = k$, then:
+	\noindent
+	\begin{enumerate}[i)]
+		\setlength\itemsep{-0.5em}
+		\item $\dim W^\perp = n - k$,
+		\item $V = W \oplus W^\perp$,
+		\item If $\{\ebas_i\}_{i=1}^{n}$ is the basis in $V$, then $\{\ebas_i\}_{i=1}^{k}$ and $\{\ebas_i\}_{i=k+1}^{n}$ are the bases for $W$ respectively $W^\perp$.
+	\end{enumerate}
+\end{lemma}
+
+\subsubsection{Tensor operations on vector spaces}
+
+	\cite{Jeevanjee}, but some from \cite{holst}
+	
+	In this section, multilinearity will be presented. Two tensors, operators, matrices etc. are said to be \textbf{bilinear} if when fixing either one, then the other is linear, and vice versa. This is extended to an arbitrary number of pairwise bilinear tensors, then they are called \textbf{multilinear}.
+	
+	In the following few definitions, let $U$ and $V$ be two vector spaces over the same field $\K$ with respective dimensions $m$, $n$ and bases $\{\uhat\}$, $\{\vhat\}$.
+	
+	\begin{definition}[Direct sum of vector spaces]
+		The direct sum of $U$ and $V$, denoted $U \oplus V$ is a vector space over $\K$ with a basis constructed by all $\uhat \oplus \vhat$. The dimension of $U \oplus V$ is $m+n$. Let $F \in \GL(U)$ and $G \in \GL(V)$. Then $F \oplus G \in \GL(U \oplus V)$ is a block matrix
+		\begin{align}
+			\begin{pmatrix}
+				F & \0 \\
+				\0 & G
+			\end{pmatrix},
+		\end{align}
+		where $\0$ are zero matrices ``fitting in the corners'', acting on a vector $\uvec \oplus \vvec$ of $U \oplus V$ like:
+		\begin{align}
+			\left(
+			\begin{array}{ccc;{2pt/2pt}ccc}
+				f_{11}                    & \cdots & f_{1m} & 0      & \cdots & 0      \\
+				\vdots                    & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				f_{m1}                    & \cdots & f_{mm} & 0      & \cdots & 0      \\
+				\hdashline[2pt/2pt]
+				0 & \cdots & 0      & g_{11} & \cdots & g_{1n} \\
+				\vdots                    & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				0                         & \cdots & 0      & g_{n1} & \cdots & g_{nn}
+			\end{array}
+			\right)\cdot
+			\begin{pmatrix}
+				u_1                         \\
+				\vdots                          \\
+				u_{m}                       \\
+				\hdashline[2pt/2pt]
+				v_1 \\
+				\vdots                          \\
+				v_{n}
+			\end{pmatrix}.
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}[Tensor product of vector spaces]\label{def:tensorproduct}
+		The tensor product of $U$ and $W$, denoted $U \otimes V$ is a vector space over $\K$ with a basis constructed by all $\uhat \otimes \vhat$. The dimension of $U \otimes V$ is $mn$. Let $F \in \GL(U)$ and $G \in \GL(V)$. Then $F \otimes G \in \GL(U \otimes V)$ is a block matrix
+		\begin{align}
+			(f_{ij}G)_{m \times n}=
+			\left(
+			\begin{array}{c c c}
+				f_{11}G & \cdots & f_{1m}G \\
+				\vdots & \ddots & \vdots \\
+				f_{m1}G & \cdots & f_{mm}G
+			\end{array}
+			\right)			
+		\end{align}
+		where $f_{ij}G$ is understood to be the scalar product of $f_{ij}$ with $G$.
+	\end{definition}
+	
+	\begin{definition}[Tensor power]
+		If $V$ is a vector space over $\K$, then for a positive integer $n$, the $n$th tensor power of $V$, denoted by $V^{\otimes n}$ is also a vector space, by induction on definition \ref{def:tensorproduct}.
+		\begin{notation}
+			The zeroth power of a vector space is defined as its ground field, that is $V^{\otimes 0} = \K$, and the first power is the vector space itself, that is $V^{\otimes 1} = V$.
+		\end{notation}    
+	\end{definition}

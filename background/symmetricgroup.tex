@@ -1,0 +1,153 @@
+\subsection{The symmetric group $S_n$}
+
+\cite[1.3]{DummitFoote}, \cite[1.1]{Sagan}
+
+Recall that for a positive integer $n$, $S_n$ is the group of automorphisms\footnote{Set of bijections to itself} of the set $\{1, 2, \dots, n\}$.  
+
+\begin{example}
+	The six elements of $S_3$ are 
+	\[
+		e,(12),(13),(23),(123),(132).
+	\]
+	There are $3!=6$ elements: the identity element, three transpositions\footnote{2-cycles are called transpositions.} and two 3-cycles.
+\end{example}
+
+
+\subsubsection{Permutations}
+
+	In $S_n$, there are $n!$ elements and they are called permutations, each defined by which elements of $\{1, 2, \dots, n\}$ it permutes.
+	
+	Let $(1)$ denote the identity element of any symmetric group.
+	
+	A permutation can be represented in some different ways, one is to compose it as a product of pairwise disjoint\footnote{Two cycles are disjoint if they have no numbers in common.} cycles, and another is to compose it as a product of transpositions.
+	
+	\begin{example}
+		Let $\tau$ be the element of $S_6$ defined by
+		\[
+			\tau(1) = 2, \quad \tau(2) = 1, \quad \tau(3) = 4, \quad \tau(4) = 5, \quad \tau(5) = 3, \quad \tau(6) = 6.
+		\]
+		It can also be represented in \textbf{cycle notation} either as a composition of disjoint cycles
+		\[
+			\tau = (12)(345)(6) = (12)(345)
+		\]
+		consisting of a 1-cycle (usually omitted), a 2-cycle (called a \textbf{transposition}) and a 3-cycle, or as a composition of not necessarily disjoint transpositions
+		\[
+			\tau = (12)(34)(45).
+		\]
+	\end{example}
+
+\subsubsection{Sign of a permutation}
+
+	Let $\sigma$ be an element of $S_n$. Then the sign of $\sigma$ is defined as a function
+	\begin{table}[hbt!]\centering\begin{tabular}{c c c c}
+			$\sgn:$ & $S_n$    & $\rightarrow$ & $\{+1, -1\}$ \\
+			&\rotatebox[origin=c]{90}{$\in$}&&\rotatebox[origin=c]{90}{$\in$} \\
+			$\sgn:$ & $\sigma$ & $\mapsto$     & $(-1)^k$
+	\end{tabular}\end{table}
+
+	where $k$ is the number of transpositions required\footnote{A permutation constructed from an even number of transposition can never be written as a composition of an odd number of transpositions, and vice versa. Proof by induction on ``subcomponents'' and well-ordering principle.} to compose $\sigma$. If $k$ is even, the sign is +1 and the permutation is called even, and the reverse for an odd $k$. 
+	
+	The permutation $\tau$ above has sign -1, since it is composed of an odd number of transpositions.
+
+
+\subsubsection{Cycle types and partitions}
+
+	The \textbf{cycle type} of a permutation is an $n$-tuple $(k^{m_k})_{k=1}^n$ where $m_k$ is the number of $k$-cycles. The cycle type of the example above is
+	\[
+		\Type(\tau) = (1^1,2^1,3^1,4^0,5^0,6^0) = (1^1,2^2),
+	\]
+	where lastly the cycles of multiplicity 0 are omitted.
+	
+	Another way to describe a permutation in $S_n$ is to compare it to an integer partition of $n$. The integer partition of $n$ associated with $\sigma$ in $S_n$ is denoted by $\lambda(\sigma) = ( \lambda_1, \lambda_2, \dots, \lambda_l)$ with $l \leq n$, $\lambda_i \leq \lambda_{i+1}$ and $\sum_{i=1}^l \lambda_l = n$. The permutation $\tau$ from earlier corresponds to the partition $\lambda(\tau) = (3, 2, 1)$. 
+	
+	\ytableausetup{smalltableaux}
+	A third equivalent way is to draw the Young diagram of the associated partition, for example the Young diagram of $\tau$ from above is 
+	\begin{table}[hbt!]
+		\centering
+		\ydiagram{3,2,1}.
+	\end{table}
+	
+	\begin{example}[$S_3$]
+		Table \ref{table:S3} present the elements of $S_3$.	
+		\begin{table}[hbt!]
+			\centering
+			\caption{The elements of $S_3$.}
+			\begin{tabular}{r | c c c c c c}
+				\label{table:S3}
+				$S_3$ & e                & (12)           & (13)           & (23)           & (123)        & (132)        \\ \hline
+				Type & $(1^3)$          & $(1^1,2^1)$    & $(1^1,2^1)$    & $(1^1,2^1)$    & $(3^1)$      & $(3^1)$      \\
+				$\lambda$ & $(1,1,1)$        & $(2,1)$        & $(2,1)$        & $(2,1)$        & $(3)$        & $(3)$        \\
+				Young & \ydiagram{1,1,1} & \ydiagram{2,1} & \ydiagram{2,1} & \ydiagram{2,1} & \ydiagram{3} & \ydiagram{3}
+			\end{tabular}
+		\end{table}
+	\end{example}
+
+\subsubsection{Conjugacy classes of $S_n$}
+
+	Since the number of elements of $S_n$ is $n!$, for larger $n$ it becomes cumbersome to describe every element, however as we'll see, we can instead study the conjugacy classes of $S_n$. 
+	
+	Recall that two elements $g$ and $g'$ in $G$ are said to be \textbf{conjugate} if there exists an element $h$ in $G$ such that $hgh = g'$. ``Being conjugate'' in a group is an equivalence relation, so the equivalence classes (called \textbf{conjugacy classes}) partition $G$ into disjoint subsets. Denote the conjugacy class of an element $g$ in $G$ as $[g]$. If another element $g'$ is conjugate to $g$, then they share conjugacy class $[g] = [g']$ and both $g$ and $g'$ are said to be \textbf{representatives} of their common conjugacy class.
+	
+	The size of the conjugacy class $[g]$ can be calculated with the centralizer of $g$ in $G$, defined by 
+	\[
+	\Cent(g) = \left\{ h \in G \ \middle\vert \ hgh^{-1} = g \right\}
+	\]
+	and by the orbit-stabilizer theorem\cite[Thm 21.3]{Biggs}, the relationship between $\Cent(g)$ and the elements of $[g]$ is
+	\[
+	|[g]| = \frac{|G|}{|\Cent(g)|}.
+	\]
+	
+	
+	Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share conjugacy class if and only if they are of the same cycle type\cite{Sagan}. Since the cycle type of a permutation was linked to an integer partition of the degree of the symmetric group, there are as many conjugacy classes of $S_n$ as there are integer partitions of $n$. Eg. there are 3 conjugacy classes in $S_3$ and 7 in $S_5$. Also, if the cycle type of a permutation $\sigma$ is $(k^{m_k})_{k=1}^n$, then the size of its centralizer is $|\Cent(\sigma)| = \prod_{k=1}^{n} k^{m_k}{m_k}!$\cite[Prop 1.1.1]{Sagan}. 
+	
+	\begin{example}[$S_5$]
+		The conjugacy classes of $S_5$, along with their sizes and their types are presented in table \ref{table:S5}.
+		\begin{table}[hbt!]
+			\centering
+			\caption{The conjugacy classes of $S_5$.}
+			\begin{tabular}{r | c c c c c c c}
+				\label{table:S5}
+				$S_5$ & [e]                  & [12]               & [(12)(34)]       & [123]            & [1234]         & [(12)(345)]    & [12345]      \\ \hline
+				$|\Cent(\sigma)|$ & $5!$                 & 12                 & 8                & 6                & 6              & 4              & 5            \\
+				$|[\sigma]|$ & 1                    & 10                 & 15               & 20               & 20             & 30             & 24           \\
+				Type & $(1^5)$              & $(1^3,2^1)$        & $(1^1,2^2)$      & $(1^2,3^1)$      & $(1^1,4^1)$    & $(2^1,3^1)$    & $(5^1)$      \\
+				$\lambda $ & (1,1,1,1,1)          & (2,1,1,1)          & (2,2,1)          & (3,1,1)          & (4,1)          & (3,2)          & (5)          \\
+				Young & \ydiagram{1,1,1,1,1} & \ydiagram{2,1,1,1} & \ydiagram{2,2,1} & \ydiagram{3,1,1} & \ydiagram{4,1} & \ydiagram{3,2} & \ydiagram{5}
+	\end{tabular}\end{table}\end{example}
+
+\subsection{The alternating group $A_n$}
+
+	The subset of $S_n$ consisting of even permutations is called the alternating group of degree $n$ and is denoted by $A_n$. The order of $A_n$ is $n!/2$. The alternating group is a proper and normal subgroup of the symmetric group of same degree.
+
+	\begin{example}
+		The three elements of $A_3$ are 
+		\[
+		e,(123),(132).
+		\]
+		There are $3!/2=3$ elements: the identity element, and two 3-cycles. It is isomorphic to $\Z/3\Z$ and $Z_3$.
+	\end{example}
+	
+	\begin{example}
+		The alternating group of degree 4, $A_4$ has a normal subgroup
+		\[
+		V =\{e,(12)(34),(13)(24),(14)(23)\}
+		\]
+		This group is called the Klein-four group and it is isomorphic to $\Z/2\Z \times \Z/2\Z$.
+	\end{example}
+	
+\subsection{The dihedral group $\D_{2n}$}
+
+	The set of symmetries of a regular $n$-gon centered on the origin in the plane is called the dihedral group of order $2n$ and is denoted by $\D_{2n}$. It can be constructed via two generators $r$ and $s$ where $r$ is the rotation of the $n$-gon by $2\pi/n$ around the origin and $s$ is the reflection along the axis between the origin and an arbitrary ``first'' vertex, and the relations between them. Clearly, the order of $r$ is $n$ and $s$ is 2, so
+	\[
+		\D_{2n} = \left\langle r,s \ \middle\vert \ r^n = s^2 = e, sr = rs^{-1} \right\rangle.
+	\] 
+	
+	\begin{example}
+		The symmetries of the triangle is
+		\[
+		D_6 = \{ e, r, r^2, s, sr, sr^2 \},
+		\]
+		hence it is isomorphic to $S_3$.
+	\end{example}
+	
+	

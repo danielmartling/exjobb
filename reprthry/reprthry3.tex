@@ -1,176 +1,178 @@
-\clearpage{\thispagestyle{empty}}
-\section{Representation theory}
+%\clearpage{\thispagestyle{empty}}
+%\section{Representation theory}
 
-	\subsection{Introduction and basic definitions}
+%	\subsection{Introduction and basic definitions}
 	
-	A representation of a group in a vector space is a homomorphism that takes an element of the group into the group of automorphisms of the vector space. 
+%	A representation of a group in a vector space is a homomorphism that takes an element of the group into the group of automorphisms of the vector space. 
 	
-	For a vector space $V$ over a field $\K$, we denote its group of automorphisms $\GL(V)$. If $V$ is finite with $\dim V = n$ and a basis, usually denoted $\{\bas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. 
-	\begin{definition}[Representation]
-		Given a finite group $G$, a representation of $G$ in $V$ is a homomorphism
-		\begin{align}
-			\rho: G \rightarrow \GL(V).
-		\end{align}
-	\end{definition}
-	In other words, $\rho$ takes an element of $G$ and maps it to a transformation of $\GL(V)$, or again $\rho(g): V \rightarrow V$ for some $g$ in $G$.	Recall that a homomorphism is defined by, for any two elements $g$ and $h$ in $G$, as
-	\begin{align}\label{eq:homomorphism}
-		\rho(gh) = \rho(g)\rho(h),
-	\end{align}
-	and two consequences follows:	
-	\begin{proposition}
-		For the identity element $e$ of $G$ and an arbitrary element $g$ with inverse $g^{-1}$ in $G$,
-		\begin{align}
-			\rho(e) = \id
-		\end{align}
-		and
-		\begin{align}
-			\rho(g)^{-1} = \rho\left(g^{-1}\right),
-		\end{align}
-		where $\id$ is the identity transformation and $\rho^{-1}(g)$ is the inverse representation of $g$.
-	\end{proposition}
-	\begin{proof}
-		Take $g$ as an arbitrary element of $G$. The first identity follows from taking $h=e$ in eq.\ref{eq:homomorphism}:
-		\[
-			\rho(g) \overset{!}{=} \rho(eg) = \rho(e)\rho(g)
-		\]
-		and instead taking $h=g^{-1}$:
-		\[
-			\rho(g) \rho(g^{-1}) =  \rho(gg^{-1}) \overset{!}{=} \rho(e) = \id.
-		\]
-		we force the second identity.
-	\end{proof}
+%	For a vector space $V$ over a field $\K$, we denote its group of automorphisms $\GL(V)$. If $V$ is finite with $\dim V = n$ and a basis, usually denoted $\{\bas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. 
+%	\begin{definition}[Representation]
+%		Given a finite group $G$, a representation of $G$ in $V$ is a homomorphism
+%		\begin{align}
+%			\rho: G \rightarrow \GL(V).
+%		\end{align}
+%	\end{definition}
+%	In other words, $\rho$ takes an element of $G$ and maps it to a transformation of $\GL(V)$, or again $\rho(g): V \rightarrow V$ for some $g$ in $G$.	
+%	
+%	Recall that a homomorphism is defined by, for any two elements $g$ and $h$ in $G$, as
+%	\begin{align}\label{eq:homomorphism}
+%		\rho(gh) = \rho(g)\rho(h),
+%	\end{align}
+%	and two consequences follows:	
+%	\begin{proposition}
+%		For the identity element $e$ of $G$ and an arbitrary element $g$ with inverse $g^{-1}$ in $G$,
+%		\begin{align}
+%			\rho(e) = \id
+%		\end{align}
+%		and
+%		\begin{align}
+%			\rho(g)^{-1} = \rho\left(g^{-1}\right),
+%		\end{align}
+%		where $\id$ is the identity transformation and $\rho^{-1}(g)$ is the inverse representation of $g$.
+%	\end{proposition}
+%	\begin{proof}
+%		Take $g$ as an arbitrary element of $G$. The first identity follows from taking $h=e$ in eq.\ref{eq:homomorphism}:
+%		\[
+%			\rho(g) \overset{!}{=} \rho(eg) = \rho(e)\rho(g)
+%		\]
+%		and instead taking $h=g^{-1}$:
+%		\[
+%			\rho(g) \rho(g^{-1}) =  \rho(gg^{-1}) \overset{!}{=} \rho(e) = \id.
+%		\]
+%		we force the second identity.
+%	\end{proof}
+%	
+%	If the vector space $V$ is provided with a basis, then a matrix representations of $G$ may be found.
+%	\begin{definition}[Matrix representation]
+%		Given a finite group $G$, a matrix representation of $G$ in $V$ is a homomorphism
+%		\begin{align}
+%			X(g) \in \GL(V): V \rightarrow V.
+%		\end{align}
+%	\end{definition}
+%	
+%	\begin{note}
+%		Sometimes the vector space $V$ itself is said to be the representation, instead of the set of maps $\{\rho(g)\}_{g \in G}$.
+%	\end{note}
+%	
+%	\begin{definition}
+%		The degree of a representation is said to be the dimension of its vector space.
+%	\end{definition}
 	
-	If the vector space $V$ is provided with a basis, then a matrix representations of $G$ may be found.
-	\begin{definition}[Matrix representation]
-		Given a finite group $G$, a matrix representation of $G$ in $V$ is a homomorphism
-		\begin{align}
-			X(g) \in \GL(V): V \rightarrow V.
-		\end{align}
-	\end{definition}
+%	\subsection{The trivial representation}
 	
-	\begin{note}
-		Sometimes the vector space $V$ itself is said to be the representation, instead of the set of maps $\{\rho(g)\}_{g \in G}$.
-	\end{note}
+%	Any group can be represented by a trivial representation of degree 1 defined by 
+%	\begin{align}
+%		\rho(g) = 1, \text{ for every } g \in G.
+%	\end{align}
+%	It is clearly a homomorphism\footnote{Here I did not state the vector space, should I? ``A vector space over the trivial group/field	''.}. 
 	
-	\begin{definition}
-		The degree of a representation is said to be the dimension of its vector space.
-	\end{definition}
+%	\subsection{The alternating representation of the symmetric group}
+%	
+%	Choosing $G$ to be the symmetric group of degree $n$, denoted $S_n$, we can find another degree 1 representation by studying the sign, or parity, of the elements of $S_n$. For any two permutations $\sigma$ and $\tau$ of $S_n$ with respective sign $(-1)^s$ and $(-1)^t$, the sign of their composition is 
+%	\begin{align}
+%		\sgn(\sigma \circ \tau) = (-1)^s \cdot (-1)^t = (-1)^{st} = \sgn(\sigma) \cdot \sgn(\tau),
+%	\end{align}
+%	so clearly this sign function is a homomorphism from $S_n$ to a one-dimensional vector space over the two elements\footnote{The vector space is over the field of two elements, $\F_2$.} $+1$ and $-1$, hence the $\sgn$ function is representation of degree 1 and is called the alternating representation, or alternatively the sign or signature representation.
 	
-	\subsection{The trivial representation}
-	
-	Any group can be represented by a trivial representation of degree 1 defined by 
-	\begin{align}
-		\rho(g) = 1, \text{ for every } g \in G.
-	\end{align}
-	It is clearly a homomorphism\footnote{Here I did not state the vector space, should I? ``A vector space over the trivial group/field	''.}. 
-	
-	\subsection{The alternating representation of the symmetric group}
-	
-	Choosing $G$ to be the symmetric group of degree $n$, denoted $S_n$, we can find another degree 1 representation by studying the sign, or parity, of the elements of $S_n$. For any two permutations $\sigma$ and $\tau$ of $S_n$ with respective sign $(-1)^s$ and $(-1)^t$, the sign of their composition is 
-	\begin{align}
-		\sgn(\sigma \circ \tau) = (-1)^s \cdot (-1)^t = (-1)^{st} = \sgn(\sigma) \cdot \sgn(\tau),
-	\end{align}
-	so clearly this sign function is a homomorphism from $S_n$ to a one-dimensional vector space over the two elements\footnote{The vector space is over the field of two elements, $\F_2$.} $+1$ and $-1$, hence the $\sgn$ function is representation of degree 1 and is called the alternating representation, or alternatively the sign or signature representation.
-	
-	\subsection{The permutation representation}
-	
-	We could let the group $G$ act on an appropriately chosen set $X$, and study its action $f$ by permutation of the elements of $X$. This action is defined by any $g$ in $G$ and $x$ in $X$ as
-	\begin{table}[hbt!]\centering\begin{tabular}{c c c c}
-			$f:$ & $G \times X$    & $\rightarrow$ & $X$ \\
-			&\rotatebox[origin=c]{90}{$\in$}&&\rotatebox[origin=c]{90}{$\in$} \\
-			$f:$ & $(g,x)$ & $\mapsto$     & $gx$.
-	\end{tabular}\end{table}
-
-	Further more, define a vector space $V$ spanned by the orthogonal basis $\mathcal{B} = \{\ehat_x\}_x$ for every $x$ in $X$. Then we have a homomorphism
-	\begin{align}
-		\rho: G \rightarrow \GL(V)
-	\end{align}
-	defined by its action on the basis $\mathcal{B}$ by, for any $g$ in $G$,
-	\begin{align}
-		\rho(g): \ehat_x \mapsto g\ehat_x = \ehat_{gx}.
-	\end{align}
-	or on an arbitrary vector $v$ in $V$ as
-	\begin{align}
-		\rho(g): \vvec \mapsto g\vvec.
-	\end{align}
-	
-	\textit{Show that it is a homomorphism!}
-	
-	\subsubsection{$S_n$ acting on $\N_n$}
-		The action is defined as $S_n \times \N_n$ by $(\sigma,i) \mapsto \sigma(i)$. Choosing a basis $\mathcal{B} = \{\ehat_i\}_{i=1}^n$ we span a vector space $V$ of dimension $\dim V = n$. We then define a homomorphism $\rho$ from $S_n$ to $\GL(V)$ by
-		\begin{align}
-			\rho(\sigma): \ehat_i \mapsto \ehat_{\sigma(i)},
-		\end{align}
-		that is by permutating a basis vector $\ehat_i$ to another one $\ehat_j = \ehat_{\sigma(i)}$.
-		
-		\textit{action of $\rho(\sigma)$ on any vector??}
-		
-		The corresponding matrix representations are the permutation matrices
-		\begin{align}
-			X(\sigma) = (x_{ij})_{n \times n}, \text{ where } x_{ij} = \delta_{j,\sigma(i)} = \begin{cases}
-				1 \text{ if } j = \sigma(i),\\
-				0 \text{ otherwise.}
-			\end{cases}
-		\end{align}
-		
-		\begin{example}[$S_n$ for $n = 2,3$]
-			
-			The symmetric group of degree 2 has two elements, $S_2 = \{(1), (12)\}$ and their matrix representations in $\mathbf{\ehat_1},\mathbf{\ehat_2}$-space are
-			\begin{table}[hbt!]
-				\centering
-				\caption{Matrix representations of $S_2$}
-				\begin{tabular}{c | c c}
-					$\sigma$    & $(1)$ & $(12)$ \\
-					\hline
-					$X(\sigma)$ & $\begin{pmatrix}
-						1 & 0 \\ 0 & 1
-					\end{pmatrix}$ & $\begin{pmatrix}
-					0 & 1 \\ 1 & 0
-					\end{pmatrix}$
-				\end{tabular}
-			\end{table}
-			
-			Likewise, representations of $S_3$ follows:
-			
-			\begin{table}[hbt!]
-				\centering
-				\caption{Matrix representations of $S_3$}
-				\begin{tabular}{c | c c c c c c}
-					$\sigma$  &$(1)$& $(12)$&$(13)$&$(23)$&$(123)$&$(132)$ \\
-					\hline
-					$X(\sigma)$ & 
-					$\left(\begin{smallmatrix}
-						1 & 0 & 0 \\
-						0 & 1 & 0 \\
-						0 & 0 & 1
-					\end{smallmatrix}\right)$ &
-					$\left(\begin{smallmatrix}
-						0 & 1 & 0 \\
-						1 & 0 & 0 \\
-						0 & 0 & 1
-					\end{smallmatrix}\right)$ &
-					$\left(\begin{smallmatrix}
-						0 & 0 & 1 \\
-						0 & 1 & 0 \\
-						1 & 0 & 0
-					\end{smallmatrix}\right)$ &
-					$\left(\begin{smallmatrix}
-						1 & 0 & 0 \\
-						0 & 0 & 1 \\
-						0 & 1 & 0
-					\end{smallmatrix}\right)$ &
-					$\left(\begin{smallmatrix}
-						0 & 0 & 1 \\
-						1 & 0 & 0 \\
-						0 & 1 & 0
-					\end{smallmatrix}\right)$ &
-					$\left(\begin{smallmatrix}
-						0 & 1 & 0 \\
-						0 & 0 & 1 \\
-						1 & 0 & 0
-					\end{smallmatrix}\right)$
-				\end{tabular}
-			\end{table}
+%	\subsection{The permutation representation}
+%	
+%	We could let the group $G$ act on an appropriately chosen set $X$, and study its action $f$ by permutation of the elements of $X$. This action is defined by any $g$ in $G$ and $x$ in $X$ as
+%	\begin{table}[hbt!]\centering\begin{tabular}{c c c c}
+%			$f:$ & $G \times X$    & $\rightarrow$ & $X$ \\
+%			&\rotatebox[origin=c]{90}{$\in$}&&\rotatebox[origin=c]{90}{$\in$} \\
+%			$f:$ & $(g,x)$ & $\mapsto$     & $gx$.
+%	\end{tabular}\end{table}
+%
+%	Further more, define a vector space $V$ spanned by the orthogonal basis $\mathcal{B} = \{\ehat_x\}_x$ for every $x$ in $X$. Then we have a homomorphism
+%	\begin{align}
+%		\rho: G \rightarrow \GL(V)
+%	\end{align}
+%	defined by its action on the basis $\mathcal{B}$ by, for any $g$ in $G$,
+%	\begin{align}
+%		\rho(g): \ehat_x \mapsto g\ehat_x = \ehat_{gx}.
+%	\end{align}
+%	or on an arbitrary vector $v$ in $V$ as
+%	\begin{align}
+%		\rho(g): \vvec \mapsto g\vvec.
+%	\end{align}
+%	
+%	\textit{Show that it is a homomorphism!}
+%	
+%	\subsubsection{$S_n$ acting on $\N_n$}
+%		The action is defined as $S_n \times \N_n$ by $(\sigma,i) \mapsto \sigma(i)$. Choosing a basis $\mathcal{B} = \{\ehat_i\}_{i=1}^n$ we span a vector space $V$ of dimension $\dim V = n$. We then define a homomorphism $\rho$ from $S_n$ to $\GL(V)$ by
+%		\begin{align}
+%			\rho(\sigma): \ehat_i \mapsto \ehat_{\sigma(i)},
+%		\end{align}
+%		that is by permutating a basis vector $\ehat_i$ to another one $\ehat_j = \ehat_{\sigma(i)}$.
+%		
+%		\textit{action of $\rho(\sigma)$ on any vector??}
+%		
+%		The corresponding matrix representations are the permutation matrices
+%		\begin{align}
+%			X(\sigma) = (x_{ij})_{n \times n}, \text{ where } x_{ij} = \delta_{j,\sigma(i)} = \begin{cases}
+%				1 \text{ if } j = \sigma(i),\\
+%				0 \text{ otherwise.}
+%			\end{cases}
+%		\end{align}
+%		
+%		\begin{example}[$S_n$ for $n = 2,3$]
+%			
+%			The symmetric group of degree 2 has two elements, $S_2 = \{(1), (12)\}$ and their matrix representations in $\mathbf{\ehat_1},\mathbf{\ehat_2}$-space are
+%			\begin{table}[hbt!]
+%				\centering
+%				\caption{Matrix representations of $S_2$}
+%				\begin{tabular}{c | c c}
+%					$\sigma$    & $(1)$ & $(12)$ \\
+%					\hline
+%					$X(\sigma)$ & $\begin{pmatrix}
+%						1 & 0 \\ 0 & 1
+%					\end{pmatrix}$ & $\begin{pmatrix}
+%					0 & 1 \\ 1 & 0
+%					\end{pmatrix}$
+%				\end{tabular}
+%			\end{table}
+%			
+%			Likewise, representations of $S_3$ follows:
+%			
+%			\begin{table}[hbt!]
+%				\centering
+%				\caption{Matrix representations of $S_3$}
+%				\begin{tabular}{c | c c c c c c}
+%					$\sigma$  &$(1)$& $(12)$&$(13)$&$(23)$&$(123)$&$(132)$ \\
+%					\hline
+%					$X(\sigma)$ & 
+%					$\left(\begin{smallmatrix}
+%						1 & 0 & 0 \\
+%						0 & 1 & 0 \\
+%						0 & 0 & 1
+%					\end{smallmatrix}\right)$ &
+%					$\left(\begin{smallmatrix}
+%						0 & 1 & 0 \\
+%						1 & 0 & 0 \\
+%						0 & 0 & 1
+%					\end{smallmatrix}\right)$ &
+%					$\left(\begin{smallmatrix}
+%						0 & 0 & 1 \\
+%						0 & 1 & 0 \\
+%						1 & 0 & 0
+%					\end{smallmatrix}\right)$ &
+%					$\left(\begin{smallmatrix}
+%						1 & 0 & 0 \\
+%						0 & 0 & 1 \\
+%						0 & 1 & 0
+%					\end{smallmatrix}\right)$ &
+%					$\left(\begin{smallmatrix}
+%						0 & 0 & 1 \\
+%						1 & 0 & 0 \\
+%						0 & 1 & 0
+%					\end{smallmatrix}\right)$ &
+%					$\left(\begin{smallmatrix}
+%						0 & 1 & 0 \\
+%						0 & 0 & 1 \\
+%						1 & 0 & 0
+%					\end{smallmatrix}\right)$
+%				\end{tabular}
+%			\end{table}
 			
 %			$$S_3 = \{(1), (12), (13), (23), (123), (132)\}$$
 %			$$S_4 = \{(1), 
@@ -179,23 +181,23 @@
 %						(123), (124), (134), (132), (142), (143), (234), (243),
 %						(1234), (1243), (1324), (1342), (1423), (1432)
 %						\}$$
-		\end{example}
+%		\end{example}
 		
-	\subsection{The regular representation}
+%	\subsection{The regular representation}
 	
-	Instead of letting the group $G$ act on some arbitrary set by permutation, we could let it act on itself. This action is defined as
-	\[
-		G \times G \rightarrow G
-	\]
-	which for every $g$ in $G$ is given by 
-	\[
-		(g,h) \mapsto gh,
-	\]
-	for a $h$ in $G$. The corresponding vector space $V$ is spanned by basis vectors $\{\ghat\}_{g \in G}$ constructed from the members of $G$. A representation of $G$ in $V$ is then
-	\[
-		\rho: G \rightarrow \GL(V)
-	\]
-	defined by
-	\[
-		\rho(g)(\hhat) = g\hhat.
-	\]
+%	Instead of letting the group $G$ act on some arbitrary set by permutation, we could let it act on itself. This action is defined as
+%	\[
+%		G \times G \rightarrow G
+%	\]
+%	which for every $g$ in $G$ is given by 
+%	\[
+%		(g,h) \mapsto gh,
+%	\]
+%	for a $h$ in $G$. The corresponding vector space $V$ is spanned by basis vectors $\{\ghat\}_{g \in G}$ constructed from the members of $G$. A representation of $G$ in $V$ is then
+%	\[
+%		\rho: G \rightarrow \GL(V)
+%	\]
+%	defined by
+%	\[
+%		\rho(g)(\hhat) = g\hhat.
+%	\]
