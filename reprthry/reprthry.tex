@@ -1,13 +1,13 @@
 \clearpage{\thispagestyle{empty}}
 \section{Representation theory}
 
-	Detta är syntesen av tre tidigare versioner. 
+	\textit{Detta är syntesen av tre tidigare versioner. }
 	
 	The layout of this section is based on \cite{Serre} and \cite{FultonHarris}.
 	
-	A representation of a group in a vector space is a homomorphism that takes an element of the group into the group of automorphisms of the vector space.
+	\textbf{\emph{A representation of a group in a vector space is a homomorphism that takes an element of the group into the group of automorphisms of the vector space.}}
 	
-	For a vector space $V$ over a field $\K$, we denote its group of automorphisms $\GL(V)$. If $V$ is finite with $\dim V = n$ and we provide a basis, usually denoted $\{\ebas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. 
+	For a vector space $V$ over a field $\K$, we denote its group of automorphisms $\GL(V)$. If $V$ is finite with $\dim V = n$ and we provide a basis, usually denoted $\{\bas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. 
 	
 	\begin{definition}[Representation]
 		Given a finite group $G$, a representation of $G$ in $V$ is a homomorphism
@@ -17,7 +17,7 @@
 	\end{definition}
 	In other words, $\rho$ takes an element of $G$ and maps it to a transformation of $\GL(V)$, or again $\rho(g): V \rightarrow V$ for some $g$ in $G$. In even other words, $\rho(g)$ acts acts as a linear map on a vector $v$ in $V$ and maps it to the vector $\rho(g)(v)$ in $V$.
 	
-	Recall that a homomorphism is defined by, for any two elements $g$ and $h$ in $G$, as
+	Recall that if $\rho$ is a homomorphism, then for any two elements $g$ and $h$ in $G$,
 	\begin{align}\label{eq:homomorphism}
 		\rho(gh) = \rho(g)\rho(h),
 	\end{align}
@@ -29,9 +29,9 @@
 		\end{align}
 		and
 		\begin{align}
-			\rho(g)^{-1} = \rho\left(g^{-1}\right),
+			\rho(g)^{-1} = \rho(g^{-1}),
 		\end{align}
-		where $\id$ is the identity transformation and $\rho^{-1}(g)$ is the inverse representation of $g$.
+		where $\id$ is the identity transformation and $\rho(g)^{-1}$ is the inverse of the transformation associated with $g$.
 	\end{proposition}
 	\begin{proof}
 		Take $g$ as an arbitrary element of $G$. The first identity follows from taking $h=e$ in eq.\ref{eq:homomorphism}:
