@@ -5,9 +5,15 @@
 	
 	The layout of this section is based on \cite{Serre} and \cite{FultonHarris}.
 	
+	From this point on, only finite groups and finite vector spaces are considered. 
+
+	Let $G$ be a group written multiplicatively and let its order (or size or cardinality) be denoted by $|G|$.
+	
+	Let $V$ be a vector space over a field $\K$. Its group of automorphisms is denoted by $\GL(V)$. If $V$ has a dimension $\dim V = n$ and we provide a basis, usually denoted $\{\bas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n \times n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. The main purpose of this text is to study linear representations of finite groups, a process explained as:
+	
 	\textbf{\emph{A representation of a group in a vector space is a homomorphism that takes an element of the group into the group of automorphisms of the vector space.}}
 	
-	For a vector space $V$ over a field $\K$, we denote its group of automorphisms $\GL(V)$. If $V$ is finite with $\dim V = n$ and we provide a basis, usually denoted $\{\bas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. 
+	Or more directly in the following definition.
 	
 	\begin{definition}[Representation]
 		Given a finite group $G$, a representation of $G$ in $V$ is a homomorphism
@@ -15,7 +21,7 @@
 			\rho: G \rightarrow \GL(V).
 		\end{align}
 	\end{definition}
-	In other words, $\rho$ takes an element of $G$ and maps it to a transformation of $\GL(V)$, or again $\rho(g): V \rightarrow V$ for some $g$ in $G$. In even other words, $\rho(g)$ acts acts as a linear map on a vector $v$ in $V$ and maps it to the vector $\rho(g)(v)$ in $V$.
+	For every $g$ in $G$, there is a transformation $\rho(g)$ in $\GL(V)$, or again $\rho(g): V \rightarrow V$ for some $g$ in $G$. In other words, $\rho(g)$ acts acts as a linear map on a vector $v$ in $V$ and maps it to the vector $\rho(g)(v)$ in $V$.
 	
 	Recall that if $\rho$ is a homomorphism, then for any two elements $g$ and $h$ in $G$,
 	\begin{align}\label{eq:homomorphism}
@@ -31,18 +37,18 @@
 		\begin{align}
 			\rho(g)^{-1} = \rho(g^{-1}),
 		\end{align}
-		where $\id$ is the identity transformation and $\rho(g)^{-1}$ is the inverse of the transformation associated with $g$.
+		where $\id$ is the identity transformation and $\rho(g)^{-1}$ is the inverse representation of $g$.
 	\end{proposition}
 	\begin{proof}
 		Take $g$ as an arbitrary element of $G$. The first identity follows from taking $h=e$ in eq.\ref{eq:homomorphism}:
-		\[
-		\rho(g) \overset{!}{=} \rho(eg) = \rho(e)\rho(g)
-		\]
-		and instead taking $h=g^{-1}$:
-		\[
-		\rho(g) \rho(g^{-1}) =  \rho(gg^{-1}) \overset{!}{=} \rho(e) = \id.
-		\]
-		we force the second identity.
+		\begin{align}
+			\rho(eg) = \rho(e)\rho(g). %	\rho(g) \overset{!}{=} \rho(eg) = \rho(e)\rho(g)
+		\end{align}
+		But $eg=g$, so $\rho(g) = \rho(e)\rho(g)$ which is true if and only if $\rho(e) = \id$. Instead taking $h=g^{-1}$:
+		\begin{align}
+			\rho(g) \rho(g^{-1}) =  \rho(gg^{-1}). %\overset{!}{=} \rho(e) = \id.
+		\end{align}
+		But $gg^{-1} = e$ and $\rho(e) = \id$, implying $\rho(g^{-1}) = \rho(g)^{-1}$.
 	\end{proof}
 	
 	If the vector space $V$ is provided with a basis, then a matrix representations of $G$ may be found.
@@ -58,46 +64,59 @@
 		Sometimes the vector space $V$ itself is said to be the representation, instead of the set of maps $\{\rho(g)\}_{g \in G}$.
 	\end{note}
 	
-	\begin{definition}
-		The degree of a representation is said to be the dimension of its vector space.
-	\end{definition}
-	
 	\subsection{Subrepresentations and irreducibility}
 	
-		\begin{definition}[Subrepresentation]
-			A subrepresentation $W$ of a representation $V$ of $G$ is a subspace $W$ of $V$ invariant under $G$, that is for every $w$ in $W$, $\rho(g)(w)$ is also in $W$ for every $g$ in $G$.
-		\end{definition}
+		As laid out in \cite{FultonHarris}, we are looking for representations which are said to be ``atomic'' and conversely for any arbitrary representation, which of these indecomposable representation compose it? These concepts translate directly from linear algebra. 
 		
-		\begin{definition}[Irreducible representation]
-			A representation $V$ is irreducible if it has no proper non-zero invariant subspace.
+		\begin{definition}[Degree of representation, subrepresentation, irreducible representation]
+			Analogous to vector spaces, their vector subspaces and their dimensions are representations, subrepresentations and degrees. 		
+			\begin{enumerate}
+				\item The degree of a representation is said to be the dimension of its vector space.
+				\item A subrepresentation $W$ of a representation $V$ of $G$ is a subspace $W$ of $V$ invariant under $G$, that is for every $\wvec$ in $W$, $\rho(g)(\wvec)$ is also in $W$ for every $g$ in $G$.
+				\item A representation is irreducible if it has no proper non-zero invariant subspace.
+			\end{enumerate}
 		\end{definition}
+
+		\begin{corollary}[Degree 1 representations are irreducible]
+			If the representation is of degree 1, the vector space has no subspace, other than itself and the zero space, thus it is clearly irreducible.
+		\end{corollary}
+		
+		
+		
+		Analogously to the existence of orthogonal subspaces in linear algebra, there are also complementary subrepresentations.
+		
+		\begin{proposition}\cite[Prop.1.5]{FultonHarris}\label{prop:compsubrepr}
+			If $W$ is a subrepresentation of a representation $V$ of $G$, then there is a complementary $G$-invariant subspace $W^\perp$ of $V$ such that 
+			\begin{align}
+				V = W \oplus W^\perp.
+			\end{align}
+		\end{proposition}
+		\begin{proof}
+			\textit{Inner products... Sum...} See \ref{def:orthsubspace}? \textit{Definition: $G$-invariant???} Enough to reference orthogonal subspace? Are subspaces G-invariant automatically?
+		\end{proof}
+		
+		The results of proposition \ref{prop:compsubrepr} invites the next theorem.
 		
 		\begin{theorem}[Maschke's theorem]\label{thm:maschke}
-			Let $G$ be a finite group and let $V$ be any arbitrary representation of $G$, then $V$ is composed of a number of not necessarily distinct irreducible subrepresentations $W_i$ of $V$, or in other words,
+			Let $G$ be a finite group and let $V$ be a representation of $G$, then $V$ is composed of a number of not necessarily distinct irreducible subrepresentations $W_i$ of $V$, or in other words,
 			\begin{align}
 				V = \bigoplus_i W_i.
 			\end{align}
+			\begin{note}
+				The direct sum can be expressed in terms of \underline{distinct} subrepresentations $W_i$ of $V$ and their multiplicities $a_i$ as
+				\begin{align}
+					V = \bigoplus_i a_i W_i,
+				\end{align}
+				where $a_i W_i$ is the direct sum of $a_i$ copies of $W_i$.
+			\end{note}
 		\end{theorem}
-		
-		\begin{note}
-			The direct sum can be expressed in terms of \underline{distinct} subrepresentations $W_i$ of $V$ and their multiplicities $a_i$ as
-			\begin{align}
-				V = \bigoplus_i a_i W_i,
-			\end{align}
-			where $a_i W_i$ is the direct sum of $a_i$ copies of $W_i$.
-		\end{note}
-		
-		To prove Maschke's theorem, first we establish a few definitions and lemmas.
-		
-		\begin{corollary}
-			If the representation is of degree 1, $V = W_1$ and $\dim V = 1$, it is clearly irreducible.
-		\end{corollary}
-		
-		\begin{proof}[Proof of Maschke's theorem \ref{thm:maschke}]
-			The theorem will be proved using induction on complementary subspaces. If $V$ itself is irreducible, we are done. If $V$ is not irreducible, then there is a non-trivial proper subrepresentation $W$ of $V$ with a basis $\{\ebas_i\}_i$, then according to lemma \ref{lemma:compsubspace}, there is a complementary ``orthogonal'' subrepresentation $W^\perp$ such that $V = W \oplus W^\perp$. If both of $W$ and $W^\perp$ are irreducible, then we are done. If either are not, then after recursion on $W$ and $W^\perp$ and since $V$ is a finite vector space, we are done.
+		\begin{proof}
+			The theorem will be proved using induction on complementary subspaces, using proposition \ref{prop:compsubrepr}. If $V$ itself is irreducible, we are done. If $V$ is not irreducible, then there is a non-trivial proper subrepresentation $W$ of $V$ with a basis $\{\ebas_i\}_i$, then according to proposition \ref{prop:compsubrepr}, there is a complementary ``orthogonal'' subrepresentation $W^\perp$ such that $V = W \oplus W^\perp$. If both of $W$ and $W^\perp$ are irreducible, then we are done. If either are not, then after recursion on $W$ and $W^\perp$ and since $V$ is a finite vector space, we are done.
 		\end{proof}
 	
 	\subsection{Tensor operations on representations}
+	
+	\textit{Not good}
 	
 	Direct sum, tensor product, tensor powers, symmetric and alternating powers, hom(V,W), dual
 	
