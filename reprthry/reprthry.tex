@@ -1,13 +1,11 @@
 \clearpage{\thispagestyle{empty}}
 \section{Representation theory}
 
-	\textit{Detta är syntesen av tre tidigare versioner. }
+%	\textit{Detta är syntesen av tre tidigare versioner. }
 	
-	The layout of this section is based on \cite{Serre} and \cite{FultonHarris}.
+	The layout of this section is based on \cite{Serre} and \cite{FultonHarris}. From this point on, only finite groups and finite-dimensional vector spaces are considered. 
 	
-	From this point on, only finite groups and finite vector spaces are considered. 
-
-	Let $G$ be a group written multiplicatively and let its order (or size or cardinality) be denoted by $|G|$.
+	Let $G$ be a group written multiplicatively and let its order (or size or cardinality) be denoted by $|G|$. 
 	
 	Let $V$ be a vector space over a field $\K$. Its group of automorphisms is denoted by $\GL(V)$. If $V$ has a dimension $\dim V = n$ and we provide a basis, usually denoted $\{\bas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n \times n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. The main purpose of this text is to study linear representations of finite groups, a process explained as:
 	
@@ -51,54 +49,75 @@
 		But $gg^{-1} = e$ and $\rho(e) = \id$, implying $\rho(g^{-1}) = \rho(g)^{-1}$.
 	\end{proof}
 	
-	If the vector space $V$ is provided with a basis, then a matrix representations of $G$ may be found.
-	\begin{definition}[Matrix representation]
-		Given a finite group $G$, a matrix representation of $G$ in $V$ is a homomorphism
-		\begin{align}
-			X: G \rightarrow \GL_n(\K),
-		\end{align}
-		or equivalently, $X(g): V \rightarrow V$.
-	\end{definition}
+	\begin{note}
+		If the vector space $V$ is provided with a basis, then a matrix representation of $G$ may be found. A matrix representation is not canonical, ie it is dependent on the basis chosen for $V$. %Two representations $\rho(g)$ and $\tilde{\rho}(g)$ are similar if there is a transformation $f$ from $\GL(V)$ such that $\tilde{\rho}(g) = f \cdot \rho(g)$ for every $g$ in $G$.
+	\end{note}
 	
 	\begin{note}
-		Sometimes the vector space $V$ itself is said to be the representation, instead of the set of maps $\{\rho(g)\}_{g \in G}$.
+		The homomorphism $\rho$, the set of maps $\{\rho(g)\}_{g \in G}$ and the vector space $V$ are interchangeably and abusively called the \textit{representation of $G$}.
+	\end{note}
+	
+	\begin{note}
+		Another abuse of notation is that $\rho$ is sometimes dropped and the action of $\rho(g)$ on a vector $\vvec$ is then denoted by $\rho(g)(\vvec) = g\vvec$.
 	\end{note}
 	
 	\subsection{Subrepresentations and irreducibility}
 	
-		As laid out in \cite{FultonHarris}, we are looking for representations which are said to be ``atomic'' and conversely for any arbitrary representation, which of these indecomposable representation compose it? These concepts translate directly from linear algebra. 
+		As laid out in \cite{FultonHarris}, we are looking for representations which are said to be ``atomic'' and conversely, which of these indecomposable representations compose any arbitrary representation. %These concepts translate directly from linear algebra. 
 		
-		\begin{definition}[Degree of representation, subrepresentation, irreducible representation]
-			Analogous to vector spaces, their vector subspaces and their dimensions are representations, subrepresentations and degrees. 		
+		\begin{definition}[Analogous concepts in linear algebra and representation theory]\label{def:subreprs}
+			These definitions are required to begin the treatment on subrepresentations.		
 			\begin{enumerate}
-				\item The degree of a representation is said to be the dimension of its vector space.
-				\item A subrepresentation $W$ of a representation $V$ of $G$ is a subspace $W$ of $V$ invariant under $G$, that is for every $\wvec$ in $W$, $\rho(g)(\wvec)$ is also in $W$ for every $g$ in $G$.
-				\item A representation is irreducible if it has no proper non-zero invariant subspace.
+				
+				\item The \textbf{degree} of a representation is said to be the dimension of its vector space.
+				
+				\item A vector space $V$ is said to be \textbf{$G$-invariant}, or fixed under the action of $G$, if for any $g$ in $G$, 
+				\begin{align}
+					g\vvec \in V,
+				\end{align}
+				for every $\vvec$ in $V$, or equivalently, $gV \subseteq V$	for every $g$ in $G$.
+				
+				\item A \textbf{subrepresentation} $W$ of a representation $V$ of $G$ is a $G$-invariant vector subspace $W$ of $V$.
+				
+				\item A representation is said to be \textbf{irreducible} if it has no subrepresentations, ie it has no proper non-zero invariant subspace.
 			\end{enumerate}
 		\end{definition}
 
 		\begin{corollary}[Degree 1 representations are irreducible]
-			If the representation is of degree 1, the vector space has no subspace, other than itself and the zero space, thus it is clearly irreducible.
-		\end{corollary}
+			If a representation is of degree 1, its vector space has no subspace other than itself and the zero space, thus it is clearly irreducible.
+		\end{corollary}	
 		
-		
-		
-		Analogously to the existence of orthogonal subspaces in linear algebra, there are also complementary subrepresentations.
+		Analogously to the existence of orthogonal subspaces in linear algebra (Lemma \ref{lemma:compsubspace}), there are also complementary subrepresentations.
 		
 		\begin{proposition}\cite[Prop.1.5]{FultonHarris}\label{prop:compsubrepr}
-			If $W$ is a subrepresentation of a representation $V$ of $G$, then there is a complementary $G$-invariant subspace $W^\perp$ of $V$ such that 
-			\begin{align}
-				V = W \oplus W^\perp.
-			\end{align}
+			If $W$ is a subrepresentation of a representation $V$ of $G$, then there is a complementary subspace $W^\perp$ of $V$ such that 
+			\begin{enumerate}
+				
+				\item[i)] $V = W \oplus W^\perp$.
+				
+				\item[ii)] If $\dim V = n$ and $\dim W = k$, then $\dim W^\perp = n-k$.
+				
+				\item[iii)] If $(e_i)_{i=1}^n$ is the basis of $V$ and $(e_i)_{i=1}^k$ is the basis of $W$, then $(e_i)_{i=k+1}^n$ is the basis of $W^\perp$.
+				
+				\item[iv)] $W^\perp$ is also $G$-invariant.
+				
+			\end{enumerate}
 		\end{proposition}
 		\begin{proof}
-			\textit{Inner products... Sum...} See \ref{def:orthsubspace}? \textit{Definition: $G$-invariant???} Enough to reference orthogonal subspace? Are subspaces G-invariant automatically?
+			Items i-iii follow from lemma \ref{lemma:compsubspace}. Let $\vvec \in W^\perp$ and $g \in G$. Then either
+			\[
+			\begin{cases}
+				g\vvec \in W^\perp \text{, and we are done, or }\\
+				g\vvec \in W.
+			\end{cases}
+			\]
+			However, the second alternative implies that $\vvec \in W$ since $W$ is $G$-invariant, which is contradictory to the initial assumption that $\vvec \in W^\perp$, therefore $g\vvec \in W$ and $W^\perp$ is $G$-invariant.
 		\end{proof}
 		
 		The results of proposition \ref{prop:compsubrepr} invites the next theorem.
 		
 		\begin{theorem}[Maschke's theorem]\label{thm:maschke}
-			Let $G$ be a finite group and let $V$ be a representation of $G$, then $V$ is composed of a number of not necessarily distinct irreducible subrepresentations $W_i$ of $V$, or in other words,
+			Let $G$ be a finite group and let $V$ be any representation of $G$, then $V$ is composed as a direct sum of a number of not necessarily distinct irreducible subrepresentations $W_i$ of $V$, or in other words,
 			\begin{align}
 				V = \bigoplus_i W_i.
 			\end{align}
@@ -111,17 +130,35 @@
 			\end{note}
 		\end{theorem}
 		\begin{proof}
-			The theorem will be proved using induction on complementary subspaces, using proposition \ref{prop:compsubrepr}. If $V$ itself is irreducible, we are done. If $V$ is not irreducible, then there is a non-trivial proper subrepresentation $W$ of $V$ with a basis $\{\ebas_i\}_i$, then according to proposition \ref{prop:compsubrepr}, there is a complementary ``orthogonal'' subrepresentation $W^\perp$ such that $V = W \oplus W^\perp$. If both of $W$ and $W^\perp$ are irreducible, then we are done. If either are not, then after recursion on $W$ and $W^\perp$ and since $V$ is a finite vector space, we are done.
+			The theorem will be proved using induction on complementary subspaces, using proposition \ref{prop:compsubrepr}. If $V$ itself is irreducible, we are done. If $V$ is not irreducible, then by definition \ref{def:subreprs} there is a subrepresentation $W$ of $V$. Then according to proposition \ref{prop:compsubrepr}, there is a complementary subrepresentation $W^\perp$ to $W$ in $V$ such that $V = W \oplus W^\perp$. If both of $W$ and $W^\perp$ are irreducible, then we are done. If either are not, then use the same method as used on $V$. After recursion on $W$ and $W^\perp$ and since $V$ is a finite vector space, we are done.
 		\end{proof}
 	
 	\subsection{Tensor operations on representations}
 	
-	\textit{Not good}
+	In the previous section, we reduced representations into their constituent irreducibles. In this section we will study some methods to create new representations by conversely putting them together using vector space and tensor operations.
 	
-	Direct sum, tensor product, tensor powers, symmetric and alternating powers, hom(V,W), dual
+	Let $V$ and $W$ be representations of $G$ with respective degrees $k$ and $l$ and bases $(\vhat_i)_{i=1}^k$ and $(\what_i)_{i=1}^l$. Then all the following vector spaces are also representations of $G$.
 	
-	Let $V$ and $W$ be two representations, then their direct sum $V \oplus W$, their tensor product $V \otimes W$ are representations.
+	\paragraph{Direct sum of representations.} The direct sum $V \oplus W$ is a representation. By recursion, for a positive integer $n$, the direct sum of $n$ copies of $V$, denoted
+	\[
+		nV = \underset{n \text{ times}}{\underbrace{V \oplus \cdots \otimes V}}
+	\]
+	is a representation.
 	
-	The $n$th tensor power of $V$, \[V^{\otimes n} = \underset{n \text{ times}}{\underbrace{V \otimes \cdots \otimes V}}\] is also a representation with the symmetric powers $\Sym^n V$ and the exterior powers $ \bigwedge^n V$ as subrepresentations. Further more, the dual space $V^* = \Hom(V,\C)$ of $V$ and more generally $\Hom(V,W) = V^* \otimes W$ are also representations. Recall that $\Hom(V,W)$ is the set of all linear functions (functionals??) from $V$ to $W$ and in particular $\Hom(V, \C)$ ``is some sort of scalar product''. Cf. quantum physics, if $v$ is a column vector from a ket-space $V$, then $u^\dagger$ is a row vector from the corresponding bra-space $V^*$.
+	\paragraph{Tensor product of representations.} The tensor product $V \otimes W$ is a representation.
+	
+	\paragraph{Tensor power of a representation.} By recursion, for a positive integer $n$, the $n$th tensor power of $V$,
+	\[
+		V^{\otimes n} = \underset{n \text{ times}}{\underbrace{V \otimes \cdots \otimes V}}
+	\]
+	is a representation. The zeroth tensor power is by definition the ground field, and the first power is the representation itself. 
+	
+	\paragraph{The symmetric and exterior powers.} The $n$th tensor power $V^{\otimes n}$ has two  subrepresentations: the symmetric powers $\Sym^n V$ and the exterior powers $ \bigwedge^n V$. They are complementary such that $V^{\otimes n} = \Sym^n V \oplus \bigwedge^n V$.
+	
+	\paragraph{Dual representation.} The dual space of $V$, denoted $V^*$, is a representation. It is the set of all complex transposed vectors\footnote{fysikervarning, $V$ är ett kolumnvektorrum (ket-rum) och $V^*$ är det relaterade radvektorrummet (bra-rum).} of $V$. It is identified with the set of all linear functions\footnote{någon sorts skalär/inre produkt} from $V$ to $\C$.
+	
+	\paragraph{Set of homomorphisms.} The set of all linear functions between $V$ and $W$, denoted $\Hom(V,W)$ is itself a representation. It is identified with the tensor product $\Hom(V,W) = V^* \otimes W$. In particular, the dual representation is identified with $V^* = \Hom(V,\C)$.
+	
+	
 	
 	
