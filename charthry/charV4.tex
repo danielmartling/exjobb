@@ -1,0 +1,33 @@
+\subsection{Character table of the Klein 4-group $V$}
+
+The Klein 4-group, denoted by\footnote{$V$ is for vierer, four in german.} $V$ is, along with $Z_4$, the only group of order 4. It can be described as the set
+\begin{align}
+	V = \{ e, x, y, xy \},
+\end{align}
+where every element is its own inverse and the product of any two distinct non-identity elements is the third one.
+It is an abelian group, which means that every element has its own conjugacy class (SOURCE).
+
+Since every group has a trivial representation $T$ in any vector space, so do $V$. The center of $V$ is trivial, so the regular representation $R$ has the character $(4,0,0,0)$ and is clearly not irreducible.
+
+If $V$ instead is considered as a subgroup of $S_4$, that is
+\begin{align}
+	V = \{ (1), (12)(34), (13)(24), (14)(23) \} < S_4,
+\end{align}
+then each entry in the character of the permutation representation $P$ is the number of fixed points of the associated element. Then one sees that the character of the permutation representation is also $(4,0,0,0)$, it isomorphic to the regular representation.
+
+From theorem \ref{thm:numberirrep} we expect three additional irreducible representations. Since the square sum over all representations of the character of $e$ must be equal to the order of the group (SOURCE), they must be of degree 1. We know that they must be parallel to themselves and orthogonal to $T$ and have a 1 as the character of $e$, so the three additional are alterations of $T$ with two of the ones exchanged with negative ones. Then $R$ is the direct sum of these four irreducibles. These findings are presented in table \ref{table:charV} as the representations $A, B$ and $C$.
+
+
+\begin{table}[hbt!]
+	\centering
+	\begin{tabular}{c | c c c c l}
+		$V$ & $e$ & $x$ & $y$ & $xy$ &             \\ \hline
+		$T$ & 1   & 1   & 1   & 1   &             \\
+		$A$ & 1   & -1  & -1  & 1   &             \\
+		$B$ & 1   & -1  & 1   & -1  &             \\
+		$C$ & 1   & 1   & -1  & -1  &             \\ \hline\hline
+		$R$ & 4   & 0   & 0   & 0   & %$R \cong P \cong T \oplus A \oplus B \oplus C$
+	\end{tabular}
+	\caption{Character table for $V$.}
+	\label{table:charV}
+\end{table}

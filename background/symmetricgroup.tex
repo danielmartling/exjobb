@@ -71,17 +71,17 @@ Recall that for a positive integer $n$, $S_n$ is the group of automorphisms\foot
 		Table \ref{table:S3} present the elements of $S_3$.	
 		\begin{table}[hbt!]
 			\centering
-			\caption{The elements of $S_3$.}
 			\begin{tabular}{r | c c c c c c}
-				\label{table:S3}
 				$S_3$ & e                & (12)           & (13)           & (23)           & (123)        & (132)        \\ \hline
 				Type & $(1^3)$          & $(1^1,2^1)$    & $(1^1,2^1)$    & $(1^1,2^1)$    & $(3^1)$      & $(3^1)$      \\
 				$\lambda$ & $(1,1,1)$        & $(2,1)$        & $(2,1)$        & $(2,1)$        & $(3)$        & $(3)$        \\
 				Young & \ydiagram{1,1,1} & \ydiagram{2,1} & \ydiagram{2,1} & \ydiagram{2,1} & \ydiagram{3} & \ydiagram{3}
 			\end{tabular}
+			\label{table:S3}
+			\caption{The elements of $S_3$.}
 		\end{table}
 	\end{example}
-
+	
 \subsubsection{Conjugacy classes of $S_n$}
 
 	Since the number of elements of $S_n$ is $n!$, for larger $n$ it becomes cumbersome to describe every element, however as we'll see, we can instead study the conjugacy classes of $S_n$. 
@@ -101,19 +101,21 @@ Recall that for a positive integer $n$, $S_n$ is the group of automorphisms\foot
 	Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share conjugacy class if and only if they are of the same cycle type\cite{Sagan}. Since the cycle type of a permutation was linked to an integer partition of the degree of the symmetric group, there are as many conjugacy classes of $S_n$ as there are integer partitions of $n$. Eg. there are 3 conjugacy classes in $S_3$ and 7 in $S_5$. Also, if the cycle type of a permutation $\sigma$ is $(k^{m_k})_{k=1}^n$, then the size of its centralizer is $|\Cent(\sigma)| = \prod_{k=1}^{n} k^{m_k}{m_k}!$\cite[Prop 1.1.1]{Sagan}. 
 	
 	\begin{example}[$S_5$]
-		The conjugacy classes of $S_5$, along with their sizes and their types are presented in table \ref{table:S5}.
+		The conjugacy classes of $S_5$, along with their sizes and their types are presented in table \ref{table:conjclassesS5}.
 		\begin{table}[hbt!]
 			\centering
-			\caption{The conjugacy classes of $S_5$.}
 			\begin{tabular}{r | c c c c c c c}
-				\label{table:S5}
 				$S_5$ & [e]                  & [12]               & [(12)(34)]       & [123]            & [1234]         & [(12)(345)]    & [12345]      \\ \hline
 				$|\Cent(\sigma)|$ & $5!$                 & 12                 & 8                & 6                & 6              & 4              & 5            \\
 				$|[\sigma]|$ & 1                    & 10                 & 15               & 20               & 20             & 30             & 24           \\
 				Type & $(1^5)$              & $(1^3,2^1)$        & $(1^1,2^2)$      & $(1^2,3^1)$      & $(1^1,4^1)$    & $(2^1,3^1)$    & $(5^1)$      \\
 				$\lambda $ & (1,1,1,1,1)          & (2,1,1,1)          & (2,2,1)          & (3,1,1)          & (4,1)          & (3,2)          & (5)          \\
 				Young & \ydiagram{1,1,1,1,1} & \ydiagram{2,1,1,1} & \ydiagram{2,2,1} & \ydiagram{3,1,1} & \ydiagram{4,1} & \ydiagram{3,2} & \ydiagram{5}
-	\end{tabular}\end{table}\end{example}
+			\end{tabular}
+			\label{table:conjclassesS5}
+			\caption{The conjugacy classes of $S_5$.}
+		\end{table}
+	\end{example}
 
 %\subsection{The alternating group $A_n$}
 %
