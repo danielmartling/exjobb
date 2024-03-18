@@ -5,13 +5,13 @@
 	
 	The layout of this section is based on \cite{Serre} and \cite{FultonHarris}. From this point on, only finite groups and finite-dimensional vector spaces are considered. 
 	
-	Let $G$ be a group written multiplicatively and let its order (or size or cardinality) be denoted by $|G|$. 
-	
-	Let $V$ be a vector space over a field $\K$. Its group of automorphisms is denoted by $\GL(V)$. If $V$ has a dimension $\dim V = n$ and we provide a basis, usually denoted $\{\bas_i\}_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n \times n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}. The main purpose of this text is to study linear representations of finite groups, a process explained as:
+	The main purpose of this text is to study linear representations of finite groups, a process explained as:
 	
 	\textbf{\emph{A representation of a group in a vector space is a homomorphism that takes an element of the group into the group of automorphisms of the vector space.}}
 	
-	Or more directly in the following definition.
+	Let $G$ be a group written multiplicatively and let its order (or size or cardinality) be denoted by $|G|$. 
+	
+	Let $V$ be a vector space over a field $\K$, usually $\C$. Its group of automorphisms is denoted by $\GL(V)$. If $V$ has a dimension $\dim V = n$ and we provide a basis, usually denoted $(\bas_i)_{i=1}^n$, then $\GL(V)$ is identified with the set of linear transformations of $V$, which is the set of invertible square matrices of size $n \times n$, denoted $\GL_n(\K)$\cite[18.1]{DummitFoote}.
 	
 	\begin{definition}[Representation]
 		Given a finite group $G$, a representation of $G$ in $V$ is a homomorphism
@@ -19,13 +19,13 @@
 			\rho: G \rightarrow \GL(V).
 		\end{align}
 	\end{definition}
-	For every $g$ in $G$, there is a transformation $\rho(g)$ in $\GL(V)$, or again $\rho(g): V \rightarrow V$ for some $g$ in $G$. In other words, $\rho(g)$ acts acts as a linear map on a vector $v$ in $V$ and maps it to the vector $\rho(g)(v)$ in $V$.
+	For every $g$ in $G$, there is a transformation $\rho(g)$ in $\GL(V)$, or again $\rho(g): V \rightarrow V$ for some $g$ in $G$. In other words, $\rho(g)$ acts acts as a linear map on a vector $\vvec$ in $V$ and maps it to the vector $\rho(g)(\vvec)$ in $V$.
 	
 	Recall that if $\rho$ is a homomorphism, then for any two elements $g$ and $h$ in $G$,
 	\begin{align}\label{eq:homomorphism}
-		\rho(gh) = \rho(g)\rho(h),
+		\rho(gh) = \rho(g)\rho(h).
 	\end{align}
-	and these two consequences follows:	
+	From equation \ref{eq:homomorphism}, two consequences follows:	
 	\begin{proposition}
 		For the identity element $e$ of $G$ and an arbitrary element $g$ with inverse $g^{-1}$ in $G$,
 		\begin{align}
@@ -35,7 +35,7 @@
 		\begin{align}
 			\rho(g)^{-1} = \rho(g^{-1}),
 		\end{align}
-		where $\id$ is the identity transformation and $\rho(g)^{-1}$ is the inverse representation of $g$.
+		where $\id$ is the identity transformation and $\rho(g)^{-1}$ is the inverse of the representation of $g$.
 	\end{proposition}
 	\begin{proof}
 		Take $g$ as an arbitrary element of $G$. The first identity follows from taking $h=e$ in eq.\ref{eq:homomorphism}:
@@ -50,7 +50,7 @@
 	\end{proof}
 	
 	\begin{note}
-		If the vector space $V$ is provided with a basis, then a matrix representation of $G$ may be found. A matrix representation is not canonical, ie it is dependent on the basis chosen for $V$. %Two representations $\rho(g)$ and $\tilde{\rho}(g)$ are similar if there is a transformation $f$ from $\GL(V)$ such that $\tilde{\rho}(g) = f \cdot \rho(g)$ for every $g$ in $G$.
+		If the vector space $V$ is provided with a basis, then a matrix representation of $G$ may be found. A matrix representation is not canonical, ie it is dependent on the basis chosen for $V$. If $\rho(g)$ and $\tilde{\rho}(g)$ are representations of a $g$ in $G$ in $V$, then there is a transformation $f \in \GL(V)$ such that $\tilde{\rho}(g) = f \circ \rho(g)$.
 	\end{note}
 	
 	\begin{note}
@@ -58,7 +58,7 @@
 	\end{note}
 	
 	\begin{note}
-		Another abuse of notation is that $\rho$ is sometimes dropped and the action of $\rho(g)$ on a vector $\vvec$ is then denoted by $\rho(g)(\vvec) = g\vvec$.
+		Another abuse of notation is that $\rho$ is sometimes dropped and the action of $\rho(g)$ on a vector $\vvec$ is then denoted by $g\vvec$, instead of $\rho(g)(\vvec)$.
 	\end{note}
 	
 	\subsection{Subrepresentations and irreducibility}
@@ -133,19 +133,29 @@
 			The theorem will be proved using induction on complementary subspaces, using proposition \ref{prop:compsubrepr}. If $V$ itself is irreducible, we are done. If $V$ is not irreducible, then by definition \ref{def:subreprs} there is a subrepresentation $W$ of $V$. Then according to proposition \ref{prop:compsubrepr}, there is a complementary subrepresentation $W^\perp$ to $W$ in $V$ such that $V = W \oplus W^\perp$. If both of $W$ and $W^\perp$ are irreducible, then we are done. If either are not, then use the same method as used on $V$. After recursion on $W$ and $W^\perp$ and since $V$ is a finite vector space, we are done.
 		\end{proof}
 	
-	\subsection{Tensor operations on representations}
+	\subsection{Tensor operations on representations}\label{sect:tensorops}
 	
 	In the previous section, we reduced representations into their constituent irreducibles. In this section we will study some methods to create new representations by conversely putting them together using vector space and tensor operations.
 	
-	Let $V$ and $W$ be representations of $G$ with respective degrees $k$ and $l$ and bases $(\vhat_i)_{i=1}^k$ and $(\what_i)_{i=1}^l$. Then all the following vector spaces are also representations of $G$.
+	Let $V$ and $W$ be representations of $G$ with respective degrees $k$ and $l$ and bases $(\vhat_i)_{i=1}^k$ and $(\what_i)_{i=1}^l$. Let $\rho_V$ and $\rho_W$ be representations of some $g \in G$ and let $\vvec \in V$ and $\wvec \in W$. Then all the following vector spaces are also representations of $G$.
 	
-	\paragraph{Direct sum of representations.} The direct sum $V \oplus W$ is a representation. By recursion, for a positive integer $n$, the direct sum of $n$ copies of $V$, denoted
+	\paragraph{Direct sum of representations.} The direct sum $V \oplus W$ is a representation given by
+	\begin{align}
+		\rho_{V \oplus W}\cdot(\vvec \oplus \wvec) = (\rho_V \oplus \rho_W)\cdot(\vvec \oplus \wvec) = \rho_V \cdot \vvec \oplus \rho_W \cdot \wvec.
+	\end{align}
+	The degree of $V \oplus W$ is $k+l$.
+	
+	By recursion, for a positive integer $n$, the direct sum of $n$ copies of $V$, denoted
 	\[
 		nV = \underset{n \text{ times}}{\underbrace{V \oplus \cdots \otimes V}}
 	\]
 	is a representation.
 	
-	\paragraph{Tensor product of representations.} The tensor product $V \otimes W$ is a representation.
+	\paragraph{Tensor product of representations.} The tensor product $V \otimes W$ is a representation given by
+	\begin{align}
+		\rho_{V \otimes W}\cdot(\vvec \otimes \wvec) = (\rho_V \otimes \rho_W)\cdot(\vvec \otimes \wvec) = \rho_V \cdot \vvec \otimes \rho_W \cdot \wvec.
+	\end{align}
+	The degree of $V \otimes W$ is $kl$.
 	
 	\paragraph{Tensor power of a representation.} By recursion, for a positive integer $n$, the $n$th tensor power of $V$,
 	\[
@@ -155,7 +165,11 @@
 	
 	\paragraph{The symmetric and exterior powers.} The $n$th tensor power $V^{\otimes n}$ has two  subrepresentations: the symmetric powers $\Sym^n V$ and the exterior powers $ \bigwedge^n V$. They are complementary such that $V^{\otimes n} = \Sym^n V \oplus \bigwedge^n V$.
 	
-	\paragraph{Dual representation.} The dual space of $V$, denoted $V^*$, is a representation. It is the set of all complex transposed vectors\footnote{fysikervarning, $V$ är ett kolumnvektorrum (ket-rum) och $V^*$ är det relaterade radvektorrummet (bra-rum).} of $V$. It is identified with the set of all linear functions\footnote{någon sorts skalär/inre produkt} from $V$ to $\C$.
+	\paragraph{Dual representation.} The dual space of $V$, denoted $V^*$, is a representation by 
+	\begin{align}
+		\rho_{V^*} = \bar{\rho_V}.
+	\end{align}
+	It is the set of all complex transposed vectors\footnote{fysikervarning, $V$ är ett kolumnvektorrum (ket-rum) och $V^*$ är det relaterade radvektorrummet (bra-rum).} of $V$. It is identified with the set of all linear functions\footnote{någon sorts skalär/inre produkt} from $V$ to $\C$.
 	
 	\paragraph{Set of homomorphisms.} The set of all linear functions between $V$ and $W$, denoted $\Hom(V,W)$ is itself a representation. It is identified with the tensor product $\Hom(V,W) = V^* \otimes W$. In particular, the dual representation is identified with $V^* = \Hom(V,\C)$.
 	
