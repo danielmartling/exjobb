@@ -282,7 +282,34 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 		Let $\rho$ be a representation of a finite group $G$ in a finite-dimensional vector space $V$. Let $W$ be a $G$-invariant subspace of $V$. Then there is a  $G$-invariant subspace $W'$ of $V$ complementary to $W$ such that $V = W \oplus W'$.
 	\end{theorem}
 	\begin{proof}
-		By corollary \ref{thm:compsubspaces}, there is a complementary subspace $W'$ in $V$ such that $V = W \oplus W'$. For any vector $\vvec \in V$, it is partitioned into one part $\wvec$ from $W$ and one part $\wvec'$ from $W'$. Let $\pi: V \rightarrow W$ be the orthogonal projection of $V$ onto $W$, then $\pi(\vvec) = \wvec$, $\pi(\wvec) = \wvec$ and $\pi(\wvec') = \0$. Since $W$ is $G$-invariant, $\rho_g$ preserves $W$, and so do $\rho_{g^{-1}}.
+		By corollary \ref{thm:compsubspaces}, there is a complementary subspace $W'$ in $V$ such that $V = W \oplus W'$. An arbitrary vector $\vvec \in V$ can be written as a direct sum of a $\wvec$ from $W$ and a $\wvec'$ from $W'$. Let $\pi: V \rightarrow W$ be the orthogonal projection of $V$ onto $W$, then $\pi(\vvec) = \wvec$, $\pi(\wvec) = \wvec$ and $\pi(\wvec') = \0$. 
+		
+		Consider the ``average'' of this projection over $G$, 
+		\begin{align*}
+			\bar{\pi} = \frac{1}{|G|} \sum_{g \in G} \rho_g \circ \pi \circ \rho_g^{-1},
+		\end{align*}
+		and its action on a vector $\wvec \in W$:
+		\begin{align*}
+			\bar{\pi}(\wvec) = \frac{1}{|G|} \sum_{g \in G} \rho_g \circ \pi \circ \rho_g^{-1} (\wvec).
+		\end{align*}
+		
+		
+		
+		Since $W$ is $G$-invariant, $\rho_g$ preserves $W$, and so do $\rho_{g}^{-1}$, so $\rho_g^{-1}(\wvec)$ is in $W$. 
+		
+		By definition, $\pi$ leaves any vector in $W$ fixed, so since $\rho_g^{-1}(\wvec) \in W$, we have $\pi \circ \rho_g^{-1}(\wvec) = \rho_g^{-1}(\wvec)$, so now we have 
+		\begin{align*}
+			\bar{\pi}(\wvec) = \frac{1}{|G|} \cdot\sum_{g \in G} \underset{=\id}{\underbrace{\rho_g \circ \rho_g^{-1}}} (\wvec)
+			= \frac{1}{|G|} \cdot \wvec \sum_{g \in G} 1 = \frac{1}{|G|}\cdot  |G| \cdot \wvec = \wvec,
+		\end{align*}
+		thus the image of $\bar{\pi}$ is in isomorphic correspondence with the elements of $W$, and hence also the elements of $V$.
+		
+		
+		Consider how $\rho_g \circ \pi \circ \rho_g^{-1}$ acts on 
+		
+		\begin{align*}
+			\bar{\pi}(\wvec') = \frac{1}{|G|} \sum_{g \in G} \rho_g \circ \pi \circ \rho_g^{-1}(\wvec')
+		\end{align*}
 	\end{proof}
 	
 \subsection{Irreducible representations}
