@@ -1,0 +1,19 @@
+thesis/
+	main.tex
+    cover/
+        cover.pdf
+	introduction/
+        abstract.tex
+        toc.tex
+		introduction.tex
+    background/
+        background.tex
+        grupper.tex
+        symmetricgroup.tex
+        groupaction.tex
+        vectorspace.tex
+	reprthry/
+		reprthry.tex
+		examples.tex
+        character.tex
+    references.tex

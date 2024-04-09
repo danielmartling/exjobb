@@ -1,0 +1,180 @@
+%	\clearpage{\thispagestyle{empty}}
+%\section{Representation Theory 2}
+
+%The layout of this section is based on \cite{Serre}.
+
+%Let $V$ be a finite vector space over $\C$ with dimension $\dim V = n$. The group of automorphisms of $V$ is denoted $\GL(V)$ and any element $f$ therefrom is a linear map $f: V \rightarrow V$. If a basis is provided for $V$ then $\GL(V)$ is isomorphic to $\GL_n(\C)$, the set of invertible $n \times n$-matrices, and then $f$ is such a matrix, where again $n = \dim V$\cite[18.1]{DummitFoote}.
+
+%Let $G$ be a finite group of degree $|G| = n$ written multiplicatively. 
+
+%\begin{definition}[Representation]
+%	A representation of a finite group $G$ in the vector space $V$ is a homomorphism 
+%	\[
+%	\rho: G \rightarrow \GL(V)
+%	\]
+%	that assign every element of $G$ to an element of $\GL(V)$. If $V$ has a basis, there is for every $g$ in $G$ a matrix representation
+%	\[
+%		\mathbf{X}(g) = (x_{ij})_{n \times n}.
+%	\]
+%	\begin{note}
+%		As a shorthand, $V$ itself is called the representation.
+%	\end{note}
+%\end{definition}
+
+%As a consequence of the homomorphism of $\rho$, $\rho(e) = \1_n$ (the identity matrix) for the identity element $e$ of $G$ and $\rho(gh) = \rho(g)\rho(h)$ and $\rho(g)^{-1} = \rho(g^{-1})$ for any $g$ and $h$ in $G$.
+
+%The \textbf{degree of the representation} is the same as the dimension of the vector space.
+
+%\subsection{Tensor operations on representations}
+%	
+%	To-do here:
+%	\begin{enumerate}
+%		\setlength\itemsep{-1em}
+%		\item direct sums of representations
+%		\item definition of degree of representation
+%		\item definition of subrepresentation
+%	\end{enumerate}
+%	
+%\subsection{Irreducibility, Schur's and Maschke's}
+%	
+%	\begin{theorem}[Maschke's theorem]\label{thm:maschke}
+%		Let $G$ be a finite group and let $V$ be any arbitrary representation of $G$, then $V$ is composed of a number of not necessarily distinct irreducible subrepresentations $W_i$ of $V$, or in other words,
+%		\begin{align}
+%			V = \bigoplus_i W_i.
+%		\end{align}
+%	\end{theorem}
+%	
+%	\begin{note}
+%		The direct sum can be expressed in terms of \underline{distinct} subrepresentations $W_i$ of $V$ and their multiplicities $a_i$ as
+%		\begin{align}
+%			V = \bigoplus_i a_i W_i,
+%		\end{align}
+%		where $a_i W_i$ is the direct sum of $a_i$ copies of $W_i$.
+%	\end{note}
+%	
+%	To prove Maschke's theorem, first we establish a few definitions and lemmas.
+%	
+%	\begin{corollary}
+%		If the representation is of degree 1, $V = W_1$ and $\dim V = 1$, it is clearly irreducible.
+%	\end{corollary}
+%	
+%	
+%	
+%	\begin{proof}[Proof of Maschke's theorem \ref{thm:maschke}]
+%		The theorem will be proved using induction on complementary subspaces. If $V$ itself is irreducible, we are done. If $V$ is not irreducible, then there is a non-trivial proper subrepresentation $W$ of $V$ with a basis $\{\ebas_i\}_i$, then according to lemma \ref{lemma:compsubspace}, there is a complementary ``orthogonal'' subrepresentation $W^\perp$ such that $V = W \oplus W^\perp$. If both of $W$ and $W^\perp$ are irreducible, then we are done. If either are not, then after recursion on $W$ and $W^\perp$ and since $V$ is a finite vector space, we are done.
+%	\end{proof}
+
+%\subsection{Some naïve examples}
+
+%In this section, $G$ is a finite group of order $|G| = n$. 
+
+%\paragraph*{The trivial and signature representations.}
+
+%	For any $G$, and choosing $V = \R$, a map
+%	\[
+%		\rho: G \rightarrow \GL(\R)
+%	\]
+%	defined by $ \rho(g) = 1$ for every $g$ in $G$, in other words mapping every element in $G$ to the trivial element of $V = \R$. It is trivially a homomorphism since $\rho(e)=1$ and both $\rho(gh)=1$ and $\rho(g)\rho(h)=1$ and is called the \textbf{trivial representation}. It is a representation of degree 1.
+%	
+%	%Letting $\mathbf{X}(g) = 1$ for every $g$ in $G$, we have a trivial representation of degree 1. This is trivially a homomorphism and thus a representation.
+%	
+%	Any group has a trivial degree 1 representation, but there are many trivial representations of larger degree, for example choosing $V = \R^3$, we define the representation by $\rho(g) = \1_3$, the three-by-three identity matrix. However, this is not an irreducible representation as $\R^3 = \R \oplus \R \oplus \R = 3\R$ and
+%	\[
+%		\begin{pmatrix} 1&0&0\\0&1&0\\0&0&1 \end{pmatrix} = (1)\oplus(1)\oplus(1).
+%	\]	
+	
+%	The symmetric group has another degree 1 representation. Every element $\sigma$ of the symmetric group of degree $n$, denoted $S_n$, has a sign, or parity, denoted $\sgn(\sigma)$ defined by the number of transpositions\footnote{2-cycles} required to construct it. Letting $k$ be that number, then the parity or sign of $\sigma$ is $\sgn(\sigma)=(-1)^k$, so an \textbf{even} permutation has sign $+1$ and an \textbf{odd} permutation has sign $-1$. Now, with $G = S_n$ and choosing $V=\F_2$, this $\sgn$ function
+%	\[
+%		\sgn: S_n \rightarrow \{-1, 1\}
+%	\]
+%	defined as above is also a homomorphism since $\rho(e) = 1$ and for two arbitrary elements $\sigma$ and $\tau$ of $S_n$ with respective sign $(-1)^s$ and $(-1)^t$ we have 
+%	\[
+%		\rho(\sigma)\rho(\tau) = (-1)^s(-1)^t = (-1)^{st} = \rho(\sigma\tau).
+%	\] 
+%	This $\sgn$ function is called the \textbf{alternating representation}\footnote{In some literature called the sign or signature representation.} of the symmetric group.
+	
+%	\paragraph{Permutation and regular representation}
+	
+%	Let the group $G$ act on an appropriately chosen set $A$ by
+%	\[
+%		\phi : G \times A \rightarrow A
+%	\] % could be replaced by by ``permutating its elements''
+%	defined by $\phi: g \mapsto ga$. After constructing a vector space\marginnote{What is the dim?} $V$ with a basis $\mathcal{B} = ( \ebas_a )_{a \in A}$, we can define a representation
+%	\[
+%		\rho: G \rightarrow \GL(V)
+%	\]
+%	defined by
+%	\[
+%		\rho(g)(\ebas_a) = \ebas_{ga}.
+%	\]
+%	This is a homomorphism since for any $a$ in $A$, $\rho(e)$ acts as a identity map by 
+%	\[
+%		\rho(e)(\ebas_a) = \ebas_{ea} = \ebas_a
+%	\]
+%	and also for any $g$ and $h$ in $G$, 
+%	\[
+%		\rho(g)\rho(h)(\ebas_a) = \rho(g)(\ebas_{ha}) = \ebas_{gha} = \rho(gh)(\ebas_a).
+%	\]
+%	This homomorphism is called the \textbf{permutation representation}.
+	
+%	\begin{example}[Some examples]
+%		Here are some suggestions for permutation representations
+%		\begin{itemize}
+%			\item $S_n$ can act on $\{1,2,\ \dots, n\}$, then $V$ is $\R^n$ and for a $\sigma$ in $S_n$, $\rho(\sigma)$ permutes the $i$th coordinate axis tho the $\sigma(i)$th axis.
+%			\item $Z_n$ (the cyclic group of size $n$) can act on the $n$th roots of unity (finite subset of $S_1$) by rotation???
+%			\item $\D_{2n}$ (the dihedral group of degree $n$, size $2n$) can act on the vertices of a regular $n$-gon (ostensibly the set $\{1, 2, \ \dots, n\}$)(I SUPPOSE??? HOW???)
+%		\end{itemize}
+%	\end{example}
+%	
+%	Instead of any general set, we can let $G$ act on itself. Similarly as above, we construct a vector space with basis $( \ebas_g )_{g \in G}$ and define a representation
+%	\[
+%		\rho: G \rightarrow \GL(V)
+%	\]
+%	defined by
+%	\[
+%		\rho(g)(\ebas_h) = \ebas_{gh}.
+%	\]
+%	To show that it is a homomorphism, one could follow the same steps as above. This is called the \textbf{regular representation}.
+%	
+%\paragraph{The regular representation}
+%
+%In some sense, we can let $G$ act on itself by multiplication. Let $G$ be a finite group of order $n$ and $V$ be a vector space with basis $\left( \ebas_g \right)_{g \in G}$ defined by\footnote{Bad notation! $\ebas_1$ is the basis vector associated with the identity element $e$ of $G$.} $\ebas_1 = e$ and $\ebas_g = \rho(g)(\ebas_1)$. 
+%
+%\paragraph{The permutation representation}
+%
+%We can let $G$ act on any arbitrary set $A$, then,
+%\[
+%	\rho: G \times A \rightarrow A 
+%\]
+%defined by 
+%\[
+%	\rho(g): a \mapsto ga
+%\]
+%for any $g$ in $G$ and $a$ in $A$. Then $V$ is a vector space with basis $\left( \ebas_a \right)_{a \in A}$ where $\rho(g)(\ebas_a) = \ebas_{ga}$.
+%
+%It is ``natural'' to let $S_n$ act on $\{1, 2, \dots, n\}$.
+%
+%\begin{example}[Representations of $S_n$.]
+%	Letting $\mathbf{T}(\sigma) = 1$ for every $\sigma$ in $S_n$, we have a trivial representation $T$ of $S_n$.
+%	
+%	Since $S_n$ is a group of permutations where every element has a sign property, the sign function
+%	\[
+%		\sgn(\sigma) = (-1)^k
+%	\]
+%	where $k$ is the least number of disjoint transpositions needed to construct $\sigma$, is an appropriate representation since $\sgn(\sigma)\sgn(\tau) = \sgn(\sigma\tau)$ for every $\sigma$ and $\tau$ in $S_n$.
+%	
+%	
+%	
+%	\begin{table}[hbt!]
+%		\centering
+%		\begin{tabular}{c | c c c c c c }
+%			$S_3$  & $e$ & $(12)$ & $(13)$ & $(23)$ & $(123)$ & $(132)$ \\ \hline
+%			 $T$   & 1   & 1      & 1      & 1      & 1       & 1       \\
+%			$\sgn$ & 1   & -1     & -1     & -1     & 1       & 1       \\
+%			 $R$   &     &        &        &        &         &         \\
+%			 $P$   &     &        &        &        &         &
+%		\end{tabular}
+%	\end{table}
+%	
+%	
+%\end{example}

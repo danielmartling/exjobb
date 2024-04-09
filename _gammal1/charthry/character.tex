@@ -1,0 +1,70 @@
+\clearpage{\thispagestyle{empty}}
+\section{Character Theory}
+
+%	For a representation $\rho$ of a group $G$ in a vector space $V$, the character of the representation is defined as the trace of the matrix representation in $\GL(V)$ of a element $g$ of $G$. If the matrix representation is given by
+%	\begin{align}
+%		X(g) = \left( x_{ij} \right)_{n \times n}
+%	\end{align}
+%	then the character is
+%	\begin{align}
+%		\chi_V(g) = \Tr X(g) = \sum_{i=1}^{n} x_{ii}.
+%	\end{align}
+%	Evident from this definition, the character of a degree 1 representation is the same as the representation, since a $1 \times 1$-matrix is usually identified with its only element.
+%	
+%	The character of the entire group $G$ in a representation $V$ is a vector 
+%	\begin{align}
+%		\chi_V = \left( \chi_V(g) \right)_{g \in G},
+%	\end{align}
+%	sometimes abbreviated to just containing a character for every conjugacy class
+%	\begin{align}
+%		\chi_V = \left( \chi_V([g]) \right)_{[g] \subseteq G},
+%	\end{align}
+%	since ``character'' is a class function on the elements of $G$.
+%	
+%	Since the trace of a matrix is invariant under conjugation, the character
+	
+	\begin{definition}[Character of a representation]\label{def:character}
+		Let $\rho$ be a representation of degree $n$ of a group $G$ in a vector space $V$. The \textbf{character} of the representation is defined to be the trace of the representation. In other words, if $\rho(g)$ is the representation of a $g$ in $G$ and it has the matrix representation
+		\begin{align}
+			\rho_V(g) = (x_{ij})_{n \times n},
+		\end{align}
+		then the character of this $g$ is
+		\begin{align}
+			\chi_V(g) := \Tr \rho_V(g) = \sum_{i=1}^{n} x_{ii}.\label{eq:deftrace}
+		\end{align}
+		When $V$ or $g$ are contextually obvious they are omitted, ie. $\chi = \Tr \rho$.
+	\end{definition}
+	
+	\begin{corollary}[Character of degree 1 representation]\label{cor:chardeg1}
+		Evident from definition \ref{def:character}, the character of a degree 1 representation is the same as the representation, since a $1 \times 1$-matrix is usually identified with its only element.
+	\end{corollary}
+	\begin{proof}
+		For a degree 1 representation, $n=1$ and then equation \ref{eq:deftrace} becomes $\chi_V(g) = x_{11}$ which is identified with $(x_{11}) = \rho_V(g)$.
+	\end{proof}
+	
+	Recall from linear algebra that two similar matrices have the same trace \cite[Thm 5.4.]{Holst} and that two matrices $X$ and $Y$ are similar if there exists another matrix $S$ such that $SXS^{-1} = Y$. 
+	
+	Also, recall that the trace is the sum of the eigenvalues of a matrix. \textit{SOURCE}
+	
+	\begin{lemma}[Trace function is a class function]
+		The trace function = ``character function'' is invariant under conjugation, it is a class function on the elements of $G$, it partitions $G$ into disjoint conjugacy classes where all $g$ in the conjugacy class $[g]$ has the same character.
+	\end{lemma}
+	
+	\begin{theorem}
+		The character of a representation is independent of chosen matrix representation and chosen representative of a conjugacy class.
+	\end{theorem}
+	\begin{proof}
+		Consequence of previous definitions and recollections.
+	\end{proof}
+	
+	\begin{theorem}[Expected number of irreducible representations]\label{thm:numberirrep}
+		The number of irreducible representations of a group is the same as the number of conjugacy classes of the group.
+	\end{theorem}
+	\begin{proof}
+		SOURCE
+	\end{proof}
+	
+	\subsection{Projection formulae, Schur's lemma}
+	
+	\textit{TO BE WRITTEN}
+	
