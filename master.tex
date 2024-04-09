@@ -191,10 +191,11 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 }
 
 %\input{exempelsektioner.tex}
+\input{preliminary.tex}
 
 \section{Representations of finite groups}
 
-\subsection{First definitions}
+\paragraph{First definitions}
 
 	Let $G$ be a finite group with order $|G|$, written multiplicatively.
 	
@@ -234,33 +235,57 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 		but $gg^{-1} = e$ and $\rho_e = \id$, implying $\rho_{g^{-1}} = \rho_g^{-1}$.
 	\end{proof}
 	
-	\subsection{Choice of basis}
+\paragraph{Choice of basis}
+\paragraph{Degree of a representation}
+
+\subsection{Basic examples}
+\paragraph{Representations of degree 1, including trivial and alternating}
+\paragraph{Permutation representation}
+\paragraph{Regular representation}
+
+
+\subsection{Subrepresentations}
 	
-	\subsection{Morphisms of representations}
+\paragraph{Morphisms of representations}
+
+	\begin{definition}[$G$-linear map]\cite{FultonHarris}
+		Let $\rho^V$ and $\rho^W$ be two representations of the same group $G$ in the vector spaces $V$ and $W$ respectively. A vector space map
+		\begin{align*}
+			\varphi: V \rightarrow W
+		\end{align*} 
+		is called a $G$-linear map if it is invariant under the action of the elements of $G$. In other words, 
+		\begin{align*}
+			\varphi \circ \rho^V_g = \rho^W_g \circ \varphi
+		\end{align*}
+		and	the diagram in Figure~\ref*{fig:commapmorp} is commutative for every $g \in G$.
+		\begin{figure}[hbt!]
+			\centering
+			\[\begin{tikzcd}
+				V \arrow{r}{\varphi} \arrow[swap]{d}{\rho^V_g} & W \arrow{d}{\rho^W_g} \\
+				V \arrow{r}{\varphi} & W
+			\end{tikzcd}\]
+			\caption{Morphism of representations}
+			\label{fig:commapmorp}
+		\end{figure}
+	\end{definition}
 	
-		\begin{definition}[$G$-linear map]\cite{FultonHarris}
-			Let $\rho^V$ and $\rho^W$ be two representations of the same group $G$ in the vector spaces $V$ and $W$ respectively. A vector space map
-			\begin{align*}
-				\varphi: V \rightarrow W
-			\end{align*} 
-			is called a $G$-linear map if it is invariant under the action of the elements of $G$. In other words, 
-			\begin{align*}
-				\varphi \circ \rho^V_g = \rho^W_g \circ \varphi
-			\end{align*}
-			and	the diagram in Figure~\ref*{fig:commapmorp} is commutative for every $g \in G$.
-			\begin{figure}[hbt!]
-				\centering
-				\[\begin{tikzcd}
-					V \arrow{r}{\varphi} \arrow[swap]{d}{\rho^V_g} & W \arrow{d}{\rho^W_g} \\
-					V \arrow{r}{\varphi} & W
-				\end{tikzcd}\]
-				\caption{Morphism of representations}
-				\label{fig:commapmorp}
-			\end{figure}
-		\end{definition}
-		
-		Consider a vector subspace $W$ of $V$ and the projection map $\pi: V \rightarrow W$.
-		
+	Consider the case where $W$ is a $G$-invariant\footnote{For $W$ to be a $G$-invariant space, it means that for every $g \in G$, $\rho_g\wvec \in W$ for any $\wvec \in W$ or that $\rho_g W \subseteq W$ for any $g\in G$.} vector subspace of $V$% and let $\pi:V \rightarrow W$ be the projection map of $V$ onto $W$. 
+	and let $\rho$ be a representation of $G$ in $V$. Then the restriction of $\rho$ to $W$, here denoted $\rho^W$ is a isomorphism of $W$ onto itself since $W$ is $G$-invariant, and thus $\rho^W_{gh} = \rho_g^W \rho^W_h$, hence $\rho^W: G \rightarrow \GL(W)$ is a representation if $G$ in $W$, motivating the following definition.
+	
+	\begin{definition}[Subrepresentation]\label{def:subrepr}
+		Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $W$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
+	\end{definition}
+	
+	Recall from linear algebra the existence of complementary vector subspaces of a vector space. Is there a similar property of subrepresentations?
+	
+	\begin{theorem}[Existence of complementary subrepresentations]
+		Let $\rho$ be a representation of a finite group $G$ in a finite-dimensional vector space $V$. Let $W$ be a $G$-invariant subspace of $V$. Then there is a  $G$-invariant subspace $W'$ of $V$ complementary to $W$ such that $V = W \oplus W'$.
+	\end{theorem}
+	\begin{proof}
+		By corollary \ref{thm:compsubspaces}, there is a complementary subspace $W'$ in $V$ such that $V = W \oplus W'$. For any vector $\vvec \in V$, it is partitioned into one part $\wvec$ from $W$ and one part $\wvec'$ from $W'$. Let $\pi: V \rightarrow W$ be the orthogonal projection of $V$ onto $W$, then $\pi(\vvec) = \wvec$, $\pi(\wvec) = \wvec$ and $\pi(\wvec') = \0$. Since $W$ is $G$-invariant, $\rho_g$ preserves $W$, and so do $\rho_{g^{-1}}.
+	\end{proof}
+	
+\subsection{Irreducible representations}
 		
 		
 		
