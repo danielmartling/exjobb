@@ -150,6 +150,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \newcommand{\Cyc}{\text{C}}
 \newcommand{\sgn}{\text{sgn}}
 \newcommand{\Span}{\text{Span}}
+\newcommand{\im}{\text{im }}
 
 % Vectors
 \newcommand{\bas}{\mathbf{\hat{e}}}
@@ -193,11 +194,12 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 %\input{exempelsektioner.tex}
 \input{preliminary.tex}
 
+\clearpage{\thispagestyle{empty}}
 \section{Representations of finite groups}
 
 \paragraph{First definitions}
 
-	Let $G$ be a finite group with order $|G|$, written multiplicatively.
+	Let $G$ be a finite group written multiplicatively. Denote its order by $|G|$ and the action of its elements with $\cdot$, eg. $g \cdot x$.
 	
 	Let $V$ be a finite-dimensional vector space over the field of complex numbers $\CC$. Its group of automorphisms is denoted by $\GL(V)$. If $V$ is provided with a basis, usually denoted $(\bas_i)_{i=1}^n$, where $n = \dim V$, then $\GL(V)$ is identified with the set of linear transformations of $V$, denoted $\GL_n(\CC)$\cite[18.1]{DummitFoote}.
 	
@@ -207,13 +209,14 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 			\rho: G \rightarrow \GL(V).
 		\end{align*}
 	\end{definition}
-	For every $g$ in $G$, there is a transformation $\rho_g$ in $\GL(V)$, or again $\rho_g: V \rightarrow V$ for some $g$ in $G$. In other words, $\rho_g$ acts acts as a linear map on a vector $\vvec$ in $V$ and maps it to the vector $\rho_g(\vvec)$ in $V$.
-	
-	Since $\rho$ is a homomorphism, recall that for any $g,h \in G$ we have
+	For every $g$ in $G$, there is a map $\rho_g$ in $\GL(V)$ acting on the elements of $V$ defined by \begin{align*}
+		g \cdot \vvec = \rho_g (\vvec), 
+	\end{align*}
+	and also for any $g,h \in G$ we have
 	\begin{align}\label{eq:homomorphism}
 		\rho_{gh} = \rho_g \rho_h.
 	\end{align}
-	From this, two consequences follow:
+	From the homomorphism of $\rho$, two consequences follow.
 	\begin{proposition}
 		For the identity element $e$ of $G$ and an arbitrary element $g$ with inverse $g^{-1}$ in $G$ we have,
 		\begin{align*}
@@ -246,22 +249,26 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 
 \subsection{Subrepresentations}
 	
-\paragraph{Morphisms of representations}
+\marginnote{Morphisms of reprs.}
 
 	\begin{definition}[$G$-linear map]\cite{FultonHarris}
-		Let $\rho^V$ and $\rho^W$ be two representations of the same group $G$ in the vector spaces $V$ and $W$ respectively. A vector space map
+		Let $V$ and $W$ be two representation spaces of a group $G$. A vector space map 
 		\begin{align*}
 			\varphi: V \rightarrow W
 		\end{align*} 
-		is called a $G$-linear map if it is invariant under the action of the elements of $G$. In other words, 
+		is called a $G$-linear map if it commutes with the group action of $G$, ie. for any $\vvec \in V$ and $g \in G$ we have
 		\begin{align*}
-			\varphi \circ \rho^V_g = \rho^W_g \circ \varphi
+			\varphi( g \cdot \vvec ) = g \cdot \varphi (\vvec),
 		\end{align*}
-		and	the diagram in Figure~\ref*{fig:commapmorp} is commutative for every $g \in G$.
-		\begin{figure}[hbt!]
+		or in terms of the maps $\rho_g^V: G \rightarrow \GL(V)$ and $\rho_g^W: G \rightarrow \GL(W)$,
+		\begin{align*}
+			\varphi \circ \rho^V_g (\vvec) = \rho^W_g \circ \varphi (\vvec).
+		\end{align*}
+		Equivalently one can say that the diagram in Figure~\ref*{fig:commapmorp} is commutative for every $g \in G$.
+		\begin{figure}%[hbt!]
 			\centering
 			\[\begin{tikzcd}
-				V \arrow{r}{\varphi} \arrow[swap]{d}{\rho^V_g} & W \arrow{d}{\rho^W_g} \\
+				V \arrow{r}{\varphi} \arrow[swap]{d}{g \cdot} & W \arrow{d}{g \cdot} \\
 				V \arrow{r}{\varphi} & W
 			\end{tikzcd}\]
 			\caption{Morphism of representations}
@@ -269,12 +276,32 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 		\end{figure}
 	\end{definition}
 	
-	Consider the case where $W$ is a $G$-invariant\footnote{For $W$ to be a $G$-invariant space, it means that for every $g \in G$, $\rho_g\wvec \in W$ for any $\wvec \in W$ or that $\rho_g W \subseteq W$ for any $g\in G$.} vector subspace of $V$% and let $\pi:V \rightarrow W$ be the projection map of $V$ onto $W$. 
-	and let $\rho$ be a representation of $G$ in $V$. Then the restriction of $\rho$ to $W$, here denoted $\rho^W$ is a isomorphism of $W$ onto itself since $W$ is $G$-invariant, and thus $\rho^W_{gh} = \rho_g^W \rho^W_h$, hence $\rho^W: G \rightarrow \GL(W)$ is a representation if $G$ in $W$, motivating the following definition.
+	
+	
+	
+	
+	
+	Consider the case where $W$ is a $G$-invariant\footnote{For $W$ to be a $G$-invariant space, it means that for every $g \in G$, $g \cdot \wvec \in W$ for any $\wvec \in W$ or that $\rho_g W \subseteq W$ for any $g\in G$.} vector subspace of $V$% and let $\pi:V \rightarrow W$ be the projection map of $V$ onto $W$. 
+	and let $\rho$ be a representation of $G$ in $V$. Then the restriction of $\rho$ to $W$, here denoted $\rho|_W$ is a isomorphism of $W$ onto itself since $W$ is $G$-invariant, and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarrow \GL(W)$ is a representation if $G$ in $W$, motivating the following definition.
 	
 	\begin{definition}[Subrepresentation]\label{def:subrepr}
-		Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $W$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
+		Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $V$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
 	\end{definition}
+	
+	\begin{proposition}
+		Let $V$ and $W$ be representation spaces of a group $G$ and let $\varphi: V \rightarrow W$ be a $G$-linear map. Then the kernel and the image of $\varphi$ are also representations of $G$ and more specifically, $\ker \varphi$ is a subrepresentation of $V$ and $\im \varphi$ is a subrepresentation of $W$.\marginnote{Cokernel??} 
+	\end{proposition}
+	\begin{proof}
+		\begin{itemize}
+			\item[i)] Let $\vvec \in \ker \varphi$. Then $g \cdot \varphi (\vvec) = \0$ since by definition $\varphi(\vvec) = \0$, but then we must also have $\varphi ( g \cdot \vvec ) = \0$ since $\varphi$ is a $G$-linear map, implying that $g \cdot \vvec \in \ker \varphi$. Since this holds for any $g \in G$ and $\vvec \in \ker \varphi$, the kernel of $\varphi$ is a $G$-invariant subspace of $V$ and thus a subrepresentation of $V$. \marginnote{Subrepr. not yet defined}
+			\item[ii)] For a $\wvec \in \im \varphi$, by definition there exists a $\vvec \in V$ such that $\varphi(\vvec) = \wvec$. Since $g \cdot \vvec \in V$, then we have that $\varphi ( g \cdot \vvec) \in W$. This implies that $g \cdot \varphi (\vvec)$ is also in $W$. Since this holds for any $g \in G$ and $\vvec \in V$, the image of $\varphi$ is a $G$-invariant subspace of $W$ and a thus a subrepresentation of $W$.	\qedhere
+%			\item[i)] Let $\vvec \in \ker \varphi$. Then $\rho_g \circ \varphi (\vvec) = \0$, but then we must also have $\varphi \circ \rho_g (\vvec) = \0$, implying that $\rho_g (\vvec) \in \ker \varphi$. Since this holds for any $g \in G$ and any $\vvec \in \ker \varphi$, the kernel of $\varphi$ is a $G$-invariant subspace of $V$ and thus a subrepresentation of $V$.
+%			\item[ii)] For a $\wvec \in \im \varphi$, there exists a $\vvec \in V$ such that $\varphi(\vvec) = \wvec$. Since $\rho_g(\vvec) \in V$, then we have that $\varphi \circ \rho_g(\vvec) \in W$. This implies that $\rho_g \circ \varphi (\vvec)$ is also in $W$. Since this holds for any $g \in G$ and $\vvec \in V$, the image of $\varphi$ is a $G$-invariant subspace of $W$ and a thus a subrepresentation of $W$.	\qedhere
+		\end{itemize}
+	\end{proof}
+	
+	
+	
 	
 	Recall from linear algebra the existence of complementary vector subspaces of a vector space. Is there a similar property of subrepresentations?
 	
@@ -302,10 +329,12 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 			\bar{\pi}(\wvec) = \frac{1}{|G|} \cdot\sum_{g \in G} \underset{=\id}{\underbrace{\rho_g \circ \rho_g^{-1}}} (\wvec)
 			= \frac{1}{|G|} \cdot \wvec \sum_{g \in G} 1 = \frac{1}{|G|}\cdot  |G| \cdot \wvec = \wvec,
 		\end{align*}
-		thus the image of $\bar{\pi}$ is in isomorphic correspondence with the elements of $W$, and hence also the elements of $V$.
+		thus the image of $\bar{\pi}$ is in isomorphic correspondence with the elements of $W$ and also the elements of $V$. Hence $\bar{\pi}$ is a $G$-linear map and behaves like Figure \ref{fig:commapmorp}, that is for any $g \in G$,		\begin{align}\label{eq:glinmap}
+			\bar{\pi} \circ \rho_g (\vvec) = \rho_g \circ \bar{\pi} (\vvec)
+		\end{align}
+		holds for any $\vvec \in V$.
 		
-		
-		Consider how $\rho_g \circ \pi \circ \rho_g^{-1}$ acts on 
+		Let us apply Equation~\ref{eq:glinmap} on a $\wvec' \in W'$. Since \
 		
 		\begin{align*}
 			\bar{\pi}(\wvec') = \frac{1}{|G|} \sum_{g \in G} \rho_g \circ \pi \circ \rho_g^{-1}(\wvec')

@@ -1,6 +1,21 @@
+\clearpage{\thispagestyle{empty}}
 \section{Preliminary topics}
 
 \subsection{Linear algebra topics}
+
+\paragraph{Definition of kernel and image of a map}
+
+\begin{definition}
+	Let $V$ and $W$ be two vector spaces and let $\varphi: V \rightarrow W$ be a linear map. Then the kernel and the image of the map are defined thusly:
+	\begin{itemize}
+		\item[i)] $\ker \varphi = \left\lbrace \vvec \in V \ \middle\vert \ \varphi(\vvec) = \0 \right\rbrace = \varphi^{-1}(\0)$.
+		\item[ii)] $\im \varphi = \left\lbrace \wvec \in W \ \middle\vert \ \exists \vvec \in V \text{ s.t. } \varphi(\vvec) = \wvec \right\rbrace = \varphi(V)$.
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	The kernel and the image of a linear map are subspaces of the domain and codomain of the map respectively, ie. $\ker \varphi$ is a subspace of $V$ and $\im \varphi$ is a subspace of $W$.
+\end{remark}
 
 \paragraph{Existence of complementary subspaces}
 
