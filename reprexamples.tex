@@ -1,0 +1,126 @@
+\subsection{Basic examples}
+
+\begin{example}[Trivial representation]\marginnote[left]{Is it a repr. in ANY v.s.? For example if dimV=3, is triv.repr. mapping to 3 by 3 id matrix? Later decomposable to direct sum 3T.}
+	For any group $G$ there is a trivial representation in any vector space $V$ defined by mapping each element of $G$ to 1, ie.
+	\begin{align*}
+		\rho_g = 1,
+	\end{align*}
+	for any $g \in G$. It is clearly a homomorphism since for any $g,h \in G$ we have that
+	\begin{align*}
+		\rho_{gh} = 1 = 1 \cdot 1 = \rho_g \rho_h.
+	\end{align*}
+	It is a representation of degree 1.
+\end{example}
+
+\begin{example}[Alternating representation of $\Sym_n$]
+	Choosing $G$ to be the symmetric group of degree $n$, another degree 1 representation can be found by studying the signs, or parities, of the elements of $\Sym_n$. By Proposition~\ref{prop:signwelldefined}, the sign of a permutation is well-defined, so for any two permutations $\sigma$ and $\tau$ with respective signs $(-1)^s$ and $(-1)^t$, their composition has the sign
+	\begin{align*}
+		\sgn(\sigma\tau) = (-1)^{st} = (-1)^s \cdot (-1)^t = \sgn\sigma \cdot \sgn \tau,
+	\end{align*}
+	so clearly the map $\sgn: \Sym_n \rightarrow \{\pm 1\}$ is a homomorphism and thus a representation of degree 1.
+\end{example}
+
+\subsubsection{Degree 1 representations of $\Cyc_n$}
+
+Choose $G$ to be the cyclic group of degree $n$, and let $g$ be a generator of $\Cyc_n$ such that 
+\begin{align*}
+	\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}
+\end{align*}
+and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{ab}}$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $\rho_g$ is mapped to a $n$th root of unity.
+In conclusion, for $\Cyc_n$, there are $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity.
+
+\begin{example}[Degree 1 representations of $\Cyc_4$]
+	For $n = 4$, the four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{table:C4}.\marginnote[left]{Same example as Sagan? Bad?? More examples n = 3,5?}
+	\begin{table}[hbt!]\label{table:C4}
+		\begin{tabular}{c | c c cl}
+			$Z_4$ & $e$ & $g$  & $g^2$ & $g^3$ \\ \hline
+			$\rho_0$           & 1   & 1    & 1     & 1     \\
+			$\rho_1$           & 1   & $i$  & $-1$  & $-i$  \\
+			$\rho_2$           & 1   & $-1$ & $1$  & $-1$   \\
+			$\rho_3$           & 1   & $-i$ & $-1$   & $i$
+		\end{tabular}
+		\centering
+		\caption{Four representations of $Z_4$.}
+	\end{table}
+\end{example}
+
+\subsubsection{Permutation representation}
+
+	For a group $G$, we chose a suitable set $X$ that $G$ in some sense naturally acts on. Let $V$ be a vector space spanned by a orthonormal basis $(\bas_x)_{x \in X}$, then we have a homomorphism
+	\begin{align*}
+		\rho:G \rightarrow \GL(V)
+	\end{align*} 
+	defined by its action on the basis vectors by, for any $g \in G$, 
+	\begin{align*}
+		\rho_g: \bas_x \mapsto \bas_{gx},
+	\end{align*}
+	that is $\rho$ inherited the group action of $G$ on $X$. It is a homomorphism since for any $g,h \in G$ we have
+	\begin{align*}
+		g(h \cdot \bas_x) = g(\bas_{hx}) = \bas_{ghx} = (gh)(\bas_x)
+	\end{align*}
+	for any $x \in X$.\marginnote{We have imposed a $G$-module structure on $V$.}
+	
+	Letting $G$ be the symmetric group of order $n$, it would be appropriate to choose the set $X = \{1, 2, \dots, n\}$ and to let any $\sigma \in \Sym_n$ permute any $i \in X$ by $(\sigma, i) \mapsto \sigma(i)$. Choosing a basis $(\bas_i)_{i=1}^n$ to span a vector space $V$, we define a homomorphism
+	\begin{align*}
+		\rho: \Sym_n \rightarrow \GL(V)
+	\end{align*}
+	defined for any $\sigma \in \Sym_n$ as
+	\begin{align*}
+		\rho_\sigma: \bas_i \mapsto \bas_{\sigma(i)}
+	\end{align*}
+	for any $i \in X$. In this basis, the corresponding set of matrix representations are the permutation matrices
+	\begin{align*}
+		\rho_\sigma = (r_{ij})_{n \times n} \text{, where } r_{ij} = \delta_{j,\sigma(i)},
+	\end{align*}
+	where $\delta_{k,l}$ is the Kronecker delta which vanishes if $k \neq l$ and is equal to one if $k=l$.
+	
+	For example a vector
+	\begin{align*}
+		(a_1, a_2, \dots, a_n) = a_1 \bas_1 + a_2 \bas_2 + \dots + a_n \bas_n \in V
+	\end{align*}
+	is permuted to 
+	\begin{align*}
+		(a_{\sigma^{-1}(1)}, a_{\sigma^{-1}(2)}, \dots, a_{\sigma^{-1}(n)}) = a_1 \bas_{\sigma(1)} + a_2 \bas_{\sigma(2)} + \dots + a_n \bas_{\sigma(n)}  \in V.
+	\end{align*}
+	
+	\marginnote{Yet another interpretation is that $\sigma$ permutes the $n$ coordinate axes.}
+	
+	\begin{example}[Permutation representation of $S_3$]
+		content...
+	\end{example}
+	
+	\begin{example}[Permutation representation of $S_4$]
+		content...
+	\end{example}
+
+\subsubsection{Regular representation}
+
+	Following the same reasoning as in the previous section, but instead, let $G$ act on itself. The corresponding vector space $V$ is spanned by the basis $(\bas_g)_{g \in G}$ constructed from the elements of $G$. A representation of $G$ in $V$ is then a map
+	\begin{align*}
+		\rho: G \rightarrow \GL(V)
+	\end{align*}
+	defined by
+	\begin{align*}
+		g \cdot \bas_h = \bas_{gh}
+	\end{align*}
+	for any $g,h \in G$.\marginnote{We have created a Group Algebra $\CC[G]$.}
+	
+	\begin{example}[Regular representation of $\Sym_3$]
+		content...
+	\end{example}
+
+\subsubsection{Coset representations}
+
+Let $H$ be a subgroup of $G$. Let $\mathcal{H} = \{g_1H, g_2H, \dots, g_kH\}$ be the set of left cosets of $H$ in $G$ and define the action of $G$ on $\mathcal{H}$ by $g(g_iH) = (gg_i)H$ for any $g\in G$ and $g_iH \in \mathcal{H}$. The $g_i$ are called transversals of their respective $g_iH$. Construct a vector space $V$ by spanning it with the transversals as a basis, denoted $(\ghat_i)_{i=1}^k$ and define the group action of $G$ on $V$ by replicating the group action of $G$ on $\mathcal{H}$.\cite[Example 1.3.5.]{Sagan}
+
+\begin{example}[Trivial representation again]
+	Choosing $H = G$ (the non-proper subgroup), the coset representation reduces to the trivial representation.
+\end{example}
+
+\begin{example}[Regular representation again]
+	Choosing $H = \{e\}$ (the trivial subgroup), then $\mathcal{H} = G$ and we construct a vector space $V$ using the elements of $G$ as a basis, hence we have found the regular representation.
+\end{example}
+
+\begin{example}[Choosing a smarter subgroup of $\Sym_3$]
+	As laid out in~\cite[Example 1.3.5.]{Sagan}, choosing the subgroup of $\Sym_3$ to be $H = \{(1), (2,3)\}$, then the cosets of $H$ are $\mathcal{H} = \{ H, (1,2)H, (1,3)H \}$, and computing the matrices will yield the permutation representation of $\Sym_3$.
+\end{example}

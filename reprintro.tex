@@ -1,0 +1,70 @@
+\clearpage{\thispagestyle{empty}}
+\section{Representations of finite groups}
+
+\marginnote{Include note on source!} 
+
+\paragraph{First definitions.}
+
+The main purpose of this text is to study linear representations of finite groups.
+
+Let $G$ be a finite group written multiplicatively. Denote its order by $|G|$ and the action of its elements with $\cdot$, eg. $g \cdot x$.
+
+Let $V$ be a finite-dimensional vector space over the field of complex numbers $\CC$. Its group of automorphisms is denoted by $\GL(V)$. If $V$ is provided with a basis, usually denoted $(\bas_i)_{i=1}^n$, where $n = \dim V$, then $\GL(V)$ is identified with the set of linear transformations of $V$, denoted $\GL_n(\CC)$\cite[18.1]{DummitFoote}.
+
+\begin{definition}[Representation]\cite{Serre}
+	Given a finite group $G$, a representation of $G$ in the vector space $V$ is a homomorphism
+	\begin{align}\label{eq:DefRepr}
+		\rho: G \rightarrow \GL(V).
+	\end{align}
+\end{definition}
+For every $g$ in $G$, there is a linear map $\rho_g$ in $\GL(V)$ with an action on the elements of $V$ defined by 
+\begin{align*}
+	g \cdot \vvec = \rho_g (\vvec).
+\end{align*}
+The linearity of the map means that for any $\vvec, \wvec \in V$,
+\begin{align}\label{eq:linearityOfg}
+	g \cdot (a\vvec + b\wvec) = ag\cdot\vvec + bg\cdot\wvec,
+\end{align} 
+and also since it is a homomorphism, for any $g,h \in G$ we have
+\begin{align}\label{eq:homomorphism}
+	\rho_{gh} = \rho_g \rho_h.
+\end{align}
+From the homomorphism of $\rho$, two consequences follow.
+\begin{proposition}
+	For the identity element $e$ of $G$ and an arbitrary element $g$ with inverse $g^{-1}$ in $G$ we have,
+	\begin{align}\label{eq:rhoIdAndInv}
+		\rho_e = \id \quad \text{and} \quad \rho_g^{-1} = \rho_{g^{-1}},
+	\end{align}
+	where $\id$ is the identity transformation and $\rho_{g^{-1}}$ is the inverse of the representation of $g$.
+\end{proposition}
+\begin{proof}
+	Take $g$ as an arbitrary element of $G$. The first identity follows from taking $h=e$ in Equation~\ref{eq:homomorphism}:
+	\begin{align*}
+		\rho_{eg} = \rho_e \rho_g.
+		%\rho(eg) = \rho(e)\rho(g). %	\rho(g) \overset{!}{=} \rho(eg) = \rho(e)\rho(g)
+	\end{align*}
+	Since $eg=g$ for any $g\in G$ we must have that $\rho_g = \rho_e\rho_g$ which is true if and only if $\rho_e = \id$. Instead taking $h=g^{-1}$ we have:
+	\begin{align*}
+		\rho_{gg^{-1}} = \rho_g \rho_{g^{-1}},
+		%\rho(g) \rho(g^{-1}) =  \rho(gg^{-1}~). %\overset{!}{=} \rho(e) = \id.
+	\end{align*}
+	but $gg^{-1} = e$ and $\rho_e = \id$, implying $\rho_{g^{-1}} = \rho_g^{-1}$.
+\end{proof}
+
+\begin{note}
+	A vector space $V$ together with a group action fulfilling Equations \ref{eq:DefRepr}, \ref{eq:homomorphism} and \ref{eq:rhoIdAndInv} gives $V$ the structure of a $G$-module \cite[1.3]{Sagan}. To avoid a treatment on modules, if a vector space $V$ is a $G$-module it will be referred to as a \textit{representation space} of $G$.
+\end{note}
+
+\begin{note}
+	The homomorphism $\rho$, the set of maps $\{\rho_g\}_{g \in G}$ and the representation space $V$ are interchangeably and abusively called the \textit{representation of $G$}.
+\end{note}
+
+\paragraph{Choice of basis.} 
+
+If a basis $\{\bas_i\}_{i=1}^n$ is provided for a representation space, then a \textit{matrix representation} can be provided. In this case, $\rho_g$ is the atrix in $\GL_n(\CC)$ associated with the action of $g$ expressed in the basis provided. A matrix representation is not canonical and is dependent on the basis chosen.
+
+\paragraph{Degree of a representation.} 
+
+\begin{definition}[Degree of a representation]
+	Let $V$ be a representation space of $G$. Then the dimension of $V$ is referred to as the degree of the representation.
+\end{definition}	

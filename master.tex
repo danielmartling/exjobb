@@ -29,7 +29,6 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \usepackage{enumitem} 
 \renewcommand\labelitemi{\textbullet} 
 
-
 % math environments
 %  we use \newtheorem to specify our theorem-like environments
    % (theorem, definition, etc.) and how to display and number them.
@@ -39,6 +38,8 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
    % Note 2: If you want swedish names you have to go and change the argument in brackets e.g. \newtheorem{thm}[defi]{Theorem} should become \newtheorem{thm}[defi]{Sats}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
+
+\newtheorem{hottake}{Hot Take}[section]
 
 \newtheorem*{problem}{Problem}
 \newtheorem{conjecture}[definition]{Conjecture}
@@ -144,10 +145,10 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \newcommand{\Norm}{\text{Norm}}
 \newcommand{\Type}{\text{Type}}
 \newcommand{\Dih}{\text{D}}
-\newcommand{\Sym}{\text{S}} %{\mathfrak{S}}
+\newcommand{\Sym}{\mathcal{S}} %{\mathfrak{S}} % \text{S}
 \newcommand{\Alt}{\text{A}}
 \newcommand{\Klein}{\text{V}}
-\newcommand{\Cyc}{\text{C}}
+\newcommand{\Cyc}{\mathcal{C}}%{\text{C}}
 \newcommand{\sgn}{\text{sgn}}
 \newcommand{\Span}{\text{Span}}
 \newcommand{\im}{\text{im }}
@@ -194,60 +195,14 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 %\input{exempelsektioner.tex}
 \input{preliminary.tex}
 
-\clearpage{\thispagestyle{empty}}
-\section{Representations of finite groups}
-
-\paragraph{First definitions}
-
-	Let $G$ be a finite group written multiplicatively. Denote its order by $|G|$ and the action of its elements with $\cdot$, eg. $g \cdot x$.
-	
-	Let $V$ be a finite-dimensional vector space over the field of complex numbers $\CC$. Its group of automorphisms is denoted by $\GL(V)$. If $V$ is provided with a basis, usually denoted $(\bas_i)_{i=1}^n$, where $n = \dim V$, then $\GL(V)$ is identified with the set of linear transformations of $V$, denoted $\GL_n(\CC)$\cite[18.1]{DummitFoote}.
-	
-	\begin{definition}[Representation]\cite{Serre}
-		Given a finite group $G$, a representation of $G$ in the vector space $V$ is a homomorphism
-		\begin{align*}
-			\rho: G \rightarrow \GL(V).
-		\end{align*}
-	\end{definition}
-	For every $g$ in $G$, there is a map $\rho_g$ in $\GL(V)$ acting on the elements of $V$ defined by \begin{align*}
-		g \cdot \vvec = \rho_g (\vvec), 
-	\end{align*}
-	and also for any $g,h \in G$ we have
-	\begin{align}\label{eq:homomorphism}
-		\rho_{gh} = \rho_g \rho_h.
-	\end{align}
-	From the homomorphism of $\rho$, two consequences follow.
-	\begin{proposition}
-		For the identity element $e$ of $G$ and an arbitrary element $g$ with inverse $g^{-1}$ in $G$ we have,
-		\begin{align*}
-			\rho_e = \id \quad \text{and} \quad \rho_g^{-1} = \rho_{g^{-1}},
-		\end{align*}
-		where $\id$ is the identity transformation and $\rho_{g^{-1}}$ is the inverse of the representation of $g$.
-	\end{proposition}
-	\begin{proof}
-		Take $g$ as an arbitrary element of $G$. The first identity follows from taking $h=e$ in Equation~\ref{eq:homomorphism}:
-		\begin{align}
-			\rho_{eg} = \rho_e \rho_g.
-			%\rho(eg) = \rho(e)\rho(g). %	\rho(g) \overset{!}{=} \rho(eg) = \rho(e)\rho(g)
-		\end{align}
-		Since $eg=g$ for any $g\in G$ we must have that $\rho_g = \rho_e\rho_g$ which is true if and only if $\rho_e = \id$. Instead taking $h=g^{-1}$ we have:
-		\begin{align}
-			\rho_{gg^{-1}} = \rho_g \rho_{g^{-1}},
-			%\rho(g) \rho(g^{-1}) =  \rho(gg^{-1}~). %\overset{!}{=} \rho(e) = \id.
-		\end{align}
-		but $gg^{-1} = e$ and $\rho_e = \id$, implying $\rho_{g^{-1}} = \rho_g^{-1}$.
-	\end{proof}
-	
-\paragraph{Choice of basis}
-\paragraph{Degree of a representation}
-
-\subsection{Basic examples}
-\paragraph{Representations of degree 1, including trivial and alternating}
-\paragraph{Permutation representation}
-\paragraph{Regular representation}
-
+\input{reprintro.tex}
+\input{reprexamples.tex}
 
 \subsection{Subrepresentations}
+
+	As laid out in \cite{FultonHarris}, we are looking for representations which are said to be ``atomic'' and conversely, for any arbitrary representation, how it is composed of these indecomposable representations. To study this subject we need the notion of a vector space map that respects or conserves the group action.
+	
+	
 	
 \marginnote{Morphisms of reprs.}
 
@@ -281,7 +236,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 	
 	
 	
-	Consider the case where $W$ is a $G$-invariant\footnote{For $W$ to be a $G$-invariant space, it means that for every $g \in G$, $g \cdot \wvec \in W$ for any $\wvec \in W$ or that $\rho_g W \subseteq W$ for any $g\in G$.} vector subspace of $V$% and let $\pi:V \rightarrow W$ be the projection map of $V$ onto $W$. 
+	Consider the case where $W$ is a $G$-invariant\footnote{For $W$ to be a $G$-invariant space, it means that for every $g \in G$, $g \cdot \wvec \in W$ for any $\wvec \in W$ or that $\rho_g(W) \subseteq W$ for any $g\in G$.} vector subspace of $V$% and let $\pi:V \rightarrow W$ be the projection map of $V$ onto $W$. 
 	and let $\rho$ be a representation of $G$ in $V$. Then the restriction of $\rho$ to $W$, here denoted $\rho|_W$ is a isomorphism of $W$ onto itself since $W$ is $G$-invariant, and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarrow \GL(W)$ is a representation if $G$ in $W$, motivating the following definition.
 	
 	\begin{definition}[Subrepresentation]\label{def:subrepr}
@@ -293,7 +248,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 	\end{proposition}
 	\begin{proof}
 		\begin{itemize}
-			\item[i)] Let $\vvec \in \ker \varphi$. Then $g \cdot \varphi (\vvec) = \0$ since by definition $\varphi(\vvec) = \0$, but then we must also have $\varphi ( g \cdot \vvec ) = \0$ since $\varphi$ is a $G$-linear map, implying that $g \cdot \vvec \in \ker \varphi$. Since this holds for any $g \in G$ and $\vvec \in \ker \varphi$, the kernel of $\varphi$ is a $G$-invariant subspace of $V$ and thus a subrepresentation of $V$. \marginnote{Subrepr. not yet defined}
+			\item[i)] Let $\vvec \in \ker \varphi$. Then $g \cdot \varphi (\vvec) = \0$ since by definition $\varphi(\vvec) = \0$, but then we must also have $\varphi ( g \cdot \vvec ) = \0$ since $\varphi$ is a $G$-linear map, implying that $g \cdot \vvec \in \ker \varphi$. Since this holds for any $g \in G$ and $\vvec \in \ker \varphi$, the kernel of $\varphi$ is a $G$-invariant subspace of $V$ and thus a subrepresentation of $V$. %\marginnote{Subrepr. not yet defined}
 			\item[ii)] For a $\wvec \in \im \varphi$, by definition there exists a $\vvec \in V$ such that $\varphi(\vvec) = \wvec$. Since $g \cdot \vvec \in V$, then we have that $\varphi ( g \cdot \vvec) \in W$. This implies that $g \cdot \varphi (\vvec)$ is also in $W$. Since this holds for any $g \in G$ and $\vvec \in V$, the image of $\varphi$ is a $G$-invariant subspace of $W$ and a thus a subrepresentation of $W$.	\qedhere
 %			\item[i)] Let $\vvec \in \ker \varphi$. Then $\rho_g \circ \varphi (\vvec) = \0$, but then we must also have $\varphi \circ \rho_g (\vvec) = \0$, implying that $\rho_g (\vvec) \in \ker \varphi$. Since this holds for any $g \in G$ and any $\vvec \in \ker \varphi$, the kernel of $\varphi$ is a $G$-invariant subspace of $V$ and thus a subrepresentation of $V$.
 %			\item[ii)] For a $\wvec \in \im \varphi$, there exists a $\vvec \in V$ such that $\varphi(\vvec) = \wvec$. Since $\rho_g(\vvec) \in V$, then we have that $\varphi \circ \rho_g(\vvec) \in W$. This implies that $\rho_g \circ \varphi (\vvec)$ is also in $W$. Since this holds for any $g \in G$ and $\vvec \in V$, the image of $\varphi$ is a $G$-invariant subspace of $W$ and a thus a subrepresentation of $W$.	\qedhere

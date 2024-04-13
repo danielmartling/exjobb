@@ -3,25 +3,64 @@
 
 \subsection{Linear algebra topics}
 
-\paragraph{Definition of kernel and image of a map}
+	\paragraph{Definition of kernel and image of a map}
+	
+	\begin{definition}
+		Let $V$ and $W$ be two vector spaces and let $\varphi: V \rightarrow W$ be a linear map. Then the kernel and the image of the map are defined thusly:
+		\begin{itemize}
+			\item[i)] $\ker \varphi = \left\lbrace \vvec \in V \ \middle\vert \ \varphi(\vvec) = \0 \right\rbrace = \varphi^{-1}(\0)$.
+			\item[ii)] $\im \varphi = \left\lbrace \wvec \in W \ \middle\vert \ \exists \vvec \in V \text{ s.t. } \varphi(\vvec) = \wvec \right\rbrace = \varphi(V)$.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{remark}
+		The kernel and the image of a linear map are subspaces of the domain and codomain of the map respectively, ie. $\ker \varphi$ is a subspace of $V$ and $\im \varphi$ is a subspace of $W$.
+	\end{remark}
+	
+	\paragraph{Existence of complementary subspaces}
+	
+	\begin{corollary}\label{thm:compsubspaces}
+		Let $V$ be a vector space and $W$ be a vector subspace of $V$. Then there exists a complementary vector subspace $W'$ in $V$ such that $W \cap W' = \emptyset$ and $W \cup W' = V$. This is equivalent to saying that $V$ is the direct sum of $W$ and $W'$, denoted as $V = W \oplus W'$.
+	\end{corollary}
+	\begin{proof}
+		La la la
+	\end{proof}
+	
+\subsection{Group theoretical topics}
 
-\begin{definition}
-	Let $V$ and $W$ be two vector spaces and let $\varphi: V \rightarrow W$ be a linear map. Then the kernel and the image of the map are defined thusly:
-	\begin{itemize}
-		\item[i)] $\ker \varphi = \left\lbrace \vvec \in V \ \middle\vert \ \varphi(\vvec) = \0 \right\rbrace = \varphi^{-1}(\0)$.
-		\item[ii)] $\im \varphi = \left\lbrace \wvec \in W \ \middle\vert \ \exists \vvec \in V \text{ s.t. } \varphi(\vvec) = \wvec \right\rbrace = \varphi(V)$.
-	\end{itemize}
-\end{definition}
-
-\begin{remark}
-	The kernel and the image of a linear map are subspaces of the domain and codomain of the map respectively, ie. $\ker \varphi$ is a subspace of $V$ and $\im \varphi$ is a subspace of $W$.
-\end{remark}
-
-\paragraph{Existence of complementary subspaces}
-
-\begin{corollary}\label{thm:compsubspaces}
-	Let $V$ be a vector space and $W$ be a vector subspace of $V$. Then there exists a complementary vector subspace $W'$ in $V$ such that $W \cap W' = \emptyset$ and $W \cup W' = V$. This is equivalent to saying that $V$ is the direct sum of $W$ and $W'$, denoted as $V = W \oplus W'$.
-\end{corollary}
-\begin{proof}
-	La la la
-\end{proof}
+	\subsubsection{Group action}
+	
+		We could let the group $G$ act on a set $X$ and study the action of $G$ on $X$ defined by
+		\begin{align*}
+			G \times X \rightarrow X
+		\end{align*}
+		and thereby permuting the elements of $X$ by for any $g \in G$,
+		\begin{align*}
+			(g,x) \mapsto g \cdot x = gx,
+		\end{align*}
+		for any $x \in X$.
+	
+	\subsubsection{The symmetric group}
+	
+		Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists a $\pi \in \Sym_n$ such that $\sigma = \pi \tau \pi^{-1}$. The conjugacy classes partition $\Sym_n$ into disjoint subsets. 
+		
+		\begin{proposition}[Conjugacy in $\Sym_n$]
+			Any elements $\sigma, \tau \in \Sym_n$ are conjugate if and only if they are of the same cycle type.
+		\end{proposition}
+		
+		\begin{definition}[Sign of a permutation]
+			\begin{align*}
+				\sgn(\sigma) = (-1)^k,
+			\end{align*}
+			where $k$ is the number of transpositions required to compose $\sigma$.
+		\end{definition}
+		
+		\begin{proposition}\label{prop:signwelldefined}
+			The sign of a permutation is well-defined. That is a permutation is either \textit{even} with sign +1 or \textit{odd} with sign -1.
+		\end{proposition}
+		\begin{proof}
+			\cite[Thm.12.6.1.]{Biggs}
+		\end{proof}
+		
+		
+		
