@@ -1,4 +1,4 @@
-\subsection{Basic examples}
+\subsection{Basic examples}\label{sect:basicreprs}
 
 \begin{example}[Trivial representation]\marginnote[left]{Is it a repr. in ANY v.s.? For example if dimV=3, is triv.repr. mapping to 3 by 3 id matrix? Later decomposable to direct sum 3T.}
 	For any group $G$ there is a trivial representation in any vector space $V$ defined by mapping each element of $G$ to 1, ie.
@@ -20,7 +20,7 @@
 	so clearly the map $\sgn: \Sym_n \rightarrow \{\pm 1\}$ is a homomorphism and thus a representation of degree 1.
 \end{example}
 
-\subsubsection{Degree 1 representations of $\Cyc_n$}
+\subsubsection{Degree 1 representations of $\Cyc_n$}\label{sect:deg1cycn}
 
 Choose $G$ to be the cyclic group of degree $n$, and let $g$ be a generator of $\Cyc_n$ such that 
 \begin{align*}
@@ -109,18 +109,18 @@ In conclusion, for $\Cyc_n$, there are $n$ representations of degree 1, each map
 		content...
 	\end{example}
 
-\subsubsection{Coset representations}
-
-Let $H$ be a subgroup of $G$. Let $\mathcal{H} = \{g_1H, g_2H, \dots, g_kH\}$ be the set of left cosets of $H$ in $G$ and define the action of $G$ on $\mathcal{H}$ by $g(g_iH) = (gg_i)H$ for any $g\in G$ and $g_iH \in \mathcal{H}$. The $g_i$ are called transversals of their respective $g_iH$. Construct a vector space $V$ by spanning it with the transversals as a basis, denoted $(\ghat_i)_{i=1}^k$ and define the group action of $G$ on $V$ by replicating the group action of $G$ on $\mathcal{H}$.\cite[Example 1.3.5.]{Sagan}
-
-\begin{example}[Trivial representation again]
-	Choosing $H = G$ (the non-proper subgroup), the coset representation reduces to the trivial representation.
-\end{example}
-
-\begin{example}[Regular representation again]
-	Choosing $H = \{e\}$ (the trivial subgroup), then $\mathcal{H} = G$ and we construct a vector space $V$ using the elements of $G$ as a basis, hence we have found the regular representation.
-\end{example}
-
-\begin{example}[Choosing a smarter subgroup of $\Sym_3$]
-	As laid out in~\cite[Example 1.3.5.]{Sagan}, choosing the subgroup of $\Sym_3$ to be $H = \{(1), (2,3)\}$, then the cosets of $H$ are $\mathcal{H} = \{ H, (1,2)H, (1,3)H \}$, and computing the matrices will yield the permutation representation of $\Sym_3$.
-\end{example}
+%\subsubsection{Coset representations}
+%
+%Let $H$ be a subgroup of $G$. Let $\mathcal{H} = \{g_1H, g_2H, \dots, g_kH\}$ be the set of left cosets of $H$ in $G$ and define the action of $G$ on $\mathcal{H}$ by $g(g_iH) = (gg_i)H$ for any $g\in G$ and $g_iH \in \mathcal{H}$. The $g_i$ are called transversals of their respective $g_iH$. Construct a vector space $V$ by spanning it with the transversals as a basis, denoted $(\ghat_i)_{i=1}^k$ and define the group action of $G$ on $V$ by replicating the group action of $G$ on $\mathcal{H}$.\cite[Example 1.3.5.]{Sagan}
+%
+%\begin{example}[Trivial representation again]
+%	Choosing $H = G$ (the non-proper subgroup), the coset representation reduces to the trivial representation.
+%\end{example}
+%
+%\begin{example}[Regular representation again]
+%	Choosing $H = \{e\}$ (the trivial subgroup), then $\mathcal{H} = G$ and we construct a vector space $V$ using the elements of $G$ as a basis, hence we have found the regular representation.
+%\end{example}
+%
+%\begin{example}[Choosing a smarter subgroup of $\Sym_3$]
+%	As laid out in~\cite[Example 1.3.5.]{Sagan}, choosing the subgroup of $\Sym_3$ to be $H = \{(1), (2,3)\}$, then the cosets of $H$ are $\mathcal{H} = \{ H, (1,2)H, (1,3)H \}$, and computing the matrices will yield the permutation representation of $\Sym_3$.
+%\end{example}
