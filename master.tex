@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{showkeys}
+
 \usepackage{latexsym,amsmath,amsthm,amssymb,bm,lmodern,titlesec,xcolor,graphicx,setspace,pdfpages,
 geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig,vmargin,tikz,hyperref}
 \usepackage[nottoc]{tocbibind}
@@ -28,6 +29,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \hypersetup{colorlinks=true,linkcolor=Blu,allbordercolors=white, urlcolor=blue, citecolor=Viola}
 \usepackage{enumitem} 
 \renewcommand\labelitemi{\textbullet} 
+
 
 % math environments
 %  we use \newtheorem to specify our theorem-like environments
@@ -245,13 +247,6 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 		Any representation $V$ has itself as a non-proper subrepresentation as well as the zero space as a trivial subrepresentation.
 	\end{example}
 	
-	If there are no proper and non-trivial $G$-invariant subspaces of a representation $V$, then it is said to be \textit{irreducible}. 
-	
-	\begin{example}[Degree 1 representations are irreducible]\cite[Example 1.4.2.]{Sagan}
-		A vector space of dimension 1 has no other subspace other than itself and the zero space, thus it is irreducible. Hence the trivial representation and the alternating representation of $\Sym_n$ discussed in Section~\ref{sect:basicreprs} and the degree 1 representations of $\Cyc_n$ found in Section~\ref{sect:deg1cycn} are irreducible representations of their respective groups.
-	\end{example}	
-	
-	
 \subsubsection{Some proper and non-trivial subrepresentations}
 
 	Let $G$ be a group and let us study its permutation representation and regular representation. 
@@ -318,24 +313,31 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 		\begin{align*}
 			\barpi = \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1},
 		\end{align*}
-		and see if it conserves the action of $G$.
-		
-		Let $\wvec \in W$. Then we have 
+		and see if it conserves the action of $G$. That is, does $\barpi\cdot \rho_g = \rho_g \cdot \barpi$ hold for every $g \in G$? Equivalently, let's consider
 		\begin{align*}
-			\barpi(\wvec) &= \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1} (\wvec) \\
-			&= \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \rho_g^{-1} (\wvec) & \text{($W$ is  $G$-invariant)} \\
-			&= \frac{1}{|G|} \sum_{g \in G} \wvec & \text{($gg^-1$ is id.)}\\
-			&= \frac{1}{|G|} |G|\wvec & \text{($|G|$ copies of $\wvec$)}\\
-			& = \wvec,
+			\rho_g \cdot \barpi \cdot \rho_g^{-1} &= \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \rho_h \cdot \pi \cdot \rho_h^{-1} \cdot \rho_g^{-1} \\
+			&= \frac{1}{|G|} \sum_{g \in G} \rho_{gh} \cdot \pi \cdot \rho_{gh}^{-1} & \text{($(gh)^{-1}=h^{-1}g^{-1}$)}\\
+			&= \frac{1}{|G|} \sum_{g' \in G} \rho_{g'} \cdot \pi \cdot \rho_{g'}^{-1} & \text{(Let $g' = gh$)} \\
+			&= \barpi.
 		\end{align*}
-		so $g \cdot \barpi (\wvec) = g \cdot \wvec$. Similarly,
-		\begin{align*}
-			\barpi(g \wvec) &= \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1} (\rho_g(\wvec)) \\
-			&= \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi (\wvec) & \text{($gg^{-1}$ is id.)}\\
-			&= \frac{1}{|G|} \sum_{g \in G} \rho_g (\wvec) \\
-			&= \frac{1}{|G|}
-		\end{align*}
-		
+		So, $\barpi \cdot \rho_g = \rho_g \cdot \barpi$ for every $g \in G$ and thus $\barpi: V \rightarrow W$ is a $G$-linear map, which means that its kernel, $\ker \barpi$, identified to be the complement $W'$ of $W$ in $V$, is also a $G$-invariant subspace of $V$ and thereby a subrepresentation of $V$. 
+%		Let $\wvec \in W$. Then we have 
+%		\begin{align*}
+%			\barpi(\wvec) &= \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1} (\wvec) \\
+%			&= \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \rho_g^{-1} (\wvec) & \text{($W$ is  $G$-invariant)} \\
+%			&= \frac{1}{|G|} \sum_{g \in G} \wvec & \text{($gg^{-1}$ is id.)}\\
+%			&= \frac{1}{|G|} |G|\wvec & \text{($|G|$ copies of $\wvec$)}\\
+%			& = \wvec,
+%		\end{align*}
+%		so $g \cdot \barpi (\wvec) = g \cdot \wvec$. Similarly,
+%		\begin{align*}
+%			\barpi(g \wvec) &= \frac{1}{|G|} \sum_{h \in G} \rho_h \cdot \pi \cdot \rho_h^{-1} (\rho_g(\wvec)) \\
+%			&= \frac{1}{|G|} \sum_{h \in G} \rho_h \cdot \pi (\rho_{h^{-1}g} (\wvec)) \\
+%			&= \frac{1}{|G|} \sum_{h \in G} \rho_{hh^{-1}} (\rho_g(\wvec)) & \text{($W$ is  $G$-invariant)}\\
+%			&= \frac{1}{|G|} \sum_{g \in G} \rho_g (\wvec) & \text{($hh^{-1}$ is id.)}\\
+%			&= \frac{1}{|G|}
+%		\end{align*}
+%		
 %		By corollary \ref{thm:compsubspaces}, there is a complementary subspace $W'$ in $V$ such that $V = W \oplus W'$. An arbitrary vector $\vvec \in V$ can be written as a direct sum of a $\wvec$ from $W$ and a $\wvec'$ from $W'$. Let $\pi: V \rightarrow W$ be the orthogonal projection of $V$ onto $W$, then $\pi(\vvec) = \wvec$, $\pi(\wvec) = \wvec$ and $\pi(\wvec') = \0$. 
 %		
 %		Consider the ``average'' of this projection over $G$, 
@@ -369,10 +371,20 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 	\end{proof}
 	
 \subsection{Irreducible representations}
+	
+	Now we have found that any given representation can be divided into complementary subrepresentations, and now we need the notion of an ``indivisible'' representation.
+	
+	\begin{definition}[Irreducible representation]
+		If there are no proper and non-trivial $G$-invariant subspaces of a representation $V$, then it is said to be \textit{irreducible}. 
+	\end{definition}
+	
+	We have already met a few of these.
+	
+	\begin{example}[Degree 1 representations are irreducible]\cite[Example 1.4.2.]{Sagan}
+		A vector space of dimension 1 has no other subspace other than itself and the zero space, thus it is irreducible. Hence the trivial representation and the alternating representation of $\Sym_n$ discussed in Section~\ref{sect:basicreprs} and the degree 1 representations of $\Cyc_n$ found in Section~\ref{sect:deg1cycn} are irreducible representations of their respective groups.
+	\end{example}	
 		
-		
-		
-		
+	
 
 %The section with references.
 
