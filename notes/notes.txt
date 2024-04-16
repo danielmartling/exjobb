@@ -1,0 +1,6 @@
+Introduction to Representation Theory of Finite Groups
+
+Representation Spaces
+
+Q: What kind of maps should you take with you on car trips?
+A: Automorphisms.
