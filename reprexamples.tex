@@ -1,36 +1,46 @@
 \subsection{Basic examples}\label{sect:basicreprs}
 
+This section follows \cite{Serre}.
+
+\subsubsection{Unital representations}
+
+	A representation $\rho$ where every $g$ is such that $|\rho_g| = 1$, is called a unital representation.
+
 \begin{example}[Trivial representation]\marginnote[left]{Is it a repr. in ANY v.s.? For example if dimV=3, is triv.repr. mapping to 3 by 3 id matrix? Later decomposable to direct sum 3T.}
-	For any group $G$ there is a trivial representation in any vector space $V$ defined by mapping each element of $G$ to 1, ie.
+	For any group $G$ there is a trivial degree 1 representation defined by mapping each element of $G$ to 1, ie.
 	\begin{align*}
 		\rho_g = 1,
 	\end{align*}
-	for any $g \in G$. It is clearly a homomorphism since for any $g,h \in G$ we have that
+	for every $g \in G$. It is clearly a homomorphism since for any $g,h \in G$ we have that
 	\begin{align*}
 		\rho_{gh} = 1 = 1 \cdot 1 = \rho_g \rho_h.
 	\end{align*}
-	It is a representation of degree 1.
+	This could be extended to any vector space $W$ by mapping $g$ to the $k \times k$ identity matrix, where $k = \dim W$.
 \end{example}
 
+\begin{note}
+	The trivial representation (the mapping is trivial) is not to be confused with the trivial space (vector space containing only the zero vector).
+\end{note}
+
 \begin{example}[Alternating representation of $\Sym_n$]
-	Choosing $G$ to be the symmetric group of degree $n$, another degree 1 representation can be found by studying the signs, or parities, of the elements of $\Sym_n$. By Proposition~\ref{prop:signwelldefined}, the sign of a permutation is well-defined, so for any two permutations $\sigma$ and $\tau$ with respective signs $(-1)^s$ and $(-1)^t$, their composition has the sign
+	Choosing $G = \Sym_n$, another degree 1 representation can be found by studying the signs, or parities, of the elements of $\Sym_n$. By Proposition~\ref{prop:signwelldefined}, the sign of a permutation is well-defined, so for any two permutations $\sigma$ and $\tau$ with respective signs $(-1)^s$ and $(-1)^t$, their composition has the sign
 	\begin{align*}
 		\sgn(\sigma\tau) = (-1)^{st} = (-1)^s \cdot (-1)^t = \sgn\sigma \cdot \sgn \tau,
 	\end{align*}
-	so clearly the map $\sgn: \Sym_n \rightarrow \{\pm 1\}$ is a homomorphism and thus a representation of degree 1.
+	so clearly the map $\sgn: \Sym_n \rightarrow \{\pm 1\}$ is a homomorphism and thus a representation of degree 1, where even permutations are mapped to $+1$ and odd to $-1$.
 \end{example}
 
-\subsubsection{Degree 1 representations of $\Cyc_n$}\label{sect:deg1cycn}
+%\subsubsection{Degree 1 representations of $\Cyc_n$}\label{sect:deg1cycn}
 
 Choose $G$ to be the cyclic group of degree $n$, and let $g$ be a generator of $\Cyc_n$ such that 
 \begin{align*}
 	\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}
 \end{align*}
 and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{ab}}$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $\rho_g$ is mapped to a $n$th root of unity.
-In conclusion, for $\Cyc_n$, there are $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity.
+In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity. 
 
 \begin{example}[Degree 1 representations of $\Cyc_4$]
-	For $n = 4$, the four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{table:C4}.\marginnote[left]{Same example as Sagan? Bad?? More examples n = 3,5?}
+	For $n = 4$, the four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{table:C4}.\marginnote{Same example as Sagan? Bad?? More examples n = 3,5?}
 	\begin{table}[hbt!]\label{table:C4}
 		\begin{tabular}{c | c c cl}
 			$Z_4$ & $e$ & $g$  & $g^2$ & $g^3$ \\ \hline
@@ -46,7 +56,7 @@ In conclusion, for $\Cyc_n$, there are $n$ representations of degree 1, each map
 
 \subsubsection{Permutation representation}
 
-	For a group $G$, we chose a suitable set $X$ that $G$ in some sense naturally acts on. Let $V$ be a vector space spanned by a orthonormal basis $(\bas_x)_{x \in X}$, then we have a homomorphism
+	Given a group $G$, we chose a suitable set $X$ that $G$ in some sense ``naturally'' acts on by permutation. Let $V$ be a vector space spanned by a orthonormal basis $(\bas_x)_{x \in X}$, then we have a homomorphism
 	\begin{align*}
 		\rho:G \rightarrow \GL(V)
 	\end{align*} 
@@ -56,11 +66,11 @@ In conclusion, for $\Cyc_n$, there are $n$ representations of degree 1, each map
 	\end{align*}
 	that is $\rho$ inherited the group action of $G$ on $X$. It is a homomorphism since for any $g,h \in G$ we have
 	\begin{align*}
-		g(h \cdot \bas_x) = g(\bas_{hx}) = \bas_{ghx} = (gh)(\bas_x)
+		g(h \cdot \bas_x) = g \cdot \bas_{hx}  = \bas_{ghx} = (gh) \cdot \bas_x
 	\end{align*}
 	for any $x \in X$.\marginnote{We have imposed a $G$-module structure on $V$.}
 	
-	Letting $G$ be the symmetric group of order $n$, it would be appropriate to choose the set $X = \{1, 2, \dots, n\}$ and to let any $\sigma \in \Sym_n$ permute any $i \in X$ by $(\sigma, i) \mapsto \sigma(i)$. Choosing a basis $(\bas_i)_{i=1}^n$ to span a vector space $V$, we define a homomorphism
+	Letting $G = \Sym_n$, it would be appropriate to choose the set $X = \{1, 2, \dots, n\}$ and to let any $\sigma \in \Sym_n$ permute any $1 \leq i \leq n$ by $(\sigma, i) \mapsto \sigma(i)$. Choosing a basis $(\bas_i)_{i=1}^n$ to span a vector space $V$, we define a homomorphism
 	\begin{align*}
 		\rho: \Sym_n \rightarrow \GL(V)
 	\end{align*}
@@ -68,13 +78,17 @@ In conclusion, for $\Cyc_n$, there are $n$ representations of degree 1, each map
 	\begin{align*}
 		\rho_\sigma: \bas_i \mapsto \bas_{\sigma(i)}
 	\end{align*}
-	for any $i \in X$. In this basis, the corresponding set of matrix representations are the permutation matrices
+	for any $1 \leq i \leq n$. In this basis, the corresponding set of matrix representations are the permutation matrices
 	\begin{align*}
-		\rho_\sigma = (r_{ij})_{n \times n} \text{, where } r_{ij} = \delta_{j,\sigma(i)},
+		\rho_\sigma = (r_{ij})_{n \times n} \text{, where } r_{ij} = \delta_{j,\sigma(i)} = \begin{cases}
+			1 \text{, if $j = \sigma(i)$,} \\
+			0 \text{, otherwise,}
+		\end{cases}
 	\end{align*}
-	where $\delta_{k,l}$ is the Kronecker delta which vanishes if $k \neq l$ and is equal to one if $k=l$.
+%	where $\delta_{k,l}$ is the Kronecker delta which vanishes if $k \neq l$ and is equal to one if $k=l$.
+	in which the $i$th column has a 1 in the $\sigma(i)$th row, and the rest of the rows have a 0.
 	
-	For example a vector
+	Under this action, a vector
 	\begin{align*}
 		(a_1, a_2, \dots, a_n) = a_1 \bas_1 + a_2 \bas_2 + \dots + a_n \bas_n \in V
 	\end{align*}
@@ -84,6 +98,8 @@ In conclusion, for $\Cyc_n$, there are $n$ representations of degree 1, each map
 	\end{align*}
 	
 	\marginnote{Yet another interpretation is that $\sigma$ permutes the $n$ coordinate axes.}
+	
+	The dimension of $V$ is $|X|$, for example the permutation representation of $\Sym_n$ is of degree $n$.
 	
 	\begin{example}[Permutation representation of $S_3$]
 		content...
@@ -105,9 +121,13 @@ In conclusion, for $\Cyc_n$, there are $n$ representations of degree 1, each map
 	\end{align*}
 	for any $g,h \in G$.\marginnote{We have created a Group Algebra $\CC[G]$.}
 	
+	The dimension of $V$ is $|G|$, for example the regular representation of $\Cyc_n$ is of degree $n$ and for $\Sym_n$ it is of degree $n!$, a number which grows increasingly quick for larger $n$, however the regular representation will be shown to be important later.
+	
 	\begin{example}[Regular representation of $\Sym_3$]
 		content...
 	\end{example}
+	
+	
 
 %\subsubsection{Coset representations}
 %
