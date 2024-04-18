@@ -3,7 +3,16 @@
 
 \subsection{Linear algebra topics}
 
-	\paragraph{Definition of kernel and image of a map}
+	\subsubsection{Trace}
+		
+		The trace of a matrix is defined as the sum along the diagonal, ie. for a $n \times n$ matrix $X = (x_{ij})$ we have
+		\begin{align*}
+			\Tr X = \sum_{i=1}^{n} x_{ii}.
+		\end{align*}
+		
+		Recall that if two matrices $X$ and $Y$ are conjugate there exists a matrix $T$ such that $XT = TY$, or if $T$ is invertible $X = TYT^{-1}$. If $X$ and $Y$ are conjugate, then they have the same trace??????? EIGENVALUES??????
+
+	\subsubsection{Definition of kernel and image of a map}
 	
 	\begin{definition}[Kernel and image of a linear map]\label{def:kernelimage}
 		Let $V$ and $W$ be two vector spaces and let $\varphi: V \rightarrow W$ be a linear map. Then the kernel and the image of the map are defined thusly:
@@ -17,7 +26,7 @@
 		The kernel and the image of a linear map are subspaces of the domain and codomain of the map respectively, ie. $\ker \varphi$ is a subspace of $V$ and $\im \varphi$ is a subspace of $W$.
 	\end{remark}
 	
-	\paragraph{Existence of complementary subspaces}
+	\subsubsection{Existence of complementary subspaces}
 	
 	\begin{corollary}\label{thm:compsubspaces}
 		Let $V$ be a vector space and $W$ be a vector subspace of $V$. Then there exists a complementary vector subspace $W'$ in $V$ such that $W \cap W' = \emptyset$ and $W \cup W' = V$. This is equivalent to saying that $V$ is the direct sum of $W$ and $W'$, denoted as $V = W \oplus W'$.
@@ -25,6 +34,56 @@
 	\begin{proof}
 		La la la
 	\end{proof}
+	
+	\subsubsection{Tensor algebra}
+	
+		\begin{definition}[Bilinearity]
+			content...
+		\end{definition}
+	
+		Let $V$ and $W$ be vector spaces provided with respective bases $(\vhat_i)_{i=1}^m$ and $(\uhat_i)_{i=1}^n$, where $m = \dim V$ and $n = \dim W$. Let $\vvec \in V$ and $\wvec \in W$. Also, let $f: \GL(V)$ and $g: \GL(W)$ be linear maps. In the bases provided let the matrices of $f$ and $g$ be $F=(f_{ij})_{m \times m} \in \GL_m(\CC)$ and $G = (g_{ij})_{n \times n} \in \GL_n(\CC)$ with eigen values $\{\lambda_i\}$ and $\{\mu_i\}$, then the following vector spaces may be constructed, or rather extended bilinearly, from $V$ and $W$:
+		
+		\begin{itemize}
+			\item The \emph{direct sum of $V$ and $W$}, denoted $V \oplus W$.
+				\subitem It has the basis $(\vhat_i \oplus \what_j)_{1 \leq i \leq m}^{1 \leq j \leq n}$, and is of dimension $m+n$.
+%				\subitem It has the basis $(\vhat_i \oplus \what_j)_{i = i,}^{m} _{j=1}^n$, and is of dimension $m+n$.
+				\subitem An element of $V \oplus W$ looks like \begin{align*}
+					\vvec \oplus \wvec = \begin{pmatrix}
+						\vvec \\ \wvec
+					\end{pmatrix} = \begin{pmatrix}
+					v_1, v_2, \dots, v_m, w_1, w_2, \dots, w_n
+					\end{pmatrix}^T.
+				\end{align*}
+				\subitem In the basis provided, $F \oplus G \in \GL(V \oplus W)$ is the $m+n \times m+n$ block matrix 
+				\begin{align*}
+					\begin{pmatrix}
+						F & \0 \\ 
+						\0 & G
+					\end{pmatrix},
+				\end{align*}
+				and its action on $\vvec \oplus \wvec$ is 
+				\begin{align*}
+					(F \oplus G ) \cdot (\vvec  \oplus \wvec) &= \begin{pmatrix}
+						F & \0 \\ 
+						\0 & G
+					\end{pmatrix} \cdot \begin{pmatrix}
+					\vvec \\ \wvec
+					\end{pmatrix} \\ 
+					&= \begin{pmatrix}
+					F\vvec \\ G\wvec
+					\end{pmatrix}  \\ 
+					&= F\vvec \oplus G\wvec \\
+					&= (f \cdot \vvec) \oplus (g \cdot \wvec).
+				\end{align*}
+				\subitem The trace of $F \oplus G$ is clearly the sum of the traces of $F$ and $G$, hence the eigen values of $f$ and $g$ are also eigen values of $f \oplus g$, that is the eigen values are $\{\lambda_i\} \cup \{\mu_j\}$.
+			\item By recursion, the \emph{direct sum of $n$ copies of $V$}, denoted $nV$.
+				\subitem \begin{example}
+					The direct sum of $n$ copies of a field $\KK$, is usually denoted $\KK^n$, eg. $\RR^3$.
+				\end{example}
+				
+			\item The \emph{tensor product of $V$ and $W$}, denoted $V \otimes W$.
+		\end{itemize}
+		
 	
 \subsection{Group theoretical topics}
 
