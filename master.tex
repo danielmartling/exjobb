@@ -63,7 +63,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \newtheorem*{notation}{Notation}
 \newtheorem*{note}{Note}
 
-\onehalfspacing
+%\onehalfspacing
 \numberwithin{equation}{section}
 
 %--Heading of  section--
@@ -154,7 +154,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \newcommand{\sgn}{\text{sgn}}
 \newcommand{\Span}{\text{Span}}
 \newcommand{\im}{\text{im }}
-\newcommand{\Tr}{\text{Tr}}
+\newcommand{\Tr}{\text{Tr }}
 % Vectors
 \newcommand{\bas}{\mathbf{\hat{e}}}
 
@@ -203,29 +203,8 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \input{reprintro.tex}
 \input{reprexamples.tex}
 \input{reprsubrepr.tex}
+\input{reprirred.tex}
 
-\subsection{Irreducible representations}
-	
-	We have found that any given representation can be divided into complementary subrepresentations, now we introduce the notion of an ``indivisible'' representation.
-	
-	\begin{definition}[Irreducible representation]
-		If there are no proper and non-trivial $G$-invariant subspaces of a representation $V$, then it is said to be \textit{irreducible}. 
-	\end{definition}
-	
-	We have already met a few of these.
-	
-	\begin{example}[Degree 1 representations are irreducible]\cite[Example 1.4.2.]{Sagan}
-		A vector space of dimension 1 has no other subspace other than itself and the zero space, thus it is irreducible. Hence the trivial representation and the alternating representation of $\Sym_n$ discussed in Section~\ref{sect:basicreprs} and the degree 1 representations of $\Cyc_n$ found in Section~\ref{sect:deg1cycn} are irreducible representations of their respective groups.
-	\end{example}
-	
-	In Example~\ref{example:comptrivpermrepr}, a subrepresentation of the permutation representation complementary to the trivial representation was found. Consider the action of a group $G$ on the basis $(\bas_i - \bas_{i+1})_{i=1}^n$. For a $g \in G$ we have
-	\begin{align*}
-		g \cdot (\bas_i - \bas_{i+1}) &= \bas_{g(i)} - \bas_{g(i+1)}
-	\end{align*}
-	
-	\begin{example}
-		hello
-	\end{example}
 		
 	
 

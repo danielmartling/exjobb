@@ -1,0 +1,55 @@
+\subsection{Irreducible representations}
+
+We have found that any given representation can be divided into complementary subrepresentations, now we introduce the notion of an ``indivisible'' representation.
+
+\begin{definition}[Irreducible representation]
+	If there are no proper and non-trivial $G$-invariant subspaces of a representation $V$, then it is said to be \textit{irreducible}. 
+\end{definition}
+
+We have already met a few of these.
+
+\begin{example}[Degree 1 representations are irreducible]\cite[Example 1.4.2.]{Sagan}
+	A vector space of dimension 1 has no other subspace other than itself and the zero space, thus it is irreducible. Hence the trivial representation of degree 1 of any group and the alternating representation of $\Sym_n$ discussed in Section~\ref{sect:basicreprs} and the degree 1 representations of $\Cyc_n$ found in Section~\ref{sect:deg1cycn} are irreducible representations of their respective groups.
+\end{example}
+
+The results from Proposition~\ref{prop:complsubrepr} invites the notion of \textit{complete reducibility} of an arbitrary representation. This is presented in the following theorem.
+
+\begin{theorem}[Maschke's theorem]\label{thm:maschkes}
+	Let $G$ be a finite group and let $V$ be any representation space of $G$. THen $V$ is composed as a direct sum of a number of not necessarily distinct subrepresentations $W_i$ of $V$, or in other words,
+	\begin{align*}
+		V = \bigoplus_i W_i
+	\end{align*}
+	\begin{note}
+		The direct sum can be expressed in terms of distinct subrepresentation $W_i$ of $V$ and their multiplicities $a_i$ as
+		\begin{align*}
+			V = \bigoplus_i a_i W_i
+		\end{align*}
+	\end{note}
+\end{theorem}
+
+\begin{example}[Decomposition of permutation representation of $\Sym_n$]
+	Let $G = \Sym_n$, and let $P$ be the permutation representation space, $S$ be the standard representation space and $T$ be the trivial representation space, then $V$ is fully decomposed as 
+	\begin{align*}
+		P = T \oplus V.
+	\end{align*}
+\end{example}
+
+%\begin{example}[Decomposition of regular representation of $\Sym_n$]
+%	Again, let $G = \Sym_n$, and let $R$ be the regular representation space, 
+%\end{example}
+
+\begin{theorem}[Schur's lemma]
+	content...
+\end{theorem}
+
+%	In Example~\ref{example:comptrivpermrepr}, a subrepresentation of the permutation representation complementary to the trivial representation was found. Show it is irreducible? 
+
+%	Consider the action of a group $G$ on the basis $(\bas_i - \bas_{i+1})_{i=1}^n$. For a $g \in G$ we have
+%	\begin{align*}
+	%		g \cdot (\bas_i - \bas_{i+1}) &= \bas_{g(i)} - \bas_{g(i+1)}
+	%	\end{align*}
+%	
+%	\begin{example}
+	%		hello
+	%	\end{example}
+	

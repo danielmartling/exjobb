@@ -1,12 +1,12 @@
-\subsection{Basic examples}\label{sect:basicreprs}
+\subsection{Examples}\label{sect:basicreprs}
 
-This section follows \cite{Serre}.
+This section follows \cite[1.?]{Serre}.
 
 \subsubsection{Unital representations}
 
 	A representation $\rho$ where every $g$ is such that $|\rho_g| = 1$, is called a unital representation.
 
-\begin{example}[Trivial representation]\marginnote[left]{Is it a repr. in ANY v.s.? For example if dimV=3, is triv.repr. mapping to 3 by 3 id matrix? Later decomposable to direct sum 3T.}
+\begin{example}[Trivial representation]\marginnote{Is it a repr. in ANY v.s.? For example if dimV=3, is triv.repr. mapping to 3 by 3 id matrix? Later decomposable to direct sum 3T.}
 	For any group $G$ there is a trivial degree 1 representation defined by mapping each element of $G$ to 1, ie.
 	\begin{align*}
 		\rho_g = 1,
@@ -15,7 +15,7 @@ This section follows \cite{Serre}.
 	\begin{align*}
 		\rho_{gh} = 1 = 1 \cdot 1 = \rho_g \rho_h.
 	\end{align*}
-	This could be extended to any vector space $W$ by mapping $g$ to the $k \times k$ identity matrix, where $k = \dim W$.
+	This could be extended to any vector space by mapping $g$ to the identity transformation of that vector space.
 \end{example}
 
 \begin{note}
@@ -36,23 +36,33 @@ Choose $G$ to be the cyclic group of degree $n$, and let $g$ be a generator of $
 \begin{align*}
 	\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}
 \end{align*}
-and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{ab}}$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $\rho_g$ is mapped to a $n$th root of unity.
-In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity. 
+and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{a+b}}$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $\rho_g$ is mapped to a $n$th root of unity.
+In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of the root of unity.
 
 \begin{example}[Degree 1 representations of $\Cyc_4$]
-	For $n = 4$, the four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{table:C4}.\marginnote{Same example as Sagan? Bad?? More examples n = 3,5?}
-	\begin{table}[hbt!]\label{table:C4}
-		\begin{tabular}{c | c c cl}
-			$Z_4$ & $e$ & $g$  & $g^2$ & $g^3$ \\ \hline
-			$\rho_0$           & 1   & 1    & 1     & 1     \\
-			$\rho_1$           & 1   & $i$  & $-1$  & $-i$  \\
-			$\rho_2$           & 1   & $-1$ & $1$  & $-1$   \\
-			$\rho_3$           & 1   & $-i$ & $-1$   & $i$
-		\end{tabular}
-		\centering
-		\caption{Four representations of $Z_4$.}
-	\end{table}
+	
 \end{example}
+	
+	For $n = 4$, the four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{mynicetable}.\marginnote{Same example as Sagan? Bad?? More examples n = 3,5?}
+	
+	\begin{table}[hbt!]
+		
+		content...
+	\end{table}
+
+\begin{figure}[hbt!]
+	\begin{tabular}{c | c c cl}
+		$\Cyc_4$ & $e$ & $g$  & $g^2$ & $g^3$ \\ \hline
+		$\rho_0$           & 1   & 1    & 1     & 1     \\
+		$\rho_1$           & 1   & $i$  & $-1$  & $-i$  \\
+		$\rho_2$           & 1   & $-1$ & $1$  & $-1$   \\
+		$\rho_3$           & 1   & $-i$ & $-1$   & $i$
+		
+	\end{tabular}
+	\centering
+	\label{mynicetable}
+	\caption{Four representations of $\Cyc_4$.}
+\end{figure}
 
 \subsubsection{Permutation representation}
 

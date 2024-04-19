@@ -72,17 +72,65 @@
 					&= \begin{pmatrix}
 					F\vvec \\ G\wvec
 					\end{pmatrix}  \\ 
-					&= F\vvec \oplus G\wvec \\
-					&= (f \cdot \vvec) \oplus (g \cdot \wvec).
+					&= F\vvec \oplus G\wvec.
 				\end{align*}
 				\subitem The trace of $F \oplus G$ is clearly the sum of the traces of $F$ and $G$, hence the eigen values of $f$ and $g$ are also eigen values of $f \oplus g$, that is the eigen values are $\{\lambda_i\} \cup \{\mu_j\}$.
+				
 			\item By recursion, the \emph{direct sum of $n$ copies of $V$}, denoted $nV$.
 				\subitem \begin{example}
 					The direct sum of $n$ copies of a field $\KK$, is usually denoted $\KK^n$, eg. $\RR^3$.
 				\end{example}
 				
 			\item The \emph{tensor product of $V$ and $W$}, denoted $V \otimes W$.
-		\end{itemize}
+				\subitem It has the basis $(\vhat_i \otimes \what_j)_{1 \leq i \leq m}^{1 \leq j \leq n}$, and is of dimension $mn$.
+				\subitem An element of $V \otimes W$ looks like \begin{align*}
+					\vvec \otimes \wvec = \begin{pmatrix}
+						v_1\wvec, v_2\wvec, \dots, v_m\wvec
+					\end{pmatrix}^T = \begin{pmatrix}
+						v_i\wvec
+					\end{pmatrix}_{mn \times 1} 
+				\end{align*}
+				\subitem In the basis provided, $F \otimes G \in \GL(V \otimes W)$ is the block matrix 
+				\begin{align*}
+					(f_{ij}G)_{mn \times mn}
+				\end{align*}
+				and its action on $\vvec \oplus \wvec$ is 
+				\begin{align*}
+					(F \otimes G ) \cdot (\vvec  \otimes \wvec) &= \begin{pmatrix}
+						f_{ij}G
+					\end{pmatrix}\cdot \begin{pmatrix}
+						v_i\wvec
+					\end{pmatrix} \\ 
+					&= \begin{pmatrix}
+						f_{ij}G v_i \wvec
+					\end{pmatrix} \\ 
+					&= \begin{pmatrix}
+						f_{ij} v_i G\wvec
+					\end{pmatrix} \\
+					&=  \begin{pmatrix}
+						f_{ij}v_i
+					\end{pmatrix} \otimes G\wvec \\
+					&= F\vvec \otimes G\wvec.
+				\end{align*}
+				\subitem The trace of $F \otimes G$ is the sum of the traces of the diagonal matrices in the block matrix $(f_{ij}G)$, which is 
+				\begin{align*}
+					f_{11} \Tr G + f_{22} \Tr G + \dots + f_{mm} \Tr G = \Tr F \cdot \Tr G
+				\end{align*}
+				hence the eigen values of $f \otimes g$ are $\{\lambda_i \cdot \mu_j\}$.
+				
+			\item By recursion, the \emph{$n$th tensor power of $V$}, denoted $V^{\otimes n}$. By definition, the first tensor power is the space itself, and the zeroth power is the ground field.
+			
+			\item The $n$th tensor power of $V$ has two subspaces, the symmetric powers $\SymP^n V$ and the alternating powers $\AltP^n V$. EEEEEH further definition?? In particular the symmetric and exterior squares are such that
+			\begin{align*}
+				V \otimes V = \SymP^2 V \oplus \AltP^2 V.
+			\end{align*}
+			
+			\item After fixing the basis $(\bas_i)_{i=1}^m$ for $V$, the dual space $V^*$ can be constructed by the duals $\bas_i^*$ defined by... It is identified with the set of all linear functions from $V$ to $\CC$
+			
+			\item Set of homomoprhisms $V$ to $W$
+			
+			\item 
+		\end{itemize} 
 		
 	
 \subsection{Group theoretical topics}

@@ -40,7 +40,9 @@ As laid out in \cite{FultonHarris}, we are looking for representations which are
 \end{definition}
 
 Consider the case where $W$ is a $G$-invariant\footnote{For $W$ to be a $G$-invariant space, it means that for every $g \in G$, $g \cdot \wvec \in W$ for any $\wvec \in W$ or that $\rho_g(W) \subseteq W$ for any $g\in G$.} vector subspace of $V$% and let $\pi:V \rightarrow W$ be the projection map of $V$ onto $W$. 
-and let $\rho$ be a representation of $G$ in $V$. Then the restriction of $\rho$ to $W$, here denoted $\rho|_W$, is a isomorphism of $W$ onto itself since $W$ is $G$-invariant (the action of $g$ on any $\wvec \in W$ will return the same $\wvec$), and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarrow \GL(W)$ is a representation if $G$ in $W$, motivating the following definition.
+and let $\rho$ be a representation of $G$ in $V$. Then the restriction of $\rho$ to $W$, here denoted $\rho|_W$, is a isomorphism of $W$ onto itself since $W$ is $G$-invariant,
+%(the action of $g$ on any $\wvec \in W$ will return the same $\wvec$), 
+and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarrow \GL(W)$ is a representation if $G$ in $W$, motivating the following definition.
 
 \begin{definition}[Subrepresentation]\label{def:subrepr}
 	Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $V$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
@@ -60,8 +62,12 @@ Let $G$ be a group and let us study its permutation representation and regular r
 	Let $G$ act on a set $X = \{x_1, x_2, \dots x_k\}$, where $k = |X|$, and let $V$ be the vector space spanned by the basis $(\xhat_1, \xhat_2, \dots, \xhat_k)$. Consider the one-dimensional subspace of $V$ spanned by the sum of all basis vectors, ie. $W = \Span\{ \xhat_1 + \xhat_2 + \dots + \xhat_k \}$. A vector $\wvec \in W$ is a scalar multiple of this sum, and for any $g \in G$, the action of $g$ on $\wvec$ will simply reorder this sum and return the same $\wvec$, that is for any $g \in G$, we have that $\rho_g|_W = 1$. Thus $W$ is a $G$-invariant subspace of $V$ and consequently the permutation representation has the trivial representation as a subrepresentation.
 \end{example}
 
-\begin{example}{Trivial representation inside the regular representation}\cite[Example 1.4.4.]{Sagan}
-	Similarly to the last example, we span a vector space $V$ by a basis $(\ghat_1, \ghat_2, \dots, \xhat_{k})$, where $k = |G|$, and consider the subspace $W = \Span\{ \ghat_1 + \ghat_2 + \dots + \ghat_k \}$. Completely analogously to the last example, $W$ is shown to be a $G$-invariant subspace of $V$ and the regular representation also has the trivial representation as a subrepresentation.
+\begin{example}[Trivial representation inside the regular representation]\cite[Example 1.4.4.]{Sagan}
+	Similarly to the last example, we span a vector space $V$ by a basis $(\ghat_1, \ghat_2, \dots, \ghat_{k})$, where $k = |G|$, and consider the subspace 
+	\begin{align*}
+		W = \Span\{ \ghat_1 + \ghat_2 + \dots + \ghat_k \}. 
+	\end{align*}
+	Completely analogously to the last example, $W$ is shown to be a $G$-invariant subspace of $V$ and the regular representation also has the trivial representation as a subrepresentation.
 \end{example}
 
 \begin{example}[Alternating representation inside the regular representation of $\Sym_n$]\cite[Example 1.4.4.]{Sagan}
@@ -176,14 +182,14 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 \end{proof}
 
 \begin{example}[Decomposition of the permutation representation]~\label{example:comptrivpermrepr}
-	In Example~\ref{example:trivpermrepr}, the trivial representation was found to be a subrepresentation of the permutation representation. Let $V$ be the permutation representation  and assign it the basis $(\bas_i)_{i=1}^n$. The one-dimensional subspace $W$ spanned by the sum of all $\bas_i$ was found to be the trivial representation, then by Proposition~\ref{prop:complsubrepr}, there exists another subrepresentation $W'$ of $V$ complementary to $W$. The dimension of $W'$ is $n-1$. Let's introduce to $V$ a inner product $(\cdot|\cdot)$ that for the basis fulfills
+	In Example~\ref{example:trivpermrepr}, the trivial representation was found to be a subrepresentation of the permutation representation. Let $G= \Sym_n$ and let $V$ be the permutation representation and assign it the basis $(\bas_i)_{i=1}^n$. The one-dimensional subspace $W$ spanned by the sum of all $\bas_i$ was found to be the trivial representation, then by Proposition~\ref{prop:complsubrepr}, there exists another subrepresentation $W'$ of $V$ complementary to $W$. The dimension of $W'$ is $n-1$. Let's introduce to $V$ a inner product $(\cdot|\cdot)$ that fulfills
 	\begin{align*}
 		(\bas_i|\bas_j) = \delta_{i,j} = \begin{cases}
 			1 \text{, if $i=j$,}\\
 			0 \text{, if $i \neq j$.}
 		\end{cases}
 	\end{align*}
-	Then the basis $(\bas'_j)_{j=1}^{n-1}$ of $W'$ can be constructed by ensuring that each $\bas'_j$ is orthogonal to the basis vector of $W$, that is
+	for the basis $(\bas_i)_{i=1}^n$. Then the basis $(\bas'_j)_{j=1}^{n-1}$ of $W'$ can be constructed by ensuring that each $\bas'_j$ is orthogonal to the basis vector of $W$, that is
 	\begin{align*}
 		\left( \bas'_j \ \middle\vert \ \sum_{i=1}^n \bas_i \right) = 0
 	\end{align*}
