@@ -1,6 +1,58 @@
 \clearpage{\thispagestyle{empty}}
 \section{Preliminary topics}
 
+\subsection{Group theoretical topics}
+
+\subsubsection{Group action}
+
+We could let the group $G$ act on a set $X$ and study the action of $G$ on $X$ defined by
+\begin{align*}
+	G \times X \rightarrow X
+\end{align*}
+and thereby permuting the elements of $X$ by for any $g \in G$,
+\begin{align*}
+	(g,x) \mapsto g \cdot x = gx,
+\end{align*}
+for any $x \in X$.
+
+\subsubsection{The symmetric group}
+
+Denote by $\Sym_n$ the set of bijections of $\{1, 2, \dots n\}$, which is a group under composition of bijections. The number of elements in $\Sym_n$ is $n!$.
+
+\begin{example}
+	The elements of $\Sym_3$ are
+	\begin{align*}
+		(1), (1,2), (1,3), (2,3), (123), (132).
+	\end{align*}
+	There are $3! = 6$ elements: the identity element (denoted $e$), three transpositions and two 3-cycles.
+\end{example}
+
+\begin{definition}[Sign of a permutation]
+	Let $\sigma \in \Sym_n$, then the sign of $\sigma$ is defined as a function
+	\begin{align*}
+		\sgn: & \ \Sym_n \rightarrow \{+1, -1\},\\
+		\sgn: & \ \sigma \mapsto (-1)^k
+	\end{align*}
+	where $k$ is the number of transpositions required to compose $\sigma$. If $k$ is an even integer, then $\sigma$ is called even, and vice versa for an odd $k$.
+\end{definition}
+
+\begin{proposition}\label{prop:signwelldefined}
+	The sign of a permutation is well-defined. That is a permutation is either \textit{even} with sign +1 or \textit{odd} with sign -1.
+\end{proposition}
+\begin{proof}
+	\cite[Thm.12.6.1.]{Biggs}
+\end{proof}
+
+Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists a $\pi \in \Sym_n$ such that $\sigma = \pi \tau \pi^{-1}$. The conjugacy classes partition $\Sym_n$ into disjoint subsets. 
+
+\begin{proposition}[Conjugacy in $\Sym_n$]\marginnote{SOURCE+PROOF}
+	Any elements $\sigma, \tau \in \Sym_n$ are conjugate if and only if they are of the same cycle type.
+\end{proposition}
+
+
+
+
+
 \subsection{Linear algebra topics}
 
 	\subsubsection{Trace}
@@ -35,7 +87,7 @@
 		La la la
 	\end{proof}
 	
-	\subsubsection{Tensor algebra}
+	\subsubsection{Tensor algebra}\label{sect:tensoralgebra}
 	
 		\begin{definition}[Bilinearity]
 			content...
@@ -123,53 +175,16 @@
 			\item The $n$th tensor power of $V$ has two subspaces, the symmetric powers $\SymP^n V$ and the alternating powers $\AltP^n V$. EEEEEH further definition?? In particular the symmetric and exterior squares are such that
 			\begin{align*}
 				V \otimes V = \SymP^2 V \oplus \AltP^2 V.
-			\end{align*}
+			\end{align*}\marginnote{need more text/proof}
 			
-			\item After fixing the basis $(\bas_i)_{i=1}^m$ for $V$, the dual space $V^*$ can be constructed by the duals $\bas_i^*$ defined by... It is identified with the set of all linear functions from $V$ to $\CC$
+			\item After fixing the basis $(\bas_i)_{i=1}^m$ for $V$, the dual space $V^*$ can be constructed by the duals $\bas_i^*$ defined by... It is identified with the set of all linear functions from $V$ to $\CC$.\marginnote{need more text/proof}
 			
-			\item Set of homomoprhisms $V$ to $W$
+			\item Set of homomoprhisms $V$ to $W$.\marginnote{need more text/proof}
 			
-			\item 
 		\end{itemize} 
 		
 	
-\subsection{Group theoretical topics}
 
-	\subsubsection{Group action}
-	
-		We could let the group $G$ act on a set $X$ and study the action of $G$ on $X$ defined by
-		\begin{align*}
-			G \times X \rightarrow X
-		\end{align*}
-		and thereby permuting the elements of $X$ by for any $g \in G$,
-		\begin{align*}
-			(g,x) \mapsto g \cdot x = gx,
-		\end{align*}
-		for any $x \in X$.
-	
-	\subsubsection{The symmetric group}
-	
-		Denote by $\Sym_n$ the set of bijections of $\{1, 2, \dots n\}$, which is a group under composition of bijections.
-	
-		Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists a $\pi \in \Sym_n$ such that $\sigma = \pi \tau \pi^{-1}$. The conjugacy classes partition $\Sym_n$ into disjoint subsets. 
-		
-		\begin{proposition}[Conjugacy in $\Sym_n$]\marginnote{SOURCE+PROOF}
-			Any elements $\sigma, \tau \in \Sym_n$ are conjugate if and only if they are of the same cycle type.
-		\end{proposition}
-		
-		\begin{definition}[Sign of a permutation]
-			\begin{align*}
-				\sgn(\sigma) = (-1)^k,
-			\end{align*}
-			where $k$ is the number of transpositions required to compose $\sigma$.
-		\end{definition}
-		
-		\begin{proposition}\label{prop:signwelldefined}
-			The sign of a permutation is well-defined. That is a permutation is either \textit{even} with sign +1 or \textit{odd} with sign -1.
-		\end{proposition}
-		\begin{proof}
-			\cite[Thm.12.6.1.]{Biggs}
-		\end{proof}
 		
 		
 		

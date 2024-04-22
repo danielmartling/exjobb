@@ -1,0 +1,33 @@
+\subsection{Tensor operations on representations}\label{sect:tensorrepr}
+
+Building on the vector spaces constructed in Section~\ref{sect:tensoralgebra}, given two representations $V$ and $W$ of a group, the following are also representations.
+
+\begin{itemize}
+	\item The \emph{direct sum of $V \oplus W$} is a representation given by 
+	\begin{align*}
+		\rho_{V \oplus W}(\vvec \oplus \wvec) = (\rho_V \oplus \rho_W)(\vvec \oplus \wvec) = \rho_V(\vvec) \oplus \rho_W(\wvec).
+	\end{align*}
+	
+	\item By recursion, for a positive integer $n$, the \emph{direct sum of $n$ copies of $V$}, denoted
+	\begin{align*}
+		nV = \underset{\text{$n$ times}}{\underbrace{V \oplus \dots \oplus V}},
+	\end{align*}
+	is a representation.
+	
+	\item The \emph{tensor product $V \otimes W$} is a representation given by
+	\begin{align*}
+		\rho_{V \otimes W}(\vvec \otimes \wvec) = (\rho_V \otimes \rho_W)(\vvec \otimes \wvec) = \rho_V(\vvec) \otimes \rho_W(\wvec).
+	\end{align*}
+	
+	\item By recursion, for a positive integer $n$, the \emph{$n$th tensor power of $V$}, denoted
+	\begin{align*}
+		V^{\otimes n} = \underset{\text{$n$ times}}{\underbrace{V \otimes \dots \otimes V}},
+	\end{align*}
+	is a representation. The zeroth power is by definition the ground field $\CC$ and the first power is $V$ itself.
+	
+	\item The $n$th tensor power has two subrepresentations, the symmetric powers $\SymP^n V$ and the exterior powers $\AltP^n V$. 
+	
+	\item After fixing a basis $(\bas_i)_{i=1}^k$ for $V$, a \emph{dual representation}, denoted $V^*$, can be defined by the dual space, spanned by the ...
+	
+	\item Set of homomorphisms...
+\end{itemize}

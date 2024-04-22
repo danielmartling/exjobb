@@ -1,0 +1,52 @@
+\clearpage{\thispagestyle{empty}}
+\section{Character Theory}
+
+Recall from linear algebra that two similar matrices have the same trace \cite[Thm 5.4.]{Holst} and that two matrices $X$ and $Y$ are similar if there exists a matrix $S$ such that $S X S^{-1} = Y$. Also recall that the trace is the sum along the diagonal of the matrix, as well as the sum of the eigen values of the matrix.
+
+Something on change of basis - trace is basis independent.
+
+The trace seem related to the conjugation of elements of $\GL(V)$, motivating our use of it as a ``metric/measure'' to compare different representations. 
+
+\begin{definition}\label{def:char}
+	 Let $V$ be a representation space of a group $G$ of dimension $n$ and let $\rho_g = (r_{ij})$ be the matrix representation of a $g \in G$. Then the \emph{character} of $g$ in $V$ is defined to be the trace of the matrix representation, that is 
+	 \begin{align*}
+	 	\chi_V(g) := \Tr \rho_g = \sum_{i=1}^{n} r_{ij}.
+	 \end{align*}
+\end{definition}
+
+Whenever $V$ or $\rho$ are contextually obvious they may be omitted, ie. $\chi = \Tr g$. We have already inadvertently studied the characters of some representations:
+
+\begin{example}[Characters of degree 1 representations]
+	Evident from Definition~\ref{def:char}, the character of a degree 1 representation is the same as the representation, since a $1 \times 1$-matrix is usually identified with its only element, ie. $\chi_g = \rho_g$, hence the Tables~\ref{table:Cyc3},~\ref{tbl:cyc4} and \ref{table:Cyc5} are the character tables of $\Cyc_3$, $\Cyc_4$ and $\Cyc_5$ respectively.
+	
+	Further more, the character of the trivial representation of a group is 1 for every element of the group and the character of the alternating representation of the symmetric group is $+1$ for an even permutation and $-1$ for an odd one.
+\end{example}
+
+\begin{example}[Character of the identity element]
+	By Equation~\ref{eq:rhoIdAndInv}, the identity element of any group is mapped to the identity transformation of the representation $V$, which is the identity matrix, hence $\chi(e) = \dim V$.
+\end{example}
+
+\begin{example}[Character of the permutation representation of $\Sym_n$]
+	The matrix representation of a $\sigma \in \Sym_n$ has a 1 in the diagonal if and only if that row corresponds to a fixed point, hence the character of the permutation representation is the same as the number of fixed points of that conjugacy class.
+\end{example}
+Something on class functions
+
+Something on basis, matrix representation
+
+Projection formulae
+
+character tables 
+
+Sometging on the regular representation.
+
+\begin{example}[Character table of $\Sym_2$]
+	content...
+\end{example}
+
+\begin{example}[Character table of $\Sym_3$]
+	content...
+\end{example}
+
+\begin{example}[Character table of $\Sym_4$]
+	content...
+\end{example}
