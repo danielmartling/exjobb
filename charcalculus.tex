@@ -1,0 +1,250 @@
+\begin{definition}
+	A character table is...
+\end{definition}
+
+
+\subsection{Characters of $\Cyc_n$}
+
+\begin{example}[Characters of $\Cyc_n$]
+	In section \ref{sect:deg1cycn}, the $n$ degree 1 representations of any cyclic group $\Cyc_n$ was described, and by theorem \ref{thm:numberirrep}, those described are all irreducible representations of $\Cyc_n$. Remember that the trace of a $1 \times 1$-matrix is its only element, therefore the Tables~\ref{table:Cyc3}, \ref{tbl:cyc4} and \ref{table:Cyc5} are the character tables of respectively $\Cyc_3$, $\Cyc_4$ and $\Cyc_5$.
+\end{example}
+
+\subsection{Characters of $\Sym_n$}
+
+\begin{theorem}[Character of the permutation representation]
+	The character of a permutation representation is the number of fixed points of the associated element of the symmetric group.
+\end{theorem}
+\begin{proof}
+	The character is the sum of the diagonal elements of the matrix representation. The matrices of the permutation representations are permutation matrices, which have a 1 on the diagonal if that row represents a fixed point and 0 otherwise. Therefore the number of fixed point is the sum along the diagonal.
+\end{proof}
+
+The representations of $S_3$ found so far in sections 
+%\ref{sect:trivrepr} and \ref{sect:regS3} and examples \ref{ex:permS3} and \ref{ex:standS3} 
+are presented in table \ref{table:charS3}. The group is presented in their conjugacy classes $[\sigma] \subset S_3$ where $\sigma$ is any representative of that class. Beneath every class is the number of elements in that class. Rows below the dashed horizontal line are not irreducible.
+
+\begin{table}[hbt!]
+	\centering
+	\begin{tabular}{c | c c c}
+		$S_3$      & $[1]$   & $[12]$  & $[123]$ \\
+		$\Ss|[\sigma]|$ & $\Ss 1$ & $\Ss 3$ & $\Ss 2$ \\ \hline
+		$\chi_T$     & 1       & 1       & 1       \\
+		$\chi_A$     & 1       & -1      & 1       \\
+		$\chi_S$     & 2       & 0       & -1      \\ \hline\hline
+		$\chi_P$     & 3       & 1       & 0       \\
+		$\chi_R$     & 6       & 0       & 0
+	\end{tabular}
+	\caption{Character table of $S_3$.}
+%	\label{table:charS3}
+\end{table}
+
+\paragraph{Decomposition of $P$.} In section $\ref{sect:standSn}$, the permutation representation was decomposed through geometric arguments to the direct sum of the trivial and the standard representation, this is seen in the table as $\chi_T + \chi_S = (1,1,1) + (2,0,-1) = (3,1,0) = \chi_P$, confirming that $P = T \oplus S$. 
+
+\paragraph{Decomposition of $R$.} In section \ref{sect:regS3}, the matrices of the regular representation was exhaustively calculated. The character of $R$ thus is $\chi_R = (6,0,0)$, since the identity element is the only element in $S_3$ that leaves every other element fixed. In fact this is true for any $S_n$:
+\begin{corollary}[Character of the regular representation of $S_n$]\label{thm:charregSn}
+	The character of the regular representation for any $S_n$ is $(n!, 0, \dots, 0)$, where $n!$ is the size of $S_n$.
+\end{corollary}
+\begin{proof}
+	The center of $S_n$ is trivial.
+\end{proof}
+\begin{corollary}[Character of the regular representation of a group with trivial center]
+	The character of the regular representation for any group $G$ with trivial center ($Z(G)={e}$) is $(|G|, 0, \dots, 0)$, where $n!$ is the size of $S_n$.
+\end{corollary}
+\begin{proof}
+	\textit{SOURCE}
+\end{proof}
+
+\textit{Counterexample: $D_8$ has a non-trivial center. The quotient $D_8/Z(D_8)$ is isomorphic to $V$.} 
+
+To decompose $R$, we take the inner product of $\chi_R$ with every other irreducible character.
+\begin{align}
+	({\chi_T}|{\chi_R}) = 1, \quad
+	({\chi_A}|{\chi_R})= 1, \quad
+	({\chi_S}|{\chi_R}) = 2, 
+\end{align}
+so $\chi_R = \chi_T + \chi_A + 2\chi_S$ and $R = T \oplus A \oplus 2S$.
+
+Also:
+\begin{theorem}
+	If $V_i$ are the irreducible representations of a group, then the regular representation $R$ is the direct sum of $\dim V_i$ copies of $V_i$, ie. 
+	\begin{align}
+		R = \bigoplus_{i=1}^{k} (\dim V_i) \cdot V_i = \bigoplus_{i=1}^{k} \chi_{V_i}(e) \cdot V_i .
+	\end{align}
+\end{theorem}
+\begin{proof}
+	It came to me in a dream. %Needs a proof and/or source, noticed while staring at character tables.
+\end{proof}
+
+\paragraph{Decomposition of $S \otimes S$.} The character of $S \otimes S$ is $\chi_{S \otimes S} = \chi_S \cdot \chi_S = (4,0,1)$, which by a quick glance on the character table is seen to be the sum of all irreducibles, ie. $\chi_{S \otimes S} = \chi_T + \chi_A + \chi_S$ and $S \otimes S = T \oplus A \oplus S$.
+
+\paragraph{Decomposition of $\Sym^2S$ and $\bigwedge^2S$.} The character of $\Sym^2S$ is $\chi_{\Sym^2S} = \frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (1,-1,1) = \chi_A$, so $\Sym^2S \cong A$. The character of $\bigwedge^2S$ is $\chi_{\bigwedge^2S} = (3,1,0) = \chi_P = \chi_T + \chi_S$, so $\bigwedge^2S \cong P \cong T \oplus S$, confirming $S \otimes S = \Sym^2S \oplus \bigwedge^2S$ since $\chi_{\Sym^2S} + \chi_{\bigwedge^2S} = A \oplus T \oplus S = \chi_{S \otimes S}$. Also, $R = S \otimes S \oplus S$.
+
+\paragraph{Decomposition of $S^{\otimes n}$.}\cite[Exercise 2.7.]{FultonHarris} To find the decomposition of larger tensor powers than $n=2$, we study the character $\chi_{S^{\otimes n}} = (2^n, 0, (-1)^n)$ and take the inner product of it with the other irreducibles and find:
+\begin{align}
+	({\chi_T}|{\chi_{S^{\otimes n}}}) = ({\chi_A}|{\chi_{S^{\otimes n}}}) = \frac{1}{6}\left(2^n + (-1)^n\right), \\
+	({\chi_S}|{\chi_{S^{\otimes n}}}) = \frac{1}{6}\left(2^{n+1} + (-1)^{n+1}\right), 
+\end{align}
+so $\chi_{S^{\otimes n}} = a_n (\chi_T + \chi_A) + a_{n+1} \chi_S$ and thus $S^{\otimes n} = a_n (T \oplus A) \oplus a_{n+1} S$ where $a_n = \left(2^n + (-1)^n\right)/6$.
+
+\paragraph{} The contributions from the last few paragraphs are to the now complete character table of $S_3$ is presented in table \ref{table:completecharS3}.
+
+\begin{table}[hbt!]
+	\centering
+	
+	\begin{tabular}{c | c c c | l}
+		$S_3$         & $[1]$   & $[12]$  & $[123]$ &                                          \\
+		$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 3$ & $\Ss 2$ &  \textit{Alternate compositions}         \\ \hline
+		$\chi_T$       & 1       & 1       & 1       &                                          \\
+		$\chi_A$       & 1       & -1      & 1       & $ A \cong \Sym^2S$                       \\
+		$\chi_S$       & 2       & 0       & -1      &                                          \\ \hline\hline
+		$\chi_P$       & 3       & 1       & 0       & $ P \cong T \oplus S \cong \bigwedge^2S$ \\
+		$\chi_{S \otimes S}$ & 4       & 0       & 1       & $ S \otimes S \cong T \oplus A \oplus S$ \\
+		$\chi_R$       & 6       & 0       & 0       & $ R \cong T \oplus A \oplus 2S$
+	\end{tabular}
+%	\label{table:completecharS3}
+	\caption{Complete character table of $S_3$. The representations above the dashed line are irreducibles, and those below are composed. Some compositions are presented in the right-most column.}
+\end{table}
+
+\subsection{Characters of $\Sym_4$}
+
+This section follows the same methods from the previous section on $S_3$. So far, we have three irreducible representations of $S_4$: The trivial and the alternating representation from section \ref{sect:trivrepr}; the standard representation from section \ref{sect:standSn} and also we can surmise that there is a regular representation of $S_4$ with character $(24,0,0,0,0)$ from theorem \ref{thm:charregSn}. Along with the composite permutation representation, the character table of $S_4$ is presented in table \ref{table:charS4}. 
+
+\begin{table}[hbt!]
+	\centering
+	\begin{tabular}{c | c c c c c}
+		$S_3$      & $[1]$   & $[12]$  & $[123]$ & $[1234]$ & $[(12)(34)]$ \\
+		$\Ss|[\sigma]|$ & $\Ss 1$ & $\Ss 6$ & $\Ss 8$ & $\Ss 6$  & $\Ss 3$      \\ \hline
+		$\chi_T$     & 1       & 1       & 1       & 1        & 1            \\
+		$\chi_A$     & 1       & -1      & 1       & -1       & 1            \\
+		$\chi_S$     & 3       & 1       & 0       & -1       & -1           \\ \hline\hline
+		$\chi_P$     & 4       & 2       & 1       & 0        & 0            \\
+		$\chi_R$     & 24      & 0       & 0       & 0        & 0            	\end{tabular}
+	\caption{Character table of $S_4$.}
+	\label{table:charS4}
+\end{table}
+
+Recall that there are five conjugacy classes in $S_4$, then by theorem \ref{thm:numberirrep} we can expect two more irreducible representations of $S_3$. To find them, we compose new representations out of the ones we have found so far, using the toolbox of section \ref{sect:tensorops}.
+
+\paragraph{Decomposition of $A \otimes S$.} The character of this composition is $(3,-1,0,1,-1)$, an ``alternating'' version of $S$, and taking the inner product of it with itself we find $|\chi_{A \otimes S}|^2 = 1$ and thus $A \otimes S$ is an irreducible representation. From this point on it is denoted as $S'$.
+
+\paragraph{Decomposition of $S \otimes S$.} The character of this composition is $(9,1,0,1,1)$ and it is found to be linearly dependent on $\chi_T$,  $\chi_S$ and $\chi_{A \otimes S}$ with overlaps of 1 and independent of $\chi_A$, however $T$, $S$ and $S'$ together are of degrees 1, 3 and 3 and $S \otimes S$ is of degree 9, so there is either another representation of degree 2 or two of degree 1. \textit{SOURCE, theorem om square sum of $\dim V_i$}. Denoting this representation by $V$, its character is $\chi_V = \chi_{S \otimes S} - \chi_T - \chi_S - \chi_{S'} = (2, 0, -1, 0, 2)$, which is found to be such that $|\chi_V|^2 = 1$, hence $V$ is irreducible and $S \otimes S$ is found to be decomposed to $T \oplus V \oplus S \oplus S'$. We have now found all five irreducible representations of $S_4$.
+
+\paragraph{Decomposition of $R$.} The character of $R$ is $(24,0,0,0,0)$ and its overlaps with $T, A, V, S$ and $S'$ are respectively 1, 1, 2, 3 and 3, so $R = T \oplus A \oplus 2V \oplus 3S \oplus 3S'$.
+
+\paragraph{Decomposition of $\Sym^2S$ and $\bigwedge^2S$.} The character of $\Sym^2S$ is 
+\begin{align}
+	\frac{1}{2}\left[ (9,1,0,1,1)-(3,3,0,-1,3) \right] = (3,-1,0,1,-1)
+\end{align}
+which is the character of $S'$. Likewise, the character of $\bigwedge^2S$ is $(6,2,0,0,2)$ which is found to be the sum of the characters of $T, S$ and $V$, hence $\bigwedge^2S = T \oplus S \oplus V$.
+
+\paragraph{Decomposition of the $n$th tensor power of $V$.}
+
+The character of $V^{\otimes n}$ is
+\begin{align}
+	\chi_{V^{\otimes n}} = (2^n, 0, (-1)^n, 0, 2^n).
+\end{align}
+
+Its overlap with $T, A, V, S$ and $S'$ are respectively $a_n, a_n, a_{n+1}, 0$ and $0$, where 
+\begin{align}
+	a_n := \frac{1}{24}\left( 4 \cdot 2^n + 8 \cdot (-1)^n \right),
+\end{align}
+so the decomposition is
+\begin{align}
+	V^{\otimes n} = a_n (T \oplus A) \oplus a_{n+1} V.
+\end{align}
+
+\paragraph{Decomposition of the $n$th tensor power of $S$.} The character of $S^{\otimes n}$ is 
+\begin{align}
+	(\chi_S)^n = (3^n, 1, 0, (-1)^n, (-1)^n),
+\end{align}
+and after projecting it on the characters of the irreducible representations from table \ref{table:completecharS4}, we find that
+\begin{align}\label{eq:nthpowerS}
+	S^{\otimes n} = a_n T \oplus b_n A \oplus c_n V \oplus a_{n+1} S \oplus b_{n+1} S',
+\end{align}
+where 
+\begin{align}
+	\begin{cases}
+		a_n = \frac{1}{24}(3^n + 9(-1)^n+6), \\
+		b_n = \frac{1}{24}(3^n - 3(-1)^n -6), \text{ and} \\
+		c_n = \frac{1}{24}(2\cdot 3^n + 6(-1)^n).
+	\end{cases}
+\end{align}
+
+\paragraph{Decomposition of the $n$th tensor powers of $S'$.} Since $S' = A \otimes S$, the $n$th power of $S'$ is the tensor product of $n$ factors of $A \otimes S$. Since the tensor product is a commutative operation, we can rearrange it as
+\begin{align}
+	(A \otimes S)^{\otimes n} = S^{\otimes n} \otimes A^{\otimes n}
+\end{align}
+The $n$th tensor power of $A$ is $T$ if $n$ is even and $A$ if $n$ is odd, so for even $n$, $S'^{\otimes n} \cong S^{\otimes n}$, and for odd $n$, $S'^{\otimes n} \cong S^{\otimes n} \otimes A$. Then the character is 
+\begin{align}
+	\chi_{S'^{\otimes n}} = \begin{cases}
+		\big(3^n,1,0,(-1)^{n}, (-1)^n\big), \text{ if } n \text{ is even, or} \\
+		\big(3^n,-1,0,(-1)^{n+1}, (-1)^n\big), \text{ if } n \text{ is odd.}
+	\end{cases}
+\end{align}
+Tensor multiplying equation \ref{eq:nthpowerS} with $A$, we have:
+\begin{align}
+	S^{\otimes n} \otimes A &= \Big(a_n T \oplus b_n A \oplus c_n V \oplus a_{n+1} S \oplus b_{n+1} S'\Big)\otimes A \\
+	&= b_n T \oplus a_n A \oplus c_n V \oplus b_{n+1} S \oplus a_{n+1} S',
+\end{align}
+and then we have found the decomposition of all tensor powers of $S'$. For even $n$, it is the same as $S^{\otimes n}$, for odd $n$, $A$ and $T$, and $S$ and $S'$ switch multiplicities.
+
+\paragraph{} The findings of the last few paragraphs (except those on larger tensor powers) are presented in table \ref{table:completecharS4}.
+
+\begin{table}[hbt!]
+	\centering
+	\begin{tabular}{c | c c c c c | l}
+		$S_4$         & $[1]$   & $[12]$  & $[123]$ & $[1234]$ & $[(12)(34)]$ &                                                              \\
+		$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 6$ & $\Ss 8$ & $\Ss 6$  & $\Ss 3$      & \textit{Alternate compositions}                              \\ \hline
+		$\chi_T$       & 1       & 1       & 1       & 1        & 1            &                                                              \\
+		$\chi_A$       & 1       & -1      & 1       & -1       & 1            &                                                              \\
+		$\chi_V$       & 2       & 0       & -1      & 0        & 2            &                                                              \\
+		$\chi_S$       & 3       & 1       & 0       & -1       & -1           &                                                              \\
+		$\chi_{S'}$ & 3       & -1      & 0       & 1        & -1           & $S' :\cong A \otimes S \cong \Sym^2S$                                  \\ \hline\hline
+		$\chi_P$       & 4       & 2       & 1       & 0        & 0            & $P \cong T \oplus S$                                         \\
+		$\chi_{\bigwedge^2S}$    & 6       & 2       & 0       & 0        & 2            & $\bigwedge^2S \cong T \oplus S \oplus V$                     \\
+		$\chi_{S \otimes S}$ & 9       & 1       & 0       & 1        & 1            & $S \otimes S \cong T \oplus V \oplus S \oplus S' \cong S' \otimes S'$ \\
+		$\chi_R$       & 24      & 0       & 0       & 0        & 0            & $R \cong T \oplus A \oplus 2V \oplus 3S \oplus 3S'$
+	\end{tabular}
+	\caption{Complete character table of $S_4$. The representations above the dashed line are irreducibles, and those below are composed. Some compositions are presented in the right-most column.}
+	\label{table:completecharS4}
+\end{table}
+
+\subsection{Characters of the Klein 4-group $V$}
+
+The Klein 4-group, denoted by\footnote{$V$ is for vierer, four in german.} $V$ is, along with $Z_4$, the only group of order 4. It can be described as the set
+\begin{align}
+	V = \{ e, x, y, xy \},
+\end{align}
+where every element is its own inverse and the product of any two distinct non-identity elements is the third one.
+It is an abelian group, which means that every element has its own conjugacy class (SOURCE).
+
+Since every group has a trivial representation $T$ in any vector space, so do $V$. The center of $V$ is trivial, so the regular representation $R$ has the character $(4,0,0,0)$ and is clearly not irreducible.
+
+If $V$ instead is considered as a subgroup of $S_4$, that is
+\begin{align}
+	V = \{ (1), (12)(34), (13)(24), (14)(23) \} < S_4,
+\end{align}
+then each entry in the character of the permutation representation $P$ is the number of fixed points of the associated element. Then one sees that the character of the permutation representation is also $(4,0,0,0)$, it isomorphic to the regular representation.
+
+From theorem \ref{thm:numberirrep} we expect three additional irreducible representations. Since the square sum over all representations of the character of $e$ must be equal to the order of the group (SOURCE), they must be of degree 1. We know that they must be parallel to themselves and orthogonal to $T$ and have a 1 as the character of $e$, so the three additional are alterations of $T$ with two of the ones exchanged with negative ones. Then $R$ is the direct sum of these four irreducibles. These findings are presented in table \ref{table:charV} as the representations $A, B$ and $C$.
+
+
+\begin{table}[hbt!]
+	\centering
+	\begin{tabular}{c | c c c c l}
+		$V$ & $e$ & $x$ & $y$ & $xy$ &             \\ \hline
+		$T$ & 1   & 1   & 1   & 1   &             \\
+		$A$ & 1   & -1  & -1  & 1   &             \\
+		$B$ & 1   & -1  & 1   & -1  &             \\
+		$C$ & 1   & 1   & -1  & -1  &             \\ \hline\hline
+		$R$ & 4   & 0   & 0   & 0   & %$R \cong P \cong T \oplus A \oplus B \oplus C$
+	\end{tabular}
+	\caption{Character table for $V$.}
+	\label{table:charV}
+\end{table}
+
+
+\subsection{Characters of the dihedral group of order 8, $\Dih_8$}
+
+$\Dih_8$ is a 2-Sylow subgroup of $S_4$. Restrict the character table of $S_4$ to $\Dih_8$. 
+
+$\Dih_8$ has its non-trivial                                                                                                                                                                                                                                                              center $Z(\Dih_8) = \{e, r^2\}$ as a normal subgroup. The quotient $\Dih_8/\{e, r^2\}$ is isomorphic to the Klein 4-group. The character table of the Klein 4-group is a ``subset'' of the character table of $\Dih_8$.

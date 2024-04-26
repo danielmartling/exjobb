@@ -10,7 +10,7 @@ Building on the vector spaces constructed in Section~\ref{sect:tensoralgebra}, g
 	
 	\item By recursion, for a positive integer $n$, the \emph{direct sum of $n$ copies of $V$}, denoted
 	\begin{align*}
-		nV = \underset{\text{$n$ times}}{\underbrace{V \oplus \dots \oplus V}},
+		nV := \bigoplus_{i=1}^n V = \underset{\text{$n$ times}}{\underbrace{V \oplus \dots \oplus V}},
 	\end{align*}
 	is a representation.
 	
@@ -21,13 +21,18 @@ Building on the vector spaces constructed in Section~\ref{sect:tensoralgebra}, g
 	
 	\item By recursion, for a positive integer $n$, the \emph{$n$th tensor power of $V$}, denoted
 	\begin{align*}
-		V^{\otimes n} = \underset{\text{$n$ times}}{\underbrace{V \otimes \dots \otimes V}},
+		V^{\otimes n} := \bigotimes_{i=1}^n V = \underset{\text{$n$ times}}{\underbrace{V \otimes \dots \otimes V}},
 	\end{align*}
 	is a representation. The zeroth power is by definition the ground field $\CC$ and the first power is $V$ itself.
 	
-	\item The $n$th tensor power has two subrepresentations, the symmetric powers $\SymP^n V$ and the exterior powers $\AltP^n V$. 
+	\item The $n$th tensor power has two subrepresentations, the symmetric powers $\SymP^n V$ and the exterior powers $\AltP^n V$. \textit{Needs further explanation}
 	
 	\item After fixing a basis $(\bas_i)_{i=1}^k$ for $V$, a \emph{dual representation}, denoted $V^*$, can be defined by the dual space, spanned by the ...
 	
 	\item Set of homomorphisms...
 \end{itemize}
+
+
+\begin{example}[Decomposition of the permutation representation of $\Sym_3$]
+	Letting $V$ be the permutation representation of $\Sym_3$, it was found to have two complementary subrepresentations $W$ and $W'$. $\rho_{(1,2)}^V = \rho_{(1,2)}^W \oplus \rho_{(1,2)}^{W'}$.
+\end{example}

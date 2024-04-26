@@ -2,11 +2,11 @@
 
 This section follows \cite[1.?]{Serre}.
 
-\subsubsection{Unital representations}
+\subsubsection{Trivial representations}
 
-	A representation $\rho$ where every $g$ is such that $|\rho_g| = 1$, is called a unital representation.
+%	A representation $\rho$ where every $g$ is such that $|\rho_g| = 1$, is called a unital representation.
 
-\begin{example}[Trivial representation]\marginnote{Is it a repr. in ANY v.s.? For example if dimV=3, is triv.repr. mapping to 3 by 3 id matrix? Later decomposable to direct sum 3T.}
+\begin{example}[Trivial representation]
 	For any group $G$ there is a trivial degree 1 representation defined by mapping each element of $G$ to 1, ie.
 	\begin{align*}
 		\rho_g = 1,
@@ -25,7 +25,7 @@ This section follows \cite[1.?]{Serre}.
 \begin{example}[Alternating representation of $\Sym_n$]
 	Choosing $G = \Sym_n$, another degree 1 representation can be found by studying the signs, or parities, of the elements of $\Sym_n$. By Proposition~\ref{prop:signwelldefined}, the sign of a permutation is well-defined, so for any two permutations $\sigma$ and $\tau$ with respective signs $(-1)^s$ and $(-1)^t$, their composition has the sign
 	\begin{align*}
-		\sgn(\sigma\tau) = (-1)^{st} = (-1)^s \cdot (-1)^t = \sgn\sigma \cdot \sgn \tau,
+		\sgn(\sigma\tau) = (-1)^{s+t} = (-1)^s \cdot (-1)^t = \sgn (\sigma) \cdot \sgn (\tau),
 	\end{align*}
 	so clearly the map $\sgn: \Sym_n \rightarrow \{\pm 1\}$ is a homomorphism and thus a representation of degree 1, where even permutations are mapped to $+1$ and odd to $-1$.
 \end{example}
@@ -37,27 +37,76 @@ Choose $G = \Cyc_n$, and let $g$ be a generator such that
 	\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}
 \end{align*}
 and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{a+b}}$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $\rho_g$ is mapped to a $n$th root of unity.
-In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of the root of unity.
+In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of the root of unity.\marginnote{Clarify mapping of $g$ and $g^a$ for different roots of unity}
 
-\begin{example}[Degree 1 representations of $\Cyc_3$]
+\begin{example}[$\Cyc_3$]
 	The three third roots of unity are $1$, $\omega = \frac{-1+i\sqrt{3}}{2}$ and $w^2 = \frac{-1-i\sqrt{3}}{2}$, so the three representations of $\Cyc_3$ are presented in table \ref{table:Cyc3}. Note that $\rho_1^* = \rho_2$.
 	
-	\begin{table}[hbt!]
+%	\begin{table}[hbt!]
+%		\begin{tabular}{c | c c c}
+%			$\Cyc_3$ & $e$ & $g$        & $g^2$      \\ \hline
+%			$\rho_0$          & 1   & 1          & 1          \\
+%			$\rho_1$          & 1   & $\omega$   & $\omega^2$ \\
+%			$\rho_2$          & 1   & $\omega^2$ & $\omega$
+%		\end{tabular}
+%		\centering
+%		\caption{Three representations of $\Cyc_3$. $\omega = e^{2 \pi i/3}$}
+%		\label{table:Cyc3}
+%	\end{table}
+\end{example}
+
+\begin{example}[$\Cyc_4$]
+	The four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{tbl:cyc4}. Note that $\rho_1^* = \rho_3$.
+%	\begin{table}[hbt!]
+%		\centering
+%		\begin{tabular}{c | c c cl}
+%			$\Cyc_4$ & $e$ & $g$  & $g^2$ & $g^3$ \\ \hline
+%			$\rho_0$           & 1   & 1    & 1     & 1     \\
+%			$\rho_1$           & 1   & $i$  & $-1$  & $-i$  \\
+%			$\rho_2$           & 1   & $-1$ & $1$  & $-1$   \\
+%			$\rho_3$           & 1   & $-i$ & $-1$   & $i$
+%		\end{tabular}
+%		\caption{Four representations of $\Cyc_4$.}
+%		\label{tbl:cyc4}
+%	\end{table}
+\end{example}
+	
+\begin{example}[$\Cyc_5$]
+	The five fifth roots of unity are $\exp{\frac{2\pi im}{5}}$, $0 \leq m \leq 4$, so five representations of $\Cyc_5$ are presented in table \ref{table:Cyc5}. Note that $\rho_1^* = \rho_4$ and $\rho_2^* = \rho_3$.
+	
+%	\begin{table}[hbt!]
+%		\begin{tabular}{c | c c c c c}
+%			
+%			$\Cyc_5$ & $e$ & $g$        & $g^2$      & $g^3$      & $g^4$      \\ \hline
+%			$\rho_0$            & 1   & 1          & 1          & 1          & 1          \\
+%			$\rho_1$            & 1   & $\omega^1$ & $\omega^2$ & $\omega^3$ & $\omega^4$ \\
+%			$\rho_2$            & 1   & $\omega^2$ & $\omega^4$ & $\omega^1$ & $\omega^3$ \\
+%			$\rho_3$            & 1   & $\omega^3$ & $\omega^1$ & $\omega^4$ & $\omega^2$ \\
+%			$\rho_4$            & 1   & $\omega^4$ & $\omega^3$ & $\omega^2$ & $\omega^1$
+%		\end{tabular}
+%		\centering
+%		\caption{Five representations of $\Cyc_5$. $\omega = e^{2 \pi i/5}$.}
+%		\label{table:Cyc5}
+%	\end{table}
+\end{example}
+
+
+
+\begin{table}[hbt!]
+	\parbox[s]{.31\linewidth}{
+		\centering
 		\begin{tabular}{c | c c c}
 			$\Cyc_3$ & $e$ & $g$        & $g^2$      \\ \hline
 			$\rho_0$          & 1   & 1          & 1          \\
 			$\rho_1$          & 1   & $\omega$   & $\omega^2$ \\
 			$\rho_2$          & 1   & $\omega^2$ & $\omega$
 		\end{tabular}
-		\centering
-		\caption{Three representations of $\Cyc_3$.}
+		\vfill
+		\caption{Three reprs. of $\Cyc_3$. $\omega = e^{2 \pi i/3}$.}
 		\label{table:Cyc3}
-	\end{table}
-\end{example}
-
-\begin{example}[Degree 1 representations of $\Cyc_4$]
-	For $n = 4$, the four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{tbl:cyc4}.
-	\begin{table}[hbt!]
+	}
+	\hfill
+	\parbox[s]{.31\linewidth}{
 		\centering
 		\begin{tabular}{c | c c cl}
 			$\Cyc_4$ & $e$ & $g$  & $g^2$ & $g^3$ \\ \hline
@@ -66,17 +115,13 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 			$\rho_2$           & 1   & $-1$ & $1$  & $-1$   \\
 			$\rho_3$           & 1   & $-i$ & $-1$   & $i$
 		\end{tabular}
-		\caption{Two representations of $\Cyc_3$.}
+		\caption{Four reprs. of $\Cyc_4$.}
 		\label{tbl:cyc4}
-	\end{table}
-\end{example}
-	
-\begin{example}[Degree 1 representations of $\Cyc_5$]
-	The five fifth roots of unity are $\exp{\frac{2\pi im}{5}}$, so five representations of $\Cyc_5$ are presented in table \ref{table:Cyc5}. Note that $\rho_1^* = \rho_4$ and $\rho_2^* = \rho_3$.
-	
-	\begin{table}[hbt!]
+	}
+	\hfill
+	\parbox[s]{.31\linewidth}{
+		\centering
 		\begin{tabular}{c | c c c c c}
-			
 			$\Cyc_5$ & $e$ & $g$        & $g^2$      & $g^3$      & $g^4$      \\ \hline
 			$\rho_0$            & 1   & 1          & 1          & 1          & 1          \\
 			$\rho_1$            & 1   & $\omega^1$ & $\omega^2$ & $\omega^3$ & $\omega^4$ \\
@@ -84,11 +129,10 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 			$\rho_3$            & 1   & $\omega^3$ & $\omega^1$ & $\omega^4$ & $\omega^2$ \\
 			$\rho_4$            & 1   & $\omega^4$ & $\omega^3$ & $\omega^2$ & $\omega^1$
 		\end{tabular}
-		\centering
-		\caption{Five representations of $\Cyc_5$. $\omega = e^{2 \pi i/5}$.}
+		\caption{Five reprs. of $\Cyc_5$. $\omega = e^{2 \pi i/5}$.}
 		\label{table:Cyc5}
-	\end{table}
-\end{example}
+	}
+\end{table}
 
 
 
@@ -140,18 +184,18 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 	The dimension of $V$ is $|X|$, for example the permutation representation of $\Sym_n$ is of degree $n$.
 	
 	\begin{example}[Permutation representation of $\Sym_2$]
-		The symmetric group of degree 2 has two elements, $\Sym_2 = \{(1), (12)\}$ and their matrix representations in $\mathbf{\bas_1},\mathbf{\bas_2}$-space are presented in table \ref{table:permS2}.
+		The symmetric group of degree 2 has two elements, $\Sym_2 = \{(1), (1,2)\}$ and their matrix representations in $\bas_1,\bas_2$-space are presented in Table~\ref{table:permS2}.
 		\begin{table}[hbt!]
 			\centering
 			\begin{tabular}{c c}
-				$\rho(1) =
+				$\rho_{(1)} =
 				\begin{pmatrix}
 					1 & 0 \\ 0 & 1
 				\end{pmatrix}$, &
-				$\rho(12) =
+				$\rho_{(1,2)} =
 				\begin{pmatrix}
 					0 & 1 \\ 1 & 0
-				\end{pmatrix}$.
+				\end{pmatrix}$
 			\end{tabular}
 			\caption{Matrix representations of $\Sym_2$}
 			\label{table:permS2}
@@ -159,46 +203,46 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 	\end{example}
 	
 	\begin{example}[Permutation representation of $\Sym_3$]\label{ex:permS3}
-		Likewise, representations of $\Sym_3$ are presented in table \ref{table:permS3}.
+		Likewise, representations of $\Sym_3$ are presented in Table~\ref{table:permS3}.
 		\begin{table}[hbt!]
 			\centering
 			\begin{tabular}{r r r}
-				$\rho(e) = 
+				$\rho_{(1)} = 
 				\begin{pmatrix}
 					1 & 0 & 0 \\
 					0 & 1 & 0 \\
 					0 & 0 & 1
-				\end{pmatrix}$ & 
-				$\rho(123) = 
+				\end{pmatrix}$, & 
+				$\rho_{(1,2,3)} = 
 				\begin{pmatrix}
 					0 & 0 & 1 \\
 					1 & 0 & 0 \\
 					0 & 1 & 0
-				\end{pmatrix}$ & 
-				$\rho(132) = 
+				\end{pmatrix}$, & 
+				$\rho_{(1,3,2)} = 
 				\begin{pmatrix}
 					0 & 1 & 0 \\
 					0 & 0 & 1 \\
 					1 & 0 & 0
-				\end{pmatrix}$ \\ & & \\
-				$\rho(12) = 
+				\end{pmatrix}$, \\ & & \\
+				$\rho_{(1,2)} = 
 				\begin{pmatrix}
 					0 & 1 & 0 \\
 					1 & 0 & 0 \\
 					0 & 0 & 1
-				\end{pmatrix}$ &
-				$\rho(13) = 
+				\end{pmatrix}$, &
+				$\rho_{(1,3)} = 
 				\begin{pmatrix}
 					0 & 0 & 1 \\
 					0 & 1 & 0 \\
 					1 & 0 & 0
-				\end{pmatrix}$ &
-				$\rho(23) = 
+				\end{pmatrix}$, &
+				$\rho_{(2,3)} = 
 				\begin{pmatrix}
 					1 & 0 & 0 \\
 					0 & 0 & 1 \\
 					0 & 1 & 0
-				\end{pmatrix}$
+				\end{pmatrix}$.
 			\end{tabular}
 			\caption{Matrix representations of $\Sym_3$}
 			\label{table:permS3}
@@ -206,7 +250,44 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 	\end{example}
 	
 	\begin{example}[Permutation representation of $\Sym_4$]
-		content...
+		Yet again, matrix representations of some elements of $\Sym_4$ are presented in Table~\ref{table:permS4}. The elements chosen are one representative from every conjugacy class of $\Sym_4$.
+		\begin{table}[hbt!]
+			\centering
+			\begin{tabular}{r r r}
+				$rho_{(1)} = \left(\begin{smallmatrix}
+					1 & 0 & 0 & 0 \\
+					0 & 1 & 0 & 0 \\
+					0 & 0 & 1 & 0 \\
+					0 & 0 & 0 & 1
+				\end{smallmatrix}\right)$,  &
+				$\rho_{(1,2)} = \left(\begin{smallmatrix}
+					0 & 1 & 0 & 0 \\
+					1 & 0 & 0 & 0 \\
+					0 & 0 & 1 & 0 \\
+					0 & 0 & 0 & 1
+				\end{smallmatrix}\right)$, &
+				$\rho_{(1,2)(3,4)} = \left(\begin{smallmatrix}
+					0 & 1 & 0 & 0 \\
+					1 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 1 \\
+					0 & 0 & 1 & 0
+				\end{smallmatrix}\right)$, \\ & & \\ &
+				$\rho_{(1,2,3)} = \left(\begin{smallmatrix}
+					0 & 0 & 1 & 0 \\
+					1 & 0 & 0 & 0 \\
+					0 & 1 & 0 & 0 \\
+					0 & 0 & 0 & 1
+				\end{smallmatrix}\right)$, &
+				$\rho_{(1,2,3,4)} = \left(\begin{smallmatrix}
+					0 & 0 & 0 & 1 \\
+					1 & 0 & 0 & 0 \\
+					0 & 1 & 0 & 0 \\
+					0 & 0 & 1 & 0
+				\end{smallmatrix}\right)$.
+			\end{tabular}
+			\caption{Some matrix representations of $\Sym_4$}
+			\label{table:permS4}
+		\end{table}
 	\end{example}
 
 \subsubsection{Regular representation}
@@ -223,8 +304,12 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 	
 	The dimension of $V$ is $|G|$, for example the regular representation of $\Cyc_n$ is of degree $n$ and for $\Sym_n$ it is of degree $n!$, a number which grows increasingly quick for larger $n$, however the regular representation will be shown to be important later.
 	
+	\begin{example}[Regular representation of $\Cyc_3$]
+		content...
+	\end{example}
+	
 	\begin{example}[Regular representation of $\Sym_3$]
-		Defining a homomorphism $\rho: S_3 \rightarrow \GL(V)$ on the vector space spanned by the basis\footnote{Explicitly, this is $\left\lbrace \bas_1, \bas_{12}, \bas_{13}, \bas_{23}, \bas_{123}, \bas_{132} \right\rbrace$.} $(\bas_{\sigma})_{\sigma \in \Sym_3}$ defined for every $\sigma$ by $\rho(\sigma) \cdot \bas_\tau = \bas_{\sigma \circ \tau} = \bas_{\sigma\tau}$ for some $\tau$, we arrive at a degree 6 representation of $\Sym_3$. It is clearly a larger degree representation of $S_n$ than any we have found so far.% Later we will find that for $\Sym_3$, $R$ is the direct sum of the trivial representation, the alternating representation and two copies of the standard representations, that is $S = T \oplus A \oplus 2S$.
+		Defining a homomorphism $\rho: S_3 \rightarrow \GL(V)$ on the vector space spanned by the basis\footnote{Explicitly, this is $\left\lbrace \bas_1, \bas_{12}, \bas_{13}, \bas_{23}, \bas_{123}, \bas_{132} \right\rbrace$.} $(\bas_{\sigma})_{\sigma \in \Sym_3}$ defined for every $\sigma$ by $\rho(\sigma) \cdot \bas_\tau = \bas_{\sigma \circ \tau} = \bas_{\sigma\tau}$ for some $\tau$, we arrive at a degree 6 representation of $\Sym_3$. %It is clearly a larger degree representation of $S_n$ than any we have found so far.% Later we will find that for $\Sym_3$, $R$ is the direct sum of the trivial representation, the alternating representation and two copies of the standard representations, that is $S = T \oplus A \oplus 2S$.
 		
 		\textit{Table of $6 \times 6$-matrices :-(}
 	\end{example}

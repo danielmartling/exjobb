@@ -1,52 +1,248 @@
 \clearpage{\thispagestyle{empty}}
 \section{Character Theory}
 
-Recall from linear algebra that two similar matrices have the same trace \cite[Thm 5.4.]{Holst} and that two matrices $X$ and $Y$ are similar if there exists a matrix $S$ such that $S X S^{-1} = Y$. Also recall that the trace is the sum along the diagonal of the matrix, as well as the sum of the eigen values of the matrix.
+This section is based on \cite[Ch.2.]{Serre}.
 
-Something on change of basis - trace is basis independent.
+Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \rightarrow \GL(V)$ be a representation. Now, for each $g \in G$, define a function $\chi_{\rho}: G \rightarrow \CC$ to be the trace of the matrix of $g$ in $V$. In other words $\chi_{\rho}(g) = \Tr(\rho_g)$. This function is called the \emph{character} of a representation.
 
-The trace seem related to the conjugation of elements of $\GL(V)$, motivating our use of it as a ``metric/measure'' to compare different representations. 
+We recall from linear algebra the concept of the trace of a matrix $(a_{ij})_{n \times n}$. It is the sum along the diagonal,
+\begin{align*}
+	\Tr(a_{ij})= \sum_{i=1}^{n} a_{ii} = a_{11} + \dots + a_{nn},
+\end{align*}
+and is also the sum of the eigen values of the matrix and is independent of the basis chosen. Why is it useful when studying representations?
 
-\begin{definition}\label{def:char}
-	 Let $V$ be a representation space of a group $G$ of dimension $n$ and let $\rho_g = (r_{ij})$ be the matrix representation of a $g \in G$. Then the \emph{character} of $g$ in $V$ is defined to be the trace of the matrix representation, that is 
-	 \begin{align*}
-	 	\chi_V(g) := \Tr \rho_g = \sum_{i=1}^{n} r_{ij}.
-	 \end{align*}
+\begin{proposition}\cite[Prop.2.1.]{Serre}
+	The trace function \emph{characterizes} the representation in some useful ways:
+	\begin{enumerate}
+		\item[i)] The character of the identity element of $G$ is the degree of the representation.
+		\item[ii)] The character of an element in $G$ is the complex conjugate of the character of the inverse element.
+		\item[iii)] The character is constant under conjugation.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\begin{enumerate}
+		\item[i)] By Propostion~\ref{prop:homoidinv}, $\rho_e$ is the $n \times n$ identity matrix, hence $\chi(e) = \Tr \1 = n$.
+		\item[ii)] Let $g \in G$ and let $g^{-1}$ be its inverse. The character of $g^{-1}$ is 
+		\begin{align*}
+			\Tr(\rho_{g^{-1}}) = \Tr(\rho_g^{-1})
+		\end{align*}
+		which is the sum of the eigen values of $\rho_g^{-1}$. If $\lambda$ is an eigen value of $\rho_g$, then $1/\lambda$ is an eigen value of $\rho_g^{-1}$, hence
+		\begin{align*}
+			\Tr(\rho_g^{-1}) = \sum_i \frac{1}{\lambda_i} = \sum_i \overline{\lambda_i} = \overline{\Tr(\rho_g)} = \overline{\chi(g)}
+		\end{align*} 
+		\item[iii)] It is well known that the trace is conserved under conjugation. \qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}
+	\begin{definition}\label{def:char}
+		Let $V$ be a representation space of a group $G$ of dimension $n$ and let $\rho_g = (r_{ij})$ be the matrix representation of a $g \in G$. Then the \emph{character} of $g$ in $V$ is defined to be the trace of the matrix representation, that is 
+		\begin{align*}
+			\chi_V(g) := \Tr \rho_g = \sum_{i=1}^{n} r_{ii}.
+		\end{align*}
+	\end{definition}
 \end{definition}
 
-Whenever $V$ or $\rho$ are contextually obvious they may be omitted, ie. $\chi = \Tr g$. We have already inadvertently studied the characters of some representations:
+\begin{notation}
+	A ``character vector'', simply called the group character, of $G$ can be defined as the vector containing the character of every element of $G$.
+\end{notation}
 
-\begin{example}[Characters of degree 1 representations]
-	Evident from Definition~\ref{def:char}, the character of a degree 1 representation is the same as the representation, since a $1 \times 1$-matrix is usually identified with its only element, ie. $\chi_g = \rho_g$, hence the Tables~\ref{table:Cyc3},~\ref{tbl:cyc4} and \ref{table:Cyc5} are the character tables of $\Cyc_3$, $\Cyc_4$ and $\Cyc_5$ respectively.
-	
-	Further more, the character of the trivial representation of a group is 1 for every element of the group and the character of the alternating representation of the symmetric group is $+1$ for an even permutation and $-1$ for an odd one.
+\begin{example}
+	The trivial character is $(1, \dots, 1)$ for any group.
 \end{example}
 
-\begin{example}[Character of the identity element]
-	By Equation~\ref{eq:rhoIdAndInv}, the identity element of any group is mapped to the identity transformation of the representation $V$, which is the identity matrix, hence $\chi(e) = \dim V$.
+\begin{example}
+	The permutation character of $\Sym_3$ is $(3, 0, 0, 1, 1, 1)$.
 \end{example}
 
-\begin{example}[Character of the permutation representation of $\Sym_n$]
-	The matrix representation of a $\sigma \in \Sym_n$ has a 1 in the diagonal if and only if that row corresponds to a fixed point, hence the character of the permutation representation is the same as the number of fixed points of that conjugacy class.
-\end{example}
-Something on class functions
+\begin{remark}
+	We note that since the trace is fixed under conjugation, any elements of a group that are conjugate have the same character, ie. for a conjugate pair $g,h \in G$ there exists an $a \in G$ such that $h = gag^{-1}$, and their characters are
+	\begin{align*}
+		\chi(h) = \chi(gag^{-1}) = \chi(g).
+	\end{align*}
+\end{remark}
 
-Something on basis, matrix representation
+\begin{notation}
+	If the group $G$ is partitioned into the conjugacy classes $K_1, K_2, \dots, K_l$, then the group character can be abbreviated to contain one representative $k_i$ from every class $K_i$, ie. $\chi= (\chi(k_1), \chi(k_2), \dots \chi(k_l))$.
+\end{notation}
 
-Projection formulae
-
-character tables 
-
-Sometging on the regular representation.
-
-\begin{example}[Character table of $\Sym_2$]
-	content...
+\begin{example}
+	The group $\Sym_3$ is partitioned into the classes $[(1)], [(1,2)]$ and $[(1,2,3)]$, and the group character of the permutation representation can be written as $(3,0,1)$.
 \end{example}
 
-\begin{example}[Character table of $\Sym_3$]
-	content...
-\end{example}
+\textit{Something on the characters are basis of class function space, hence the number of irreducible representations of a group is the same as the number of conjugacy classes in the group.}
 
-\begin{example}[Character table of $\Sym_4$]
-	content...
-\end{example}
+Moving on to the toolbox presented in Section~\ref{sect:tensorrepr}, we propose the following:
+
+\begin{proposition}\label{prop:charplustimes}
+	Let $V$ and $W$ be representation spaces of a group $G$. For a $g \in G$, let $\chi_V(g)$ and $\chi_W(g)$ be its characters in those representations. Then we have,
+	\begin{enumerate}
+		\item[i)] The character in $V \oplus W$ is $\chi_V+\chi_W$,
+		\item[ii)] The character in $V \otimes W$ is $\chi_V \cdot \chi_W$
+		\item[iii)] The characters of the symmetric and exterior squares are $\chi_{\SymP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 + \chi_V(g^2))$ and $\chi_{\AltP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 - \chi_V(g^2))$, compatible with $V \otimes V = \SymP^2 V \oplus \AltP^2 V$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\begin{enumerate}
+		These topics were treated in Section~\ref{sect:tensoralgebra}.
+		\item[i)] The trace of $\rho_g^V \oplus \rho_g^W$ is clearly the sum of the traces of $\rho_g^V$ and $\rho_g^W$.
+		\item[ii)] Likewise, the trace of $\rho_g^V \otimes \rho_g^W$ is found to be the product of the traces of $\rho_g^V$ and $\rho_g^W$.
+		\item[iii)] \textit{To be written...}
+	\end{enumerate}
+\end{proof}
+
+\subsection{Orthogonality relations}
+
+Let $\varphi$ and $\psi$ be the group characters of a group $G$, then we define the scalar product of characters as
+\begin{align*}
+	(\varphi | \psi) = \frac{1}{|G|} \sum_{g \in G} \varphi(g) \overline{\psi(g)}.
+\end{align*}
+This is an inner product since it is linear in $\varphi$, semilinear in $\psi$, as well is $(\varphi|\varphi) > 0 $ for any $\varphi \neq \0$ and $(\varphi|\varphi)=0$ if and only if $\varphi= \0$.
+
+\begin{notation}
+	The inner product of a character with itself is sometimes lazily denoted by \begin{align*}
+		|\varphi| := (\varphi|\varphi).
+	\end{align*}
+\end{notation}
+
+\begin{theorem}[Irreducibility criterion]\label{thm:irredcrit}
+	Let $\chi \neq \psi$ be characters of irreducible representations of $G$ (called irreducible characters), then we have that 
+	\begin{enumerate}
+		\item[i)] $(\chi|\chi)= 1$, and
+		\item[ii)] $(\chi|\psi) = 0$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\textit{To be written...}
+\end{proof}
+
+Now, let $V$ be the direct sum of irreducible representations $W_i$ of $G$ such that
+\begin{align*}
+	V = \bigoplus_i W_i.
+\end{align*}
+If $\chi_i$ is the character of $W_i$, then by Proposition~\ref{prop:charplustimes} the character of $V$ is
+\begin{align*}
+	\varphi = \sum_i \chi_i.
+\end{align*}
+
+Let $\chi$ be the character of an irreducible representation of $G$, then we have that
+\begin{align*}
+	(\varphi|\chi) = \sum_i (\chi_i|\chi).
+\end{align*}
+Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inner products $(\chi_i|\chi)$ is either 1 or 0, depending on if $\chi$ and $\chi_i$ are of isomorphic representations. Hence, $(\varphi|\chi)$ will return the number of occurences of $\chi$ in $\varphi$. This number is called the \textit{multiplicity}.
+
+\begin{remark}
+	This also means that the composition of a representation $\varphi$ into a direct sum of irreducible subrepresentations $\chi_i$ is unique. \textit{Something on two compositions of the same $V$ must be identical.}
+\end{remark}
+
+\begin{remark}
+	The converse is also true, if two representations have the same character, then they are isomorphic since they contain the same irreducible representations.
+\end{remark}
+
+\begin{note}
+	Let $V$ be a representation with the composition 
+	\begin{align*}
+		V = \bigoplus_{i=1}^k m_i W_i = m_1W_1 \oplus m_2W_2 \oplus \dots,
+	\end{align*}
+	where the $m_i$ are the multiplicities of the irreducible $W_i$. If the character of $W_i$ is denoted by $\chi_i$, then the character of $V$ is
+	\begin{align*}
+		\varphi = \sum_{i=1}^k m_i \chi_i,
+	\end{align*}
+	where $m_i = (\varphi|\chi_i)$.	Taking the inner product of $\varphi$ with itself we have
+	\begin{align}\label{eq:innerprodself}
+		(\varphi|\varphi) = \sum_{i=1}^k m_i^2.
+	\end{align}
+\end{note}
+
+\begin{theorem}
+	The character $\varphi$ is irreducible if and only if $(\varphi|\varphi) = 1$.
+\end{theorem}
+\begin{proof}
+	If $\varphi$ is irreducible, then by Theorem~\ref{thm:irredcrit} we have that $(\varphi|\varphi) = 1$. For the converse statement, if the sum in Equation~\ref{eq:innerprodself} to be equal to one, we must have that only one of the $m_i$ is equal to 1, and the rest are 0. Then $V$ is composed of only one irreducible character, hence it is irreducible.
+\end{proof}
+
+Using these criteria and relations as a character calculus toolbox, we can study some groups, determine all of their irreducible representations and decompose any arbitrary representation.
+
+\subsection{Decomposition of the regular representation}
+
+Some representations where painstakingly found in the regular representation (the trivial in any group, along with the alternating in the symmetric group), however in general the following hold for the regular representation:
+
+For a $g \in G$, it will act on a basis vector $\bas_h$ of the regular representation space $V$ by
+\begin{align*}
+	g \cdot \bas_{h} = \bas_{gh}
+\end{align*}
+and the resulting matrix $\rho_g$ can then be constructed by studying the action of this $g \in G$ on every $\bas_h$, where $h \in G$. However, the trace of this matrix, ie. the character $\varphi(g)$, only depends on the values on the diagonal, which are the fixed points under the action of $g$. What this means is that the $h$th column will have an 1 in the $h$ row if and only if $gh = h$, which holds only if $g = e$, hence $\rho_g$ is a $|G| \times |G|$ permuation matrix with trace
+\begin{align*}
+	\varphi(g) = \begin{cases}
+		|G| \text{, if $g = e$,} \\
+		0 \text{, otherwise,}
+	\end{cases}
+\end{align*}
+and the character of the regular representation is 
+\begin{align*}
+	\varphi = (|G|, 0, \dots, 0).
+\end{align*}
+
+Now taking the inner product of it with itself we have,
+\begin{align*}
+	(\varphi|\varphi) = \frac{1}{|G|} \sum_{g \in G} \varphi(g)\overline{\varphi(g)},
+\end{align*}
+all summands vanish except $g = e$, and since $\varphi(e) = |G|$ we have that
+\begin{align*}
+	(\varphi|\varphi) = \frac{1}{|G|} |G|^2 = |G|,
+\end{align*}
+hence by Equation~\ref{eq:innerprodself}, the square sum of the multiplicities of the regular representation is the order of the group. Also, assume that ${W_i}$ is the family of irreducible representations of a group with respective characters $\chi_i$, then the regular representation is a direct sum of these with (not-necessarily non-zero) multiplicities $m_i$, then we have that the multiplicity of some irreducible $\chi_j$ in $\varphi$ is
+\begin{align*}
+	(\varphi|\chi_j) = \sum_i (\chi_i|\chi_j) = \sum_i \frac{1}{|G|} \sum_{g \in G} \chi_i(g) \overline{\chi_j(g)}.
+\end{align*}
+The $\chi_i$ vanish for all $g \neq e$, 
+\begin{align*}
+	= \sum_i \frac{1}{|G|} \chi_i(e) \overline{\chi_j(e)} = \sum_i \frac{1}{|G|}|G|\chi_j(e) = \sum_i \chi_j(e)
+\end{align*}\marginnote{some mathematical error somewhere}
+hence the multiplicity of an irreducible representation inside the regular representation is the degree of that irreducible.
+
+We arrive at:
+\begin{theorem}
+	The regular representation $V$ of a group is decomposed in term of the irreducible representations of the group $W_i$ as
+	\begin{align*}
+		V = \bigoplus_i \dim (W_i) W_i.
+	\end{align*}
+\end{theorem}
+
+%Recall from linear algebra that two similar matrices have the same trace \cite[Thm 5.4.]{Holst} and that two matrices $X$ and $Y$ are similar if there exists an invertible matrix $S$ such that $S X S^{-1} = Y$. Also recall that the trace is the sum along the diagonal of the matrix, as well as the sum of the eigen values of the matrix.
+%
+%Something on change of basis - trace is basis independent.
+%
+%The trace seem related to the conjugation of elements of $\GL(V)$, motivating our use of it as a ``metric/measure'' to compare different representations. 
+%
+%%\begin{definition}\label{def:char}
+%%	 Let $V$ be a representation space of a group $G$ of dimension $n$ and let $\rho_g = (r_{ij})$ be the matrix representation of a $g \in G$. Then the \emph{character} of $g$ in $V$ is defined to be the trace of the matrix representation, that is 
+%%	 \begin{align*}
+%%	 	\chi_V(g) := \Tr \rho_g = \sum_{i=1}^{n} r_{ii}.
+%%	 \end{align*}
+%%\end{definition}
+%
+%Whenever $V$ or $\rho$ are contextually obvious they may be omitted, ie. $\chi = \Tr g$. We have already inadvertently studied the characters of some representations:
+%
+%\begin{example}[Characters of degree 1 representations]
+%	Evident from Definition~\ref{def:char}, the character of a degree 1 representation is the same as the representation, since a $1 \times 1$-matrix is usually identified with its only element, ie. $\chi_g = \rho_g$, hence the Tables~\ref{table:Cyc3},~\ref{tbl:cyc4} and \ref{table:Cyc5} are the character tables of $\Cyc_3$, $\Cyc_4$ and $\Cyc_5$ respectively.
+%	
+%	Further more, the character of the trivial representation of a group is 1 for every element of the group and the character of the alternating representation of the symmetric group is $+1$ for an even permutation and $-1$ for an odd one.
+%\end{example}
+%
+%\begin{example}[Character of the identity element]
+%	By Equation~\ref{eq:rhoIdAndInv}, the identity element of any group is mapped to the identity transformation of the representation $V$, which is the identity matrix, hence $\chi(e) = \dim V$.
+%\end{example}
+%
+%\begin{example}[Character of the permutation representation of $\Sym_n$]
+%	The matrix representation of a $\sigma \in \Sym_n$ has a 1 in the diagonal if and only if that row corresponds to a fixed point, hence the character of the permutation representation is the same as the number of fixed points of that conjugacy class.
+%\end{example}
+%Something on class functions
+%
+%Something on basis, matrix representation
+%
+%Projection formulae
+%
+%character tables 
+%
+%Sometging on the regular representation.
