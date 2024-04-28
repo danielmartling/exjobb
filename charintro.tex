@@ -14,34 +14,34 @@ and is also the sum of the eigen values of the matrix and is independent of the 
 \begin{proposition}\cite[Prop.2.1.]{Serre}
 	The trace function \emph{characterizes} the representation in some useful ways:
 	\begin{enumerate}
-		\item[i)] The character of the identity element of $G$ is the degree of the representation.
-		\item[ii)] The character of an element in $G$ is the complex conjugate of the character of the inverse element.
-		\item[iii)] The character is constant under conjugation.
+		\item[i)] The character of the identity element of $G$ is the degree of the representation, $\chi(e) = \dim V$.
+		\item[ii)] The character of an element in $G$ is the complex conjugate of the character of the inverse element, $\chi(g^{-1}) = \overline{\chi(g)}$.
+		\item[iii)] The character is constant under conjugation, $g,h \in K \subseteq G$ implies $\chi(g) = \chi(h)$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
 	\begin{enumerate}
-		\item[i)] By Propostion~\ref{prop:homoidinv}, $\rho_e$ is the $n \times n$ identity matrix, hence $\chi(e) = \Tr \1 = n$.
+		\item[i)] By Propostion~\ref{prop:homoidinv}, $\rho_e$ is the $n \times n$ identity matrix, where $n = \dim V$, hence $\chi(e) = \Tr \id = n$.
 		\item[ii)] Let $g \in G$ and let $g^{-1}$ be its inverse. The character of $g^{-1}$ is 
 		\begin{align*}
 			\Tr(\rho_{g^{-1}}) = \Tr(\rho_g^{-1})
 		\end{align*}
 		which is the sum of the eigen values of $\rho_g^{-1}$. If $\lambda$ is an eigen value of $\rho_g$, then $1/\lambda$ is an eigen value of $\rho_g^{-1}$, hence
 		\begin{align*}
-			\Tr(\rho_g^{-1}) = \sum_i \frac{1}{\lambda_i} = \sum_i \overline{\lambda_i} = \overline{\Tr(\rho_g)} = \overline{\chi(g)}
+			\Tr(\rho_g^{-1}) = \sum_i \frac{1}{\lambda_i} = \sum_i \overline{\lambda_i} = \overline{\Tr(\rho_g)} = \overline{\chi(g)} \marginnote{There is an error here.}
 		\end{align*} 
 		\item[iii)] It is well known that the trace is conserved under conjugation. \qedhere
 	\end{enumerate}
 \end{proof}
 
-\begin{definition}
-	\begin{definition}\label{def:char}
-		Let $V$ be a representation space of a group $G$ of dimension $n$ and let $\rho_g = (r_{ij})$ be the matrix representation of a $g \in G$. Then the \emph{character} of $g$ in $V$ is defined to be the trace of the matrix representation, that is 
-		\begin{align*}
-			\chi_V(g) := \Tr \rho_g = \sum_{i=1}^{n} r_{ii}.
-		\end{align*}
-	\end{definition}
+
+\begin{definition}\label{def:char}
+	Let $V$ be a representation space of a group $G$ of dimension $n$ and let $\rho_g = (r_{ij})$ be the matrix representation of a $g \in G$. Then the \emph{character} of $g$ in $V$ is defined to be the trace of the matrix representation, that is 
+	\begin{align*}
+		\chi_V(g) := \Tr \rho_g = \sum_{i=1}^{n} r_{ii}.
+	\end{align*}
 \end{definition}
+
 
 \begin{notation}
 	A ``character vector'', simply called the group character, of $G$ can be defined as the vector containing the character of every element of $G$.
@@ -70,8 +70,6 @@ and is also the sum of the eigen values of the matrix and is independent of the 
 	The group $\Sym_3$ is partitioned into the classes $[(1)], [(1,2)]$ and $[(1,2,3)]$, and the group character of the permutation representation can be written as $(3,0,1)$.
 \end{example}
 
-\textit{Something on the characters are basis of class function space, hence the number of irreducible representations of a group is the same as the number of conjugacy classes in the group.}
-
 Moving on to the toolbox presented in Section~\ref{sect:tensorrepr}, we propose the following:
 
 \begin{proposition}\label{prop:charplustimes}
@@ -83,8 +81,8 @@ Moving on to the toolbox presented in Section~\ref{sect:tensorrepr}, we propose 
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
+	These topics were treated in Section~\ref{sect:tensoralgebra}.
 	\begin{enumerate}
-		These topics were treated in Section~\ref{sect:tensoralgebra}.
 		\item[i)] The trace of $\rho_g^V \oplus \rho_g^W$ is clearly the sum of the traces of $\rho_g^V$ and $\rho_g^W$.
 		\item[ii)] Likewise, the trace of $\rho_g^V \otimes \rho_g^W$ is found to be the product of the traces of $\rho_g^V$ and $\rho_g^W$.
 		\item[iii)] \textit{To be written...}
@@ -129,7 +127,7 @@ Let $\chi$ be the character of an irreducible representation of $G$, then we hav
 \begin{align*}
 	(\varphi|\chi) = \sum_i (\chi_i|\chi).
 \end{align*}
-Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inner products $(\chi_i|\chi)$ is either 1 or 0, depending on if $\chi$ and $\chi_i$ are of isomorphic representations. Hence, $(\varphi|\chi)$ will return the number of occurences of $\chi$ in $\varphi$. This number is called the \textit{multiplicity}.
+Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inner products $(\chi_i|\chi)$ is either 1 or 0, depending on if $\chi$ and $\chi_i$ are of isomorphic representations. Hence, $(\varphi|\chi)$ will return the number of occurences of $\chi$ in $\varphi$. This number is called the \textit{multiplicity} of $\chi$ in $\varphi$.
 
 \begin{remark}
 	This also means that the composition of a representation $\varphi$ into a direct sum of irreducible subrepresentations $\chi_i$ is unique. \textit{Something on two compositions of the same $V$ must be identical.}
@@ -158,8 +156,10 @@ Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inne
 	The character $\varphi$ is irreducible if and only if $(\varphi|\varphi) = 1$.
 \end{theorem}
 \begin{proof}
-	If $\varphi$ is irreducible, then by Theorem~\ref{thm:irredcrit} we have that $(\varphi|\varphi) = 1$. For the converse statement, if the sum in Equation~\ref{eq:innerprodself} to be equal to one, we must have that only one of the $m_i$ is equal to 1, and the rest are 0. Then $V$ is composed of only one irreducible character, hence it is irreducible.
+	If $\varphi$ is irreducible, then by Theorem~\ref{thm:irredcrit} we have that $(\varphi|\varphi) = 1$. For the converse statement, if the sum in Equation~\ref{eq:innerprodself} is equal to one, we must have that only one of the $m_i$ is equal to 1, and the rest are equal to 0. Then $V$ is composed of only \textit{one} irreducible character, hence it is irreducible.
 \end{proof}
+
+\textit{Something on the characters are basis of class function space, hence the number of irreducible representations of a group is at most the number of conjugacy classes in the group.}
 
 Using these criteria and relations as a character calculus toolbox, we can study some groups, determine all of their irreducible representations and decompose any arbitrary representation.
 
@@ -171,7 +171,7 @@ For a $g \in G$, it will act on a basis vector $\bas_h$ of the regular represent
 \begin{align*}
 	g \cdot \bas_{h} = \bas_{gh}
 \end{align*}
-and the resulting matrix $\rho_g$ can then be constructed by studying the action of this $g \in G$ on every $\bas_h$, where $h \in G$. However, the trace of this matrix, ie. the character $\varphi(g)$, only depends on the values on the diagonal, which are the fixed points under the action of $g$. What this means is that the $h$th column will have an 1 in the $h$ row if and only if $gh = h$, which holds only if $g = e$, hence $\rho_g$ is a $|G| \times |G|$ permuation matrix with trace
+and the resulting matrix $\rho_g$ can then be constructed by studying the action of this $g \in G$ on every $\bas_h$, where $h \in G$. However, the trace of this matrix, ie. the character $\varphi(g)$, only depends on the values on the diagonal, which are the fixed points under the action of $g$. What this means is that the $h$th column will have an 1 in the $h$ row if and only if $gh = h$, which holds only if $g = e$ since only $e$ leaves every other element of $G$ fixed, hence $\rho_g$ is a $|G| \times |G|$ permuation matrix with trace
 \begin{align*}
 	\varphi(g) = \begin{cases}
 		|G| \text{, if $g = e$,} \\
@@ -198,7 +198,7 @@ hence by Equation~\ref{eq:innerprodself}, the square sum of the multiplicities o
 The $\chi_i$ vanish for all $g \neq e$, 
 \begin{align*}
 	= \sum_i \frac{1}{|G|} \chi_i(e) \overline{\chi_j(e)} = \sum_i \frac{1}{|G|}|G|\chi_j(e) = \sum_i \chi_j(e)
-\end{align*}\marginnote{some mathematical error somewhere}
+\end{align*}\marginnote{some mathematical error here}
 hence the multiplicity of an irreducible representation inside the regular representation is the degree of that irreducible.
 
 We arrive at:
@@ -208,6 +208,10 @@ We arrive at:
 		V = \bigoplus_i \dim (W_i) W_i.
 	\end{align*}
 \end{theorem}
+
+\begin{proof}
+	\textit{To be written...}
+\end{proof}
 
 %Recall from linear algebra that two similar matrices have the same trace \cite[Thm 5.4.]{Holst} and that two matrices $X$ and $Y$ are similar if there exists an invertible matrix $S$ such that $S X S^{-1} = Y$. Also recall that the trace is the sum along the diagonal of the matrix, as well as the sum of the eigen values of the matrix.
 %

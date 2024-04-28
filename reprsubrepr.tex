@@ -2,8 +2,6 @@
 
 As laid out in \cite{FultonHarris}, we are looking for representations which are said to be ``atomic'' and conversely, for any arbitrary representation we wish to find how it is composed of these indecomposable representations. To proceed we need the notion of a vector space map that respects or conserves the group action.	
 
-\marginnote{Morphisms of reprs.}
-
 \begin{definition}[$G$-linear map]\cite{FultonHarris}
 	Let $V$ and $W$ be two representation spaces of a group $G$. A vector space map 
 	\begin{align*}
@@ -17,7 +15,7 @@ As laid out in \cite{FultonHarris}, we are looking for representations which are
 	\begin{align*}
 		\varphi \circ \rho^V_g (\vvec) = \rho^W_g \circ \varphi (\vvec).
 	\end{align*}
-	Equivalently one can say that the diagram in Figure~\ref*{fig:commapmorp} is commutative for every $g \in G$.
+	Equivalently one can say that the diagram in Figure~\ref*{fig:commapmorp} is commutes for every $g \in G$.
 	\begin{figure}[hbt!]
 		\centering
 %		\[\begin{tikzcd}
@@ -42,7 +40,7 @@ As laid out in \cite{FultonHarris}, we are looking for representations which are
 Consider the case where $W$ is a $G$-invariant\footnote{For $W$ to be a $G$-invariant space, it means that for every $g \in G$, $g \cdot \wvec \in W$ for any $\wvec \in W$ or that $\rho_g(W) \subseteq W$ for any $g\in G$.} vector subspace of $V$% and let $\pi:V \rightarrow W$ be the projection map of $V$ onto $W$. 
 and let $\rho$ be a representation of $G$ in $V$. Then the restriction of $\rho$ to $W$, here denoted $\rho|_W$, is a isomorphism of $W$ onto itself since $W$ is $G$-invariant,
 %(the action of $g$ on any $\wvec \in W$ will return the same $\wvec$), 
-and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarrow \GL(W)$ is a representation if $G$ in the subspace $W$ of $V$, motivating the following definition.
+and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarrow \GL(W)$ is a representation of $G$ in the subspace $W$ of $V$, motivating the following definition:
 
 \begin{definition}[Subrepresentation]\label{def:subrepr}
 	Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $V$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
@@ -51,7 +49,7 @@ and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarr
 In other words, a subrepresentation is a $G$-invariant vector subspace of a ``parent'' representation. 
 
 \begin{example}[Trivial subspaces]
-	Any representation $V$ has itself as well as the zero space as subrepresentations.
+	Any representation has itself as well as the zero space as subrepresentations.
 \end{example}
 
 \subsubsection{Some proper and non-trivial subrepresentations}
@@ -76,9 +74,11 @@ Let $G$ be any group and let us study its permutation representation and regular
 \begin{example}[Alternating representation inside the regular representation of $\Sym_n$]\cite[Example 1.4.4.]{Sagan}
 	Let $G = \Sym_n$, then for the regular representation, $V$ is spanned by a basis vector for every $\sigma \in \Sym_n$. Let $W$ be the subspace of $V$ spanned by the sum $\sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\sigma}$. The action of a $\tau \in \Sym_n$ on a $\wvec \in W$ is
 	\begin{align*}
-		\tau \cdot a\sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\sigma} = a \sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\tau\sigma} 
+		\tau (\wvec) &= \tau \cdot a\sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\sigma} \\
+		&= a \sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\tau\sigma} \\
+		&= a \frac{1}{\sgn\tau} \sum_{\sigma \in \Sym_n} \sgn(\tau\sigma) \bas_{\tau\sigma} \\
 	\end{align*}
-	where $a \in \CC$. Let $\pi = \tau\sigma$, then the sum can instead be indexed\marginnote{What happens with the sgn?} over all these $\pi \in \Sym_n$, hence $W$ is a $G$-invariant subspace of $V$ and the alternating representation is also found inside the regular representation.
+	where $a \in \CC$. Let $\pi = \tau\sigma$, then the sum can instead be over all these $\pi \in \Sym_n$, hence $W$ is a $G$-invariant subspace of $V$ and the alternating representation is also found inside the regular representation of the symmetric group.
 \end{example}
 
 \subsubsection{Subrepresentations as a kernel}
@@ -86,7 +86,7 @@ Let $G$ be any group and let us study its permutation representation and regular
 From linear algebra, we are familiar with the kernel and image of a map (see Definition~\ref{def:kernelimage}).
 
 \begin{proposition}[Kernel and image of a $G$-linear map]\label{prop:kernelimagelinearmap}
-	Let $V$ and $W$ be representation spaces of a group $G$ and let $\varphi: V \rightarrow W$ be a $G$-linear map. Then the kernel and the image of $\varphi$ are also representations of $G$ and more specifically, $\ker \varphi$ is a subrepresentation of $V$ and $\im \varphi$ is a subrepresentation of $W$.\marginnote{Cokernel??} 
+	Let $V$ and $W$ be representation spaces of a group $G$ and let $\varphi: V \rightarrow W$ be a $G$-linear map. Then the kernel and the image of $\varphi$ are also representations of $G$ and more specifically, $\ker \varphi$ is a subrepresentation of $V$ and $\im \varphi$ is a subrepresentation of $W$.
 \end{proposition}
 \begin{proof}
 	\begin{itemize}
@@ -111,9 +111,11 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 	Let $\rho$ be a representation of a finite group $G$ in a finite-dimensional vector space $V$. Let $W$ be a $G$-invariant subspace of $V$. Then there exists a $G$-invariant subspace $W'$ of $V$ complementary to $W$ such that $V = W \oplus W'$.
 \end{proposition}
 \begin{proof}
+	\textit{THIS PROOF MISSES SOME PARTS: WE NEED TO SHOW THAT $\barpi$ IS STILL A PROJECTION $V \rightarrow W$.}	
+	
 	By Proposition~\ref{prop:kernelimagelinearmap} we know that a $G$-linear map from one representation space $V$ to another $W$ has its kernel and image as subrepresentations of $V$ and $W$ respectively. If we can find such a $G$-linear map from $V$ to $W$ we are done.
 	
-	The projection $\pi$ may not be a $G$-linear map since $\pi(g \cdot \vvec)$ is not generally the same as $g \cdot \pi(\vvec)$. NEEDS A COUNTEREXAMPLE?
+	The projection $\pi$ may not be a $G$-linear map since $\pi(g \cdot \vvec)$ is not generally the same as $g \cdot \pi(\vvec)$. \textit{NEEDS A COUNTEREXAMPLE?}
 %	for a $\vvec \in V$ we have that \marginnote{There is a mistake here}
 %	\begin{align*}
 %		\pi(g \cdot \vvec) = \pi(\wvec) = \wvec,
@@ -127,16 +129,17 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 	\begin{align*}
 		\barpi = \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1},
 	\end{align*}
-	and see if it conserves the action of $G$. Is it still a projection $V \rightarrow W$?  That is, does $\barpi\cdot \rho_g = \rho_g \cdot \barpi$ hold for every $g \in G$? Equivalently, let's consider
+	and see if it conserves the action of $G$. That is, does $\barpi\cdot \rho_g = \rho_g \cdot \barpi$ hold for every $g \in G$? Equivalently, let's consider
 	\begin{align*}
 		\rho_g \cdot \barpi \cdot \rho_g^{-1} &= \frac{1}{|G|} \sum_{h \in G} \rho_g \cdot \rho_h \cdot \pi \cdot \rho_h^{-1} \cdot \rho_g^{-1} & \text{(Def. of $\barpi$)}\\
 		&= \frac{1}{|G|} \sum_{h \in G} \rho_{gh} \cdot \pi \cdot \rho_{gh}^{-1} & \text{($\rho$ homom., $(gh)^{-1}=h^{-1}g^{-1}$)}\\
 		&= \frac{1}{|G|} \sum_{g' \in G} \rho_{g'} \cdot \pi \cdot \rho_{g'}^{-1} & \text{(Let $g' = gh$)} \\
 		&= \barpi.
 	\end{align*}
-	So, $\barpi \cdot \rho_g = \rho_g \cdot \barpi$ for every $g \in G$ and thus $\barpi: V \rightarrow W$ is a $G$-linear map, which means that its kernel, $\ker \barpi$, identified to be the complement $W'$ of $W$ in $V$, is also a $G$-invariant subspace of $V$ and thereby a subrepresentation of $V$.\marginnote{this proof misses some parts, we need to show that $\barpi$ also is a proj V->W, implying existence of complementary subspace W', then kernel is W'.}
+	So, $\barpi \cdot \rho_g = \rho_g \cdot \barpi$ for every $g \in G$ and thus $\barpi: V \rightarrow W$ is a $G$-linear map, which means that its kernel, $\ker \barpi$, identified to be the complement $W'$ of $W$ in $V$, is also a $G$-invariant subspace of $V$ and thereby a subrepresentation of $V$.
 \end{proof}
 
+\subsubsection{The standard represention of $\Sym_n$}
 
 In Example~\ref{example:trivpermrepr}, the trivial representation was found to be a subrepresentation of the permutation representation. Let $G= \Sym_n$ and let $V$ be the permutation representation and assign it the basis $(\bas_i)_{i=1}^n$. The one-dimensional subspace $W$ spanned by the sum of all $\bas_i$ was found to be the trivial representation, then by Proposition~\ref{prop:complsubrepr}, there exists another subrepresentation $W'$ of $V$ complementary to $W$. The dimension of $W'$ is $n-1$. Let's introduce to $V$ a inner product $(\cdot|\cdot)$ that fulfills
 \begin{align*}
@@ -149,7 +152,7 @@ for the basis $(\bas_i)_{i=1}^n$. Then the basis $(\bas'_j)_{j=1}^{n-1}$ of $W'$
 \begin{align*}
 	\left( \bas'_j \ \middle\vert \ \sum_{i=1}^n \bas_i \right) = 0
 \end{align*}
-for every $1 \leq j \leq n-1$. One can see that one such basis is found by choosing every basis vector $\bas'_j$ to be the difference of two sequent $\bas_i$, that is choosing the basis $(\bas_j - \bas_{j+1})_{j=1}^{n-1}$ for $W'$. This is called the \emph{Standard representation of $\Sym_n$.}
+for every $1 \leq j \leq n-1$. One can see that one such basis is found by for example choosing every basis vector $\bas'_j$ to be the difference of two sequent $\bas_i$, that is choosing the basis $(\bas_j - \bas_{j+1})_{j=1}^{n-1}$ for $W'$. This is called the \emph{Standard representation of $\Sym_n$.}
 
 \begin{example}[Standard representation of $\Sym_3$]
 	The matrices of the standard representation is found by studying the action inherited from $\Sym_3$ on the basis 
