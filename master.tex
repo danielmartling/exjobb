@@ -12,6 +12,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \usepackage[nottoc]{tocbibind}
 \usepackage{tikz-cd}
 %\usepackage{}
+\usepackage{lipsum}
 
 \setpapersize{A4}
 \setmarginsrb{30mm}{20mm}{30mm}{30mm}%left top right bottom
@@ -63,7 +64,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \newtheorem*{notation}{Notation}
 \newtheorem*{note}{Note}
 
-\onehalfspacing
+%\onehalfspacing
 \numberwithin{equation}{section}
 
 %--Heading of  section--
@@ -181,7 +182,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \begin{document}
 
 % This includes the front page (you need to compile the cover.tex separately and have the .pdf available in the same folder as this .tex file).
-%\setlength{\voffset}{0cm}\setlength{\hoffset}{0cm}\includepdf[pages={1,2,3,4}]{cover}\setlength{\voffset}{-2.54cm}\setlength{\hoffset}{-2.54cm}
+\setlength{\voffset}{0cm}\setlength{\hoffset}{0cm}\includepdf[pages={1,2,3,4}]{cover}\setlength{\voffset}{-2.54cm}\setlength{\hoffset}{-2.54cm}
 
 
 
@@ -196,6 +197,9 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 {\hypersetup{linkcolor=black}
 \tableofcontents
 }
+\onehalfspacing
+\input{abstract.tex}
+\input{introduction.tex}
 
 %\input{exempelsektioner.tex}
 \input{preliminary.tex}
@@ -208,7 +212,8 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 
 \input{charintro.tex}
 \input{charcalculus.tex}
-	
+
+\input{conclusion.tex}
 
 %The section with references.
 
