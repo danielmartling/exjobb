@@ -15,7 +15,7 @@ This section follows \cite[1.2]{Serre}.
 	\begin{align*}
 		\rho_{gh} = 1 = 1 \cdot 1 = \rho_g \rho_h.
 	\end{align*}
-	This could be extended to any vector space by mapping $g$ to the identity transformation of that vector space.
+	This could be extended to any vector space by mapping $g$ to the identity transformation of that vector space. \textit{Note on direct sum?}
 \end{example}
 
 \begin{note}
@@ -32,12 +32,12 @@ This section follows \cite[1.2]{Serre}.
 
 \subsubsection{Degree 1 representations of $\Cyc_n$}\label{sect:deg1cycn}
 
-Choose $G = \Cyc_n$, and let $g$ be a generator such that 
+Choose $G = \Cyc_n$, and let $g$ be a generator of $\Cyc_n$ such that 
 \begin{align*}
 	\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}
 \end{align*}
-and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{a+b}}$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $\rho_g$ is mapped to a $n$th root of unity.
-In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of the root of unity.\marginnote{Clarify mapping of $g$ and $g^a$ for different roots of unity}
+and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{a+b}}$ for some integers $a,b$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $\rho_g$ is mapped to a $n$th root of unity.
+In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of the root of unity.\textit{Clarify mapping of $g$ and $g^a$ for different roots of unity}
 
 \begin{example}[$\Cyc_3$]
 	The three third roots of unity are $1$, $\omega = \frac{-1+i\sqrt{3}}{2}$ and $w^2 = \frac{-1-i\sqrt{3}}{2}$, so the three representations of $\Cyc_3$ are presented in table \ref{table:Cyc3}. Note that $\rho_1^* = \rho_2$.
@@ -124,10 +124,10 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 		\begin{tabular}{c | c c c c c}
 			$\Cyc_5$ & $e$ & $g$        & $g^2$      & $g^3$      & $g^4$      \\ \hline
 			$\rho_0$            & 1   & 1          & 1          & 1          & 1          \\
-			$\rho_1$            & 1   & $\omega^1$ & $\omega^2$ & $\omega^3$ & $\omega^4$ \\
-			$\rho_2$            & 1   & $\omega^2$ & $\omega^4$ & $\omega^1$ & $\omega^3$ \\
-			$\rho_3$            & 1   & $\omega^3$ & $\omega^1$ & $\omega^4$ & $\omega^2$ \\
-			$\rho_4$            & 1   & $\omega^4$ & $\omega^3$ & $\omega^2$ & $\omega^1$
+			$\rho_1$            & 1   & $\omega$ & $\omega^2$ & $\omega^3$ & $\omega^4$ \\
+			$\rho_2$            & 1   & $\omega^2$ & $\omega^4$ & $\omega$ & $\omega^3$ \\
+			$\rho_3$            & 1   & $\omega^3$ & $\omega$ & $\omega^4$ & $\omega^2$ \\
+			$\rho_4$            & 1   & $\omega^4$ & $\omega^3$ & $\omega^2$ & $\omega$
 		\end{tabular}
 		\caption{Five reprs. of $\Cyc_5$. $\omega = e^{2 \pi i/5}$.}
 		\label{table:Cyc5}
@@ -138,7 +138,7 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 
 \subsubsection{Permutation representation}
 
-	Given a group $G$, we chose a suitable set $X$ that $G$ in some sense ``naturally'' acts on by permutation. Let $V$ be a vector space spanned by a orthonormal basis $(\bas_x)_{x \in X}$, then we have a homomorphism
+	Given a group $G$, we chose a set $X$ that $G$ acts on by permutation. Let $V$ be a vector space spanned by a orthonormal basis $(\bas_x)_{x \in X}$, then we have a homomorphism
 	\begin{align*}
 		\rho:G \rightarrow \GL(V)
 	\end{align*} 
@@ -294,7 +294,7 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 
 \subsubsection{Regular representation}
 
-	Following the same reasoning as in the previous section, but instead, let $G$ act on itself. The corresponding vector space $V$ is spanned by the basis $(\bas_g)_{g \in G}$ constructed from the elements of $G$. A representation of $G$ in $V$ is then a map
+	Following the same reasoning as in the previous section, but instead we let $G$ act on itself, ie. $X = G$. The corresponding vector space $V$ is spanned by the basis $(\bas_g)_{g \in G}$ constructed from the elements of $G$. A representation of $G$ in $V$ is then a map
 	\begin{align*}
 		\rho: G \rightarrow \GL(V)
 	\end{align*}
@@ -311,7 +311,11 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 	\end{example}
 	
 	\begin{example}[Regular representation of $\Sym_3$]
-		Defining a homomorphism $\rho: S_3 \rightarrow \GL(V)$ on the vector space spanned by the basis\footnote{Explicitly, this is $\left\lbrace \bas_1, \bas_{12}, \bas_{13}, \bas_{23}, \bas_{123}, \bas_{132} \right\rbrace$.} $(\bas_{\sigma})_{\sigma \in \Sym_3}$ defined for every $\sigma$ by $\rho(\sigma) \cdot \bas_\tau = \bas_{\sigma \circ \tau} = \bas_{\sigma\tau}$ for some $\tau$, we arrive at a degree 6 representation of $\Sym_3$. %It is clearly a larger degree representation of $S_n$ than any we have found so far.% Later we will find that for $\Sym_3$, $R$ is the direct sum of the trivial representation, the alternating representation and two copies of the standard representations, that is $S = T \oplus A \oplus 2S$.
+		Defining a homomorphism \begin{align*}
+			\rho: S_3 \rightarrow \GL(V)
+		\end{align*} on the vector space spanned by the basis\footnote{Explicitly, this is $\left\lbrace \bas_{(1)}, \bas_{(1,2)}, \bas_{(1,3)}, \bas_{(2,3)}, \bas_{(1,2,3)}, \bas_{(1,3,2)} \right\rbrace$.} $(\bas_{\sigma})_{\sigma \in \Sym_3}$ defined for every $\sigma$ by \begin{align*}
+		\rho_\sigma \cdot \bas_\tau = \bas_{\sigma \circ \tau} = \bas_{\sigma\tau}
+		\end{align*} for some $\tau \in \Sym_3$, we arrive at a degree 6 representation of $\Sym_3$. %It is clearly a larger degree representation of $S_n$ than any we have found so far.% Later we will find that for $\Sym_3$, $R$ is the direct sum of the trivial representation, the alternating representation and two copies of the standard representations, that is $S = T \oplus A \oplus 2S$.
 		
 		\textit{To be added: Table of $6 \times 6$-matrices, one per conjugacy class for example.}
 	\end{example}

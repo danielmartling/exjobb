@@ -16,21 +16,21 @@ and is also the sum of the eigen values of the matrix and is independent of the 
 	\begin{enumerate}
 		\item[i)] The character of the identity element of $G$ is the degree of the representation, $\chi(e) = \dim V$.
 		\item[ii)] The character of an element in $G$ is the complex conjugate of the character of the inverse element, $\chi(g^{-1}) = \overline{\chi(g)}$.
-		\item[iii)] The character is constant under conjugation, $g,h \in K \subseteq G$ implies $\chi(g) = \chi(h)$.
+		\item[iii)] The character is constant under conjugation, $g,h\in G$ are conjugate implies $\chi(g) = \chi(h)$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
 	\begin{enumerate}
-		\item[i)] By Propostion~\ref{prop:homoidinv}, $\rho_e$ is the $n \times n$ identity matrix, where $n = \dim V$, hence $\chi(e) = \Tr \id = n$.
+		\item[i)] By Propostion~\ref{prop:homoidinv}, $\rho_e$ is the $n \times n$ identity matrix, where $n = \dim V$, hence $\chi(e) = \Tr \id = n = \dim V$.
 		\item[ii)] Let $g \in G$ and let $g^{-1}$ be its inverse. The character of $g^{-1}$ is 
 		\begin{align*}
 			\Tr(\rho_{g^{-1}}) = \Tr(\rho_g^{-1})
 		\end{align*}
-		which is the sum of the eigen values of $\rho_g^{-1}$. If $\lambda$ is an eigen value of $\rho_g$, then $1/\lambda$ is an eigen value of $\rho_g^{-1}$, hence
+		which is the sum of the eigen values of $\rho_g^{-1}$. If $\lambda$ is an eigen value of $\rho_g$, then $1/\lambda$ is an eigen value of $\rho_g^{-1}$, hence \textit{ERROR, orthonormal basis, normal eigen vectors, $\rho_g$ is normal and its inverse is the complex transpose.}
 		\begin{align*}
 			\Tr(\rho_g^{-1}) = \sum_i \frac{1}{\lambda_i} = \sum_i \overline{\lambda_i} = \overline{\Tr(\rho_g)} = \overline{\chi(g)} \marginnote{There is an error here.}
 		\end{align*} 
-		\item[iii)] It is well known that the trace is conserved under conjugation. \qedhere
+		\item[iii)] It is well known that the trace is conserved under conjugation. \textit{CITATION, HOLST?} \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -81,11 +81,11 @@ Moving on to the toolbox presented in Section~\ref{sect:tensorrepr}, we propose 
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	These topics were treated in Section~\ref{sect:tensoralgebra}.
+	Statement i) and ii) are consequences of Section~\ref{sect:tensoralgebra}. 
 	\begin{enumerate}
 		\item[i)] The trace of $\rho_g^V \oplus \rho_g^W$ is clearly the sum of the traces of $\rho_g^V$ and $\rho_g^W$.
 		\item[ii)] Likewise, the trace of $\rho_g^V \otimes \rho_g^W$ is found to be the product of the traces of $\rho_g^V$ and $\rho_g^W$.
-		\item[iii)] \textit{To be written...}
+		\item[iii)] \textit{To be written...} \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -111,7 +111,7 @@ This is an inner product since it is linear in $\varphi$, semilinear in $\psi$, 
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	\textit{To be written...}
+	\textit{To be written...} \textit{HIGH PRIO}
 \end{proof}
 
 Now, let $V$ be the direct sum of irreducible representations $W_i$ of $G$ such that
@@ -210,7 +210,7 @@ We arrive at:
 \end{theorem}
 
 \begin{proof}
-	\textit{To be written...}
+	\textit{To be written...} \textit{HIGH PRIO}
 \end{proof}
 
 %Recall from linear algebra that two similar matrices have the same trace \cite[Thm 5.4.]{Holst} and that two matrices $X$ and $Y$ are similar if there exists an invertible matrix $S$ such that $S X S^{-1} = Y$. Also recall that the trace is the sum along the diagonal of the matrix, as well as the sum of the eigen values of the matrix.

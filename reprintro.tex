@@ -1,15 +1,13 @@
 \clearpage{\thispagestyle{empty}}
 \section{Representation Theory of Finite Groups}
 
-\marginnote{Include note on source!} 
-
-%\paragraph{First definitions.}
+Source is \cite{FultonHarris} and \cite{Serre}.
 
 The main purpose of this text is to study linear representations of groups, or in other words, studying groups and identifying them with vector spaces and their elements with maps of those spaces. Only finite groups and finite-dimensional vector spaces will be discussed.
 
 Let $G$ be a finite group written multiplicatively. Denote its size by $|G|$ and the action of its elements with $\cdot$, for example by $g \cdot x$, sometimes shorted to $gx$.
 
-Let $V$ be a finite-dimensional vector space over the field of complex numbers $\CC$. The group of invertible linear transformations of $V$ is denoted by $\GL(V)$. If $V$ is provided with a basis, usually denoted $(\bas_i)_{i=1}^n$ where $n = \dim V$, then $\GL(V)$ is identified with the set of linear transformations of $V$, denoted $\GL_n(\CC)$\cite[18.1]{DummitFoote}.
+Let $V$ be a finite-dimensional vector space over the field of complex numbers $\CC$. The group of invertible linear transformations of $V$ is denoted by $\GL(V)$. If $V$ is provided with a basis, usually denoted $(\bas_i)_{i=1}^n$ where $n = \dim V$, then $\GL(V)$ is identified with the set of invertible $n \times n$ matrices, denoted $\GL_n(\CC)$\cite[18.1]{DummitFoote}.
 
 \begin{definition}[Representation]\cite{Serre}
 	A representation of a group $G$ in the vector space $V$ is a homomorphism
@@ -17,7 +15,7 @@ Let $V$ be a finite-dimensional vector space over the field of complex numbers $
 		\rho: G \rightarrow \GL(V).
 	\end{align}
 \end{definition}
-For every $g$ in $G$, there is a linear map $\rho_g$ in $\GL(V)$ with an action on the elements of $V$ defined by 
+For every $g$ in $G$, there is a linear map $\rho_g$ in $\GL(V)$ with an action on $V$ defined by 
 \begin{align*}
 	g \cdot \vvec = \rho_g (\vvec).
 \end{align*}

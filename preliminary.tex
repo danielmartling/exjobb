@@ -5,6 +5,10 @@
 
 \subsubsection{Group action}
 
+\textit{Put in definitions as in \cite{DummitFoote}}
+
+We remember that the action of a group $G$ on a set $X$ is a map
+
 We could let the group $G$ act on a set $X$ and study the action of $G$ on $X$ defined by
 \begin{align*}
 	G \times X \rightarrow X
@@ -19,24 +23,26 @@ for any $x \in X$.
 
 Denote by $\Sym_n$ the set of bijections of $\{1, 2, \dots n\}$, which is a group under composition of bijections. The number of elements in $\Sym_n$ is $n!$.
 
+\textit{Explain cycle notation.}
+
 \begin{example}
 	The elements of $\Sym_3$ are
 	\begin{align*}
-		(1), (1,2), (1,3), (2,3), (123), (132).
+		(1), (1,2), (1,3), (2,3), (1,2,3), (1,3,2).
 	\end{align*}
-	There are $3! = 6$ elements: the identity element (denoted $e$), three transpositions and two 3-cycles.
+	There are $3! = 6$ elements: the identity element (denoted $e$), three transpositions and two 3-cycles. 
 \end{example}
 
 \begin{definition}[Sign of a permutation]
 	Let $\sigma \in \Sym_n$, then the sign of $\sigma$ is defined as a function
 	\begin{align*}
-		\sgn: & \ \Sym_n \rightarrow \{+1, -1\},\\
+		\sgn: & \ \Sym_n \rightarrow \{\pm 1\},\\
 		\sgn: & \ \sigma \mapsto (-1)^k
 	\end{align*}
 	where $k$ is the number of transpositions required to compose $\sigma$. If $k$ is an even integer, then $\sigma$ is called even, and vice versa for an odd $k$.
 \end{definition}
 
-Note that if $\sigma$ is composed of $s$ transpositions and $\tau$ is composed of $t$ transposition, then their composition $\sigma\tau$ is composed of $s+t$ transpositions, in some representation of $\sigma\tau$. Is the sign function still well-defined? That is, can a permutation be expressed both as a composition of even number and of a odd number of transpositions?
+Note that if $\sigma$ is composed of $s$ transpositions and $\tau$ is composed of $t$ transposition, then their composition $\sigma\tau$ can be composed of $s+t$ transpositions, in some representation of $\sigma\tau$. Is the sign function still well-defined? That is, can a permutation be expressed both as a composition of even number and of a odd number of transpositions?
 
 \begin{proposition}\label{prop:signwelldefined}
 	The sign of a permutation is well-defined. That is a permutation is either \textit{even} with sign +1 or \textit{odd} with sign -1.
@@ -47,7 +53,9 @@ Note that if $\sigma$ is composed of $s$ transpositions and $\tau$ is composed o
 
 Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists a $\pi \in \Sym_n$ such that $\sigma = \pi \tau \pi^{-1}$. The conjugacy classes partition $\Sym_n$ into disjoint subsets. 
 
-\begin{proposition}[Conjugacy in $\Sym_n$]\marginnote{SOURCE+PROOF}
+\textit{Add from first draft. Explain cycle types.}
+
+\begin{proposition}[Conjugacy in $\Sym_n$]\cite[Thm.?.?.]{Sagan}
 	Any elements $\sigma, \tau \in \Sym_n$ are conjugate if and only if they are of the same cycle type.
 \end{proposition}
 
@@ -64,7 +72,7 @@ Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists
 			\Tr X = \sum_{i=1}^{n} x_{ii}.
 		\end{align*}
 		
-		Recall that if two matrices $X$ and $Y$ are conjugate there exists a matrix $T$ such that $XT = TY$, or if $T$ is invertible $X = TYT^{-1}$. \textit{If $X$ and $Y$ are conjugate, then they have the same trace.} \textit{Something on eigenvalues.}
+		Recall that if two matrices $X$ and $Y$ are conjugate there exists an invertible matrix $T$ such that $XT = TY$, or $X = TYT^{-1}$. \textit{If $X$ and $Y$ are conjugate, then they have the same trace.} \textit{Something on eigenvalues.}
 
 	\subsubsection{Definition of kernel and image of a map}
 	
@@ -82,20 +90,23 @@ Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists
 	
 	\subsubsection{Existence of complementary subspaces}
 	
-	\begin{corollary}\label{thm:compsubspaces}
+	\begin{corollary}\label{thm:compsubspaces}\cite[Cor.?.?.]{Holst}
 		Let $V$ be a vector space and $W$ be a vector subspace of $V$. Then there exists a complementary vector subspace $W'$ in $V$ such that $W \cap W' = \emptyset$ and $W \cup W' = V$. This is equivalent to saying that $V$ is the direct sum of $W$ and $W'$, denoted as $V = W \oplus W'$.
 	\end{corollary}
-	\begin{proof}
-		To be written...
-	\end{proof}
+
 	
 	\subsubsection{Tensor algebra}\label{sect:tensoralgebra}
-%	
-%		\begin{definition}[Bilinearity]
-%			content...
-%		\end{definition}
-%	
-		Let $V$ and $W$ be vector spaces provided with respective bases $(\vhat_i)_{i=1}^m$ and $(\uhat_i)_{i=1}^n$, where $m = \dim V$ and $n = \dim W$. Let $\vvec \in V$ and $\wvec \in W$. Also, let $f: \GL(V)$ and $g: \GL(W)$ be linear maps. In the bases provided let the matrices of $f$ and $g$ be $F=(f_{ij})_{m \times m} \in \GL_m(\CC)$ and $G = (g_{ij})_{n \times n} \in \GL_n(\CC)$ with eigen values $\{\lambda_i\}$ and $\{\mu_i\}$, then the following vector spaces may be constructed, or rather extended bilinearly, from $V$ and $W$:
+	
+		\textit{Taken from \cite{Jeevanjee} and \cite{Yokonuma}}.
+		
+		\textit{Something on bilinearity.} $a(v\otimes w) = (av)\otimes w = v \otimes (aw)$ and $v \otimes (w + w')$.
+
+		Let $V$ and $W$ be vector spaces provided with respective bases $(\vhat_i)_{i=1}^m$ and $(\uhat_i)_{i=1}^n$, where $m = \dim V$ and $n = \dim W$. Let \begin{align*}
+			\vvec = (v_1, v_2, \dots v_m)^T \in V
+		\quad \text{ and } \quad 
+		\wvec = (w_1, w_2, \dots, w_n)^T \in W.
+	\end{align*}
+	Also, in the bases provided let $F=(f_{ij})_{m \times m} \in \GL_m(\CC)$ and $G = (g_{ij})_{n \times n} \in \GL_n(\CC)$ be linear maps with eigen values $\{\lambda_i\}$ and $\{\mu_i\}$, then the following vector spaces may be constructed, or rather extended bilinearly, from $V$ and $W$:
 		
 		\begin{itemize}
 			\item The \emph{direct sum of $V$ and $W$}, denoted $V \oplus W$.
@@ -128,10 +139,10 @@ Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists
 					\end{pmatrix}  \\ 
 					&= F\vvec \oplus G\wvec.
 				\end{align*}
-				\subitem The trace of $F \oplus G$ is clearly the sum of the traces of $F$ and $G$, hence the eigen values of $f$ and $g$ are also eigen values of $f \oplus g$, that is the eigen values are $\{\lambda_i\} \cup \{\mu_j\}$.
+				\subitem The trace of $F \oplus G$ is clearly the sum of the traces of $F$ and $G$, hence the eigen values of $f$ and $g$ are also eigen values of $f \oplus g$, that is the eigen values are $\{\lambda_i\} \cup \{\mu_j\}$. \textit{Clarify this}
 				
 			\item By recursion, the \emph{direct sum of $n$ copies of $V$}, denoted $nV$.
-				\subitem \begin{example}
+				\begin{example}
 					The direct sum of $n$ copies of a field $\KK$, is usually denoted $\KK^n$, eg. $\RR^3$.
 				\end{example}
 				
@@ -148,7 +159,7 @@ Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists
 				\begin{align*}
 					(f_{ij}G)_{mn \times mn}
 				\end{align*}
-				and its action on $\vvec \oplus \wvec$ is 
+				and its action on $\vvec \otimes \wvec$ is 
 				\begin{align*}
 					(F \otimes G ) \cdot (\vvec  \otimes \wvec) &= \begin{pmatrix}
 						f_{ij}G
@@ -178,6 +189,14 @@ Recall that two elements $\sigma, \tau \in \Sym_n$ are conjugate if there exists
 			\begin{align*}
 				V \otimes V = \SymP^2 V \oplus \AltP^2 V.
 			\end{align*}\marginnote{need more text/proof}
+			
+			\begin{figure}[hbt!]
+				\centering
+				\includegraphics[width=0.7\linewidth]{notesontensors}
+				\caption{}
+				\label{fig:notesontensors}
+			\end{figure}
+			
 			
 			\item After fixing the basis $(\bas_i)_{i=1}^m$ for $V$, the dual space $V^*$ can be constructed by the duals $\bas_i^*$ defined by... It is identified with the set of all linear functions from $V$ to $\CC$.\marginnote{need more text/proof}
 			

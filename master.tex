@@ -158,6 +158,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \newcommand{\Tr}{\text{Tr }}
 % Vectors
 \newcommand{\bas}{\mathbf{\hat{e}}}
+\newcommand{\fbas}{\mathbf{\hat{f}}}
 
 \newcommand{\ihat}{\mathbf{\hat{\imath}}}
 \newcommand{\jhat}{\mathbf{\hat{\jmath}}}
@@ -182,7 +183,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \begin{document}
 
 % This includes the front page (you need to compile the cover.tex separately and have the .pdf available in the same folder as this .tex file).
-\setlength{\voffset}{0cm}\setlength{\hoffset}{0cm}\includepdf[pages={1,2,3,4}]{cover}\setlength{\voffset}{-2.54cm}\setlength{\hoffset}{-2.54cm}
+%\setlength{\voffset}{0cm}\setlength{\hoffset}{0cm}\includepdf[pages={1,2,3,4}]{cover}\setlength{\voffset}{-2.54cm}\setlength{\hoffset}{-2.54cm}
 
 
 
@@ -198,8 +199,8 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \tableofcontents
 }
 \onehalfspacing
-\input{abstract.tex}
-\input{introduction.tex}
+%\input{abstract.tex}
+%\input{introduction.tex}
 
 %\input{exempelsektioner.tex}
 \input{preliminary.tex}
@@ -213,7 +214,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \input{charintro.tex}
 \input{charcalculus.tex}
 
-\input{conclusion.tex}
+%\input{conclusion.tex}
 
 %The section with references.
 
