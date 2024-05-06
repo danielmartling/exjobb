@@ -1,7 +1,7 @@
 \clearpage{\thispagestyle{empty}}
 \section{Character Theory}
 
-This section is based on \cite[Ch.2.]{Serre}.
+This section is based on \cite[Ch.2.]{Serre}, as well as \cite[Sect.2.2.]{FultonHarris}.
 
 Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \rightarrow \GL(V)$ be a representation. Now, for each $g \in G$, define a function $\chi_{\rho}: G \rightarrow \CC$ to be the trace of the matrix of $g$ in $V$. In other words $\chi_{\rho}(g) = \Tr(\rho_g)$. This function is called the \emph{character} of a representation.
 
@@ -11,12 +11,14 @@ We recall from linear algebra the concept of the trace of a matrix $(a_{ij})_{n 
 \end{align*}
 and is also the sum of the eigen values of the matrix and is independent of the basis chosen. Why is it useful when studying representations?
 
-\begin{proposition}\cite[Prop.2.1.]{Serre}
+\subsection{Basic properties of characters}
+
+\begin{proposition}\cite[Prop.2.1.]{Serre}\label{prop:charidinvconj}
 	The trace function \emph{characterizes} the representation in some useful ways:
 	\begin{enumerate}
 		\item[i)] The character of the identity element of $G$ is the degree of the representation, $\chi(e) = \dim V$.
 		\item[ii)] The character of an element in $G$ is the complex conjugate of the character of the inverse element, $\chi(g^{-1}) = \overline{\chi(g)}$.
-		\item[iii)] The character is constant under conjugation, $g,h\in G$ are conjugate implies $\chi(g) = \chi(h)$.
+		\item[iii)] The character is constant under conjugation, if $g,h\in G$ are conjugate it implies $\chi(g) = \chi(h)$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -26,14 +28,13 @@ and is also the sum of the eigen values of the matrix and is independent of the 
 		\begin{align*}
 			\Tr(\rho_{g^{-1}}) = \Tr(\rho_g^{-1})
 		\end{align*}
-		which is the sum of the eigen values of $\rho_g^{-1}$. If $\lambda$ is an eigen value of $\rho_g$, then $1/\lambda$ is an eigen value of $\rho_g^{-1}$, hence \textit{ERROR, orthonormal basis, normal eigen vectors, $\rho_g$ is normal and its inverse is the complex transpose.}
-		\begin{align*}
-			\Tr(\rho_g^{-1}) = \sum_i \frac{1}{\lambda_i} = \sum_i \overline{\lambda_i} = \overline{\Tr(\rho_g)} = \overline{\chi(g)} \marginnote{There is an error here.}
-		\end{align*} 
+		which is the sum of the eigen values of $\rho_g^{-1}$. We are free to choose an orthonormal basis for $\rho_g$, then $\rho_g$ is a normal matrix. Now, if $\lambda$ is an eigenvalue of $\rho_g$, then $1/\lambda$ is an eigen value of $\rho_g^{-1}$, \textit{TO BE COMPLETED}
+
 		\item[iii)] It is well known that the trace is conserved under conjugation. \textit{CITATION, HOLST?} \qedhere
 	\end{enumerate}
 \end{proof}
 
+Now we properly introduce the character.
 
 \begin{definition}\label{def:char}
 	Let $V$ be a representation space of a group $G$ of dimension $n$ and let $\rho_g = (r_{ij})$ be the matrix representation of a $g \in G$. Then the \emph{character} of $g$ in $V$ is defined to be the trace of the matrix representation, that is 
@@ -44,7 +45,7 @@ and is also the sum of the eigen values of the matrix and is independent of the 
 
 
 \begin{notation}
-	A ``character vector'', simply called the group character, of $G$ can be defined as the vector containing the character of every element of $G$.
+	A ``character vector'', simply called the group character, of $G$ can be defined as the tuple containing the character of every element of $G$, ie. $\chi = (\chi(g))_{g \in G}$.
 \end{notation}
 
 \begin{example}
@@ -52,18 +53,18 @@ and is also the sum of the eigen values of the matrix and is independent of the 
 \end{example}
 
 \begin{example}
-	The permutation character of $\Sym_3$ is $(3, 0, 0, 1, 1, 1)$.
+	The permutation representation was described in Example~\ref{ex:permS3}. The character of $\Sym_3$ in the permutation representation is $(3, 0, 0, 1, 1, 1)$.
 \end{example}
 
 \begin{remark}
-	We note that since the trace is fixed under conjugation, any elements of a group that are conjugate have the same character, ie. for a conjugate pair $g,h \in G$ there exists an $a \in G$ such that $h = gag^{-1}$, and their characters are
+	We note that since the trace is fixed under conjugation, any elements of a group that are conjugate have the same character, ie. for a conjugate pair $g,g' \in G$ there exists an $h \in G$ such that $g' = hgh^{-1}$, and their characters are
 	\begin{align*}
 		\chi(h) = \chi(gag^{-1}) = \chi(g).
 	\end{align*}
 \end{remark}
 
 \begin{notation}
-	If the group $G$ is partitioned into the conjugacy classes $K_1, K_2, \dots, K_l$, then the group character can be abbreviated to contain one representative $k_i$ from every class $K_i$, ie. $\chi= (\chi(k_1), \chi(k_2), \dots \chi(k_l))$.
+	If the group $G$ is partitioned into the conjugacy classes $[k_1], [k_2], \dots, [k_l]$, then the group character can be abbreviated to contain one representative $k_i$ from every class $[k_i]$, ie. $\chi= (\chi(k_1), \chi(k_2), \dots, \chi(k_l))$.
 \end{notation}
 
 \begin{example}
@@ -75,9 +76,11 @@ Moving on to the toolbox presented in Section~\ref{sect:tensorrepr}, we propose 
 \begin{proposition}\label{prop:charplustimes}
 	Let $V$ and $W$ be representation spaces of a group $G$. For a $g \in G$, let $\chi_V(g)$ and $\chi_W(g)$ be its characters in those representations. Then we have,
 	\begin{enumerate}
-		\item[i)] The character in $V \oplus W$ is $\chi_V+\chi_W$,
-		\item[ii)] The character in $V \otimes W$ is $\chi_V \cdot \chi_W$
-		\item[iii)] The characters of the symmetric and exterior squares are $\chi_{\SymP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 + \chi_V(g^2))$ and $\chi_{\AltP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 - \chi_V(g^2))$, compatible with $V \otimes V = \SymP^2 V \oplus \AltP^2 V$.
+		\item[i)] The character in $V \oplus W$ is $\chi_V+\chi_W$.
+		\item[ii)] The character in $V \otimes W$ is $\chi_V \cdot \chi_W$.
+		\item[iii)] The characters of the symmetric and exterior squares are \begin{align*}
+			\chi_{\SymP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 + \chi_V(g^2)) \quad \text{and} \quad \chi_{\AltP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 - \chi_V(g^2)),
+		\end{align*} compatible with $V \otimes V = \SymP^2 V \oplus \AltP^2 V$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -91,28 +94,82 @@ Moving on to the toolbox presented in Section~\ref{sect:tensorrepr}, we propose 
 
 \subsection{Orthogonality relations}
 
-Let $\varphi$ and $\psi$ be the group characters of a group $G$, then we define the scalar product of characters as
-\begin{align*}
-	(\varphi | \psi) = \frac{1}{|G|} \sum_{g \in G} \varphi(g) \overline{\psi(g)}.
-\end{align*}
-This is an inner product since it is linear in $\varphi$, semilinear in $\psi$, as well is $(\varphi|\varphi) > 0 $ for any $\varphi \neq \0$ and $(\varphi|\varphi)=0$ if and only if $\varphi= \0$.
+Continuing the discussion of Section~\ref{sect:irredreprs}, we let $V$ be an arbitrary representation and $W$ be an irreducible representation of some group $G$. 
 
-\begin{notation}
-	The inner product of a character with itself is sometimes lazily denoted by \begin{align*}
-		|\varphi| := (\varphi|\varphi).
+We denote by $\Hom (V,W)$ the set of all homomorphisms from $V$ to $W$, and by the superscript $(\cdot) ^G$ we denote a subset which is fixed by $G$, for example 
+\begin{align}\label{eq:defVG}
+	V^G = \left\lbrace \vvec \in V \middle\vert g\cdot \vvec = \vvec, \ \forall g \in G \right\rbrace
+\end{align} 
+and clearly, $\Hom(V,W)^G$ is the set of all $G$-linear maps $V \rightarrow W$.
+
+\begin{conjecture}
+	The multiplicity of $W$ in $V$ is $\dim \Hom(W,V)^G$, that is the number of $G$-linear maps from $W$ to $V$, ie. \begin{align*}
+		\dim \Hom(W,V)^G = |\{\text{$G$-linear maps $W \rightarrow V$}\}|.
 	\end{align*}
-\end{notation}
+\end{conjecture}
+
+Conversely, if $W$ is arbitrary and $V$ is irreducible, then $\dim \Hom (V,W)^G$ is the multiplicity of $V$ in $W$. If both $V$ and $W$ are irreducible, then by Schur's Lemma we must have that
+\begin{align}\label{eq:dimhomVWG}
+	\dim \Hom (V,W)^G = \begin{cases}
+		1, \text{ if $V$ and $W$ are isomorphic, and} \\
+		0, \text{ else.}
+	\end{cases}
+\end{align}
+
+Now, let $V^G$ be defined as the fixed points of $V$ under the action of $G$, as defined in Equation~\ref{eq:defVG}. Note that a map\footnote{Such a map is called an \textit{endomorphism of $V^G$} and we set $\End(V^G) := \Hom(V^G, V^G)$.} $\varphi: V^G \rightarrow V^G$ is not just a representation of $G$, but also a trivial representation by definition, then the number of all such maps, denoted $\dim \End(V^G)$ is the multiplicity of the trivial representation in $V$. 
+
+The map associated with any $g$ is not generally a $G$-linear map, however as we have previously seen, we can construct such a map by averaging over $G$, that is we define a map $\varphi: V \rightarrow V$ by
+\begin{align*}
+	\varphi = \frac{1}{|G|} \sum_{g \in G} g,
+\end{align*}
+which is $G$-linear since for some $h \in G$, \begin{align*}
+	h \cdot \varphi(h^{-1} \cdot \vvec) &= \frac{1}{|G|} \sum_{g \in G} (hgh^{-1}) \cdot \vvec \\
+	&= \varphi(\vvec)
+\end{align*} for any $\vvec \in V$, also it is projection of $V$ onto $V^G$ PROOF (image of $\varphi$ is $V^G$ and $\varphi:V^G \rightarrow V^G$). 
+
+Now, the multiplicity of the trivial representation in $V$ is the trace of $\varphi$ WHY??, which is
+\begin{align*}
+	\dim V^G = \Tr \varphi &= \Tr \left( \frac{1}{|G|} \sum_{g \in G} g \right) \\
+	&= \frac{1}{|G|} \sum_{g \in G} \Tr g & \text{(Trace is linear operator)} \\
+	&= \frac{1}{|G|} \sum_{g \in G} \chi_{V}(g) & \text{(Def. of character)},
+\end{align*}
+hence \begin{align}\label{eq:multVG}
+	\dim V^G = \frac{1}{|G|} \sum_g \chi_V(g).
+\end{align}
+
+Now, let's apply Equation~\ref~{eq:multVG} to the set of all maps $V \rightarrow W$, ie. $V$ becomes $\Hom (V,W)$, where both $V$ and $W$ are irreducible representations of $G$. Earlier (Section~\ref{sect:tensorrepr}), $\Hom(V,W)$ was identified with $V^* \otimes W$, hence the character of $\Hom(V,W)$ is $\overline{\chi_V(g)}\cdot\chi_W(g)$, then the multiplicity of the trivial representation in $\Hom(V,W)$ is by Equations~\ref{eq:dimhomVWG} and~\ref{eq:multVG}:
+\begin{align*}
+	\dim \Hom(V,W)^G = \frac{1}{|G|} \sum_g \overline{\chi_V(g)}\cdot\chi_W(g) = \begin{cases}
+		1, \text{ if $V \cong W$, and} \\
+		0, \text{ if $V \neq W$.}
+	\end{cases}
+\end{align*}
+
+We have arrived at an expression that looks suspiciously familiar, letting the two characters be complex-valued vectors in some vector space, we have found a \textit{scalar product of characters}.
+
+\begin{definition}[Scalar product of characters]
+	Let $\varphi$ and $\psi$ be the group characters of a group $G$, then we define the scalar product of characters as
+	\begin{align*}
+		(\varphi | \psi) = \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\psi(g)}.
+	\end{align*}
+	This is an inner product since it is linear in $\varphi$, semilinear in $\psi$, as well is $(\varphi|\varphi) > 0 $ for any $\varphi \neq \0$ and $(\varphi|\varphi)=0$ if and only if $\varphi= \0$. PROVE THESE PROPERTIES.
+\end{definition}
+
+%\begin{notation}
+%	The inner product of a character with itself is sometimes lazily denoted by \begin{align*}
+%		|\varphi| := (\varphi|\varphi).
+%	\end{align*}
+%\end{notation}
+
+We have also shown the following property on irreducible representations:
 
 \begin{theorem}[Irreducibility criterion]\label{thm:irredcrit}
-	Let $\chi \neq \psi$ be characters of irreducible representations of $G$ (called irreducible characters), then we have that 
+	The characters of irreducible representations are orthonormal. In other words, let $\chi \neq \psi$ be characters of irreducible representations of $G$ (called irreducible characters), then we have that 
 	\begin{enumerate}
 		\item[i)] $(\chi|\chi)= 1$, and
 		\item[ii)] $(\chi|\psi) = 0$.
 	\end{enumerate}
 \end{theorem}
-\begin{proof}
-	\textit{To be written...} \textit{HIGH PRIO}
-\end{proof}
 
 Now, let $V$ be the direct sum of irreducible representations $W_i$ of $G$ such that
 \begin{align*}
@@ -159,7 +216,7 @@ Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inne
 	If $\varphi$ is irreducible, then by Theorem~\ref{thm:irredcrit} we have that $(\varphi|\varphi) = 1$. For the converse statement, if the sum in Equation~\ref{eq:innerprodself} is equal to one, we must have that only one of the $m_i$ is equal to 1, and the rest are equal to 0. Then $V$ is composed of only \textit{one} irreducible character, hence it is irreducible.
 \end{proof}
 
-\textit{Something on the characters are basis of class function space, hence the number of irreducible representations of a group is at most the number of conjugacy classes in the group.}
+%\textit{Something on the characters are basis of class function space, hence the number of irreducible representations of a group is at most the number of conjugacy classes in the group.}
 
 Using these criteria and relations as a character calculus toolbox, we can study some groups, determine all of their irreducible representations and decompose any arbitrary representation.
 

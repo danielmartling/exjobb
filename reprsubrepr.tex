@@ -1,6 +1,6 @@
 \subsection{Subrepresentations}\label{sect:subrepr}
 
-As laid out in \cite[Sect.?.?.]{FultonHarris}, we are looking for representations which are said to be ``atomic'' and conversely, for any arbitrary representation we wish to find how it is composed of these indecomposable representations. To proceed we need the notion of a vector space map that respects or conserves the group action.	
+As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representations which are said to be ``atomic'' and conversely, for any arbitrary representation we wish to find how it is composed of these indecomposable representations. To proceed we need the notion of a vector space map that respects or conserves the group action.	
 
 \begin{definition}[$G$-linear map]\cite{FultonHarris}
 	Let $V$ and $W$ be two representation spaces of a group $G$. A vector space map 
@@ -57,14 +57,14 @@ and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarr
 Let $G$ be any group and let us study its permutation and regular representations. 
 
 \begin{example}[Trivial representation inside the permutation representation]\cite[Example 1.4.3.]{Sagan}\label{example:trivpermrepr}
-	Let $G$ act on a set $X = \{x_1, x_2, \dots x_k\}$, where $k = |X|$, and let $V$ be the vector space spanned by the basis $(\xhat_1, \xhat_2, \dots, \xhat_k)$. Consider the one-dimensional subspace of $V$ spanned by the sum of all basis vectors, ie. 
+	Let $G$ act on a set $X = \{x_1, x_2, \dots, x_k\}$, where $k = |X|$, and let $V$ be the vector space spanned by the basis $(\xhat_1, \xhat_2, \dots, \xhat_k)$. Consider the one-dimensional subspace of $V$ spanned by the sum of all basis vectors, ie. 
 	\begin{align*}	
 		W = \Span\{ \xhat_1 + \xhat_2 + \dots + \xhat_k \}.
 	\end{align*}A vector $\wvec \in W$ is a scalar multiple of this sum, and for any $g \in G$, the action of $g$ on $\wvec$ will simply reorder this sum and return the same $\wvec$, that is for any $g \in G$, we have that $\rho_g|_W = 1$. Thus $W$ is a $G$-invariant subspace of $V$ and the permutation representation has the trivial representation as a subrepresentation.
 \end{example}
 
 \begin{example}[Trivial representation inside the regular representation]\cite[Example 1.4.4.]{Sagan}
-	Similarly to the last example, we span a vector space $V$ by a basis $(\ghat_1, \ghat_2, \dots, \ghat_{k})$ for every $g_i \in G$, where $k = |G|$, and consider the subspace 
+	Similarly to the last example, we span a vector space $V$ by a basis $(\ghat_1, \ghat_2, \dots, \ghat_{k})$ for every $g_i \in G$, where $k = |G|$, and consider the one-dimensional subspace 
 	\begin{align*}
 		W = \Span\{ \ghat_1 + \ghat_2 + \dots + \ghat_k \}. 
 	\end{align*}
@@ -110,7 +110,6 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 	Let $\rho$ be a representation of a finite group $G$ in a finite-dimensional vector space $V$. Let $W$ be a $G$-invariant subspace of $V$. Then there exists a $G$-invariant subspace $W'$ of $V$ complementary to $W$ such that $V = W \oplus W'$.
 \end{proposition}
 \begin{proof}
-	\textit{THIS PROOF MISSES SOME PARTS: WE NEED TO SHOW THAT $\barpi$ IS STILL A PROJECTION $V \rightarrow W$.}
 	By Proposition~\ref{prop:kernelimagelinearmap} we know that a $G$-linear map from one representation space $V$ to another $W$ has its kernel and image as subrepresentations of $V$ and $W$ respectively. If we can find such a $G$-linear map from $V$ to a $G$-invariant subspace $W \leq V$ we are done.
 	The projection $\pi$ may not generally be a $G$-linear map.% since $\pi(g \cdot \vvec)$ is not generally the same as $g \cdot \pi(\vvec)$. 
 	\textit{NEEDS A COUNTEREXAMPLE?}
@@ -127,7 +126,7 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 	\begin{align*}
 		\barpi = \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1},
 	\end{align*}
-	and see if it conserves the action of $G$. That is, does $\barpi\cdot \rho_g = \rho_g \cdot \barpi$ hold for every $g \in G$? Equivalently, let's consider
+	and see if it conserves the action of $G$. Note that $\barpi$ is still a projection of $V$ onto $W$ since $g$ preserves $W$. Now, does $\barpi\cdot \rho_g = \rho_g \cdot \barpi$ hold for every $g \in G$? Equivalently, let's consider
 	\begin{align*}
 		\rho_g \cdot \barpi \cdot \rho_g^{-1} &= \frac{1}{|G|} \sum_{h \in G} \rho_g \cdot \rho_h \cdot \pi \cdot \rho_h^{-1} \cdot \rho_g^{-1} & \text{(Def. of $\barpi$)}\\
 		&= \frac{1}{|G|} \sum_{h \in G} \rho_{gh} \cdot \pi \cdot \rho_{gh}^{-1} & \text{($\rho$ homom., $(gh)^{-1}=h^{-1}g^{-1}$)}\\
@@ -160,7 +159,10 @@ for every $1 \leq j \leq n-1$. One can see that one such basis is found by for e
 			\fbas_2 = \bas_2-\bas_3.
 		\end{cases}
 	\end{align*}
-	For example, $(1,2)\cdot (\bas_1-\bas_2) = \bas_2-\bas_1 = -\fbas_1$ and $(1,2) \cdot (\bas_2-\bas_3) = \bas_1-\bas_3 = \fbas_1 + \fbas_2$, hence $\rho_{(1,2)} = \left(\begin{smallmatrix}
+	For example, \begin{align*}
+		(1,2)\cdot \fbas_1 &= (1,2)\cdot (\bas_1-\bas_2) = \bas_2-\bas_1 = -\fbas_1, \text{ and} \\
+		(1,2)\cdot \fbas_2 &= (1,2) \cdot (\bas_2-\bas_3) = \bas_1-\bas_3 = \fbas_1 + \fbas_2,
+	\end{align*} hence $\rho_{(1,2)} = \left(\begin{smallmatrix}
 		-1 & 1 \\ 0 & 1
 	\end{smallmatrix}\right)$. The matrices are presented in Table~\ref{table:standardS3}.
 	

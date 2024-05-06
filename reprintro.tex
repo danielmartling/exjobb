@@ -1,7 +1,7 @@
 \clearpage{\thispagestyle{empty}}
 \section{Representation Theory of Finite Groups}
 
-Source is \cite{FultonHarris} and \cite{Serre}.
+The layout of this section is based on \cite{FultonHarris} and \cite{Serre}.
 
 The main purpose of this text is to study linear representations of groups, or in other words, studying groups and identifying them with vector spaces and their elements with maps of those spaces. Only finite groups and finite-dimensional vector spaces will be discussed.
 
@@ -14,6 +14,7 @@ Let $V$ be a finite-dimensional vector space over the field of complex numbers $
 	\begin{align}\label{eq:DefRepr}
 		\rho: G \rightarrow \GL(V).
 	\end{align}
+	The dimension of $V$ is referred to as the \textit{degree} of the representation.
 \end{definition}
 For every $g$ in $G$, there is a linear map $\rho_g$ in $\GL(V)$ with an action on $V$ defined by 
 \begin{align*}
@@ -58,7 +59,3 @@ From the homomorphism of $\rho$, two consequences follow.
 %\paragraph{Choice of basis.} 
 
 If a basis $(\bas_i)_{i=1}^n$ is provided for a representation space, then a \textit{matrix representation} can be provided. In this case, $\rho_g$ is the matrix in $\GL_n(\CC)$ associated with the action of $g$ expressed in the basis provided. A matrix representation is not canonical and is dependent on the basis chosen.
-
-\begin{definition}[Degree of a representation]
-	Let $V$ be a representation space of $G$. The dimension of $V$ is referred to as the degree of the representation.
-\end{definition}
