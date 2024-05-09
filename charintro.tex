@@ -259,13 +259,13 @@ Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inne
 Earlier, the regular representation of any group where found have the trivial representation as a subrepresentation, likewise, the alternating group was found in the regular representation of $\Sym_n$. However, there are some general properties of the regular representation.
 
 For a $g \in G$, it will act on a basis vector $\bas_h$ of the regular representation space $V$ by $g \cdot \bas_{h} = \bas_{gh}$ and the resulting matrix $\rho_g$ can then be constructed by studying the action of this $g \in G$ on every $\bas_h$, where $h \in G$. However, the trace of this matrix, ie. the character $\varphi(g)$, only depends on the values on the diagonal, which corresponds to the fixed points under the action of $g$. What this means is that the ``$h$th'' column will have an 1 in the ``$h$th'' row if and only if $gh = h$, which holds only if $g = e$ since only $e$ leaves every other element of $G$ fixed, hence $\rho_g$ is a $|G| \times |G|$ permuation matrix with trace
-\begin{align*}
+\begin{align}\label{eq:regcharacter}
 	\chi^{\Reg}(g) = \begin{cases}
 		|G| \text{, if $g = e$,} \\
 		0 \text{, otherwise,}
 	\end{cases}
-\end{align*}
-and the character of the regular representation is 
+\end{align}
+and the chacacter of the regular representation is 
 \begin{align*}
 	\chi^{\Reg} = (|G|, 0, \dots, 0).
 \end{align*}
@@ -278,32 +278,40 @@ Now taking the inner product of it with itself we have,
 	&= \frac{1}{|G|}|G|^2 & \text{(From def of $V$.)} \\
 	&= |G|.
 \end{align*}
-In other words, by Equation~\ref{eq:innerprodself}, \textit{the square sum of the multiplicities of the regular representation is the order of the group}, that is
+Applying Equation~\ref{eq:innerprodself} on the regular representation, we had  that $(\chi^\Reg|\chi^\Reg) $ is the square sum of its multiplicities, hence for the regular representation we have:
 \begin{align}\label{eq:sqsummult}
 	\sum_i m_i^2 = |G|.
 \end{align}
-
-Now, assume that $\{W_i\}$ is the family of all irreducible representations of a group with respective characters $\chi_i$, then the regular representation is a direct sum of these with (not-necessarily non-zero) multiplicities $m_i$, then we have that the multiplicity of some $W_j$ with character $\chi_j$ in $\chi^\Reg$ is
+To find what the multiplicities are we make an ansatz that if $\{W_i\}$ is the family of all irreducible representations of a group with respective characters $\chi_i$, then the regular representation $V$ is a direct sum of these with (not-necessarily non-zero) multiplicities $\{m_i\}$. Then we have that the multiplicity of some irreducible $W_j$ with character $\chi_j$ in $\chi^\Reg$ is
 \begin{align*}
-	(\chi^\Reg|\chi_j)  &=  \sum_i (\chi_i|\chi_j)   & \text{(Reg. is sum of $\chi_i$)}\\
-	&= \frac{1}{|G|} \sum_i  \sum_{g \in G} \overline{\chi_i(g) }{\chi_j(g)}. & \text{(Def. of inner product.)} \\
-	&=  \frac{1}{|G|}\sum_i  \overline{\chi_i(e) }{\chi_j(e)} & \text{($\chi_i$ vanish for all $g \neq e$.)}\\
-	&= \frac{1}{|G|} \sum_i |G|\dim W_j\\
-	&= \sum_i \chi_j(e),
-\end{align*}\marginnote{mathematical error...}
-hence the multiplicity of an irreducible representation inside the regular representation is the degree of that irreducible.
+	m_j = (\chi^\Reg|\chi_j)  &=  \sum_i m_i  (\chi_i|\chi_j)   & \text{(Reg. is sum of $m_i\chi_i$)}\\
+	&= \frac{1}{|G|} \sum_i  m_i \sum_{g \in G} \overline{\chi_i(g) }{\chi_j(g)}. & \text{(Def. of inner product.)} \\
+	&=  \frac{1}{|G|}\sum_i  m_i \overline{\chi_i(e) }{\chi_j(e)} & \text{($\chi_i$ vanish for all $g \neq e$.)} \\
+	&= \frac{1}{|G|} \sum_i m_i \dim W_i \dim W_j & \text{(Character of $e$ is degree of repr.)} \\
+	&= \dim W_j \frac{1}{|G|}  \sum_i m_i \dim W_i  & \\
+		&= \dim W_j \frac{1}{|G|} \dim V & \text{($V = \sum_i m_i W_i$)} \\
+	&= \dim W_j \frac{1}{|G|}  |G| & \text{(From def. of regular repr.)} \\
+	& = \dim W_j.
+\end{align*}
 
 We have shown the following:
 \begin{theorem}\label{thm:regreprmult}
-	The regular representation $V$ of a group is decomposed in term of the irreducible representations of the group $W_i$ as
+	Every irreducible representation $W_i$ of a group appears exactly $\dim W_i$ times in the regular representation $V$ of the group. In other words, the regular representation is decomposed as
 	\begin{align*}
 		V = \bigoplus_i \dim (W_i) W_i.
 	\end{align*}
 \end{theorem}
 
+Returning to Equation~\ref{eq:sqsummult},  we now know the following:
+\begin{corollary}\label{cor:sqsumirreds}
+	The square sum of the degrees of every irreducible representations of a group is the order of the group.
+\end{corollary}
+
 \begin{remark}
-	By Equation~\ref{eq:sqsummult} and Theorem~\ref{thm:regreprmult}, we can use character theory to find \textbf{all} irreducible representations of a group,.
+	By Theorem~\ref{thm:regreprmult} and Corollary~$\ref{cor:sqsumirreds}$, along with the orthogonality relations and irreducibility criterion, we can use character theory to find \textbf{every} irreducible representation of a group. 
 \end{remark}
+
+For example, to ensure we have found an irreducible representations of a group, we take the inner product of its character with itself, expecting 1 if it is irreducible. To ensure we have foundevery irreducible representation, we calculate the square sum of the degrees of those we found so far. If it does not add up to the order of the group, then we can conjecture possible degrees of the missing irreducibles.
 
 
 

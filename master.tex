@@ -150,7 +150,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \newcommand{\Type}{\text{Type}}
 \newcommand{\Dih}{\text{D}}
 \newcommand{\Sym}{\mathcal{S}} %{\mathfrak{S}} % \text{S}
-\newcommand{\Alt}{\text{A}}
+%\newcommand{\Alt}{\text{A}}
 \newcommand{\Klein}{\text{V}}
 \newcommand{\Cyc}{\mathcal{C}}%{\text{C}}
 \newcommand{\sgn}{\text{sgn}}
@@ -158,6 +158,10 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \newcommand{\im}{\text{im }}
 \newcommand{\Tr}{\text{Tr }}
 \newcommand{\Reg}{\text{Reg}}
+\newcommand{\Triv}{\text{Triv}}
+\newcommand{\Alt}{\text{Alt}}
+\newcommand{\Perm}{\text{Perm}}
+\newcommand{\Stan}{\text{Stan}}
 % Vectors
 \newcommand{\bas}{\mathbf{\hat{e}}}
 \newcommand{\fbas}{\mathbf{\hat{f}}}
@@ -185,7 +189,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \begin{document}
 
 % This includes the front page (you need to compile the cover.tex separately and have the .pdf available in the same folder as this .tex file).
-%\setlength{\voffset}{0cm}\setlength{\hoffset}{0cm}\includepdf[pages={1,2,3,4}]{cover}\setlength{\voffset}{-2.54cm}\setlength{\hoffset}{-2.54cm}
+\setlength{\voffset}{0cm}\setlength{\hoffset}{0cm}\includepdf[pages={1,2,3,4}]{cover}\setlength{\voffset}{-2.54cm}\setlength{\hoffset}{-2.54cm}
 
 
 
@@ -201,8 +205,8 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \tableofcontents
 }
 \onehalfspacing
-%\input{abstract.tex}
-%\input{introduction.tex}
+\input{abstract.tex}
+\input{introduction.tex}
 
 %\input{exempelsektioner.tex}
 \input{preliminary.tex}
