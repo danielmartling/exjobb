@@ -131,7 +131,7 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 		\rho_g \cdot \barpi \cdot \rho_g^{-1} &= \frac{1}{|G|} \sum_{h \in G} \rho_g \cdot \rho_h \cdot \pi \cdot \rho_h^{-1} \cdot \rho_g^{-1} & \text{(Def. of $\barpi$)}\\
 		&= \frac{1}{|G|} \sum_{h \in G} \rho_{gh} \cdot \pi \cdot \rho_{gh}^{-1} & \text{($\rho$ homom., $(gh)^{-1}=h^{-1}g^{-1}$)}\\
 		&= \frac{1}{|G|} \sum_{g' \in G} \rho_{g'} \cdot \pi \cdot \rho_{g'}^{-1} & \text{(Let $g' = gh$)} \\
-		&= \barpi.
+		&= \barpi. & \text{(Def. of $\barpi$)}
 	\end{align*}
 	So, $\barpi \cdot \rho_g = \rho_g \cdot \barpi$ for every $g \in G$ and thus $\barpi: V \rightarrow W$ is a $G$-linear map, which means that its kernel, $\ker \barpi$, identified to be the complement $W'$ of $W$ in $V$, is also a $G$-invariant subspace of $V$ and thereby a subrepresentation of $V$.
 \end{proof}
