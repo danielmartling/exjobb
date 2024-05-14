@@ -44,7 +44,10 @@ We begin by showing the following general property of permutation matrices:
 		
 	\paragraph{Decomposition of $S \otimes S$.} The character of $S \otimes S$ is $(4,0,1)$, which by a quick glance on the character table is seen to be the sum of all irreducibles, hence $S \otimes S = T \oplus A \oplus S$.
 	
-	\paragraph{Decomposition of $\SymP^2S$ and $\bigwedge^2S$.} The character of $\SymP^2S$ is $\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (1,-1,1) = \chi_A$, so $\SymP^2S \cong A$. The character of $\bigwedge^2S$ is likewise $(3,1,0) = \chi_P = \chi_T + \chi_S$, so $\bigwedge^2S \cong P \cong T \oplus S$, confirming $S \otimes S = \SymP^2S \oplus \bigwedge^2S$. Also, $R = S \otimes S \oplus S$.
+	\paragraph{Decomposition of $\SymP^2S$ and $\bigwedge^2S$.} The character of $\SymP^2S$ is 
+	\begin{align*}
+		\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (1,-1,1) = \chi_A,
+	\end{align*} so $\SymP^2S \cong A$. The character of $\bigwedge^2S$ is likewise $(3,1,0) = \chi_P = \chi_T + \chi_S$, so $\bigwedge^2S \cong P \cong T \oplus S$, confirming $S \otimes S = \SymP^2S \oplus \bigwedge^2S$. Also, $R = S \otimes S \oplus S$.
 	
 	\paragraph{Decomposition of $S^{\otimes n}$.}\cite[Exercise 2.7.]{FultonHarris} To find the decomposition of larger tensor powers than $n=2$, we study the character $\chi_{S^{\otimes n}} = (2^n, 0, (-1)^n)$ and take the inner product of it with the other irreducibles and find:
 	\begin{align*}
@@ -95,7 +98,7 @@ We begin by showing the following general property of permutation matrices:
 	
 	\paragraph{Decomposition of $R$.}  The order of $\Sym_4$ is $4! = 24$, and the square sum of the irreducible degrees yet found are $1 + 1 + 3^2 = 11$, which means we are missing some representations.
 	
-	\paragraph{$A \otimes S$.} Consider an "alternating version of $S$", denoted by $S' = A \otimes S$. It has the character $(3,-1,0,1,-1)$, and has the same inner product with itself as $S$, hence it is also irreducible. 
+	\paragraph{$A \otimes S$.} Consider an ``alternating version of $S$'', denoted by $S' = A \otimes S$. It has the character $(3,-1,0,1,-1)$, and has the same inner product with itself as $S$, hence it is also irreducible. 
 	
 	\paragraph{Decomposition of $S \otimes S$.} To find the next irreducible, we study the tensor square of $S$. The character of this composition is $(9,1,0,1,1)$ and it is found to be linearly dependent on $\chi_T$,  $\chi_S$ and $\chi_{A \otimes S}$ with overlaps of 1 and independent of $\chi_A$, however $T$, $S$ and $S'$ together are of degrees 1, 3 and 3 and $S \otimes S$ is of degree 9, so there is either another representation of degree 2 or two of degree 1. Denoting this representation by $V$, its character is $\chi_V = \chi_{S \otimes S} - \chi_T - \chi_S - \chi_{S'} = (2, 0, -1, 0, 2)$, which is found to be such that $(\chi_V|\chi_V) = 1$, hence $V$ is irreducible and $S \otimes S$ is found to be decomposed to $T \oplus V \oplus S \oplus S'$. We have now found all five irreducible representations of $S_4$, since $1 + 1 +  2^2 + 3^2 + 3^2 = 24 = |\Sym_3$.
 	

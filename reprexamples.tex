@@ -9,11 +9,11 @@ This section follows \cite[1.2]{Serre}.
 \begin{example}[Trivial representation]\label{example:trivrepr}
 	For any group $G$ there is a trivial degree 1 representation defined by mapping each element of $G$ to 1, ie.
 	\begin{align*}
-		\rho_g = 1,
+		\rho_g^\Triv = 1,
 	\end{align*}
 	for every $g \in G$. It is clearly a homomorphism since for any $g,h \in G$ we have that
 	\begin{align*}
-		\rho_{gh} = 1 = 1 \cdot 1 = \rho_g \rho_h.
+		\rho_{gh}^\Triv = 1 = 1 \cdot 1 = \rho_g^\Triv \cdot \rho_h^\Triv.
 	\end{align*}
 	This could be extended to any vector space by mapping $g$ to the identity transformation of that vector space\footnote{For a vector space of dimension $n$, the representation taking every $g$ in a group to the $n \times n$ identity matrix can be described, in the language of Section~\ref{sect:tensorrepr}, as the direct sum of $n$ copies of the trivial representation.}.
 \end{example}
@@ -37,10 +37,10 @@ Choose $G = \Cyc_n$, and let $g$ be a generator of $\Cyc_n$ such that
 	\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}
 \end{align*}
 and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{a+b}}$ for some integers $a,b$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $(\rho_g)^n = 1$, that is $\rho_g$ is mapped to a $n$th root of unity.
-In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of the root of unity. 
+In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, denoted $\rho^0, \rho^1, \dots, \rho^{n-1}$, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of the root of unity. 
 
 \begin{example}[$\Cyc_3$]
-	The three third roots of unity are $1$, $\omega = \frac{-1+i\sqrt{3}}{2}$ and $w^2 = \frac{-1-i\sqrt{3}}{2}$, so the three representations of $\Cyc_3$ are presented in table \ref{table:Cyc3}. Note that $\rho_1^* = \rho_2$.
+	The three third roots of unity are $1$, $\omega = \frac{-1+i\sqrt{3}}{2}$ and $w^2 = \frac{-1-i\sqrt{3}}{2}$, so the three representations of $\Cyc_3$ are presented in table \ref{table:Cyc3}. %Note that $\rho_1^* = \rho_2$.
 	
 %	\begin{table}[hbt!]
 %		\begin{tabular}{c | c c c}
@@ -56,7 +56,7 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 \end{example}
 
 \begin{example}[$\Cyc_4$]
-	The four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{tbl:cyc4}. Note that $\rho_1^* = \rho_3$.
+	The four fourth roots of unity are $1,i,-1$ and $-i$ and the four corresponding representations of $\Cyc_4$ are presented in Table~\ref{tbl:cyc4}. %Note that $\rho_1^* = \rho_3$.
 %	\begin{table}[hbt!]
 %		\centering
 %		\begin{tabular}{c | c c cl}
@@ -72,7 +72,7 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 \end{example}
 	
 \begin{example}[$\Cyc_5$]
-	The five fifth roots of unity are $\exp{\frac{2\pi im}{5}}$, $0 \leq m \leq 4$, so five representations of $\Cyc_5$ are presented in table \ref{table:Cyc5}. Note that $\rho_1^* = \rho_4$ and $\rho_2^* = \rho_3$.
+	The five fifth roots of unity are $\exp{\frac{2\pi im}{5}}$, $0 \leq m \leq 4$, so five representations of $\Cyc_5$ are presented in table \ref{table:Cyc5}. %Note that $\rho_1^* = \rho_4$ and $\rho_2^* = \rho_3$.
 	
 %	\begin{table}[hbt!]
 %		\begin{tabular}{c | c c c c c}
@@ -138,34 +138,30 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 
 \subsubsection{Permutation representation}
 
-	Given a group $G$, we chose a set $X$ that $G$ acts on by permutation. Let $V$ be a vector space spanned by a natural basis $(\bas_x)_{x \in X}$, then we have a representation
+	Given a group $G$, we chose a set $X$ that $G$ acts on by permutation. Let $V$ be a vector space spanned by a natural basis $(\bas_x)_{x \in X}$, then we have a representation $\rho^\Perm : G \rightarrow \GL(V)$	defined by its action on the basis vectors by, for any $g \in G$, 
 	\begin{align*}
-		\rho:G \rightarrow \GL(V)
-	\end{align*} 
-	defined by its action on the basis vectors by, for any $g \in G$, 
-	\begin{align*}
-		\rho_g: \bas_x \mapsto \bas_{gx},
+		\rho_g^\Perm : \bas_x \mapsto \bas_{gx},
 	\end{align*}
-	that is $\rho$ inherited the group action of $G$ on $X$. It is a homomorphism since for any $g,h \in G$ we have
-	\begin{align*}
+	that is $\rho^\Perm$ inherited the group action of $G$ on $X$. It is a homomorphism since for any $g,h \in G$ we have
+	{\allowdisplaybreaks\begin{align*}
 		g \cdot (h \cdot \bas_x) &= g \cdot \bas_{hx} \\
 		&= \bas_{ghx} \\
 		&= (gh) \cdot \bas_x
-	\end{align*}
-	for any $x \in X$.%\marginnote{We have imposed a $G$-module structure on $V$.}
-	In the $(\bas_x)_{x \in X}$-basis, $\rho_g$ are permutation matrices, which have one once in every row and column, and the rest of the entries are zero.
+	\end{align*}}
+	for any $x \in X$. %\marginnote{We have imposed a $G$-module structure on $V$.}
+	In the $(\bas_x)_{x \in X}$-basis, $\rho_g^\Perm$ are permutation matrices, which have one once in every row and column, and the rest of the entries are zero.
 	
 	Letting $G = \Sym_n$, it would be appropriate to choose the set $X = \{1, 2, \dots, n\}$ and to let any $\sigma \in \Sym_n$ permute any $1 \leq i \leq n$ by $i \mapsto \sigma(i)$. Choosing a basis $(\bas_i)_{i=1}^n$ to span a vector space $V$, we define a homomorphism
 	\begin{align*}
-		\rho: \Sym_n \rightarrow \GL(V)
+		\rho^\Perm: \Sym_n \rightarrow \GL(V)
 	\end{align*}
 	defined for any $\sigma \in \Sym_n$ as
 	\begin{align*}
-		\rho_\sigma: \bas_i \mapsto \bas_{\sigma(i)}
+		\rho_\sigma^\Perm: \bas_i \mapsto \bas_{\sigma(i)}
 	\end{align*}
 	for any $1 \leq i \leq n$. In this basis, the corresponding set of matrix representations are the permutation matrices
 	\begin{align*}
-		\rho_\sigma = (r_{ij})_{n \times n} \text{, where } r_{ij} = \delta_{j,\sigma(i)} = \begin{cases}
+		\rho_\sigma^\Perm = (r_{ij})_{n \times n} \text{, where } r_{ij} = \delta_{j,\sigma(i)} = \begin{cases}
 			1 \text{, if $j = \sigma(i)$,} \\
 			0 \text{, otherwise,}
 		\end{cases}
@@ -191,11 +187,11 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 		\begin{table}[hbt!]
 			\centering
 			\begin{tabular}{c c}
-				$\rho_{(1)} =
+				$\rho_{(1)}^\Perm =
 				\begin{pmatrix}
 					1 & 0 \\ 0 & 1
 				\end{pmatrix}$, &
-				$\rho_{(1,2)} =
+				$\rho_{(1,2)}^\Perm =
 				\begin{pmatrix}
 					0 & 1 \\ 1 & 0
 				\end{pmatrix}$
@@ -204,43 +200,42 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 			\label{table:permS2}
 		\end{table}
 	\end{example}
-	
 	\begin{example}[Permutation representation of $\Sym_3$]\label{ex:permS3}
 		Likewise, representations of $\Sym_3$ are presented in Table~\ref{table:permS3}.
 		\begin{table}[hbt!]
 			\centering
 			\begin{tabular}{r r r}
-				$\rho_{(1)} = 
+				$\rho_{(1)}^\Perm = 
 				\begin{pmatrix}
 					1 & 0 & 0 \\
 					0 & 1 & 0 \\
 					0 & 0 & 1
 				\end{pmatrix}$, & 
-				$\rho_{(1,2,3)} = 
+				$\rho_{(1,2,3)}^\Perm = 
 				\begin{pmatrix}
 					0 & 0 & 1 \\
 					1 & 0 & 0 \\
 					0 & 1 & 0
 				\end{pmatrix}$, & 
-				$\rho_{(1,3,2)} = 
+				$\rho_{(1,3,2)}^\Perm = 
 				\begin{pmatrix}
 					0 & 1 & 0 \\
 					0 & 0 & 1 \\
 					1 & 0 & 0
 				\end{pmatrix}$, \\ & & \\
-				$\rho_{(1,2)} = 
+				$\rho_{(1,2)}^\Perm = 
 				\begin{pmatrix}
 					0 & 1 & 0 \\
 					1 & 0 & 0 \\
 					0 & 0 & 1
 				\end{pmatrix}$, &
-				$\rho_{(1,3)} = 
+				$\rho_{(1,3)}^\Perm = 
 				\begin{pmatrix}
 					0 & 0 & 1 \\
 					0 & 1 & 0 \\
 					1 & 0 & 0
 				\end{pmatrix}$, &
-				$\rho_{(2,3)} = 
+				$\rho_{(2,3)}^\Perm = 
 				\begin{pmatrix}
 					1 & 0 & 0 \\
 					0 & 0 & 1 \\
@@ -257,36 +252,36 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 		\begin{table}[hbt!]
 			\centering
 			\begin{tabular}{r r r}
-				$\rho_{(1)} = \left(\begin{smallmatrix}
+				$\rho_{(1)}^\Perm = \left(\begin{matrix}
 					1 & 0 & 0 & 0 \\
 					0 & 1 & 0 & 0 \\
 					0 & 0 & 1 & 0 \\
 					0 & 0 & 0 & 1
-				\end{smallmatrix}\right)$,  &
-				$\rho_{(1,2)} = \left(\begin{smallmatrix}
+				\end{matrix}\right)$,  &
+				$\rho_{(1,2)}^\Perm = \left(\begin{matrix}
 					0 & 1 & 0 & 0 \\
 					1 & 0 & 0 & 0 \\
 					0 & 0 & 1 & 0 \\
 					0 & 0 & 0 & 1
-				\end{smallmatrix}\right)$, &
-				$\rho_{(1,2)(3,4)} = \left(\begin{smallmatrix}
+				\end{matrix}\right)$, &
+				$\rho_{(1,2)(3,4)}^\Perm = \left(\begin{matrix}
 					0 & 1 & 0 & 0 \\
 					1 & 0 & 0 & 0 \\
 					0 & 0 & 0 & 1 \\
 					0 & 0 & 1 & 0
-				\end{smallmatrix}\right)$, \\ & & \\ &
-				$\rho_{(1,2,3)} = \left(\begin{smallmatrix}
+				\end{matrix}\right)$, \\ & & \\ &
+				$\rho_{(1,2,3)}^\Perm = \left(\begin{matrix}
 					0 & 0 & 1 & 0 \\
 					1 & 0 & 0 & 0 \\
 					0 & 1 & 0 & 0 \\
 					0 & 0 & 0 & 1
-				\end{smallmatrix}\right)$, &
-				$\rho_{(1,2,3,4)} = \left(\begin{smallmatrix}
+				\end{matrix}\right)$, &
+				$\rho_{(1,2,3,4)}^\Perm = \left(\begin{matrix}
 					0 & 0 & 0 & 1 \\
 					1 & 0 & 0 & 0 \\
 					0 & 1 & 0 & 0 \\
 					0 & 0 & 1 & 0
-				\end{smallmatrix}\right)$.
+				\end{matrix}\right)$.
 			\end{tabular}
 			\caption{Some matrix representations of $\Sym_4$}
 			\label{table:permS4}
@@ -295,19 +290,11 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 
 \subsubsection{Regular representation}
 
-	Following the same reasoning as in the previous section, but instead we let $G$ act on itself, ie. $X = G$. The corresponding vector space $V$ is spanned by the basis $(\bas_g)_{g \in G}$ constructed from the elements of $G$. A representation of $G$ in $V$ is then a map
-	\begin{align*}
-		\rho: G \rightarrow \GL(V)
-	\end{align*}
-	defined by
-	\begin{align*}
-		g \cdot \bas_h = \bas_{gh}
-	\end{align*}
-	for any $g,h \in G$.%\marginnote{We have created a Group Algebra $\CC[G]$.}
+	Following the same reasoning as in the previous section, but instead we let $G$ act on itself, ie. $X = G$. The corresponding vector space $V$ is spanned by the basis $(\bas_g)_{g \in G}$ constructed from the elements of $G$. The regular representation of $G$ in $V$ is then a map	$\rho^\Reg: G \rightarrow \GL(V)$ defined by $g \cdot \bas_h = \bas_{gh}$ for any $g,h \in G$.%\marginnote{We have created a Group Algebra $\CC[G]$.}
 	
-	The dimension of $V$ is $|G|$, for example the regular representation of $\Cyc_n$ is of degree $n$ and for $\Sym_n$ it is of degree $n!$, a number which grows increasingly quick for larger $n$, however the regular representation will be shown to be important later.
-	
-	\begin{example}[Regular representation of $\Cyc_3$]\label{example:regCyc3}
+	The dimension of $V$ is $|G|$, for example the regular representation of $\Cyc_n$ is of degree $n$ and for $\Sym_n$ it is of degree $n!$, a number which grows increasingly quick for larger $n$, however the regular representation will be shown to be key in finding every representation of a group.
+	{\allowdisplaybreaks\begin{example}[Regular representation of $\Cyc_3$]
+		\label{example:regCyc3}
 		For $G = \Cyc_3$ we calculate the action of $\Cyc_3$ on the $\bas, \ghat, \ghat_2$-basis thusly:
 		\begin{align*}
 			\begin{cases}
@@ -324,11 +311,11 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 			g^2 \cdot \ghat^2 = \ghat,
 			\end{cases}
 		\end{align*}
-		hence the permutation matrices in the $\bas, \ghat, \ghat_2$-basis are
+		hence the permutation matrices in the $\bas, \ghat, \ghat^2$-basis are
 		\begin{align*}
-			\rho_e = \id, \quad \rho_g = \begin{pmatrix}
+			\rho_e^\Reg = \id, \quad \rho_g^\Reg = \begin{pmatrix}
 				0&0&1 \\ 1&0&0 \\ 0&1&0
-			\end{pmatrix}, \quad \rho_{g^2} = \begin{pmatrix}
+			\end{pmatrix}, \quad \rho_{g^2}^\Reg = \begin{pmatrix}
 			0&1&0 \\ 0&0&1 \\ 1&0&0 
 			\end{pmatrix}.
 		\end{align*}
@@ -354,30 +341,32 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, each 
 		\end{align*}
 		Now, the matrices of $\Cyc_3$ in this new basis are
 		\begin{align*}
-			\rho_e &= P^{-1} \cdot \id \cdot P = \id, \\ 
-			\rho_g &= P^{-1}\cdot\begin{pmatrix}
+			\rho_e^\Reg &= P^{-1} \cdot \id \cdot P = \id, \\ 
+			\rho_g^\Reg &= P^{-1}\cdot\begin{pmatrix}
 				0&0&1 \\ 1&0&0 \\ 0&1&0
 			\end{pmatrix}\cdot P = \begin{pmatrix}
 			1&0&0 \\ 0&\omega&0 \\ 0&0&\omega^2
 			\end{pmatrix}, \\
-			\rho_{g^2} &= P^{-1}\cdot\begin{pmatrix}
+			\rho_{g^2}^\Reg &= P^{-1}\cdot\begin{pmatrix}
 				0&1&0 \\ 0&0&1 \\ 1&0&0 
 			\end{pmatrix}\cdot P = \begin{pmatrix}
 			1&0&0 \\ 0&\omega^2&0 \\ 0&0&\omega
 			\end{pmatrix}.
 		\end{align*}
-		We can clearly see that the regular representation of $\Cyc_3$ is the direct sum of the three degree 1 representations found in Table~\ref{table:Cyc3}, ie. $\rho_g = (1) \oplus (\omega) \oplus (\omega^2) = \rho^0_g \oplus \rho^1_g \oplus \rho^2_g$ after the change of basis.
-	\end{example}
+		We can clearly see that the regular representation of $\Cyc_3$ is the direct sum of the three degree 1 representations found in Table~\ref{table:Cyc3}, ie. 
+		\begin{align*}
+			\rho_g^\Reg = (1) \oplus (\omega) \oplus (\omega^2) = \rho^0_g \oplus \rho^1_g \oplus \rho^2_g
+		\end{align*}
+		after the change of basis.
+	\end{example}}
 	
-	\begin{example}[Regular representation of $\Sym_3$]\label{example:regSym3}
-		Defining a homomorphism \begin{align*}
-			\rho: S_3 \rightarrow \GL(V)
-		\end{align*} on the vector space spanned by the basis\footnote{Explicitly, this is $\left\lbrace \bas_{(1)}, \bas_{(1,2)}, \bas_{(1,3)}, \bas_{(2,3)}, \bas_{(1,2,3)}, \bas_{(1,3,2)} \right\rbrace$.} $(\bas_{\sigma})_{\sigma \in \Sym_3}$ defined for every $\sigma$ by \begin{align*}
-		\rho_\sigma \cdot \bas_\tau = \bas_{\sigma \circ \tau} = \bas_{\sigma\tau}
-		\end{align*} for some $\tau \in \Sym_3$, we arrive at a degree 6 representation of $\Sym_3$. %It is clearly a larger degree representation of $S_n$ than any we have found so far.% Later we will find that for $\Sym_3$, $R$ is the direct sum of the trivial representation, the alternating representation and two copies of the standard representations, that is $S = T \oplus A \oplus 2S$.
-		
-		\textit{To be added: Table of $6 \times 6$-matrices, one per conjugacy class for example. Also: Show that perm.repr. of $\Sym_3$ is completely decomposed to trivial + alternating + two copies of standard, especially since the multiplicity of the standard representation is $>1$.}
-	\end{example}
+%	\begin{example}[Regular representation of $\Sym_3$]\label{example:regSym3}
+%		Defining a representation $\rho^\Reg: S_3 \rightarrow \GL(V)$ on the vector space $V$ spanned by the basis\footnote{Explicitly, this is $\left\lbrace \bas_{(1)}, \bas_{(1,2)}, \bas_{(1,3)}, \bas_{(2,3)}, \bas_{(1,2,3)}, \bas_{(1,3,2)} \right\rbrace$.} $(\bas_{\sigma})_{\sigma \in \Sym_3}$ defined for every $\sigma$ by \begin{align*}
+%		\rho_\sigma \cdot \bas_\tau = \bas_{\sigma \circ \tau} = \bas_{\sigma\tau}
+%		\end{align*} for some $\tau \in \Sym_3$, we arrive at a degree 6 representation of $\Sym_3$. %It is clearly a larger degree representation of $S_n$ than any we have found so far.% Later we will find that for $\Sym_3$, $R$ is the direct sum of the trivial representation, the alternating representation and two copies of the standard representations, that is $S = T \oplus A \oplus 2S$.
+%		
+%		\textit{To be added: Table of $6 \times 6$-matrices, one per conjugacy class for example. Also: Show that perm.repr. of $\Sym_3$ is completely decomposed to trivial + alternating + two copies of standard, especially since the multiplicity of the standard representation is $>1$.}
+%	\end{example}
 	
 	
 

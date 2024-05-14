@@ -1,13 +1,11 @@
 \subsection{Subrepresentations}\label{sect:subrepr}
 
-As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representations which are said to be ``atomic'' and conversely, for any arbitrary representation we wish to find how it is composed of these indecomposable representations. To proceed we need the notion of a vector space map that respects or conserves the group action.	
+As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representations which are said to be ``atomic'' or ``indivisible'' and conversely, for any arbitrary representation we wish to find how it is composed of these indecomposable representations. To proceed we need the notion of a vector space map that respects or conserves the group action.	
 
 \begin{definition}[$G$-linear map]\cite{FultonHarris}
 	Let $V$ and $W$ be two representation spaces of a group $G$. A vector space map 
-	\begin{align*}
-		\varphi: V \rightarrow W
-	\end{align*} 
-	is called a $G$-linear map if it commutes with the group action of $G$, ie. for any $\vvec \in V$ and $g \in G$ we have
+		$\varphi: V \rightarrow W$
+	is called a $G$-linear map if it commutes with, or respects, the group action of $G$, ie. for any $\vvec \in V$ and $g \in G$ we have
 	\begin{align*}
 		\varphi( g \cdot \vvec ) = g \cdot \varphi (\vvec),
 	\end{align*}
@@ -15,7 +13,7 @@ As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representation
 	\begin{align*}
 		\varphi \circ \rho^V_g (\vvec) = \rho^W_g \circ \varphi (\vvec).
 	\end{align*}
-	Equivalently one can say that the diagram in Figure~\ref*{fig:commapmorp} is commutes for every $g \in G$.
+	Equivalently one can say that the diagram in Figure~\ref*{fig:commapmorp} commutes for every $g \in G$.
 	\begin{figure}[hbt!]
 		\centering
 %		\[\begin{tikzcd}
@@ -37,10 +35,7 @@ As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representation
 	\end{figure}
 \end{definition}
 
-Consider the case where $W$ is a $G$-invariant\footnote{For $W$ to be a $G$-invariant space, it means that for every $g \in G$, $g \cdot \wvec \in W$ for any $\wvec \in W$ or that $\rho_g(W) \subseteq W$ for any $g\in G$.} vector subspace of $V$% and let $\pi:V \rightarrow W$ be the projection map of $V$ onto $W$. 
-and let $\rho$ be a representation of $G$ in $V$. Then the restriction of $\rho$ to $W$, here denoted $\rho|_W$, is a isomorphism of $W$ onto itself since $W$ is $G$-invariant,
-%(the action of $g$ on any $\wvec \in W$ will return the same $\wvec$), 
-and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarrow \GL(W)$ is a representation of $G$ in the subspace $W$ of $V$, motivating the following definition:
+Consider the case where $W$ is a subspace of $V$ left fixed by $G$, that is $g \cdot W \subseteq W$ for any $g \in G$. Such a subspace is called $G$-invariant. Let $\rho^V$ be a representation of $G$, then the restriction of $\rho^V$ to $W$, here denoted $\rho^V|_W$, is a isomorphism (and of course also a homomorphism) of $W$ onto itself since $W$ is $G$-invariant, hence $\rho^V|_W: G \rightarrow \GL(W)$ is a representation of $G$ in the subspace $W$ of $V$, motivating the following definition:
 
 \begin{definition}[Subrepresentation]\label{def:subrepr}
 	Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $V$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
@@ -49,7 +44,7 @@ and thus $\rho_{gh}|_W = \rho_g|_W \cdot \rho_h|_W$, hence $\rho|_W: G \rightarr
 %In other words, a subrepresentation is a $G$-invariant vector subspace of a ``parent'' representation. 
 
 \begin{example}[Trivial subspaces]
-	Any representation has itself as well as the zero space as subrepresentations.
+	Any representation has itself as well as the zero space as subrepresentations. These are referred to as non-proper or trivial subrepresentations and usualy omitted.
 \end{example}
 
 \subsubsection{Some proper and non-trivial subrepresentations}
@@ -73,11 +68,11 @@ Let $G$ be any group and let us study its permutation and regular representation
 
 \begin{example}[Alternating representation inside the regular representation of $\Sym_n$]\cite[Example 1.4.4.]{Sagan}
 	Let $G = \Sym_n$, then for the regular representation, $V$ is spanned by a basis vector for every $\sigma \in \Sym_n$. Let $W$ be the subspace of $V$ spanned by the sum $\sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\sigma}$. The action of a $\tau \in \Sym_n$ on a $\wvec \in W$ is
-	\begin{align*}
+	{\allowdisplaybreaks\begin{align*}
 		\tau (\wvec) &= \tau \cdot a\sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\sigma} \\
 		&= a \sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\tau\sigma} \\
 		&= a \frac{1}{\sgn\tau} \sum_{\sigma \in \Sym_n} \sgn(\tau\sigma) \bas_{\tau\sigma} 
-	\end{align*}
+	\end{align*}}
 	where $a \in \CC$. Let $\pi = \tau\sigma$, then the sum can instead be over all these $\pi \in \Sym_n$, hence $W$ is a $G$-invariant subspace of $V$ and the alternating representation is also found inside the regular representation of the symmetric group.
 \end{example}
 
@@ -90,10 +85,8 @@ From linear algebra, we are familiar with the kernel and image of a map (see Def
 \end{proposition}
 \begin{proof}
 	\begin{itemize}
-		\item[i)] Let $\vvec \in \ker \varphi$. Then $g \cdot \varphi (\vvec) = \0$ since by definition $\varphi(\vvec) = \0$, but then we must also have $\varphi ( g \cdot \vvec ) = \0$ since $\varphi$ is a $G$-linear map, implying that $g \cdot \vvec \in \ker \varphi$. Since this holds for any $g \in G$ and $\vvec \in \ker \varphi$, the kernel of $\varphi$ is a $G$-invariant subspace of $V$ and thus a subrepresentation of $V$. %\marginnote{Subrepr. not yet defined}
-		\item[ii)] For a $\wvec \in \im \varphi$, by definition there exists a $\vvec \in V$ such that $\varphi(\vvec) = \wvec$. Since $g \cdot \vvec \in V$, then we have that $\varphi ( g \cdot \vvec) \in W$. This implies that $g \cdot \varphi (\vvec)$ is also in $W$. Since this holds for any $g \in G$ and $\vvec \in V$, the image of $\varphi$ is a $G$-invariant subspace of $W$ and a thus a subrepresentation of $W$.	\qedhere
-		%			\item[i)] Let $\vvec \in \ker \varphi$. Then $\rho_g \circ \varphi (\vvec) = \0$, but then we must also have $\varphi \circ \rho_g (\vvec) = \0$, implying that $\rho_g (\vvec) \in \ker \varphi$. Since this holds for any $g \in G$ and any $\vvec \in \ker \varphi$, the kernel of $\varphi$ is a $G$-invariant subspace of $V$ and thus a subrepresentation of $V$.
-		%			\item[ii)] For a $\wvec \in \im \varphi$, there exists a $\vvec \in V$ such that $\varphi(\vvec) = \wvec$. Since $\rho_g(\vvec) \in V$, then we have that $\varphi \circ \rho_g(\vvec) \in W$. This implies that $\rho_g \circ \varphi (\vvec)$ is also in $W$. Since this holds for any $g \in G$ and $\vvec \in V$, the image of $\varphi$ is a $G$-invariant subspace of $W$ and a thus a subrepresentation of $W$.	\qedhere
+		\item[i)] Let $\vvec \in \ker \varphi$. Then $g \cdot \varphi (\vvec) = \0$ since by definition $\varphi(\vvec) = \0$, but then we must also have $\varphi ( g \cdot \vvec ) = \0$ since $\varphi$ is a $G$-linear map, implying that $g \cdot \vvec \in \ker \varphi$. Since this holds for any $g \in G$ and $\vvec \in \ker \varphi$, the kernel of $\varphi$ is a $G$-invariant subspace of $V$ and a subrepresentation of $V$. 
+		\item[ii)] For a $\wvec \in \im \varphi$, by definition there exists a $\vvec \in V$ such that $\varphi(\vvec) = \wvec$. Since $g \cdot \vvec \in V$, then we have that $\varphi ( g \cdot \vvec) \in W$. This implies that $g \cdot \varphi (\vvec)$ is also in $W$. Since this holds for any $g \in G$ and $\vvec \in V$, the image of $\varphi$ is a $G$-invariant subspace of $W$ and a subrepresentation of $W$.	\qedhere
 	\end{itemize}
 \end{proof}
 
@@ -111,18 +104,7 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 \end{proposition}
 \begin{proof}
 	By Proposition~\ref{prop:kernelimagelinearmap} we know that a $G$-linear map from one representation space $V$ to another $W$ has its kernel and image as subrepresentations of $V$ and $W$ respectively. If we can find such a $G$-linear map from $V$ to a $G$-invariant subspace $W \leq V$ we are done.
-	The projection $\pi$ may not generally be a $G$-linear map.% since $\pi(g \cdot \vvec)$ is not generally the same as $g \cdot \pi(\vvec)$. 
-	\textit{NEEDS A COUNTEREXAMPLE?}
-%	for a $\vvec \in V$ we have that \marginnote{There is a mistake here}
-%	\begin{align*}
-%		\pi(g \cdot \vvec) = \pi(\wvec) = \wvec,
-%	\end{align*}
-%	but 
-%	\begin{align*}
-%		g \cdot \pi(\vvec) = g \cdot \wvec,
-%	\end{align*}
-%	and the equality $g \cdot \wvec = \wvec$ is not generally true for every $g \in G$.
-	Instead, consider taking the \textit{average} of $\pi$ over $G$,
+	The projection $\pi$ may not generally be a $G$-linear map, instead we consider taking the \textit{average} of $\pi$ over $G$,
 	\begin{align*}
 		\barpi = \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1},
 	\end{align*}
@@ -138,7 +120,7 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 
 \subsubsection{The standard represention of $\Sym_n$}
 
-In Example~\ref{example:trivpermrepr}, the trivial representation was found to be a subrepresentation of the permutation representation. Let $G= \Sym_n$ and let $V$ be the permutation representation and assign it the basis $(\bas_i)_{i=1}^n$. The one-dimensional subspace $W$ spanned by the sum of all $\bas_i$ was found to be the trivial representation, then by Proposition~\ref{prop:complsubrepr}, there exists another subrepresentation $W'$ of $V$ complementary to $W$. The dimension of $W'$ is $n-1$. Let's introduce to $V$ a inner product $(\cdot|\cdot)$ that fulfills the expected properties, in particular:
+In Example~\ref{example:trivpermrepr}, the trivial representation was found to be a subrepresentation of the permutation representation. Let $G= \Sym_n$ and let $V$ be the permutation representation and assign it the basis $(\bas_i)_{i=1}^n$. The one-dimensional subspace $W$ spanned by the sum of all $\bas_i$ was found to be the trivial representation, then by Proposition~\ref{prop:complsubrepr}, there exists another subrepresentation $W'$ of $V$ complementary to $W$. The dimension of $W'$ is $n-1$. Let's introduce to $V$ an inner product $(\cdot|\cdot)$ that fulfills the expected properties, in particular:
 \begin{align*}
 	(\bas_i|\bas_j) = \delta_{i,j} = \begin{cases}
 		1 \text{, if $i=j$,}\\
@@ -204,3 +186,5 @@ for every $1 \leq j \leq n-1$. One can see that one such basis is found by for e
 		\label{table:standardS3}
 	\end{table}
 \end{example}
+
+If the trivial representation corresponds to the one-dimensional sum of all basis vectors of the permutation representation of $\Sym_n$ (in $\Sym_3$ this would be the diagonal through the origin and the point $(1,1,1)$) then the standard representation corresponds to the $(n-1)$-dimensional hyperplane perpendicular to that diagonal line. Again for $\Sym_3$, this is the plane intersecting the origin perpendicular to the line through the origin and the point $(1,1,1)$.

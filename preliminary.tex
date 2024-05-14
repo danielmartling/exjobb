@@ -9,7 +9,7 @@
 
 We remember that the action of a group $G$ on a set $X$ is a map
 \begin{align*}
-	G \times X \rightarrow X
+	\sigma : G \times X \rightarrow X
 \end{align*}
 in which every $g \in G$ acts on $X$ by permuting its elements.
 
@@ -109,37 +109,49 @@ Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share con
 
 \subsection{Linear algebra topics}
 
-	\subsubsection{Trace}
-		
-		The trace of a matrix is defined as the sum along the diagonal, ie. for a $n \times n$ matrix $X = (x_{ij})$ we have
-		\begin{align*}
-			\Tr X = \sum_{i=1}^{n} x_{ii}.
-		\end{align*}
-		It is also the sum of all eigen values of $X$.
-		
-		Two matrices $X$ and $Y$ are said to be similar if they represent the same linear operator under different basis. What this means is that there exists a matrix $T$ such that $X = TYT^{-1}$. If $X$ and $Y$ are similar, then they have the same trace and eigenvalues~\cite[Thm.5.5.1.]{Nicholson}
-
-	\subsubsection{Kernel and image}
+%	\subsubsection{Trace}
 	
+		We recall from linear algebra the concept of the trace of a matrix $(a_{ij})_{n \times n}$. It is the sum along the diagonal of a matrix,
+		\begin{align*}
+			\Tr(a_{ij})= \sum_{i=1}^{n} a_{ii} = a_{11} + \dots + a_{nn},
+		\end{align*}
+		and has the following properties:
+		\begin{proposition}\label{prop:trace}
+			\begin{enumerate}
+				\item[i)] It is the sum of the eigenvalues of a matrix~\cite[Cor.8.6.1.]{Nicholson}.
+				\item[ii)] Two similar matrices have the same trace~\cite[Thm.5.5.1.]{Nicholson}, consequently the trace is independent of the basis chosen.
+				\item[iii)] It is constant under conjugation (Equivalent to ii), see also~\cite[Ex.2.3.30.]{Nicholson}).
+			\end{enumerate}
+		\end{proposition}
+
+%	\subsubsection{Vector space maps and projections}
+
+	Also of importance is the kernel and image of a vector space map, a linear map between two vector spaces. A subset of a vector space that satisfy the vector space axioms is called a vector subspace. 
+		
 	\begin{definition}[Kernel and image of a linear map]\label{def:kernelimage}
 		Let $V$ and $W$ be two vector spaces and let $\varphi: V \rightarrow W$ be a linear map. Then the kernel and the image of the map are defined thusly:
-		\begin{itemize}
-			\item[i)] $\ker \varphi = \left\lbrace \vvec \in V \ \middle\vert \ \varphi(\vvec) = \0 \right\rbrace$.
-			\item[ii)] $\im \varphi = \left\lbrace \wvec \in W \ \middle\vert \ \exists \vvec \in V \text{ s.t. } \varphi(\vvec) = \wvec \right\rbrace$.
-		\end{itemize}
+		\begin{align*}
+			 \ker \varphi &= \left\lbrace \vvec \in V \ \middle\vert \ \varphi(\vvec) = \0 \right\rbrace, \\  \im \varphi &= \left\lbrace \wvec \in W \ \middle\vert \ \exists \vvec \in V \text{ s.t. } \varphi(\vvec) = \wvec \right\rbrace.
+		\end{align*}
 	\end{definition}
 	
-	\begin{remark}~\cite[Sect.5.4.]{Holst}
-		The kernel and the image of a linear map are subspaces of the domain and codomain of the map respectively, ie. $\ker \varphi$ is a subspace of $V$ and $\im \varphi$ is a subspace of $W$.
-	\end{remark}
-	
-	\subsubsection{Existence of complementary subspaces}
+	\begin{remark}
+		The kernel and the image of a linear map are subspaces of the domain and codomain of the map respectively, ie. $\ker \varphi$ is a subspace of $V$ and $\im \varphi$ is a subspace of $W$~\cite[Sect.5.4.]{Holst}.
+	\end{remark}	
 	
 	\begin{theorem}\label{thm:compsubspaces}\cite[Thm.12.16]{Holst}
 		Let $V$ be a vector space and $W$ be a vector subspace of $V$. Then there exists a complementary vector subspace $W'$ in $V$ such that $W \cap W' = \emptyset$ and $W \cup W' = V$. This is equivalent to saying that $V$ is the direct sum of $W$ and $W'$, denoted as $V = W \oplus W'$.
 	\end{theorem}
-
 	
+	Letting $V$ be a vector space with a subspace $W$, a linear map $\pi: V \rightarrow W$ is called a projection of $V$ onto $W$. For this $\pi$ we have that
+	\begin{enumerate}
+		\item[i)]  $\pi^2 = \pi$.
+		\item[ii)] For any $\vvec \in W$ we have that $\pi(\vvec) = \vvec$.
+		\item[iii)] $\vvec \notin W$ we have that $\pi(\vvec) = \0$.
+	\end{enumerate}
+	
+	Hence $\im \pi = W$ and $\ker \pi$ is a complementary subspace to $W$ in $V$, ie. $V  = W \oplus \ker \pi$.
+		
 	\subsubsection{Tensor algebra}\label{sect:tensoralgebra}
 	
 		\textit{Taken from \cite{Jeevanjee} and \cite{Yokonuma}, and some from \cite{Holst}.}
@@ -152,7 +164,6 @@ Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share con
 		\wvec = (w_1, w_2, \dots, w_n)^T \in W.
 	\end{align*}
 	Also, in the bases provided let $F=(f_{ij})_{m \times m} \in \GL_m(\CC)$ and $G = (g_{ij})_{n \times n} \in \GL_n(\CC)$ be linear maps with eigen values $\{\lambda_i\}$ and $\{\mu_i\}$, then the following vector spaces may be constructed, or rather extended bilinearly, from $V$ and $W$:
-		
 		\begin{itemize}
 			\item The \emph{direct sum of $V$ and $W$}, denoted $V \oplus W$.
 				\subitem It has the basis $(\vhat_i \oplus \what_j)_{1 \leq i \leq m}^{1 \leq j \leq n}$, and is of dimension $m+n$.

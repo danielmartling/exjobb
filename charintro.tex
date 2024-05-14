@@ -3,13 +3,7 @@
 
 This section is based on \cite[Ch.2.]{Serre}, as well as \cite[Sect.2.2.]{FultonHarris}.
 
-Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \rightarrow \GL(V)$ be a representation. Now, for each $g \in G$, define a function $\chi_{\rho}: G \rightarrow \CC$ to be the trace of the matrix of $g$ in $V$. In other words $\chi_{\rho}(g) = \Tr(\rho_g)$. This function is called the \emph{character} of a representation.
-
-We recall from linear algebra the concept of the trace of a matrix $(a_{ij})_{n \times n}$. It is the sum along the diagonal,
-\begin{align*}
-	\Tr(a_{ij})= \sum_{i=1}^{n} a_{ii} = a_{11} + \dots + a_{nn},
-\end{align*}
-and is also the sum of the eigen values of the matrix and is independent of the basis chosen. Why is it useful when studying representations?
+Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \rightarrow \GL(V)$ be a representation. Now, for each $g \in G$, define a function $\chi_{\rho}: G \rightarrow \CC$ to be the trace of the matrix of $g$ in $V$. In other words $\chi_{\rho}(g) = \Tr(\rho_g)$. This function is called the \emph{character} of a representation. Why is it useful when studying representations?
 
 \subsection{Basic properties of characters}
 
@@ -30,7 +24,7 @@ and is also the sum of the eigen values of the matrix and is independent of the 
 		\end{align*}
 		which is the sum of the eigen values of $\rho_g^{-1}$. We are free to choose an orthonormal basis for $\rho_g$, then $\rho_g$ is a normal matrix. Now, if $\lambda$ is an eigenvalue of $\rho_g$, then $1/\lambda$ is an eigen value of $\rho_g^{-1}$, \textit{TO BE COMPLETED}
 
-		\item[iii)] It is well known that the trace is conserved under conjugation. \textit{CITATION, HOLST?} \qedhere
+		\item[iii)] It is known that the trace is conserved under conjugation (see~\ref{prop:trace}).\qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -47,12 +41,12 @@ Now we properly introduce the character.
 \begin{notation}[Group character]
 	A ``character vector'', simply called the group character, of $G$ can be defined as the tuple containing the character of every element of $G$, ie. $\chi = (\chi(g))_{g \in G}$. If the group $G$ is partitioned into the conjugacy classes $[k_1], [k_2], \dots, [k_l]$, then the group character can be abbreviated to contain one representative $k_i$ from every class $[k_i]$, ie. $\chi= (\chi(k_i))_{i=1}^l$, since the trace is fixed under conjugation, any elements of a group that are conjugate have the same character, ie. for a conjugate pair $g,g' \in G$ there exists an $h \in G$ such that $g' = hgh^{-1}$, and their characters are
 	\begin{align*}
-		\chi(h) = \chi(gag^{-1}) = \chi(g).
+		\chi(g') = \chi(hgh^{-1}) = \chi(g).
 	\end{align*}
 \end{notation}
 
 \begin{notation}[Character table]
-	A character table is an array of characters of a group.  Every column represents a conjugacy class (remember that the character is a class function).  The trivial representation is in the first row. 
+	A character table is an array of characters of a group.  Every column represents a conjugacy class and the trivial representation is in the first row. 
 	\begin{table}[hbt!]
 		\centering
 		\begin{tabular}{c | c c c }
@@ -98,7 +92,7 @@ Now we properly introduce the character.
 Moving on to the toolbox presented in Section~\ref{sect:tensorrepr}, we propose the following:
 
 \begin{proposition}\label{prop:charplustimes}
-	Let $V$ and $W$ be representation spaces of a group $G$. For a $g \in G$, let $\chi_V(g)$ and $\chi_W(g)$ be its characters in those representations. Then we have,
+	Let $V$ and $W$ be representation spaces of a group $G$ and let $\chi_V$ and $\chi_W$ be its characters in those representations. Then we have,
 	\begin{enumerate}
 		\item[i)] The character in $V \oplus W$ is $\chi_V+\chi_W$.
 		\item[ii)] The character in $V \otimes W$ is $\chi_V \cdot \chi_W$.
@@ -170,10 +164,10 @@ Now, let's apply Equation~\ref{eq:multVG} to the set of all maps $V \rightarrow 
 	\end{cases}
 \end{align*}
 
-We have arrived at an expression that looks suspiciously familiar, letting the two characters be complex-valued vectors in some vector space, we have found a \textit{scalar product of characters}.
+We have arrived at an expression that looks suspiciously familiar, letting the two characters be complex-valued vectors in some vector space, we have found a \textit{inner product of characters}.
 
-\begin{definition}[Scalar product of characters]
-	Let $\varphi$ and $\psi$ be the group characters of a group $G$, then we define the scalar product of characters as
+\begin{definition}[Inner product of characters]
+	Let $\varphi$ and $\psi$ be the group characters of a group $G$, then we define the inner product of characters as
 	\begin{align*}
 		(\varphi | \psi) := \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\psi(g)}.
 	\end{align*}
@@ -222,7 +216,7 @@ Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inne
 \begin{note}
 	Let $V$ be a representation with the composition 
 	\begin{align*}
-		V = \bigoplus_{i=1}^k m_i W_i = m_1W_1 \oplus m_2W_2 \oplus \dots,
+		V = \bigoplus_{i=1}^k m_i W_i = m_1W_1 \oplus m_2W_2 \oplus \dots \oplus m_k W_k,
 	\end{align*}
 	where the $m_i$ are the multiplicities of the irreducible $W_i$. If the character of $W_i$ is denoted by $\chi_i$, then the character of $V$ is
 	\begin{align*}
@@ -269,7 +263,6 @@ and the chacacter of the regular representation is
 \begin{align*}
 	\chi^{\Reg} = (|G|, 0, \dots, 0).
 \end{align*}
-
 Now taking the inner product of it with itself we have,
 \begin{align*}
 	(\chi^{\Reg}|\chi^{\Reg}) &= \frac{1}{|G|} \sum_{g \in G} \overline{\chi^{\Reg}(g)}\chi^{\Reg}(g) \\
@@ -283,7 +276,7 @@ Applying Equation~\ref{eq:innerprodself} on the regular representation, we had  
 	\sum_i m_i^2 = |G|.
 \end{align}
 To find what the multiplicities are we make an ansatz that if $\{W_i\}$ is the family of all irreducible representations of a group with respective characters $\chi_i$, then the regular representation $V$ is a direct sum of these with (not-necessarily non-zero) multiplicities $\{m_i\}$. Then we have that the multiplicity of some irreducible $W_j$ with character $\chi_j$ in $\chi^\Reg$ is
-\begin{align*}
+{\allowdisplaybreaks\begin{align*}
 	m_j = (\chi^\Reg|\chi_j)  &=  \sum_i m_i  (\chi_i|\chi_j)   & \text{(Reg. is sum of $m_i\chi_i$)}\\
 	&= \frac{1}{|G|} \sum_i  m_i \sum_{g \in G} \overline{\chi_i(g) }{\chi_j(g)}. & \text{(Def. of inner product.)} \\
 	&=  \frac{1}{|G|}\sum_i  m_i \overline{\chi_i(e) }{\chi_j(e)} & \text{($\chi_i$ vanish for all $g \neq e$.)} \\
@@ -292,7 +285,7 @@ To find what the multiplicities are we make an ansatz that if $\{W_i\}$ is the f
 		&= \dim W_j \frac{1}{|G|} \dim V & \text{($V = \sum_i m_i W_i$)} \\
 	&= \dim W_j \frac{1}{|G|}  |G| & \text{(From def. of regular repr.)} \\
 	& = \dim W_j.
-\end{align*}
+\end{align*}}
 
 We have shown the following:
 \begin{theorem}\label{thm:regreprmult}
