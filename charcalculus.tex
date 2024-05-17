@@ -22,26 +22,28 @@
 	
 	Now we decompose the tensor powers of the standard representation.
 	
-	\paragraph{Decomposition of $S \otimes S$.} The character of $S \otimes S$ is $(4,0,1)$, which by a quick glance on the character table is seen to be the sum of all irreducibles, hence $S \otimes S = T \oplus A \oplus S$.
-	
-	\paragraph{Decomposition of $\SymP^2S$ and $\AltP^2S$.} The character of $\SymP^2S$ is 
-	\begin{align*}
-		\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (1,-1,1) = \chi_\Alt,
-	\end{align*} hence the symmetric square of the standard representation is isomorphic to the alternating representation. 
-	
-	The character of $\AltP^2S$ is likewise 
-	\begin{align*}
-		\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (3,1,0) = \chi_\Perm, 
+	\paragraph{Decomposition of $V_\Stan \otimes V_\Stan$.} Its character is $(4,0,1)$, which by a quick glance on the character table is seen to be the sum of all irreducibles, hence \begin{align*}
+		V_\Stan \otimes V_\Stan = V_\Triv \oplus V_\Alt \oplus V_\Stan.
 	\end{align*}
-	hence the exterior square of the standard representation is isomorphic to the permutation representation, compatible with $S \otimes S = \SymP^2S \oplus \AltP^2S$.
 	
-	\paragraph{Decomposition of $S^{\otimes n}$.}\cite[Exercise 2.7.]{FultonHarris} To find the decomposition of larger tensor powers, we study the character $(\chi_\Stan)^n = (2^n, 0, (-1)^n)$ and take the inner product of it with the irreducibles and find:
+%	\paragraph{Decomposition of $\SymP^2S$ and $\AltP^2S$.} The character of $\SymP^2S$ is 
+%	\begin{align*}
+%		\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (1,-1,1) = \chi_\Alt,
+%	\end{align*} hence the symmetric square of the standard representation is isomorphic to the alternating representation. 
+%	
+%	The character of $\AltP^2S$ is likewise 
+%	\begin{align*}
+%		\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (3,1,0) = \chi_\Perm, 
+%	\end{align*}
+%	hence the exterior square of the standard representation is isomorphic to the permutation representation, compatible with $S \otimes S = \SymP^2S \oplus \AltP^2S$.
+	
+	\paragraph{Decomposition of $V_\Stan^{\otimes n}$.}\cite[Exercise 2.7.]{FultonHarris} To find the decomposition of larger tensor powers, we study the character $\chi_\Stan^n = (2^n, 0, (-1)^n)$ and take the inner product of it with the irreducibles and find:
 	\begin{align*}
-		({\chi_\Triv}|(\chi_\Stan)^n) = ({\chi_\Alt}|(\chi_\Stan)^n) &= \frac{1}{6}\left(2^n + (-1)^n\right) \text{, and}\\
-		({\chi_\Stan}|(\chi_\Stan)^n) &= \frac{1}{6}\left(2^{n+1} + (-1)^{n+1}\right), 
+		({\chi_\Triv}|\chi_\Stan^n) = ({\chi_\Alt}|\chi_\Stan^n) &= \frac{1}{6}\left(2^n + (-1)^n\right), \quad \text{and}\\
+		({\chi_\Stan}|\chi_\Stan^n) &= \frac{1}{6}\left(2^{n+1} + (-1)^{n+1}\right), 
 	\end{align*}
-	and thus \begin{align*}
-		S^{\otimes n} = a_n (T \oplus A) \oplus a_{n+1} S, \quad \text{where} \quad a_n = \frac{1}{6}\left(2^n + (-1)^n\right).
+	hence \begin{align*}
+		V_\Stan^{\otimes n} = a_n (V_\Triv \oplus V_\Alt) \oplus a_{n+1} V_\Stan, \quad \text{where} \quad a_n = \frac{1}{6}\left(2^n + (-1)^n\right).
 	\end{align*} 
 \end{example}
 
@@ -52,13 +54,13 @@
 		
 		\begin{tabular}{c | c c c | l}
 			$S_3$         & $[(1)]$   & $[(1,2)]$  & $[(1,2,3)]$ &                                          \\
-			$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 3$ & $\Ss 2$ &  $\Ss\textit{Alternate compositions}$         \\ \hline
+			$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 3$ & $\Ss 2$ &         \\ \hline
 			$\chi_\Triv$       & 1       & 1       & 1       &                                          \\
-			$\chi_\Alt$       & 1       & -1      & 1       & $ A \cong \SymP^2S$                       \\
+			$\chi_\Alt$       & 1       & -1      & 1       &                        \\
 			$\chi_\Stan$       & 2       & 0       & -1      &                                          \\ \hline\hline
-			$\chi_\Perm$       & 3       & 1       & 0       & $ P \cong T \oplus S \cong \AltP^2S$ \\
-			$(\chi_\Stan)^2$ & 4       & 0       & 1       & $ S \otimes S \cong T \oplus A \oplus S$ \\
-			$\chi_\Reg$       & 6       & 0       & 0       & $ R \cong T \oplus A \oplus 2S$
+			$\chi_\Perm$       & 3       & 1       & 0       & $ V_\Perm = V_\Triv \oplus V_\Stan$ \\
+			$\chi_\Stan^2$ & 4       & 0       & 1       & $ V_\Stan \otimes V_\Stan = V_\Triv \oplus V_\Alt \oplus V_\Stan$ \\
+			$\chi_\Reg$       & 6       & 0       & 0       & $ V_\Reg = V_\Triv \oplus V_\Alt \oplus 2V_\Stan$
 		\end{tabular}
 			
 		\caption{Complete character table of $S_3$. The representations above the doublestruck line are irreducibles, and those below are composed. Some compositions are presented in the right-most column.}
@@ -69,26 +71,26 @@
 \begin{example}[Characters of $\Sym_4$]
 	This section follows the same methods from the previous section on $\Sym_3$. So far, we have that the trivial, the alternating and the standard representations are irreducibles, see Table~\ref{table:chartableSym4}. Their respective degrees are 1, 1 and 3, and their square sum is $1+1+9 = 11$, which is less $24 = |\Sym_4|$, hence by Corollary~\ref{cor:sqsumirreds} we are expected to find additional irreducible representations of $\Sym_4$. We will find them along the way while we construct new representations and decompose them.
 	
-	\paragraph{Decomposition of $A \otimes S$.} Consider an ``alternating version of the standard representation'', denoted with the space $S'$ and the character $\chi_\Alt\chi_\Stan = (3,-1,0,1,-1)$, and has the same inner product with itself as $S$, hence it is also irreducible. It brings the square sum up to $20$.
+	\paragraph{Decomposition of $V_\Alt \otimes V_\Stan$.} Consider an ``alternating version of the standard representation'', denoted with the space $V'_\Stan$ and the character $\chi_\Alt\chi_\Stan = (3,-1,0,1,-1)$. It clearly has the same inner product with itself as $\chi_\Stan$, hence it is also irreducible. It brings the square sum up to $20$.
 	
-	\paragraph{Decomposition of $S \otimes S$.} To find the next irreducible, we study the tensor square of the standard representation. Its character is $(\chi_\Stan)^2 = (9,1,0,1,1)$ and calculations will show that
+	\paragraph{Decomposition of $V_\Stan \otimes V_\Stan$.} To find the next irreducible, we study the tensor square of the standard representation. Its character is $\chi_\Stan^2 = (9,1,0,1,1)$ and calculations will show that
 	\begin{align*}
-		(\chi_\Triv | (\chi_\Stan)^2) & = 1, \\
-		(\chi_\Alt | (\chi_\Stan)^2)  &= 0, \\
-		(\chi_\Stan | (\chi_\Stan)^2)  &= 1, \text{ and} \\
-		(\chi_\Alt\chi_\Stan | (\chi_\Stan)^2)  &= 1.
+		(\chi_\Triv | \chi_\Stan^2) & = 1, \\
+		(\chi_\Alt | \chi_\Stan^2)  &= 0, \\
+		(\chi_\Stan | \chi_\Stan^2)  &= 1 \text{ and} \\
+		(\chi_\Alt\chi_\Stan | \chi_\Stan^2)  &= 1.
 	\end{align*}
-	However these subrepresentations are of degrees 1, 3, and 3, hence by Proposition~\ref{prop:complsubrepr} there is another (not necessarily irreducible) subrepresentation complementing them. Denoting this representation by $V$, its character is $\chi_V = (\chi_\Stan)^2 - \chi_\Triv - \chi_\Stan - \chi_\Alt\chi_\Stan = (2,0,-1,0,2)$, which is found to be such that $(\chi_V|\chi_V) = 1$, hence $V$ is irreducible and  the tensor square of the standard representation is decomposed to 
+	However these subrepresentations of non-zero multiplicity are of degrees 1, 3, and 3, and then their direct sum is of degree 7, which is less than the dimension of $V_\Stan \otimes V_\Stan$, hence by Proposition~\ref{prop:complsubrepr} there is another (not necessarily irreducible) subrepresentation complementing them. Denoting this representation by $W$, its character is $\chi_W = \chi_\Stan^2 - \chi_\Triv - \chi_\Stan - \chi_\Alt\chi_\Stan = (2,0,-1,0,2)$, which is found to be such that $(\chi_V|\chi_V) = 1$, hence $V$ is irreducible and  the tensor square of the standard representation is decomposed to 
 	\begin{align*}
-		S  \otimes S = T \oplus V \oplus S \oplus S'.
+		V_\Stan \otimes V_\Stan = V_\Triv \oplus W \oplus V_\Stan \oplus V'_\Stan.
 	\end{align*}
 	We have now found all five irreducible representations of $\Sym_4$, since $1^2 + 1^2 +  2^2 + 3^2 + 3^2 = 24$, the order of $\Sym_4$.
 	
-	\paragraph{Decomposition of $\SymP^2S$ and $\AltP^2S$.} The character of $\SymP^2S$ is 
-	\begin{align*}
-		\frac{1}{2}\left[ (9,1,0,1,1)-(3,3,0,-1,3) \right] = (3,-1,0,1,-1)
-	\end{align*}
-	which is the character of $S'$. Likewise, the character of $\AltP^2S$ is $(6,2,0,0,2)$ which is found to be the sum of the characters of $T, V$ and $S$, hence $\AltP^2S = T \oplus V \oplus S$.
+%	\paragraph{Decomposition of $\SymP^2S$ and $\AltP^2S$.} The character of $\SymP^2S$ is 
+%	\begin{align*}
+%		\frac{1}{2}\left[ (9,1,0,1,1)-(3,3,0,-1,3) \right] = (3,-1,0,1,-1)
+%	\end{align*}
+%	which is the character of $S'$. Likewise, the character of $\AltP^2S$ is $(6,2,0,0,2)$ which is found to be the sum of the characters of $T, V$ and $S$, hence $\AltP^2S = T \oplus V \oplus S$.
 	
 	\paragraph{Decomposition of the $n$th tensor power of $V$.}	The character of $V^{\otimes n}$ is
 	\begin{align*}
