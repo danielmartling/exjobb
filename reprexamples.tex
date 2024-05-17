@@ -37,7 +37,7 @@ Choose $G = \Cyc_n$, and let $g$ be a generator of $\Cyc_n$ such that
 	\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}
 \end{align*}
 and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{a+b}}$ for some integers $a,b$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $(\rho_g)^n = 1$, that is $\rho_g$ is mapped to a $n$th root of unity.
-In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, denoted $\rho^0, \rho^1, \dots, \rho^{n-1}$, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of that root of unity. 
+In conclusion, for $\Cyc_n$ we have then found $n$ representations of degree 1, denoted $\rho^0, \rho^1, \dots, \rho^{n-1}$, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of that root of unity. 
 
 \begin{example}[$\Cyc_3$]
 	The three third roots of unity are $1$, $\omega = \frac{-1+i\sqrt{3}}{2}$ and $w^2 = \frac{-1-i\sqrt{3}}{2}$, so the three representations of $\Cyc_3$ are presented in table \ref{table:Cyc3}. %Note that $\rho_1^* = \rho_2$.
@@ -138,7 +138,7 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, denot
 
 \subsubsection{Permutation representation}
 
-	Given a group $G$, we chose a set $X$ that $G$ acts on by permutation. Let $V$ be a vector space spanned by a natural basis $(\bas_x)_{x \in X}$, then we have a representation $\rho^\Perm : G \rightarrow \GL(V)$	defined by its action on the basis vectors by, for any $g \in G$, 
+	Given a group $G$, we chose a finite set $X$ that $G$ acts on by permutation. Let $V$ be a vector space spanned by a natural basis $(\bas_x)_{x \in X}$, then we have a representation $\rho^\Perm : G \rightarrow \GL(V)$	defined by its action on the basis vectors by, for any $g \in G$, 
 	\begin{align*}
 		\rho_g^\Perm : \bas_x \mapsto \bas_{gx},
 	\end{align*}

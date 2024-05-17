@@ -18,7 +18,7 @@ Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \righta
 \begin{proof}
 	\begin{enumerate}
 		\item[i)] By Proposition~\ref{prop:homoidinv}, $\rho_e$ is the $n \times n$ identity matrix, where $n = \dim V$, hence $\chi(e) = \Tr \id = n = \dim V$.
-		\item[ii)] We are free to choose a orthonormal basis, then $\rho_g$ is a unitary matrix with roots of unity $\{\lambda_i\}$ as eigenvalues (CITATION, NICHOLSON). The character of $g^{-1}$ is then
+		\item[ii)] We are free to choose a orthonormal basis, then $\rho_g$ is a unitary matrix with roots of unity $\{\lambda_i\}$ as eigenvalues \cite[Exercise.8.6.15.]{Nicholson} . The character of $g^{-1}$ is then
 		\begin{align*}
 			\chi(g^{-1}) &= \Tr \rho_{g^{-1}} & \text{(Def. of character)} \\
 			&= \Tr \rho_g^{-1} & \text{(Prop.\ref{prop:homoidinv}.)} \\
@@ -166,17 +166,17 @@ Before moving on, we apply character theory on the tensor toolbox presented in S
 	\begin{enumerate}
 		\item[i)] The character in $V \oplus W$ is $\chi_V+\chi_W$.
 		\item[ii)] The character in $V \otimes W$ is $\chi_V \cdot \chi_W$.
-		\item[iii)] The characters of the symmetric and exterior squares are \begin{align*}
-			\chi_{\SymP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 + \chi_V(g^2)) \quad \text{and} \quad \chi_{\AltP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 - \chi_V(g^2)),
-		\end{align*} compatible with $V \otimes V = \SymP^2 V \oplus \AltP^2 V$.
+%		\item[iii)] The characters of the symmetric and exterior squares are \begin{align*}
+%			\chi_{\SymP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 + \chi_V(g^2)) \quad \text{and} \quad \chi_{\AltP^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 - \chi_V(g^2)),
+%		\end{align*} compatible with $V \otimes V = \SymP^2 V \oplus \AltP^2 V$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
 	Statement i) and ii) are consequences of Section~\ref{sect:tensoralgebra}. 
 	\begin{enumerate}
 		\item[i)] The trace of $\rho_g^V \oplus \rho_g^W$ is clearly the sum of the traces of $\rho_g^V$ and $\rho_g^W$.
-		\item[ii)] Likewise, the trace of $\rho_g^V \otimes \rho_g^W$ is found to be the product of the traces of $\rho_g^V$ and $\rho_g^W$.
-		\item[iii)] \textit{To be written...} \qedhere
+		\item[ii)] Likewise, the trace of $\rho_g^V \otimes \rho_g^W$ is found to be the product of the traces of $\rho_g^V$ and $\rho_g^W$.\qedhere
+%		\item[iii)] \textit{To be written...} \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -192,10 +192,7 @@ We denote by $\Hom (V,W)$ the set of all homomorphisms from $V$ to $W$, and by t
 is the subspace of $V$ in which every element is fixed by every $G$. Also, then $\Hom(V,W)^G$ is the set of all $G$-linear maps $V \rightarrow W$.
 
 \begin{proposition}
-	The multiplicity of $W$ in $V$ is $\dim \Hom(W,V)^G$, that is the number of $G$-linear maps from $W$ to $V$, ie. \begin{align*}
-		\dim \Hom(W,V)^G = |\{\text{$G$-linear maps $W \rightarrow V$}\}|.
-	\end{align*}
-	Conversely, if $W$ is arbitrary and $V$ is irreducible, then $\dim \Hom (V,W)^G$ is the multiplicity of $V$ in $W$. If both $V$ and $W$ are irreducible, then by Schur's Lemma we must have that
+	The multiplicity of $W$ in $V$ is $\dim \Hom(W,V)^G$, that is the number of (linearly independent) $G$-linear maps from $W$ to $V$. Conversely, if $W$ is arbitrary and $V$ is irreducible, then $\dim \Hom (V,W)^G$ is the multiplicity of $V$ in $W$. If both $V$ and $W$ are irreducible, then by Schur's Lemma we must have that
 	\begin{align}\label{eq:dimhomVWG}
 		\dim \Hom (V,W)^G = \begin{cases}
 			1, \text{ if $V$ and $W$ are isomorphic, and} \\
@@ -226,7 +223,7 @@ hence \begin{align}\label{eq:multVG}
 	\dim V^G = \frac{1}{|G|} \sum_g \chi_V(g).
 \end{align}
 
-Now, let's apply Equation~\ref{eq:multVG} to the set of all maps $V \rightarrow W$, ie. $V$ becomes $\Hom (V,W)$, where both $V$ and $W$ are irreducible representations of $G$. Earlier (Section~\ref{sect:tensorrepr}), $\Hom(V,W)$ was identified with $V^* \otimes W$, hence the character of $\Hom(V,W)$ is $\overline{\chi_V(g)}\cdot\chi_W(g)$, then by Equations~\ref{eq:dimhomVWG} and~\ref{eq:multVG} we have:
+Now, let's apply Equation~\ref{eq:multVG} to the set of all maps $V \rightarrow W$, ie. $V$ becomes $\Hom (V,W)$, where both $V$ and $W$ are irreducible representations of $G$. Earlier in Section~\ref{sect:tensoralgebra}, $\Hom(V,W)$ was identified with $V^* \otimes W$, hence the character of $\Hom(V,W)$ is $\overline{\chi_V(g)}\cdot\chi_W(g)$, then by Equations~\ref{eq:dimhomVWG} and~\ref{eq:multVG} we have:
 \begin{align*}
 	\dim \Hom(V,W)^G = \frac{1}{|G|} \sum_g \overline{\chi_V(g)}\cdot\chi_W(g) = \begin{cases}
 		1, \text{ if $V \cong W$, and} \\
@@ -250,22 +247,21 @@ It is an inner product since it satisfies the expected properties:
 		\overline{(\varphi|\psi)} &= \frac{1}{|G|} \sum_{g \in G} \overline{\overline{\varphi(g)} {\psi(g)}} & \text{(Def.)}\\
 		&= \frac{1}{|G|} \sum_{g \in G} \varphi(g) \overline{\psi(g)} & \text{($\overline{\overline{a}}=a$ for all $a \in \CC$)}\\
 		&= \frac{1}{|G|} \sum_{g \in G} \overline{\psi(g)} {\varphi(g)} & \text{(Scalars commute)}\\
-		&= (\psi|\varphi), &\text{(Def.)}
+		&= (\psi|\varphi). &\text{(Def.)}
 	\end{align*}
 	\item[ii)] For $a,b \in \CC$ we have 
 	\begin{align*}
-		(\varphi | a\psi_1 + b\psi_2) &= \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {a\psi_1 + b\psi_2(g)} \\
-		&= a\frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\psi_1}  +b \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\psi_2(g)}  \\
+		(\varphi | a\psi_1 + b\psi_2) &= \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} \left({a\psi_1(g) + b\psi_2(g)}\right) \\
+		&= a\frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\psi_1(g)}  +b \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\psi_2(g)}  \\
 		&= a(\varphi | \psi_1 )  +b (\varphi |\psi_2) 
 	\end{align*}
-	for any characters $\varphi, \psi_1$ and $\psi_2$.
+	for any characters $\varphi, \psi_1$ and $\psi_2$, hence it is linear in $\psi$.
 	\item[iii)] We have 
 	\begin{align*}
 		(\varphi|\varphi) &= \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\varphi(g)} \\
-		&= \frac{1}{|G|} \sum_{g \in G} |\varphi(g)|^2 & \text{(Def. modulus)}\\
-		&> 0 & \text{(Every summand is positive)}
+		&= \frac{1}{|G|} \sum_{g \in G} |\varphi(g)|^2 & \text{(Def. modulus)}
 	\end{align*}
-	for any character $\varphi \neq \0$.
+	for any character $\varphi \neq \0$, hence $(\psi|\psi) > 0$ and $(\psi|\psi) \in \RR$ since every summand is positive and real.
 \end{enumerate}
 %This is an inner product since it is linear in $\varphi$, semilinear in $\psi$, as well is $(\varphi|\varphi) > 0 $ for any $\varphi \neq \0$ and $(\varphi|\varphi)=0$ if and only if $\varphi= \0$. PROVE THESE PROPERTIES.
 

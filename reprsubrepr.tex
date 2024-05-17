@@ -2,7 +2,7 @@
 
 As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representations which are said to be ``atomic'' or ``indivisible'' and conversely, for any arbitrary representation we wish to find how it is composed of these indecomposable representations. To proceed we need the notion of a vector space map that respects or conserves the group action.	
 
-\begin{definition}[$G$-linear map]\cite{FultonHarris}
+\begin{definition}[$G$-linear map]\cite[Sect.1.1.]{FultonHarris}
 	Let $V$ and $W$ be two representation spaces of a group $G$. A vector space map 
 		$\varphi: V \rightarrow W$
 	is called a $G$-linear map if it commutes with, or respects, the group action of $G$, ie. for any $\vvec \in V$ and $g \in G$ we have
@@ -35,7 +35,7 @@ As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representation
 	\end{figure}
 \end{definition}
 
-Consider the case where $W$ is a subspace of $V$ left fixed by $G$, that is $gW \subseteq W$ for all $g \in G$. Such a subspace is called $G$-invariant. Let $\rho^V$ be a representation of $G$, then the restriction of $\rho^V$ to $W$, here denoted $\rho^V|_W$, is a isomorphism (and then also a homomorphism) of $W$ onto itself since $W$ is $G$-invariant, hence $\rho^V|_W: G \rightarrow \GL(W)$ is a representation of $G$ in the subspace $W$ of $V$, motivating the following definition:
+Consider the case where $W$ is a subspace of $V$ left fixed by $G$, that is $gW \subseteq W$ for all $g \in G$. Such a subspace is called \textit{$G$-invariant}. Let $\rho^V$ be a representation of $G$, then the restriction of $\rho^V$ to $W$, here denoted $\rho^{V|_W}$, is a isomorphism (and then also a homomorphism) of $W$ onto itself since $W$ is $G$-invariant, hence $\rho^{V|_W}: G \rightarrow \GL(W)$ is a representation of $G$ in the subspace $W$ of $V$, motivating the following definition:
 
 \begin{definition}[Subrepresentation]\label{def:subrepr}
 	Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $V$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
@@ -99,7 +99,8 @@ Recall from linear algebra the existence of complementary vector subspaces of a 
 		\pi(\wvec') = \0.
 	\end{cases}
 \end{align*} 
-The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ a $G$-linear map?
+The image of the projection is clearly $W$ and the kernel is $W'$, however it is not clear that $\pi$ a $G$-linear map.
+
 {\allowdisplaybreaks\begin{proposition}[Existence of complementary subrepresentations]\label{prop:complsubrepr}
 	Let $\rho$ be a representation of a finite group $G$ in a finite-dimensional vector space $V$. Let $W$ be a $G$-invariant subspace of $V$. Then there exists a $G$-invariant subspace $W'$ of $V$ complementary to $W$ such that $V = W \oplus W'$.
 \end{proposition}
@@ -131,7 +132,7 @@ for the basis $(\bas_i)_{i=1}^n$. Then the basis $(\fbas_j)_{j=1}^{n-1}$ of $W'$
 \begin{align*}
 	\left( \fbas_j \ \middle\vert \ \sum_{i=1}^n \bas_i \right) = 0
 \end{align*}
-for every $1 \leq j \leq n-1$. One can see that one such basis is found by for example choosing every basis vector $\fbas_j$ to be the difference of two sequent $\bas_i$, that is choosing the basis $(\bas_j - \bas_{j+1})_{j=1}^{n-1}$ for $W'$. This is called the \emph{Standard representation of $\Sym_n$.}~\cite[??]{Serre, Sagan, FultonHarris}}
+for every $1 \leq j \leq n-1$. One can see that one such basis is found by for example choosing every basis vector $\fbas_j$ to be the difference of two sequent $\bas_i$, that is choosing the basis $(\bas_j - \bas_{j+1})_{j=1}^{n-1}$ for $W'$. This is called the \emph{Standard representation of $\Sym_n$}~\cite[Sect.1.5.]{Sagan}}.
 
 \begin{example}[Standard representation of $\Sym_3$]\label{example:stdSym3}
 	The matrices of the standard representation is found by studying the action inherited from $\Sym_3$ on the basis 
@@ -187,7 +188,7 @@ for every $1 \leq j \leq n-1$. One can see that one such basis is found by for e
 	\end{table}
 \end{example}
 
-If the trivial representation corresponds to the one-dimensional sum of all basis vectors of the permutation representation of $\Sym_n$ (in $\Sym_3$ this would be the diagonal through the origin and the point $(1,1,1)$) then the standard representation corresponds to the $(n-1)$-dimensional hyperplane perpendicular to that diagonal line. Again for $\Sym_3$, this is the plane intersecting the origin perpendicular to the line through the origin and the point $(1,1,1)$.
+If the trivial representation corresponds to the one-dimensional sum of all basis vectors of the permutation representation of $\Sym_n$ (in $\Sym_3$ this would be the diagonal through the origin and the point $(1,1,1)$) then the standard representation corresponds to the $(n-1)$-dimensional hyperplane perpendicular to that line. Again for $\Sym_3$, this is the plane intersecting the origin perpendicular to the line through the origin and the point $(1,1,1)$.
 
 \begin{example}[Decomposition of the permutation representation of $\Sym_3$]
 		Letting $V$ be a permutation representation space of $\Sym_3$, it was found to have two complementary subrepresentations $W$ and $W'$, denoted the trivial and the standard representations respectively. In the $\bas_1, \bas_2, \bas_3$-basis, the matrix for $(1,2)$ is by Example~\ref{ex:permS3}
@@ -208,18 +209,16 @@ If the trivial representation corresponds to the one-dimensional sum of all basi
 		\begin{align*}
 			P = \begin{pmatrix}
 				1&1&0 \\ 1&-1&0 \\ 1&0&-1
-			\end{pmatrix}
+			\end{pmatrix}, \quad P^{-1} =  \frac{1}{3}\begin{pmatrix}
+			1&1&1\\2&-1&-1\\1&1&-2
+			\end{pmatrix},
 		\end{align*}
 		in accordance with the bases of the trivial and standard representations. Then the matrix for $(1,2)$ in this new basis is
 		\begin{align*}
-			P^{-1} \cdot \rho^\Perm_{(1,2)} \cdot P &= 
-			\frac{1}{3}\begin{pmatrix}
-				1&1&1\\2&-1&-1\\1&1&-2
-			\end{pmatrix} \cdot \begin{pmatrix}
+			\rho^\Perm_{(1,2)} = 
+			 P^{-1} \cdot \begin{pmatrix}
 				0&1&0 \\ 1&0&0 \\ 0&0&1
-			\end{pmatrix} \cdot \begin{pmatrix}
-				1&1&0 \\ 1&-1&0 \\ 1&0&-1
-			\end{pmatrix} \\
+			\end{pmatrix} \cdot  P
 			&= \begin{pmatrix}
 				1&0&0 \\ 0&-1&1 \\ 0&0&1
 			\end{pmatrix}\\
