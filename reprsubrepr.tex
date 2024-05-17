@@ -30,12 +30,12 @@ As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representation
 			\arrow["g\cdot", from=1-3, to=3-3]
 			\arrow["\varphi"', from=3-1, to=3-3]
 		\end{tikzcd}\]
-		\caption{The map $\varphi$ is $G$-linear if the diagram commutes.}
+		\caption{The map $\varphi$ is $G$-linear if the diagram commutes for every $g \in G$.}
 		\label{fig:commapmorp}
 	\end{figure}
 \end{definition}
 
-Consider the case where $W$ is a subspace of $V$ left fixed by $G$, that is $g \cdot W \subseteq W$ for any $g \in G$. Such a subspace is called $G$-invariant. Let $\rho^V$ be a representation of $G$, then the restriction of $\rho^V$ to $W$, here denoted $\rho^V|_W$, is a isomorphism (and of course also a homomorphism) of $W$ onto itself since $W$ is $G$-invariant, hence $\rho^V|_W: G \rightarrow \GL(W)$ is a representation of $G$ in the subspace $W$ of $V$, motivating the following definition:
+Consider the case where $W$ is a subspace of $V$ left fixed by $G$, that is $gW \subseteq W$ for all $g \in G$. Such a subspace is called $G$-invariant. Let $\rho^V$ be a representation of $G$, then the restriction of $\rho^V$ to $W$, here denoted $\rho^V|_W$, is a isomorphism (and then also a homomorphism) of $W$ onto itself since $W$ is $G$-invariant, hence $\rho^V|_W: G \rightarrow \GL(W)$ is a representation of $G$ in the subspace $W$ of $V$, motivating the following definition:
 
 \begin{definition}[Subrepresentation]\label{def:subrepr}
 	Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $V$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
@@ -44,10 +44,10 @@ Consider the case where $W$ is a subspace of $V$ left fixed by $G$, that is $g \
 %In other words, a subrepresentation is a $G$-invariant vector subspace of a ``parent'' representation. 
 
 \begin{example}[Trivial subspaces]
-	Any representation has itself as well as the zero space as subrepresentations. These are referred to as non-proper or trivial subrepresentations and usualy omitted.
+	Any representation has itself as well as the zero space as subrepresentations. These are referred to as non-proper or trivial subrepresentations and usually omitted.
 \end{example}
 
-\subsubsection{Some proper and non-trivial subrepresentations}
+\subsubsection{Finally some proper subrepresentations}
 
 Let $G$ be any group and let us study its permutation and regular representations. 
 
@@ -63,17 +63,18 @@ Let $G$ be any group and let us study its permutation and regular representation
 	\begin{align*}
 		W = \Span\{ \ghat_1 + \ghat_2 + \dots + \ghat_k \}. 
 	\end{align*}
-	Completely analogously to the last example, $W$ is shown to be a $G$-invariant subspace of $V$ and the regular representation also has the trivial representation as a subrepresentation.
+	Completely analogous to the last example, $W$ is shown to be a $G$-invariant subspace of $V$ and the regular representation also has the trivial representation as a subrepresentation.
 \end{example}
 
 \begin{example}[Alternating representation inside the regular representation of $\Sym_n$]\cite[Example 1.4.4.]{Sagan}
 	Let $G = \Sym_n$, then for the regular representation, $V$ is spanned by a basis vector for every $\sigma \in \Sym_n$. Let $W$ be the subspace of $V$ spanned by the sum $\sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\sigma}$. The action of a $\tau \in \Sym_n$ on a $\wvec \in W$ is
-	{\allowdisplaybreaks\begin{align*}
+	\begin{align*}
 		\tau (\wvec) &= \tau \cdot a\sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\sigma} \\
 		&= a \sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_{\tau\sigma} \\
-		&= a \frac{1}{\sgn\tau} \sum_{\sigma \in \Sym_n} \sgn(\tau\sigma) \bas_{\tau\sigma} 
-	\end{align*}}
-	where $a \in \CC$. Let $\pi = \tau\sigma$, then the sum can instead be over all these $\pi \in \Sym_n$, hence $W$ is a $G$-invariant subspace of $V$ and the alternating representation is also found inside the regular representation of the symmetric group.
+		&= a \frac{1}{\sgn\tau} \sum_{\sigma \in \Sym_n} \sgn(\tau\sigma) \bas_{\tau\sigma}  \\
+		&= \{\text{Scalar factor}\} \cdot \wvec,
+	\end{align*}
+	where $a \in \CC$, hence $W$ is a $G$-invariant subspace of $V$ and the alternating representation is also found inside the regular representation of the symmetric group.
 \end{example}
 
 \subsubsection{Subrepresentations as a kernel}
@@ -90,7 +91,7 @@ From linear algebra, we are familiar with the kernel and image of a map (see Def
 	\end{itemize}
 \end{proof}
 
-Recall from linear algebra the existence of complementary vector subspaces of a vector space. Is there a similar property of subrepresentations? Consider the case when $W$ is a subrepresentation of $V$ and let $\pi: V \rightarrow W$ be the projection of $V$ onto $W$. Recall (Corollary~\ref{thm:compsubspaces})~that for each subspace $W\leq V$ there exists a complementary and disjoint subspace $W' \leq V$ such that $V = W \oplus W'$. This means that every $\vvec \in V$ is partitioned into $\wvec \oplus \wvec'$ where $\wvec \in W$ and $\wvec' \in W'$ such that 
+Recall from linear algebra the existence of complementary vector subspaces of a vector space (Theorem~\ref{thm:compsubspaces}).  Is there a similar property of subrepresentations? Consider the case when $W$ is a subrepresentation of $V$ and let $\pi: V \rightarrow W$ be the projection of $V$ onto $W$. Recall (Theorem~\ref{thm:compsubspaces})~that for each subspace $W$ of $V$ there exists a complementary and disjoint subspace $W'$ in $V$ such that $V = W \oplus W'$. This means that every $\vvec \in V$ is partitioned into $\wvec \oplus \wvec'$ where $\wvec \in W$ and $\wvec' \in W'$ such that 
 \begin{align*}
 	\begin{cases}
 		\pi(\vvec) = \wvec, \\
@@ -99,14 +100,14 @@ Recall from linear algebra the existence of complementary vector subspaces of a 
 	\end{cases}
 \end{align*} 
 The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ a $G$-linear map?
-\begin{proposition}[Existence of complementary subrepresentations]\label{prop:complsubrepr}
+{\allowdisplaybreaks\begin{proposition}[Existence of complementary subrepresentations]\label{prop:complsubrepr}
 	Let $\rho$ be a representation of a finite group $G$ in a finite-dimensional vector space $V$. Let $W$ be a $G$-invariant subspace of $V$. Then there exists a $G$-invariant subspace $W'$ of $V$ complementary to $W$ such that $V = W \oplus W'$.
 \end{proposition}
 \begin{proof}
-	By Proposition~\ref{prop:kernelimagelinearmap} we know that a $G$-linear map from one representation space $V$ to another $W$ has its kernel and image as subrepresentations of $V$ and $W$ respectively. If we can find such a $G$-linear map from $V$ to a $G$-invariant subspace $W \leq V$ we are done.
+	By Proposition~\ref{prop:kernelimagelinearmap} we know that a $G$-linear map from one representation space $V$ to another $W$ has its kernel as a subrepresentation of $V$. If we can find such a $G$-linear map from $V$ to a $G$-invariant subspace $W$ we are done.
 	The projection $\pi$ may not generally be a $G$-linear map, instead we consider taking the \textit{average} of $\pi$ over $G$,
 	\begin{align*}
-		\barpi = \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1},
+		\barpi := \frac{1}{|G|} \sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1},
 	\end{align*}
 	and see if it conserves the action of $G$. Note that $\barpi$ is still a projection of $V$ onto $W$ since $g$ preserves $W$. Now, does $\barpi\cdot \rho_g = \rho_g \cdot \barpi$ hold for every $g \in G$? Equivalently, let's consider
 	\begin{align*}
@@ -115,11 +116,10 @@ The image of the projection is clearly $W$ and the kernel is $W'$. But is $\pi$ 
 		&= \frac{1}{|G|} \sum_{g' \in G} \rho_{g'} \cdot \pi \cdot \rho_{g'}^{-1} & \text{(Let $g' = gh$)} \\
 		&= \barpi. & \text{(Def. of $\barpi$)}
 	\end{align*}
-	So, $\barpi \cdot \rho_g = \rho_g \cdot \barpi$ for every $g \in G$ and thus $\barpi: V \rightarrow W$ is a $G$-linear map, which means that its kernel, $\ker \barpi$, identified to be the complement $W'$ of $W$ in $V$, is also a $G$-invariant subspace of $V$ and thereby a subrepresentation of $V$.
-\end{proof}
+	So, $\barpi \cdot \rho_g = \rho_g \cdot \barpi$ for every $g \in G$ and thus $\barpi: V \rightarrow W$ is a $G$-linear map, which means that its kernel is a $G$-invariant subspace of $V$ complementary to $W$ such that $V = W \oplus \ker \barpi$.%, and thereby a subrepresentation of $V$.
+\end{proof}}
 
-\subsubsection{The standard represention of $\Sym_n$}
-
+{\allowdisplaybreaks\subsubsection{The standard represention of $\Sym_n$}
 In Example~\ref{example:trivpermrepr}, the trivial representation was found to be a subrepresentation of the permutation representation. Let $G= \Sym_n$ and let $V$ be the permutation representation and assign it the basis $(\bas_i)_{i=1}^n$. The one-dimensional subspace $W$ spanned by the sum of all $\bas_i$ was found to be the trivial representation, then by Proposition~\ref{prop:complsubrepr}, there exists another subrepresentation $W'$ of $V$ complementary to $W$. The dimension of $W'$ is $n-1$. Let's introduce to $V$ an inner product $(\cdot|\cdot)$ that fulfills the expected properties, in particular:
 \begin{align*}
 	(\bas_i|\bas_j) = \delta_{i,j} = \begin{cases}
@@ -131,7 +131,7 @@ for the basis $(\bas_i)_{i=1}^n$. Then the basis $(\fbas_j)_{j=1}^{n-1}$ of $W'$
 \begin{align*}
 	\left( \fbas_j \ \middle\vert \ \sum_{i=1}^n \bas_i \right) = 0
 \end{align*}
-for every $1 \leq j \leq n-1$. One can see that one such basis is found by for example choosing every basis vector $\fbas_j$ to be the difference of two sequent $\bas_i$, that is choosing the basis $(\bas_j - \bas_{j+1})_{j=1}^{n-1}$ for $W'$. This is called the \emph{Standard representation of $\Sym_n$.}
+for every $1 \leq j \leq n-1$. One can see that one such basis is found by for example choosing every basis vector $\fbas_j$ to be the difference of two sequent $\bas_i$, that is choosing the basis $(\bas_j - \bas_{j+1})_{j=1}^{n-1}$ for $W'$. This is called the \emph{Standard representation of $\Sym_n$.}~\cite[??]{Serre, Sagan, FultonHarris}}
 
 \begin{example}[Standard representation of $\Sym_3$]\label{example:stdSym3}
 	The matrices of the standard representation is found by studying the action inherited from $\Sym_3$ on the basis 
@@ -144,39 +144,39 @@ for every $1 \leq j \leq n-1$. One can see that one such basis is found by for e
 	For example, \begin{align*}
 		(1,2)\cdot \fbas_1 &= (1,2)\cdot (\bas_1-\bas_2) = \bas_2-\bas_1 = -\fbas_1, \text{ and} \\
 		(1,2)\cdot \fbas_2 &= (1,2) \cdot (\bas_2-\bas_3) = \bas_1-\bas_3 = \fbas_1 + \fbas_2,
-	\end{align*} hence $\rho_{(1,2)} = \left(\begin{smallmatrix}
+	\end{align*} hence $\rho^\Stan_{(1,2)} = \left(\begin{smallmatrix}
 		-1 & 1 \\ 0 & 1
 	\end{smallmatrix}\right)$. The matrices are presented in Table~\ref{table:standardS3}.
 	
 	\begin{table}[hbt!]
 		\centering
 		\begin{tabular}{r r r}
-			$\rho_{(1)} = 
+			$\rho^\Stan_{(1)} = 
 			\begin{pmatrix}
 				1 & 0 \\
 				0 & 1
 			\end{pmatrix}$, & 
-			$\rho_{(1,2,3)} = 
+			$\rho^\Stan_{(1,2,3)} = 
 			\begin{pmatrix}
 				0 & -1 &\\
 				1 & -1
 			\end{pmatrix}$, & 
-			$\rho_{(1,3,2)} = 
+			$\rho^\Stan_{(1,3,2)} = 
 			\begin{pmatrix}
 				-1 & 1  \\
 				-1 & 0
 			\end{pmatrix}$, \\ & & \\
-			$\rho_{(1,2)} = 
+			$\rho^\Stan_{(1,2)} = 
 			\begin{pmatrix}
 				-1 & 1 \\
 				0  & 1
 			\end{pmatrix}$, &
-			$\rho_{(1,3)} = 
+			$\rho^\Stan_{(1,3)} = 
 			\begin{pmatrix}
 				-1 & 0 \\
 				0 & -1 
 			\end{pmatrix}$, &
-			$\rho_{(2,3)} = 
+			$\rho^\Stan_{(2,3)} = 
 			\begin{pmatrix}
 				1 & 0 \\
 				1 & -1 
@@ -188,3 +188,45 @@ for every $1 \leq j \leq n-1$. One can see that one such basis is found by for e
 \end{example}
 
 If the trivial representation corresponds to the one-dimensional sum of all basis vectors of the permutation representation of $\Sym_n$ (in $\Sym_3$ this would be the diagonal through the origin and the point $(1,1,1)$) then the standard representation corresponds to the $(n-1)$-dimensional hyperplane perpendicular to that diagonal line. Again for $\Sym_3$, this is the plane intersecting the origin perpendicular to the line through the origin and the point $(1,1,1)$.
+
+\begin{example}[Decomposition of the permutation representation of $\Sym_3$]
+		Letting $V$ be a permutation representation space of $\Sym_3$, it was found to have two complementary subrepresentations $W$ and $W'$, denoted the trivial and the standard representations respectively. In the $\bas_1, \bas_2, \bas_3$-basis, the matrix for $(1,2)$ is by Example~\ref{ex:permS3}
+		\begin{align*}
+			\rho^\Perm_{(1,2)} = \begin{pmatrix}
+				0&1&0 \\ 1&0&0 \\ 0&0&1
+			\end{pmatrix}.
+		\end{align*}
+		Let's consider a basis change 
+		\begin{align*}
+			\begin{cases}
+				\fbas_1 = \bas_1 + \bas_2 + \bas_3 \\
+				\fbas_2 = \bas_1 - \bas_2 \\
+				\fbas_3 = \bas_2 - \bas_3
+			\end{cases}
+		\end{align*}
+		with corresponding change-of-basis matrix
+		\begin{align*}
+			P = \begin{pmatrix}
+				1&1&0 \\ 1&-1&0 \\ 1&0&-1
+			\end{pmatrix}
+		\end{align*}
+		in accordance with the bases of the trivial and standard representations. Then the matrix for $(1,2)$ in this new basis is
+		\begin{align*}
+			P^{-1} \cdot \rho^\Perm_{(1,2)} \cdot P &= 
+			\frac{1}{3}\begin{pmatrix}
+				1&1&1\\2&-1&-1\\1&1&-2
+			\end{pmatrix} \cdot \begin{pmatrix}
+				0&1&0 \\ 1&0&0 \\ 0&0&1
+			\end{pmatrix} \cdot \begin{pmatrix}
+				1&1&0 \\ 1&-1&0 \\ 1&0&-1
+			\end{pmatrix} \\
+			&= \begin{pmatrix}
+				1&0&0 \\ 0&-1&1 \\ 0&0&1
+			\end{pmatrix}\\
+			%		 &= (1)  \oplus \begin{pmatrix}
+				%		 	-1&1 \\ 0&1
+				%		 \end{pmatrix} \\
+			&= \rho_{(1,2)}^\Triv \oplus \rho_{(1,2)}^\Stan.
+		\end{align*}
+		The same calculations on the other elements of $\Sym_3$ confirm that the permutation representation of $\Sym_3$ decomposes to the direct sum of the trivial and standard representations.
+\end{example}

@@ -15,7 +15,7 @@ We have already met a few of these.
 The results from Proposition~\ref{prop:complsubrepr} invites the notion of \textit{complete reducibility} of an arbitrary representation. This is presented in the following theorem (really a corollary of Proposition~\ref{prop:complsubrepr}).
 
 \begin{theorem}[Maschke's theorem]\label{thm:maschkes}
-	Let $G$ be a finite group and let $V$ be any representation space of $G$. Then $V$ is composed as a direct sum of a finite number of subrepresentations $W_i$ of $V$, that is
+	Let $G$ be a finite group and let $V$ be any representation space of $G$ of finite dimension. Then $V$ is composed as a direct sum of a finite number of subrepresentations $W_i$ of $V$, that is
 	\begin{align*}
 		V &= W_1 \oplus W_2 \oplus \dots \oplus W_k \\
 		&= \bigoplus_{i=1}^k W_i.
@@ -28,7 +28,7 @@ The results from Proposition~\ref{prop:complsubrepr} invites the notion of \text
 %	\end{note}
 \end{theorem}
 \begin{proof}
-	The theorem will be proved using induction on complementary subrepresentations as described by Proposition~\ref{prop:complsubrepr}. If $V$ itself is irreducible, then we are done. If $V$ is not irreducible, then by definition there exists a non-trivial and non-zero subrepresentation $W$ of $V$, and also by Proposition~\ref{prop:complsubrepr}, there exists a complementary subrepresentation $W'$ of $V$ such that $V = W \oplus W'$. If both $W$ or $W'$ are irreducible, then we are done, if either or both are not, we then apply Proposition~\ref{prop:complsubrepr} on them. By the induction hypothesis and by the fact that the dimension of $V$ is finite, $V$ will be decomposed into a direct sum of a finite number of subrepresentations and we are done.
+	The theorem will be proved using induction on complementary subrepresentations. If $V$ itself is irreducible, then we are done. If $V$ is not irreducible, then by definition there exists a non-trivial and non-zero subrepresentation $W$ of $V$, and also by Proposition~\ref{prop:complsubrepr}, there exists a complementary subrepresentation $W'$ of $V$ such that $V = W \oplus W'$. If both $W$ or $W'$ are irreducible, then we are done, if either or both are not, we then apply Proposition~\ref{prop:complsubrepr} on them. By the induction hypothesis and by the fact that the dimension of $V$ is finite, $V$ will be decomposed into a direct sum of a finite number of subrepresentations and we are done.
 \end{proof}
 
 %\begin{example}[Decomposition of permutation representation of $\Sym_n$]
@@ -53,17 +53,22 @@ Maschke's theorem allows us to decompose any arbitrary representation into the d
 \begin{proof}
 	Item i) follows from the $G$-linearity of $\varphi$, since by Proposition~\ref{prop:kernelimagelinearmap}, $\ker \varphi$ is a subrepresentation of $V$, but $V$ is irreducible, hence $\ker \varphi$ must then be all of $V$ ($\varphi = \0$) or $\{\0\}$ ($\varphi$ is injective). Likewise, $\im \varphi$ is a subrepresentation of the irreducible $W$, hence $\im \varphi$ is either $W$ ($\varphi$ is surjective) or $\{\0\}$ ($\varphi = \0$). Combining the two cases, we must have that either $\varphi$ is an isomorphism, or that $\varphi = \0$.
 	
-	Consider the case where $V$ and $W$ are isomorphic and let $\lambda$ be a eigenvalue of $\varphi$. The map $\varphi - \lambda \cdot \id$ is also a $G$-linear map since it is the sum of two such maps. Since $\lambda$ is chosen to be a eigenvalue of $\varphi$ then $\ker(\varphi - \lambda \cdot \id)$ is non-empty (it contains the eigen vector associated with $\lambda$) so by part i) of this proof we must have that $\varphi - \lambda \cdot \id$ is the zero map, hence $\varphi = \lambda \cdot \id$, and ii) follows.
+	Consider the case where $V$ and $W$ are isomorphic and let $\lambda \in \CC$ be an eigenvalue of $\varphi$. The map $\varphi - \lambda \cdot \id$ is also a $G$-linear map since it is the sum of two such maps. Since $\lambda$ is chosen to be a eigenvalue of $\varphi$, $\ker(\varphi - \lambda \cdot \id)$ is non-empty (it contains at least the eigenvector associated with $\lambda$) so by i) we must have that $\varphi - \lambda \cdot \id$ is the zero map, or equivalently $\varphi = \lambda \cdot \id$, and ii) follows.
 \end{proof}
 
-In other words, there are no non-trivial maps between two inequivalent irreducible representations. \textit{(In even other words: commutativity in matrices is very rare.)}
+In other words, there are no non-trivial maps between two inequivalent irreducible representations. %\textit{(In even other words: commutativity in matrices is very rare.)}
 
-We can now say that if $V$ is an arbitrary representation of some group, then it is decomposed into the direct sum of irreducibles $V_i$ by
-\begin{align*}
-	V &= m_1 V_1 \oplus m_2 V_2 \oplus \dots \oplus m_k V_k \\
-	&= \bigoplus_{i=1}^k m_i V_i,
-\end{align*}
-where $m_i$ is the multiplicity of $V_i$ in $V$.
+
+	Schur's Lemma tells us that if $V$ is an arbitrary representation of some group, then it is decomposed into the direct sum of irreducibles $W_i$ by
+	\begin{align*}
+		V &= m_1 W_1 \oplus m_2 W_2 \oplus \dots \oplus m_k W_k \\
+		&= \bigoplus_{i=1}^k m_i W_i,
+	\end{align*}
+	where $m_i$ is the number of occurences of $W_i$ in $V$. This number is called the \textit{multiplicity} of $W_i$ in $V$.
+
+%\begin{proof}
+%	Let two irreducibles in $V$ be $W_i$ and $W_j$. By Schur's Lemma, either they are equivalent ($W_i = W_j$m then a map $\varphi: W_i \rightarrow W_j$ is a scalar multiple of the identity map, $\varphi = \lambda \cdot \id$) , or they are inequivalent and there are no non-zero maps $W_i \rightarrow W_j$.
+%\end{proof}
 
 Schur's lemma also allows us to say something about the irreducible representations of an abelian group, that is a group in which every element commutes with every other element (for example $\Cyc_n$).
 

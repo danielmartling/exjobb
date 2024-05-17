@@ -1,121 +1,100 @@
 \subsection{Examples}
 
-\textit{REWRITE THIS SECTION AROUND THE STUDY OF THE REGULAR REPRESENTATION.}
+%\textit{REWRITE THIS SECTION AROUND THE STUDY OF THE REGULAR REPRESENTATION.}
 
-For this section, the representation space is denoted by the initial letter of its designation, ie. a trivial representation is denoted by $T$, a permutation by $P$, etc.
+\begin{notation}
+	For this section, a representation space may be denoted by the initial letter of its designation, ie. a trivial representation is denoted by $T$, a permutation by $P$, etc.
+\end{notation}
 
 \subsubsection{Characters of $\Cyc_n$}
 
 \begin{example}[Characters of $\Cyc_n$]
-	By Equation~\ref{eq:regcharacter}, the character of the regular representation of $\Cyc_n$ is $\chi^\Reg = (n, 0, \dots)$. In section \ref{sect:deg1cycn} we described $n$ irreducible representations of degree 1 of  $\Cyc_n$, and by Theorem~\ref{thm:regreprmult}, we have found every irreducible representation of $\Cyc_n$. Remember that the trace of a $1 \times 1$ matrix is its only element, therefore the Tables~\ref{table:Cyc3}, \ref{tbl:cyc4} and \ref{table:Cyc5} are the character tables of respectively $\Cyc_3$, $\Cyc_4$ and $\Cyc_5$.
+	By Equation~\ref{eq:regcharacter}, the character of the regular representation of $\Cyc_n$ is $\chi_\Reg = (n, 0, \dots)$. In section \ref{sect:deg1cycn} we described $n$ irreducible representations of degree 1 of  $\Cyc_n$, and by Theorem~\ref{thm:regreprmult}, we have then found every irreducible representation of $\Cyc_n$ since $\sum_{i=1}^n 1^2 = n$.
+	
+	Remember that the trace of a $1 \times 1$ matrix is its only element, therefore the Tables~\ref{table:Cyc3}, \ref{tbl:cyc4} and \ref{table:Cyc5} are the character tables of respectively $\Cyc_3$, $\Cyc_4$ and $\Cyc_5$.
 \end{example}
 
 \subsubsection{Characters of $\Sym_n$}
-
-We begin by showing the following general property of permutation matrices:
-
-\begin{theorem}[Character of a permutation representation]
-	The character of a permutation representation is the number of fixed points of the associated element of the symmetric group.
-\end{theorem}
-\begin{proof}
-	The character is the sum of the diagonal elements of the matrix representation. The matrices of the permutation representations are permutation matrices, which have a 1 on the diagonal if that row represents a fixed point and 0 otherwise. Therefore the number of fixed point is the sum along the diagonal.
-\end{proof}
-
-\begin{example}[Characters of $\Sym_3$]
-	The representations of $S_3$ found so far were presented in table \ref{table:chartableSym3}.
 	
-	\paragraph{Decomposition of $P$.} We already know that the degree 1 representations are irreducible. We also verify that the permutation representation is composed of the trivial and the standard representation, ie.
-	\begin{align*}
-		\chi^\Triv + \chi^\Stan = (1,1,1) + (2,0,-1) = (3,1,0) = \chi^\Perm.
-	\end{align*}
-	Note that
-	\begin{align*}
-		(\chi^\Stan|\chi^\Stan) = (2,0,-1)\cdot (2,0,-1) = \frac{1}{6}(1 \cdot 4 + 0 \cdot 0 + 2\cdot 1) = 1,
-	\end{align*}
-	confirming that the standard representation is irreducible and the permutation representation is completely reducible to 
-	\begin{align*}
-		P = T \oplus S.
-	\end{align*}
-	Turning our attention to the regular representation, we see that 
-	\begin{align*}
-		\chi^\Reg = \chi^T + \chi^\Alt + 2 \cdot \chi^\Stan,
-	\end{align*}
-	equivalently, we see that the square sum of the degrees are $1 + 1 +2^2 = 6 = \Sym_3$, hence we have found every irreducible representation of $\Sym_3$. Now we decompose the tensor powers of $S$.
-		
+\begin{example}[Characters of $\Sym_3$]
+	Returning to Table~\ref{table:chartableSym3}, we have found three irreducible representations of $\Sym_3$. Their degrees are 1, 1 and 2, and the square sum of the degrees are $1 + 1 + 4 = 6$ which is the order of $\Sym_3$, hence by Corollary~\ref{cor:sqsumirreds}, we have found every irreducible representation of $\Sym_3$. 
+	
+	Now we decompose the tensor powers of the standard representation.
+	
 	\paragraph{Decomposition of $S \otimes S$.} The character of $S \otimes S$ is $(4,0,1)$, which by a quick glance on the character table is seen to be the sum of all irreducibles, hence $S \otimes S = T \oplus A \oplus S$.
 	
-	\paragraph{Decomposition of $\SymP^2S$ and $\bigwedge^2S$.} The character of $\SymP^2S$ is 
+	\paragraph{Decomposition of $\SymP^2S$ and $\AltP^2S$.} The character of $\SymP^2S$ is 
 	\begin{align*}
-		\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (1,-1,1) = \chi_A,
-	\end{align*} so $\SymP^2S \cong A$. The character of $\bigwedge^2S$ is likewise $(3,1,0) = \chi_P = \chi_T + \chi_S$, so $\bigwedge^2S \cong P \cong T \oplus S$, confirming $S \otimes S = \SymP^2S \oplus \bigwedge^2S$. Also, $R = S \otimes S \oplus S$.
+		\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (1,-1,1) = \chi_\Alt,
+	\end{align*} hence the symmetric square of the standard representation is isomorphic to the alternating representation. 
 	
-	\paragraph{Decomposition of $S^{\otimes n}$.}\cite[Exercise 2.7.]{FultonHarris} To find the decomposition of larger tensor powers than $n=2$, we study the character $\chi_{S^{\otimes n}} = (2^n, 0, (-1)^n)$ and take the inner product of it with the other irreducibles and find:
+	The character of $\AltP^2S$ is likewise 
 	\begin{align*}
-		({\chi_T}|{\chi_{S^{\otimes n}}}) = ({\chi_A}|{\chi_{S^{\otimes n}}}) &= \frac{1}{6}\left(2^n + (-1)^n\right), \\
-		({\chi_S}|{\chi_{S^{\otimes n}}}) &= \frac{1}{6}\left(2^{n+1} + (-1)^{n+1}\right), 
+		\frac{1}{2}\left[ (4,0,1) - (2,2,-1) \right] = (3,1,0) = \chi_\Perm, 
 	\end{align*}
-	so $\chi_{S^{\otimes n}} = a_n (\chi_T + \chi_A) + a_{n+1} \chi_S$ and thus $S^{\otimes n} = a_n (T \oplus A) \oplus a_{n+1} S$ where $a_n = \left(2^n + (-1)^n\right)/6$.
+	hence the exterior square of the standard representation is isomorphic to the permutation representation, compatible with $S \otimes S = \SymP^2S \oplus \AltP^2S$.
 	
-	\paragraph{} The contributions from the last few paragraphs to the now complete character table of $\Sym_3$ are presented in Table~\ref{table:completecharS3}.
+	\paragraph{Decomposition of $S^{\otimes n}$.}\cite[Exercise 2.7.]{FultonHarris} To find the decomposition of larger tensor powers, we study the character $(\chi_\Stan)^n = (2^n, 0, (-1)^n)$ and take the inner product of it with the irreducibles and find:
+	\begin{align*}
+		({\chi_\Triv}|(\chi_\Stan)^n) = ({\chi_\Alt}|(\chi_\Stan)^n) &= \frac{1}{6}\left(2^n + (-1)^n\right) \text{, and}\\
+		({\chi_\Stan}|(\chi_\Stan)^n) &= \frac{1}{6}\left(2^{n+1} + (-1)^{n+1}\right), 
+	\end{align*}
+	and thus \begin{align*}
+		S^{\otimes n} = a_n (T \oplus A) \oplus a_{n+1} S, \quad \text{where} \quad a_n = \frac{1}{6}\left(2^n + (-1)^n\right).
+	\end{align*} 
+\end{example}
+
+	\paragraph{} We arrive at a ``complete'' character table for $\Sym_3$, presented in Table~\ref{table:completecharS3}.
 	
 	\begin{table}[hbt!]
 		\centering
 		
 		\begin{tabular}{c | c c c | l}
-			$S_3$         & $[1]$   & $[12]$  & $[123]$ &                                          \\
-			$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 3$ & $\Ss 2$ &  \textit{Alternate compositions}         \\ \hline
-			$\chi_T$       & 1       & 1       & 1       &                                          \\
-			$\chi_A$       & 1       & -1      & 1       & $ A \cong \Sym^2S$                       \\
-			$\chi_S$       & 2       & 0       & -1      &                                          \\ \hline\hline
-			$\chi_P$       & 3       & 1       & 0       & $ P \cong T \oplus S \cong \bigwedge^2S$ \\
-			$\chi_{S \otimes S}$ & 4       & 0       & 1       & $ S \otimes S \cong T \oplus A \oplus S$ \\
-			$\chi_R$       & 6       & 0       & 0       & $ R \cong T \oplus A \oplus 2S$
+			$S_3$         & $[(1)]$   & $[(1,2)]$  & $[(1,2,3)]$ &                                          \\
+			$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 3$ & $\Ss 2$ &  $\Ss\textit{Alternate compositions}$         \\ \hline
+			$\chi_\Triv$       & 1       & 1       & 1       &                                          \\
+			$\chi_\Alt$       & 1       & -1      & 1       & $ A \cong \SymP^2S$                       \\
+			$\chi_\Stan$       & 2       & 0       & -1      &                                          \\ \hline\hline
+			$\chi_\Perm$       & 3       & 1       & 0       & $ P \cong T \oplus S \cong \AltP^2S$ \\
+			$(\chi_\Stan)^2$ & 4       & 0       & 1       & $ S \otimes S \cong T \oplus A \oplus S$ \\
+			$\chi_\Reg$       & 6       & 0       & 0       & $ R \cong T \oplus A \oplus 2S$
 		\end{tabular}
 			
-		\caption{Complete character table of $S_3$. The representations above the dashed line are irreducibles, and those below are composed. Some compositions are presented in the right-most column.}
+		\caption{Complete character table of $S_3$. The representations above the doublestruck line are irreducibles, and those below are composed. Some compositions are presented in the right-most column.}
 		\label{table:completecharS3}
 	\end{table}
-\end{example}
+%\end{example}
 
 \begin{example}[Characters of $\Sym_4$]
-	This section follows the same methods from the previous section on $\Sym_3$. So far, we have the trivial, the alternating and the standard representations as irreducibles. 
+	This section follows the same methods from the previous section on $\Sym_3$. So far, we have that the trivial, the alternating and the standard representations are irreducibles, see Table~\ref{table:chartableSym4}. Their respective degrees are 1, 1 and 3, and their square sum is $1+1+9 = 11$, which is less $24 = |\Sym_4|$, hence by Corollary~\ref{cor:sqsumirreds} we are expected to find additional irreducible representations of $\Sym_4$. We will find them along the way while we construct new representations and decompose them.
 	
-		\begin{table}[hbt!]
-		\centering
-		\begin{tabular}{c | c c c c c}
-			$S_3$      & $[1]$   & $[12]$  & $[123]$ & $[1234]$ & $[(12)(34)]$ \\
-			$\Ss|[\sigma]|$ & $\Ss 1$ & $\Ss 6$ & $\Ss 8$ & $\Ss 6$  & $\Ss 3$      \\ \hline
-			$\chi_T$     & 1       & 1       & 1       & 1        & 1            \\
-			$\chi_A$     & 1       & -1      & 1       & -1       & 1            \\
-			$\chi_S$     & 3       & 1       & 0       & -1       & -1           \\ \hline\hline
-			$\chi_P$     & 4       & 2       & 1       & 0        & 0            \\
-			$\chi_R$     & 24      & 0       & 0       & 0        & 0            	\end{tabular}
-		\caption{Character table of $S_4$.}
-		\label{table:charS4}
-	\end{table}
+	\paragraph{Decomposition of $A \otimes S$.} Consider an ``alternating version of the standard representation'', denoted with the space $S'$ and the character $\chi_\Alt\chi_\Stan = (3,-1,0,1,-1)$, and has the same inner product with itself as $S$, hence it is also irreducible. It brings the square sum up to $20$.
 	
-	\paragraph{Decomposition of $P$.} Yet again, $\chi^P = (3,1,0) = (1,1,1) + (2,0,-1) = \chi^T + \chi^S$.
+	\paragraph{Decomposition of $S \otimes S$.} To find the next irreducible, we study the tensor square of the standard representation. Its character is $(\chi_\Stan)^2 = (9,1,0,1,1)$ and calculations will show that
+	\begin{align*}
+		(\chi_\Triv | (\chi_\Stan)^2) & = 1, \\
+		(\chi_\Alt | (\chi_\Stan)^2)  &= 0, \\
+		(\chi_\Stan | (\chi_\Stan)^2)  &= 1, \text{ and} \\
+		(\chi_\Alt\chi_\Stan | (\chi_\Stan)^2)  &= 1.
+	\end{align*}
+	However these subrepresentations are of degrees 1, 3, and 3, hence by Proposition~\ref{prop:complsubrepr} there is another (not necessarily irreducible) subrepresentation complementing them. Denoting this representation by $V$, its character is $\chi_V = (\chi_\Stan)^2 - \chi_\Triv - \chi_\Stan - \chi_\Alt\chi_\Stan = (2,0,-1,0,2)$, which is found to be such that $(\chi_V|\chi_V) = 1$, hence $V$ is irreducible and  the tensor square of the standard representation is decomposed to 
+	\begin{align*}
+		S  \otimes S = T \oplus V \oplus S \oplus S'.
+	\end{align*}
+	We have now found all five irreducible representations of $\Sym_4$, since $1^2 + 1^2 +  2^2 + 3^2 + 3^2 = 24$, the order of $\Sym_4$.
 	
-	\paragraph{Decomposition of $R$.}  The order of $\Sym_4$ is $4! = 24$, and the square sum of the irreducible degrees yet found are $1 + 1 + 3^2 = 11$, which means we are missing some representations.
-	
-	\paragraph{$A \otimes S$.} Consider an ``alternating version of $S$'', denoted by $S' = A \otimes S$. It has the character $(3,-1,0,1,-1)$, and has the same inner product with itself as $S$, hence it is also irreducible. 
-	
-	\paragraph{Decomposition of $S \otimes S$.} To find the next irreducible, we study the tensor square of $S$. The character of this composition is $(9,1,0,1,1)$ and it is found to be linearly dependent on $\chi_T$,  $\chi_S$ and $\chi_{A \otimes S}$ with overlaps of 1 and independent of $\chi_A$, however $T$, $S$ and $S'$ together are of degrees 1, 3 and 3 and $S \otimes S$ is of degree 9, so there is either another representation of degree 2 or two of degree 1. Denoting this representation by $V$, its character is $\chi_V = \chi_{S \otimes S} - \chi_T - \chi_S - \chi_{S'} = (2, 0, -1, 0, 2)$, which is found to be such that $(\chi_V|\chi_V) = 1$, hence $V$ is irreducible and $S \otimes S$ is found to be decomposed to $T \oplus V \oplus S \oplus S'$. We have now found all five irreducible representations of $S_4$, since $1 + 1 +  2^2 + 3^2 + 3^2 = 24 = |\Sym_3$.
-	
-	\paragraph{Decomposition of $\SymP^2S$ and $\bigwedge^2S$.} The character of $\SymP^2S$ is 
+	\paragraph{Decomposition of $\SymP^2S$ and $\AltP^2S$.} The character of $\SymP^2S$ is 
 	\begin{align*}
 		\frac{1}{2}\left[ (9,1,0,1,1)-(3,3,0,-1,3) \right] = (3,-1,0,1,-1)
 	\end{align*}
-	which is the character of $S'$. Likewise, the character of $\bigwedge^2S$ is $(6,2,0,0,2)$ which is found to be the sum of the characters of $T, S$ and $V$, hence $\bigwedge^2S = T \oplus S \oplus V$.
+	which is the character of $S'$. Likewise, the character of $\AltP^2S$ is $(6,2,0,0,2)$ which is found to be the sum of the characters of $T, V$ and $S$, hence $\AltP^2S = T \oplus V \oplus S$.
 	
-	\paragraph{Decomposition of the $n$th tensor power of $V$.}
-	
-	The character of $V^{\otimes n}$ is
+	\paragraph{Decomposition of the $n$th tensor power of $V$.}	The character of $V^{\otimes n}$ is
 	\begin{align*}
-		\chi_{V^{\otimes n}} = (2^n, 0, (-1)^n, 0, 2^n).
+		(\chi_{V})^n = (2^n, 0, (-1)^n, 0, 2^n).
 	\end{align*}
 	
-	Its overlap with $T, A, V, S$ and $S'$ are respectively $a_n, a_n, a_{n+1}, 0$ and $0$, where 
+	Its overlap with $T, A, V, S$ and $S'$ are found to respectively be $a_n, a_n, a_{n+1}, 0$ and $0$, where 
 	\begin{align*}
 		a_n := \frac{1}{6}\left( 2^n + 2 \cdot (-1)^n \right),
 	\end{align*}
@@ -126,7 +105,7 @@ We begin by showing the following general property of permutation matrices:
 	
 	\paragraph{Decomposition of the $n$th tensor power of $S$.} The character of $S^{\otimes n}$ is 
 	\begin{align*}
-		(\chi_S)^n = (3^n, 1, 0, (-1)^n, (-1)^n),
+		(\chi_\Stan)^n = (3^n, 1, 0, (-1)^n, (-1)^n),
 	\end{align*}
 	and after projecting it on the characters of the irreducible representations from table \ref{table:completecharS4}, we find that
 	\begin{align}\label{eq:nthpowerS}
@@ -141,11 +120,11 @@ We begin by showing the following general property of permutation matrices:
 		\end{cases}
 	\end{align*}
 	
-	\paragraph{Decomposition of the $n$th tensor powers of $S'$.} Since $S' = A \otimes S$, the character of $S'^{\otimes n}$ is the $n$th power of the character of $\chi_A \chi_S$, hence% is the tensor product of $n$ factors of $A \otimes S$. Since the tensor product is a commutative operation, we can rearrange it as
+	\paragraph{Decomposition of the $n$th tensor powers of $S'$.} Since $S' = A \otimes S$, the character of $S'^{\otimes n}$ is the $n$th power of the character $\chi_\Alt \chi_\Stan$, which of course is $(\chi_\Alt)^n(\chi_\Stan)^n$, hence% is the tensor product of $n$ factors of $A \otimes S$. Since the tensor product is a commutative operation, we can rearrange it as
 	\begin{align*}
 		(A \otimes S)^{\otimes n} = S^{\otimes n} \otimes A^{\otimes n}
 	\end{align*}
-	The $n$th tensor power of $A$ is $T$ if $n$ is even and $A$ if $n$ is odd, so for even $n$, $S'^{\otimes n} \cong S^{\otimes n}$, and for odd $n$, $S'^{\otimes n} \cong S^{\otimes n} \otimes A$. Then the character is 
+	The $n$th tensor power of $A$ is $T$ if $n$ is even and $A$ if $n$ is odd, so for even $n$, $S'^{\otimes n}$ is isomorphic to $S^{\otimes n}$, and for odd $n$, $S'^{\otimes n}$ is isomorphic to $ S^{\otimes n} \otimes A$. Then the character is 
 	\begin{align*}
 		\chi_{S'^{\otimes n}} = \begin{cases}
 			\big(3^n,1,0,(-1)^{n}, (-1)^n\big), \text{ if } n \text{ is even, or} \\
@@ -181,7 +160,7 @@ We begin by showing the following general property of permutation matrices:
 	\end{table}
 \end{example}
 
-\textit{LOW PRIO: ADD CHARACTER THEORY ON KLEIN'S 4-GROUP AND DIHEDRAL GROUPS}
+%\textit{LOW PRIO: ADD CHARACTER THEORY ON KLEIN'S 4-GROUP AND DIHEDRAL GROUPS}
 
 %\subsection{Characters of the Klein 4-group $V$}
 %

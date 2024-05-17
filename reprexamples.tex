@@ -7,7 +7,7 @@ This section follows \cite[1.2]{Serre}.
 %	A representation $\rho$ where every $g$ is such that $|\rho_g| = 1$, is called a unital representation.
 
 \begin{example}[Trivial representation]\label{example:trivrepr}
-	For any group $G$ there is a trivial degree 1 representation defined by mapping each element of $G$ to 1, ie.
+	For any group $G$ there is a trivial representation of degree 1 defined by mapping each element of $G$ to 1, ie.
 	\begin{align*}
 		\rho_g^\Triv = 1,
 	\end{align*}
@@ -15,11 +15,11 @@ This section follows \cite[1.2]{Serre}.
 	\begin{align*}
 		\rho_{gh}^\Triv = 1 = 1 \cdot 1 = \rho_g^\Triv \cdot \rho_h^\Triv.
 	\end{align*}
-	This could be extended to any vector space by mapping $g$ to the identity transformation of that vector space\footnote{For a vector space of dimension $n$, the representation taking every $g$ in a group to the $n \times n$ identity matrix can be described, in the language of Section~\ref{sect:tensorrepr}, as the direct sum of $n$ copies of the trivial representation.}.
+	This could be extended to any vector space by mapping $g$ to the identity transformation of that vector space. For a vector space of dimension $n$, the representation taking every $g$ in a group to the $n \times n$ identity matrix can be described, in the language of Section~\ref{sect:tensorrepr}, as the direct sum of $n$ copies of the trivial representation.
 \end{example}
 
 \begin{note}
-	The trivial representation (the mapping is trivial) is not to be confused with the trivial space (the vector space containing only the zero vector).
+	The trivial representation (the mapping is trivial) is not to be confused with the trivial zero space (the vector space containing only the zero vector).
 \end{note}
 
 \begin{example}[Alternating representation of $\Sym_n$]\label{example:altrepr}
@@ -37,7 +37,7 @@ Choose $G = \Cyc_n$, and let $g$ be a generator of $\Cyc_n$ such that
 	\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}
 \end{align*}
 and $g^n = e$. Consider a map $\rho: \Cyc_n \rightarrow \CC$ defined as a homomorphism by $\rho_{g^a}\rho_{g^b} = \rho_{g^{a+b}}$ for some integers $a,b$, then by Equation~\ref{eq:rhoIdAndInv} we have that $\rho_e = 1$, but $g^n = e$ and by induction on Equation~\ref{eq:homomorphism} we have that $\rho_{g^n} = (\rho_g)^n$, so then we must have that $(\rho_g)^n = 1$, that is $\rho_g$ is mapped to a $n$th root of unity.
-In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, denoted $\rho^0, \rho^1, \dots, \rho^{n-1}$, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of the root of unity. 
+In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, denoted $\rho^0, \rho^1, \dots, \rho^{n-1}$, each mapping $g$ to a $n$th root of unity and the powers of $g$ to the corresponding powers of that root of unity. 
 
 \begin{example}[$\Cyc_3$]
 	The three third roots of unity are $1$, $\omega = \frac{-1+i\sqrt{3}}{2}$ and $w^2 = \frac{-1-i\sqrt{3}}{2}$, so the three representations of $\Cyc_3$ are presented in table \ref{table:Cyc3}. %Note that $\rho_1^* = \rho_2$.
@@ -151,11 +151,7 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, denot
 	for any $x \in X$. %\marginnote{We have imposed a $G$-module structure on $V$.}
 	In the $(\bas_x)_{x \in X}$-basis, $\rho_g^\Perm$ are permutation matrices, which have one once in every row and column, and the rest of the entries are zero.
 	
-	Letting $G = \Sym_n$, it would be appropriate to choose the set $X = \{1, 2, \dots, n\}$ and to let any $\sigma \in \Sym_n$ permute any $1 \leq i \leq n$ by $i \mapsto \sigma(i)$. Choosing a basis $(\bas_i)_{i=1}^n$ to span a vector space $V$, we define a homomorphism
-	\begin{align*}
-		\rho^\Perm: \Sym_n \rightarrow \GL(V)
-	\end{align*}
-	defined for any $\sigma \in \Sym_n$ as
+	Letting $G = \Sym_n$, it would be appropriate to choose the set $X = \{1, 2, \dots, n\}$ and to let any $\sigma \in \Sym_n$ permute any $1 \leq i \leq n$ by $i \mapsto \sigma(i)$. Choosing a basis $(\bas_i)_{i=1}^n$ to span a vector space $V$, we define a representation $\rho^\Perm: \Sym_n \rightarrow \GL(V)$ defined for any $\sigma \in \Sym_n$ as
 	\begin{align*}
 		\rho_\sigma^\Perm: \bas_i \mapsto \bas_{\sigma(i)}
 	\end{align*}
@@ -295,7 +291,7 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, denot
 	The dimension of $V$ is $|G|$, for example the regular representation of $\Cyc_n$ is of degree $n$ and for $\Sym_n$ it is of degree $n!$, a number which grows increasingly quick for larger $n$, however the regular representation will be shown to be key in finding every representation of a group.
 	{\allowdisplaybreaks\begin{example}[Regular representation of $\Cyc_3$]
 		\label{example:regCyc3}
-		For $G = \Cyc_3$ we calculate the action of $\Cyc_3$ on the $\bas, \ghat, \ghat_2$-basis thusly:
+		For $G = \Cyc_3$ we calculate the action of $\Cyc_3$ on the $\bas, \ghat, \ghat^2$-basis thusly:
 		\begin{align*}
 			\begin{cases}
 				e \cdot \bas = \bas, \\
@@ -353,7 +349,7 @@ In conclusion, for $\Cyc_n$ we have found $n$ representations of degree 1, denot
 			1&0&0 \\ 0&\omega^2&0 \\ 0&0&\omega
 			\end{pmatrix}.
 		\end{align*}
-		We can clearly see that the regular representation of $\Cyc_3$ is the direct sum of the three degree 1 representations found in Table~\ref{table:Cyc3}, ie. 
+		We can clearly see that the regular representation of $\Cyc_3$ is the direct sum of the three degree 1 representations found in Table~\ref{table:Cyc3}, eg. 
 		\begin{align*}
 			\rho_g^\Reg = (1) \oplus (\omega) \oplus (\omega^2) = \rho^0_g \oplus \rho^1_g \oplus \rho^2_g
 		\end{align*}

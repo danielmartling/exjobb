@@ -3,15 +3,26 @@
 
 \subsection{Group theoretical topics}
 
-\subsubsection{Group action}
+%\subsubsection{Group action}
 
-\textit{Put in definitions as in \cite{DummitFoote}}.
-
-We remember that the action of a group $G$ on a set $X$ is a map
+The action of a group $G$ on a set $X$ is a map
 \begin{align*}
 	\sigma : G \times X \rightarrow X
 \end{align*}
-in which every $g \in G$ acts on $X$ by permuting its elements.
+satisfying for the identity element $e \in G$ 
+\begin{align*}
+	&\sigma(e,x) = x, \text{ for all $x \in X$}
+\end{align*}
+and for all $g,h \in G$,
+\begin{align*}
+	&\sigma (g, \sigma(h,x)) = \sigma(gh, x), \text{ for all } x \in X.
+\end{align*}
+It is easy to see that, for every fixed $g \in G$ the map $\sigma(g, \cdot): X \rightarrow X$ is a permutation, that is bijective. To simplify notation, we write
+\begin{align*}
+	g \cdot x := \sigma(g,x).
+\end{align*}
+%where $e$ is the identity element of $G$.
+%in which every $g \in G$ acts on $X$ by permuting its elements.
 
 %We could let the group $G$ act on a set $X$ and study the action of $G$ on $X$ defined by
 %
@@ -21,7 +32,7 @@ in which every $g \in G$ acts on $X$ by permuting its elements.
 %\end{align*}
 %for any $x \in X$.
 
-\subsubsection{The symmetric group}
+%\subsubsection{The symmetric group}
 
 Recall~(\cite[1.3.]{DummitFoote}, \cite[1.1]{Sagan}) that for a positive integer $n$, we denote by $\Sym_n$ the set of permutations of the set $\{1, 2, \dots, n\}$, which is a group under compositions of permutations. The number of elements in $\Sym_n$ is $n!$.
 
@@ -53,10 +64,10 @@ Note that if $\sigma$ is composed of $s$ transpositions and $\tau$ is composed o
 
 The \textit{cycle type} of a permutation $\sigma \in \Sym_n$ is an $n$-tuple $(k^{m_k})_{k=1}^n$ where $m_k$ is the number of $k$-cycles in $\sigma$. For example, the cycle type of $(1,2)(3,4,5) \in \Sym_6$ is $(1^1, 2^1, 3^1, 4^0, 5^0, 6^0) = (1^1, 2^1, 3^1)$, where in the last step the cycles of zero multiplicity are omitted.
 
-Another way to classify a permutation in $\Sym_n$ is to compare to an \textit{integer partition of $n$}. The integer partition of $n$ is a sum $\lambda_1+ \lambda_2+ \dots+ \lambda_l = n$, where $l \leq n$ and $\lambda_i \geq \lambda_{i+1}$. The element $(1,2)(3,4,5) \in \Sym_6$ corresponds to the partition $(3,2,1)$.  
+Another way to classify a permutation in $\Sym_n$ is to compare it to an \textit{integer partition of $n$}. An integer partition of $n$ is a sum $\lambda_1+ \lambda_2+ \dots+ \lambda_l = n$, where $l \leq n$ and $\lambda_i \geq \lambda_{i+1}$. The element $(1,2)(3,4,5) \in \Sym_6$ corresponds to the partition $(3,2,1)$~\cite[??]{Sagan}.  
 
 \begin{example}[$\Sym_3$]
-	The elements of $\Sym_3$ and their cycle types and corresponding integer partitions are presented in Table~\ref{table:elementsSym3}.
+	The elements of $\Sym_3$ and their signs,  cycle types and corresponding integer partitions are presented in Table~\ref{table:elementsSym3}.
 \end{example}
 
 \begin{table}[hbt!]
@@ -73,9 +84,9 @@ Another way to classify a permutation in $\Sym_n$ is to compare to an \textit{in
 
 Since the number of elements of $\Sym_n$ is $n!$, for larger $n$ it becomes increasingly cumbersome to describe every element of $\Sym_n$, however as we will see, we can instead study the conjugacy classes of $\Sym_n$.
 
-Recall that to elements $g, g' \in G$ are said to be \textit{conjugate} if there exists an element $h \in G$ such that $g' = hgh^{-1}$. ``Being conjugate in a group'' is an equivalence relation, so the equivalence classes, called \textit{conjugacy classes} partition $G$ into disjoint subsets. Denote by $[g]$ the conjugacy class in $G$ containing $g$. If another element $g'$ is conjugate to $g$, then they share the same conjugacy class $[g] = [g']$ and both $g$ and $g'$ are said to be \textit{representatives} of their class. The size of the conjugacy class can be calculated with the \textit{centralizer of $g$ in $G$}, defined by
+Recall that to elements $g, g' \in G$ are said to be \textit{conjugate} if there exists an element $h \in G$ such that $g' = hgh^{-1}$. ``Being conjugate in a group'' is an equivalence relation, so the equivalence classes, called \textit{conjugacy classes} partition $G$ into disjoint subsets~\cite[??]{Biggs}. Denote by $[g]$ the conjugacy class in $G$ containing $g$. If another element $g'$ is conjugate to $g$, then they share the same conjugacy class, ie. $[g] = [g']$, and both $g$ and $g'$ are said to be \textit{representatives} of their class. The size of the conjugacy class can be calculated with the \textit{centralizer of $g$ in $G$}, defined by
 \begin{align*}
-	\Cent(g) = \left\lbrace h \in G \middle\vert hgh^{-1} = g \right\rbrace,
+	\Cent(g) = \left\lbrace h \in G \ \middle\vert \ hgh^{-1} = g \right\rbrace,
 \end{align*}
 and by the orbit-stabilizer theorem~\cite[Thm.21.3]{Biggs}, the relationship between $\Cent(g)$ and the elements of $[g]$ is 
 \begin{align*}
@@ -83,23 +94,23 @@ and by the orbit-stabilizer theorem~\cite[Thm.21.3]{Biggs}, the relationship bet
 \end{align*}
 where $| \cdot |$ denotes the size of a set.
 
-Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share conjugacy class if and only if they are of the same cycle type~\cite[Sect.1.1.]{Sagan}. Since the cycle type was linked to an integer partition of the degree of the symmetric group, there are as many conjugacy classes in $\Sym_n$ as there are integer partitions of $n$. For example, there are three conjugacy classes in $\Sym_3$, five in $\Sym_4$ and seven in $\Sym_5$. Also, if the cycle type of a $\sigma \in \Sym_n$ is $(k^{m_k})_{k=1}^n$, then the size of its centralizer is 
+Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share conjugacy class if and only if they are of the same cycle type~\cite[Sect.1.1.]{Sagan},~\cite[??]{Biggs}. Since the cycle type was linked to an integer partition of the degree of the symmetric group, there are as many conjugacy classes in $\Sym_n$ as there are integer partitions of $n$. For example, there are three conjugacy classes in $\Sym_3$, five in $\Sym_4$ and seven in $\Sym_5$. Also, if the cycle type of a $\sigma \in \Sym_n$ is $(k^{m_k})_{k=1}^n$, then the size of its centralizer is 
 \begin{align*}
-	\prod_{k=1}^{n} k^{m_k} m_k!
+	\prod_{k=1}^{n} k^{m_k} m_k!,
 \end{align*}
 (\cite[Prop.1.1.1.]{Sagan} has a nice combinatorical proof).
 
 \begin{example}[$\Sym_4$]
-	The conjugacy classes of $\Sym_4$, along with their sizes and ther cycle types are presented in Table~\ref{table:elementsSym4}.
+	The conjugacy classes of $\Sym_4$, along with their sizes, cycle types and signs are presented in Table~\ref{table:elementsSym4}.
 	\begin{table}[hbt!]
 		\centering
 		\begin{tabular}{r | c c c c c}
-			         $\Sym_4$ & $(1)$     & $(1,2)$     & $(1,2)(3,4)$ & $(1,2,3)$   & $(1,2,3,4)$ \\ \hline
-			$|\Cent(\sigma)|$ & $24$      & $4$         & $8$          & $3$         & $4$         \\
-			     $|[\sigma]|$ & $1$       & $6$         & $3$          & $8$         & $6$         \\
-			             Type & $(1^4)$   & $(1^2,2^1)$ & $(2^2)$      & $(1^1,2^1)$ & $(4^1)$     \\
-			            Part. & 1+1+1+1 & 2+1+1       & 2+2          & 3+1         & 5           \\
-			             Sign & $+1$      & $-1$        & $+1$         & $+1$        & $-1$
+			         $\Sym_4$ & $(1)$   & $(1,2)$     & $(1,2)(3,4)$ & $(1,2,3,4)$ & $(1,2,3)$   \\ \hline
+			$|\Cent(\sigma)|$ & $24$    & $4$         & $8$          & $4$         & $3$         \\
+			     $|[\sigma]|$ & $1$     & $6$         & $3$          & $6$         & $8$         \\
+			             Type & $(1^4)$ & $(1^2,2^1)$ & $(2^2)$      & $(4^1)$     & $(1^1,2^1)$ \\
+			            Part. & 1+1+1+1 & 2+1+1       & 2+2          & 5           & 3+1         \\
+			             Sign & $+1$    & $-1$        & $+1$         & $-1$& $+1$        
 		\end{tabular}
 		\caption{Classes of $\Sym_4$.}
 		\label{table:elementsSym4}
@@ -111,7 +122,7 @@ Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share con
 
 %	\subsubsection{Trace}
 	
-		We recall from linear algebra the concept of the trace of a matrix $(a_{ij})_{n \times n}$. It is the sum along the diagonal of a matrix,
+		We recall from linear algebra the concept of the trace of a square matrix $(a_{ij})_{n \times n}$. It is the sum of the elements along the diagonal,
 		\begin{align*}
 			\Tr(a_{ij})= \sum_{i=1}^{n} a_{ii} = a_{11} + \dots + a_{nn},
 		\end{align*}
@@ -120,7 +131,7 @@ Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share con
 			\begin{enumerate}
 				\item[i)] It is the sum of the eigenvalues of a matrix~\cite[Cor.8.6.1.]{Nicholson}.
 				\item[ii)] Two similar matrices have the same trace~\cite[Thm.5.5.1.]{Nicholson}, consequently the trace is independent of the basis chosen.
-				\item[iii)] It is constant under conjugation (Equivalent to ii), see also~\cite[Ex.2.3.30.]{Nicholson}).
+				\item[iii)] It is constant under conjugation (Equivalent to ii) and also $\Tr AB = \Tr BA$, see~\cite[Ex.2.3.30.]{Nicholson}).
 			\end{enumerate}
 		\end{proposition}
 
@@ -140,127 +151,236 @@ Returning to the symmetric group, two permutations $\sigma$ and $\tau$ share con
 	\end{remark}	
 	
 	\begin{theorem}\label{thm:compsubspaces}\cite[Thm.12.16]{Holst}
-		Let $V$ be a vector space and $W$ be a vector subspace of $V$. Then there exists a complementary vector subspace $W'$ in $V$ such that $W \cap W' = \emptyset$ and $W \cup W' = V$. This is equivalent to saying that $V$ is the direct sum of $W$ and $W'$, denoted as $V = W \oplus W'$.
+		Let $V$ be a vector space and $W$ be a vector subspace of $V$. Then there exists a complementary vector subspace $W'$ in $V$ such that $W \cap W' = \emptyset$ and $W \cup W' = V$. This is equivalent to saying that $V$ is \textit{the direct sum of $W$ and $W'$}, denoted as $V = W \oplus W'$.
 	\end{theorem}
 	
-	Letting $V$ be a vector space with a subspace $W$, a linear map $\pi: V \rightarrow W$ is called a projection of $V$ onto $W$. For this $\pi$ we have that
+\begin{example}
+		Letting $V$ be a vector space with a subspace $W$, a linear map $\pi: V \rightarrow W$ is called a projection of $V$ onto $W$. For this $\pi$ we have that
 	\begin{enumerate}
 		\item[i)]  $\pi^2 = \pi$.
 		\item[ii)] For any $\vvec \in W$ we have that $\pi(\vvec) = \vvec$.
-		\item[iii)] $\vvec \notin W$ we have that $\pi(\vvec) = \0$.
+		\item[iii)] If $\vvec \notin W$ we have that $\pi(\vvec) = \0$. 
 	\end{enumerate}
-	
 	Hence $\im \pi = W$ and $\ker \pi$ is a complementary subspace to $W$ in $V$, ie. $V  = W \oplus \ker \pi$.
+\end{example}
 		
-	\subsubsection{Tensor algebra}\label{sect:tensoralgebra}
-	
-		\textit{Taken from \cite{Jeevanjee} and \cite{Yokonuma}, and some from \cite{Holst}.}
-		
-		\textit{Something on bilinearity.} $a(v\otimes w) = (av)\otimes w = v \otimes (aw)$ and $v \otimes (w + w')$.
+\subsection{Tensor operations}\label{sect:tensoralgebra}
 
-		Let $V$ and $W$ be vector spaces provided with respective bases $(\vhat_i)_{i=1}^m$ and $(\uhat_i)_{i=1}^n$, where $m = \dim V$ and $n = \dim W$. Let \begin{align*}
-			\vvec = (v_1, v_2, \dots v_m)^T \in V
-		\quad \text{ and } \quad 
-		\wvec = (w_1, w_2, \dots, w_n)^T \in W.
-	\end{align*}
-	Also, in the bases provided let $F=(f_{ij})_{m \times m} \in \GL_m(\CC)$ and $G = (g_{ij})_{n \times n} \in \GL_n(\CC)$ be linear maps with eigen values $\{\lambda_i\}$ and $\{\mu_i\}$, then the following vector spaces may be constructed, or rather extended bilinearly, from $V$ and $W$:
-		\begin{itemize}
-			\item The \emph{direct sum of $V$ and $W$}, denoted $V \oplus W$.
-				\subitem It has the basis $(\vhat_i \oplus \what_j)_{1 \leq i \leq m}^{1 \leq j \leq n}$, and is of dimension $m+n$.
-%				\subitem It has the basis $(\vhat_i \oplus \what_j)_{i = i,}^{m} _{j=1}^n$, and is of dimension $m+n$.
-				\subitem An element of $V \oplus W$ looks like \begin{align*}
-					\vvec \oplus \wvec = \begin{pmatrix}
-						\vvec \\ \wvec
-					\end{pmatrix} = \begin{pmatrix}
-					v_1, v_2, \dots, v_m, w_1, w_2, \dots, w_n
-					\end{pmatrix}^T.
-				\end{align*}
-				\subitem In the basis provided, $F \oplus G \in \GL(V \oplus W)$ is the $m+n \times m+n$ block matrix 
-				\begin{align*}
-					\begin{pmatrix}
-						F & \0 \\ 
-						\0 & G
-					\end{pmatrix},
-				\end{align*}
-				and its action on $\vvec \oplus \wvec$ is 
-				\begin{align*}
-					(F \oplus G ) \cdot (\vvec  \oplus \wvec) &= \begin{pmatrix}
-						F & \0 \\ 
-						\0 & G
-					\end{pmatrix} \cdot \begin{pmatrix}
-					\vvec \\ \wvec
-					\end{pmatrix} \\ 
-					&= \begin{pmatrix}
-					F\vvec \\ G\wvec
-					\end{pmatrix}  \\ 
-					&= F\vvec \oplus G\wvec.
-				\end{align*}
-				\subitem The trace of $F \oplus G$ is clearly the sum of the traces of $F$ and $G$, hence the eigen values of $f$ and $g$ are also eigen values of $f \oplus g$, that is the eigen values are $\{\lambda_i\} \cup \{\mu_j\}$. \textit{Clarify this}
-				
-			\item By recursion, the \emph{direct sum of $n$ copies of $V$}, denoted $nV$.
-				\begin{example}
-					The direct sum of $n$ copies of a field $\KK$, is usually denoted $\KK^n$, eg. $\RR^3$.
-				\end{example}
-				
-			\item The \emph{tensor product of $V$ and $W$}, denoted $V \otimes W$.
-				\subitem It has the basis $(\vhat_i \otimes \what_j)_{1 \leq i \leq m}^{1 \leq j \leq n}$, and is of dimension $mn$.
-				\subitem An element of $V \otimes W$ looks like \begin{align*}
-					\vvec \otimes \wvec = \begin{pmatrix}
-						v_1\wvec, v_2\wvec, \dots, v_m\wvec
-					\end{pmatrix}^T = \begin{pmatrix}
-						v_i\wvec
-					\end{pmatrix}_{mn \times 1} 
-				\end{align*}
-				\subitem In the basis provided, $F \otimes G \in \GL(V \otimes W)$ is the block matrix 
-				\begin{align*}
-					(f_{ij}G)_{mn \times mn}
-				\end{align*}
-				and its action on $\vvec \otimes \wvec$ is 
-				\begin{align*}
-					(F \otimes G ) \cdot (\vvec  \otimes \wvec) &= \begin{pmatrix}
-						f_{ij}G
-					\end{pmatrix}\cdot \begin{pmatrix}
-						v_i\wvec
-					\end{pmatrix} \\ 
-					&= \begin{pmatrix}
-						f_{ij}G v_i \wvec
-					\end{pmatrix} \\ 
-					&= \begin{pmatrix}
-						f_{ij} v_i G\wvec
-					\end{pmatrix} \\
-					&=  \begin{pmatrix}
-						f_{ij}v_i
-					\end{pmatrix} \otimes G\wvec \\
-					&= F\vvec \otimes G\wvec.
-				\end{align*}
-				\subitem The trace of $F \otimes G$ is the sum of the traces of the diagonal matrices in the block matrix $(f_{ij}G)$, which is 
-				\begin{align*}
-					f_{11} \Tr G + f_{22} \Tr G + \dots + f_{mm} \Tr G = \Tr F \cdot \Tr G
-				\end{align*}
-				hence the eigen values of $f \otimes g$ are $\{\lambda_i \cdot \mu_j\}$.
-				
-			\item By recursion, the \emph{$n$th tensor power of $V$}, denoted $V^{\otimes n}$. By definition, the first tensor power is the space itself, and the zeroth power is the ground field.
-			
-			\item The $n$th tensor power of $V$ has two subspaces, the symmetric powers $\SymP^n V$ and the alternating powers $\AltP^n V$. In particular the symmetric and exterior squares are such that
-			\begin{align*}
-				V \otimes V = \SymP^2 V \oplus \AltP^2 V.
-			\end{align*}\marginnote{need more text/proof}
-			
-			\begin{figure}[hbt!]
-				\centering
-				\includegraphics[width=0.7\linewidth]{notesontensors}
-				\caption{}
-				\label{fig:notesontensors}
-			\end{figure}
-			
-			
-			\item After fixing the basis $(\bas_i)_{i=1}^m$ for $V$, the dual space $V^*$ can be constructed by the duals $\bas_i^*$ defined by... It is identified with the set of all linear functions from $V$ to $\CC$.\marginnote{need more text/proof}
-			
-			\item Set of homomorphisms $V$ to $W$.\marginnote{need more text/proof}
-			
-		\end{itemize} 
-		
+For this section, let $V$ and $W$ be vector spaces of dimensions $m$ and $n$ and bases $(\bas_i)_{i=1}^m$ and $(\fbas_j)_{j=1}^n$
 	
+In Theorem~\ref{thm:compsubspaces} the \textbf{direct sum of vector spaces} was introduced. More generally, if $V$ and $W$ are any vector spaces, $V \oplus W$ is the set of pairs $(\vvec, \wvec) := \vvec \oplus \wvec$ where $\vvec \in V$ and $\wvec \in W$. The basis of $V \oplus W$ is constructed from the pairs $\bas_i \oplus \bas_j$, hence $\dim V \oplus W = \dim V + \dim W$. In the sense of linear operators, if $F \in \GL(V)$ and $G \in \GL(W)$, then the direct sum of $F$ and $G$ is in some basis the block matrix
+\begin{align*}
+	F \oplus G = \begin{pmatrix}
+	F & \0 \\
+	\0 & G
+\end{pmatrix}
+\end{align*} and it will act on the elements of $V \oplus W$ bilinearly, ie. 
+	\begin{align*}
+			(F \oplus G) \cdot (\vvec \oplus \wvec) &= \begin{pmatrix}
+					F & \0 \\
+					\0 & G
+				\end{pmatrix} \cdot (\vvec \oplus \wvec)  \\
+			&= (F\vvec) \oplus (G \wvec).
+		\end{align*} The direct sum of an arbitrary number of vector spaces is defined similarly~\cite[Sect.1.3.]{Serre},~\cite[Sect.1.5.]{Sagan}.
+		
+\begin{notation}
+	The direct sum of $n$ copies of a vector space $V$ is here denoted $nV$.  An element of $nV$ is an $n$-tuple $(\vvec_1, \dots, \vvec_n)$ where every $\vvec_i \in V$.
+\end{notation}
+
+\begin{example}
+	The direct sum of $n$ copies of a field $\KK$, $n\KK$, is usually denoted $\KK^n$, for example the real space $\RR^3$ is the direct sum of three pair-wise orthogonal lines.
+\end{example}
+
+A vector space equipped with a map
+\begin{align*}
+	(\vvec, \wvec) \mapsto \vvec \otimes \wvec
+\end{align*}
+is called a \textbf{tensor product of $V$ and $W$} and denoted by $V \otimes W$ if it is linear in each constituent space (this means that $(\vvec_1 + \vvec_2, \wvec_1 + \wvec_2) =  (\vvec_1, \wvec_1 + \wvec_2) + (\vvec_2, \wvec_1 + \wvec_2) = (\vvec_1, \wvec_1) + (\vvec_1, \wvec_2) + (\vvec_2, \wvec_1) + (\vvec_2, \wvec_2)$), and that the set $(\bas_i \otimes \fbas_j)$ is a basis for $V \otimes W$. An element of $V \otimes W$ is a linear combination of tensor products of elements from $V$ and $W$. For the linear maps $F=(f_{ij}) \in \GL(V)$ and $G=(g_{ij}) \in \GL(W)$ we have that their tensor product is the $mn \times mn$ block matrix
+\begin{align*}
+		F \otimes G = (f_{ij}G) = \begin{pmatrix}
+				f_{11}G & \cdots & f_{1m}G  \\
+				\vdots & \ddots & \vdots \\
+				f_{m1} & \cdots & f_{mm}G
+			\end{pmatrix}
+	\end{align*}
+and its action on an element $\vvec \otimes \wvec \in V \otimes W$ is again bilinear:
+\begin{align*}
+		(F \otimes G) \cdot (\vvec \otimes \wvec) &= (f_{ij}G)  \cdot (\vvec \otimes \wvec)  \\
+		&= (F\vvec) \otimes (G\wvec).
+	\end{align*} The tensor product of an arbitrary number of vector spaces is similarly defined~\cite[Sect.1.5.]{Serre},~\cite[Sect.1.7.]{Sagan}.
+	
+\begin{notation}
+	We denote by $V^{\otimes n}$ the tensor product of $n$ copies of $V$. This vector space is called the $n$th tensor power of $V$.
+\end{notation}
+
+\begin{example}
+	The \textbf{tensor square of $V$} is denoted by $V \otimes V$. An element of $V \otimes V$ is a linear combination of pairs of elements from $V$, that is they look like
+	\begin{align*}
+		\sum_{ij} a_{ij} \vvec_i \otimes \wvec_j.
+	\end{align*}
+	Let $\theta$ be a linear map from $V \otimes V$ to itself defined by 
+	\begin{align*}
+		\theta(\vvec \otimes \wvec) = \wvec \otimes \vvec,
+	\end{align*}
+	that is it switches the two elements of $V$. It is clearly invertible since it is its own inverse, hence it is an isomorphism. Denote by $\SymP^2 V$ the subset of elements $\vvec \otimes \wvec \in V \otimes V$ such that $\theta(\vvec \otimes \wvec) = \vvec \otimes \wvec$ and by $\AltP^2 V$ the subset of elements $\vvec \otimes \wvec \in V \otimes V$ such that $\theta(\vvec \otimes \wvec) = -\vvec \otimes \wvec$. These two sets are respectively called the \textbf{symmetric square of $V$} and the \textbf{exterior square of $V$}~\cite[Sect.1.6.]{Serre},~\cite[Sects.1.1,B.2.]{FultonHarris}.
+	
+	The set $(\bas_i \otimes \bas_j + \bas_j \otimes \bas_i)_{i \leq j}$ is a basis of $\SymP^2 V$ and $(\bas_i \otimes \bas_j - \bas_j \otimes \bas_i)_{i \leq j}$ is a basis of $\AltP^2 V$. Letting $\dim V = n$, then we have that 
+	\begin{align*}
+		\dim \SymP^2 V = \frac{n(n+1)}{2},\quad\text{and}\quad \dim \AltP^2 V = \frac{n(n-1)}{2}.
+	\end{align*}
+	
+	These choices of bases indicates that the direct sum of the symemtric and alternating squares of $V$ precisely is the tensor square of $V$, ie.
+	\begin{align*}
+		V \otimes V = \SymP^2 V \oplus \AltP^2 V.
+	\end{align*}
+\end{example}
+
+The set of all linear maps from a space $V$ to $\CC$ is called the \textbf{dual space of $V$}.
+
+%	
+%	\paragraph{Direct sum $V \oplus W$.} Let $V$ and $W$ be vector spaces of dimensions $m$ and $n$ respectively. The direct sum of $V$ and $W$, denoted $V \oplus W$ is a vector space consisting of all linear combinations of pairs $(\vvec, \wvec) := \vvec \oplus \wvec$,  where $\vvec \in V$ and $\wvec \in W$. If $(\bas_i)_{i=1}^m$ is a basis for $V$ and $(\fbas_j)_{j=1}^n$ is a basis for $W$, then  $(\bas_i \oplus \0 )_{i=1}^m \cup (\0 \oplus \fbas_j)_{j=1}^n$ is a basis for $V \oplus W$. Clearly $\dim V\oplus W = \dim V + \dim W = m+n$.
+%	
+%	In the sense of linear operators, if $F \in \GL(V)$ and $G \in \GL(W)$, then the direct sum of $F$ and $G$ is in the basis above the block matrix
+%	\begin{align*}
+%		F \oplus G = \begin{pmatrix}
+%			F & \0 \\
+%			\0 & G
+%		\end{pmatrix}
+%	\end{align*}
+%	and it will act on a $\vvec \oplus \wvec$ like
+%	\begin{align*}
+%		(F \oplus G) \cdot (\vvec \oplus \wvec) &= \begin{pmatrix}
+%			F & \0 \\
+%			\0 & G
+%		\end{pmatrix} \cdot (\vvec \oplus \wvec)  \\
+%		&= (F\vvec) \oplus (G \wvec).
+%	\end{align*}
+%	
+%	\paragraph{$n$-fold direct sum $nV$.} By recursion on the last definition, an element of $nV$ is an $n$-tuple $(\vvec_1, \dots, \vvec_n)$ where every $\vvec_i \in V$.
+%	
+%	\begin{example}
+%		The direct sum of $n$ copies of a field $\KK$, $n\KK$, is usually denoted $\KK^n$, for example $\RR^3$ is the direct sum of three pair-wise orthogonal lines.
+%	\end{example}
+%	
+%	\paragraph{Tensor product $V \otimes W$.} An element of $V \otimes W$ is a linear combination of pairs on the form $\vvec \otimes \wvec$, where $\vvec \in V$ and $\wvec \in W$.  A basis for $V \otimes W$ is constructed by every product $\bas_i \otimes \bas_j$, hence $\dim  V \otimes W = \dim V \cdot \dim W = mn$. The tensor product of two linear operators  $F=(f_{ij}) \in \GL(V)$ and $G=(g_{ij}) \in \GL(W)$ is the $mn \times mn$ block matrix
+%	\begin{align*}
+%		F \otimes G = (f_{ij}G) = \begin{pmatrix}
+%			f_{11}G & \cdots & f_{1m}G  \\
+%			\vdots & \ddots & \vdots \\
+%			f_{m1} & \cdots & f_{mm}G
+%		\end{pmatrix}
+%	\end{align*}
+%	and its action on an element $\vvec \otimes \wvec \in V \otimes W$ is
+%	\begin{align*}
+%		(F \otimes G) \cdot (\vvec \otimes \wvec) &= (f_{ij}G)  \cdot (\vvec \otimes \wvec)  \\
+%		&= 
+%	\end{align*}
+	
+	
+%		\textit{Taken from \cite{Jeevanjee} and \cite{Yokonuma}, and some from \cite{Holst}.}
+%		
+%		\textit{Something on bilinearity.} $a(v\otimes w) = (av)\otimes w = v \otimes (aw)$ and $v \otimes (w + w')$.
+%
+%		Let $V$ and $W$ be vector spaces provided with respective bases $(\vhat_i)_{i=1}^m$ and $(\uhat_i)_{i=1}^n$, where $m = \dim V$ and $n = \dim W$. Let \begin{align*}
+%			\vvec = (v_1, v_2, \dots v_m)^T \in V
+%		\quad \text{ and } \quad 
+%		\wvec = (w_1, w_2, \dots, w_n)^T \in W.
+%	\end{align*}
+%	Also, in the bases provided let $F=(f_{ij})_{m \times m} \in \GL_m(\CC)$ and $G = (g_{ij})_{n \times n} \in \GL_n(\CC)$ be linear maps with eigen values $\{\lambda_i\}$ and $\{\mu_i\}$, then the following vector spaces may be constructed, or rather extended bilinearly, from $V$ and $W$:
+%		\begin{itemize}
+%			\item The \emph{direct sum of $V$ and $W$}, denoted $V \oplus W$ is constructed of every linear combination of $\vvec_i \otimes \wvec_j$.
+%				Any basis vector of $V$ and $W$ are also basis vectors of $V \oplus W$ hence it is of dimension $m+n$. An element of $V \oplus W$ looks like \begin{align*}
+%					\vvec \oplus \wvec = \begin{pmatrix}
+%						\vvec \\ \wvec
+%					\end{pmatrix} = \begin{pmatrix}
+%					v_1, v_2, \dots, v_m, w_1, w_2, \dots, w_n
+%					\end{pmatrix}^T.
+%				\end{align*}
+%				In the basis provided, $F \oplus G \in \GL(V \oplus W)$ is the $m+n \times m+n$ block matrix 
+%				\begin{align*}
+%					\begin{pmatrix}
+%						F & \0 \\ 
+%						\0 & G
+%					\end{pmatrix},
+%				\end{align*}
+%				and its action on $\vvec \oplus \wvec$ is 
+%				\begin{align*}
+%					(F \oplus G ) \cdot (\vvec  \oplus \wvec) &= \begin{pmatrix}
+%						F & \0 \\ 
+%						\0 & G
+%					\end{pmatrix} \cdot \begin{pmatrix}
+%					\vvec \\ \wvec
+%					\end{pmatrix} \\ 
+%					&= \begin{pmatrix}
+%					F\vvec \\ G\wvec
+%					\end{pmatrix}  \\ 
+%					&= F\vvec \oplus G\wvec.
+%				\end{align*}
+%				The trace of $F \oplus G$ is clearly the sum of the traces of $F$ and $G$, hence the eigenvalues of $f$ and $g$ are also eigenvalues of $F \oplus G$, that is they are $\{\lambda_i\} \cup \{\mu_j\}$.
+%				
+%			\item By recursion, the \emph{direct sum of $n$ copies of $V$}, in this text denoted $nV$.
+%				\begin{example}
+%					The direct sum of $n$ copies of a field $\KK$, is usually denoted $\KK^n$, eg. $\RR^3$.
+%				\end{example}
+%				
+%			\item The \emph{tensor product of $V$ and $W$}, denoted $V \otimes W$.
+%				It has a basis constructed from the set $\{\vhat_i \otimes \what_j\}$, and is of dimension $mn$. An element of $V \otimes W$ looks like \begin{align*}
+%					\vvec \otimes \wvec = \begin{pmatrix}
+%						v_1\wvec, v_2\wvec, \dots, v_m\wvec
+%					\end{pmatrix}^T = \begin{pmatrix}
+%						v_i\wvec
+%					\end{pmatrix}_{mn \times 1} 
+%				\end{align*}
+%				In the basis provided, $F \otimes G \in \GL(V \otimes W)$ is the block matrix 
+%				\begin{align*}
+%					(f_{ij}G)_{mn \times mn}
+%				\end{align*}
+%				and its action on $\vvec \otimes \wvec$ is 
+%				\begin{align*}
+%					(F \otimes G ) \cdot (\vvec  \otimes \wvec) &= \begin{pmatrix}
+%						f_{ij}G
+%					\end{pmatrix}\cdot \begin{pmatrix}
+%						v_i\wvec
+%					\end{pmatrix} \\ 
+%					&= \begin{pmatrix}
+%						f_{ij}G v_i \wvec
+%					\end{pmatrix} \\ 
+%					&= \begin{pmatrix}
+%						f_{ij} v_i G\wvec
+%					\end{pmatrix} \\
+%					&=  \begin{pmatrix}
+%						f_{ij}v_i
+%					\end{pmatrix} \otimes G\wvec \\
+%					&= F\vvec \otimes G\wvec.
+%				\end{align*}
+%				The trace of $F \otimes G$ is the sum of the traces of the diagonal matrices in the block matrix $(f_{ij}G)$, which is 
+%				\begin{align*}
+%					f_{11} \Tr G + f_{22} \Tr G + \dots + f_{mm} \Tr G = \Tr F \cdot \Tr G
+%				\end{align*}
+%				hence the eigenvalues of $f \otimes g$ are $\{\lambda_i \cdot \mu_j\}$.
+%				
+%			\item By recursion, the \emph{$n$th tensor power of $V$}, denoted $V^{\otimes n}$.
+%			
+%			\item The $n$th tensor power of $V$ has two subspaces, the symmetric powers $\SymP^n V$ and the alternating powers $\AltP^n V$. In particular the symmetric and exterior squares are such that
+%			\begin{align*}
+%				V \otimes V = \SymP^2 V \oplus \AltP^2 V.
+%			\end{align*}\marginnote{need more text/proof}
+%			
+%			\begin{figure}[hbt!]
+%				\centering
+%				\includegraphics[width=0.7\linewidth]{notesontensors}
+%				\caption{}
+%				\label{fig:notesontensors}
+%			\end{figure}
+%			
+%			
+%			\item After fixing the basis $(\bas_i)_{i=1}^m$ for $V$, the dual space $V^*$ can be constructed by the duals $\bas_i^*$ defined by... It is identified with the set of all linear functions from $V$ to $\CC$.\marginnote{need more text/proof}
+%			
+%			\item Set of homomorphisms $V$ to $W$.\marginnote{need more text/proof}
+%			
+%		\end{itemize} 
+%		
+%	
 
 		
 		

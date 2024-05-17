@@ -3,8 +3,6 @@
 
 The layout of this section is based on \cite{FultonHarris} and \cite{Serre}.
 
-The main purpose of this text is to study linear representations of groups, or in other words, studying groups and identifying them with vector spaces and their elements with maps of those spaces. Only finite groups and finite-dimensional vector spaces will be discussed.
-
 Let $G$ be a finite group written multiplicatively. Denote its size by $|G|$ and the action of its elements with $\cdot$, for example by $g \cdot x$, sometimes shorted to $gx$.
 
 Let $V$ be a finite-dimensional vector space over the field of complex numbers $\CC$. The group of invertible linear transformations of $V$ is denoted by $\GL(V)$. If $V$ is provided with a basis, usually denoted $(\bas_i)_{i=1}^n$ where $n = \dim V$, then $\GL(V)$ is identified with the set of invertible $n \times n$ matrices, denoted $\GL_n(\CC)$\cite[18.1]{DummitFoote}.
@@ -14,16 +12,16 @@ Let $V$ be a finite-dimensional vector space over the field of complex numbers $
 	\begin{align}\label{eq:DefRepr}
 		\rho: G \rightarrow \GL(V).
 	\end{align}
-	The dimension of $V$ is referred to as the \textit{degree} of the representation.
+	The dimension of $V$, denoted $\dim V$, is referred to as the \textit{degree} of the representation.
 \end{definition}
-For every $g$ in $G$, there is a linear map $\rho_g$ in $\GL(V)$ with an action on $V$ defined by 
+For every $g$ in $G$, there is a linear map $\rho_g$ in $\GL(V)$ that performs the group action on $V$, ie. 
 \begin{align*}
 	g \cdot \vvec = \rho_g (\vvec).
 \end{align*}
 The linearity of the map means that for any $\vvec, \wvec \in V$,
-\begin{align}\label{eq:linearityOfg}
+\begin{align*}%\label{eq:linearityOfg}
 	g \cdot (a\vvec + b\wvec) = ag\cdot\vvec + bg\cdot\wvec,
-\end{align} 
+\end{align*} 
 with $a,b \in \CC$ and also since it is a homomorphism, for any $g,h \in G$, we have
 \begin{align}\label{eq:homomorphism}
 	\rho_{gh} = \rho_g \rho_h.

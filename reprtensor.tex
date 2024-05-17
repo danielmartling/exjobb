@@ -1,73 +1,55 @@
 \subsection{Tensor operations on representations}\label{sect:tensorrepr}
 
-Building on the vector spaces constructed in Section~\ref{sect:tensoralgebra}, given two representations $V$ and $W$ of a group, the following are also representations.
+If we have two or more representations, we may construct additional ones using tensor operations. Given two representations $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ of a group $G$, the following are also representations.
 
-{\allowdisplaybreaks\begin{itemize}
-	\item The \emph{direct sum of $V \oplus W$} is a representation given by 
-	\begin{align*}
-		\rho_{V \oplus W}(\vvec \oplus \wvec) = (\rho_V \oplus \rho_W)(\vvec \oplus \wvec) = \rho_V(\vvec) \oplus \rho_W(\wvec).
-	\end{align*}
+\textbf{The direct sum of $V \oplus W$}, given by 
+\begin{align*}
+	\rho_{V \oplus W}(\vvec \oplus \wvec) = (\rho_V \oplus \rho_W)(\vvec \oplus \wvec) = \rho_V(\vvec) \oplus \rho_W(\wvec).
+\end{align*}
+
+By recursion, for a positive integer $n$, the \textbf{direct sum of $n$ copies of $V$}, denoted
+\begin{align*}
+	nV := \bigoplus_{i=1}^n V = \underset{\text{$n$ times}}{\underbrace{V \oplus \dots \oplus V}}.
+\end{align*}
+
+The \textbf{tensor product $V \otimes W$}, given by
+\begin{align*}
+	\rho_{V \otimes W}(\vvec \otimes \wvec) = (\rho_V \otimes \rho_W)(\vvec \otimes \wvec) = \rho_V(\vvec) \otimes \rho_W(\wvec).
+\end{align*}
+
+By recursion, for a positive integer $n$, the \textbf{$n$th tensor power of $V$}, denoted
+\begin{align*}
+	V^{\otimes n} := \bigotimes_{i=1}^n V = \underset{\text{$n$ times}}{\underbrace{V \otimes \dots \otimes V}}.
+\end{align*}
+
+
+
+%If we have two or more representations, we may construct additional ones using the tools of  Section~\ref{sect:tensoralgebra}. Given two representations $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ of a group $G$, the following are also representations.
+
+\begin{itemize}
+%	\item The \emph{direct sum of $V \oplus W$} is a representation given by 
+%	\begin{align*}
+%		\rho_{V \oplus W}(\vvec \oplus \wvec) = (\rho_V \oplus \rho_W)(\vvec \oplus \wvec) = \rho_V(\vvec) \oplus \rho_W(\wvec).
+%	\end{align*}
 	
-	\item By recursion, for a positive integer $n$, the \emph{direct sum of $n$ copies of $V$}, denoted
-	\begin{align*}
-		nV := \bigoplus_{i=1}^n V = \underset{\text{$n$ times}}{\underbrace{V \oplus \dots \oplus V}},
-	\end{align*}
-	is a representation.
+%	\item By recursion, for a positive integer $n$, the \emph{direct sum of $n$ copies of $V$}, denoted
+%	\begin{align*}
+%		nV := \bigoplus_{i=1}^n V = \underset{\text{$n$ times}}{\underbrace{V \oplus \dots \oplus V}},
+%	\end{align*}
+%	is a representation.
 	
-	\item The \emph{tensor product $V \otimes W$} is a representation given by
-	\begin{align*}
-		\rho_{V \otimes W}(\vvec \otimes \wvec) = (\rho_V \otimes \rho_W)(\vvec \otimes \wvec) = \rho_V(\vvec) \otimes \rho_W(\wvec).
-	\end{align*}
+%	\item The \emph{tensor product $V \otimes W$} is a representation given by
+%	\begin{align*}
+%		\rho_{V \otimes W}(\vvec \otimes \wvec) = (\rho_V \otimes \rho_W)(\vvec \otimes \wvec) = \rho_V(\vvec) \otimes \rho_W(\wvec).
+%	\end{align*}
 	
-	\item By recursion, for a positive integer $n$, the \emph{$n$th tensor power of $V$}, denoted
-	\begin{align*}
-		V^{\otimes n} := \bigotimes_{i=1}^n V = \underset{\text{$n$ times}}{\underbrace{V \otimes \dots \otimes V}},
-	\end{align*}
-	is a representation. The zeroth power is by definition the ground field $\CC$ and the first power is $V$ itself.
+%	\item By recursion, for a positive integer $n$, the \emph{$n$th tensor power of $V$}, denoted
+%	\begin{align*}
+%		V^{\otimes n} := \bigotimes_{i=1}^n V = \underset{\text{$n$ times}}{\underbrace{V \otimes \dots \otimes V}},
+%	\end{align*}
+%	is a representation. The zeroth power is by definition the ground field $\CC$ and the first power is $V$ itself.
 	\item The $n$th tensor power has two subrepresentations, the symmetric powers $\SymP^n V$ and the exterior powers $\AltP^n V$. \textit{Needs further explanation, especially the squares.}
 	\item After fixing a basis $(\bas_i)_{i=1}^k$ for $V$, a \emph{dual representation}, denoted $V^*$, can be defined by the dual space, spanned by the ...
 	
 	\item Set of homomorphisms...
-\end{itemize}}
-
-{\allowdisplaybreaks\begin{example}[Decomposition of the permutation representation of $\Sym_3$]
-	Letting $V$ be a permutation representation space of $\Sym_3$, it was found to have two complementary subrepresentations $W$ and $W'$, denoted the trivial and the standard representations respectively. In the $\bas_1, \bas_2, \bas_3$-basis, the matrix for $(1,2)$ is by Example~\ref{ex:permS3}
-	\begin{align*}
-		\rho^\Perm_{(1,2)} = \begin{pmatrix}
-			0&1&0 \\ 1&0&0 \\ 0&0&1
-		\end{pmatrix}.
-	\end{align*}
-	Let's consider a basis change 
-	\begin{align*}
-		\begin{cases}
-			\fbas_1 = \bas_1 + \bas_2 + \bas_3 \\
-			\fbas_2 = \bas_1 - \bas_2 \\
-			\fbas_3 = \bas_2 - \bas_3
-		\end{cases}
-	\end{align*}
-	with corresponding change-of-basis matrix
-	\begin{align*}
-		P = \begin{pmatrix}
-			1&1&0 \\ 1&-1&0 \\ 1&0&-1
-		\end{pmatrix}
-	\end{align*}
-	in accordance with the bases of the trivial and standard representations. Then the matrix for $(1,2)$ in this new basis is
-	\begin{align*}
-		 P^{-1} \cdot \rho^\Perm_{(1,2)} \cdot P &= 
-		 \frac{1}{3}\begin{pmatrix}
-		 	1&1&1\\2&-1&-1\\1&1&-2
-		 \end{pmatrix} \cdot \begin{pmatrix}
-			 0&1&0 \\ 1&0&0 \\ 0&0&1
-		 \end{pmatrix} \cdot \begin{pmatrix}
-			 1&1&0 \\ 1&-1&0 \\ 1&0&-1
-		 \end{pmatrix} \\
-		 &= \begin{pmatrix}
-		 	1&0&0 \\ 0&-1&1 \\ 0&0&1
-		 \end{pmatrix}\\
-%		 &= (1)  \oplus \begin{pmatrix}
-%		 	-1&1 \\ 0&1
-%		 \end{pmatrix} \\
-		 &= \rho_{(1,2)}^\Triv \oplus \rho_{(1,2)}^\Stan.
-	\end{align*}
-	The same calculations on the other elements of $\Sym_3$ confirm that the permutation representation of $\Sym_3$ decomposes to the direct sum of the trivial and standard representations.
-\end{example}}
+\end{itemize}
