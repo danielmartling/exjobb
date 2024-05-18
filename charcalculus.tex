@@ -1,4 +1,4 @@
-\subsection{Examples}
+{\allowdisplaybreaks\subsection{Examples}
 
 %\textit{REWRITE THIS SECTION AROUND THE STUDY OF THE REGULAR REPRESENTATION.}
 
@@ -52,16 +52,15 @@
 	\begin{table}[hbt!]
 		\centering
 		
-		\begin{tabular}{c | c c c | l}
-			$S_3$         & $[(1)]$   & $[(1,2)]$  & $[(1,2,3)]$ &                                          \\
-			$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 3$ & $\Ss 2$ &         \\ \hline
-			$\chi_\Triv$       & 1       & 1       & 1       &                                          \\
-			$\chi_\Alt$       & 1       & -1      & 1       &                        \\
-			$\chi_\Stan$       & 2       & 0       & -1      &                                          \\ \hline\hline
-			$\chi_\Perm$       & 3       & 1       & 0       & $ V_\Perm = V_\Triv \oplus V_\Stan$ \\
-			$\chi_\Stan^2$ & 4       & 0       & 1       & $ V_\Stan \otimes V_\Stan = V_\Triv \oplus V_\Alt \oplus V_\Stan$ \\
-			$\chi_\Reg$       & 6       & 0       & 0       & $ V_\Reg = V_\Triv \oplus V_\Alt \oplus 2V_\Stan$
-		\end{tabular}
+		\begin{tabular}{c | c c c}
+			$S_3$         & $[(1)]$   & $[(1,2)]$  & $[(1,2,3)]$ \\
+			$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 3$ & $\Ss 2$ \\ \hline
+			$\chi_\Triv$       & 1       & 1       & 1       \\
+			$\chi_\Alt$       & 1       & -1      & 1       \\
+			$\chi_\Stan$       & 2       & 0       & -1      \\ \hline\hline
+			$\chi_\Perm$       & 3       & 1       & 0       \\
+			$\chi_\Stan^2$ & 4       & 0       & 1       \\
+			$\chi_\Reg$       & 6       & 0       & 0       		\end{tabular}
 			
 		\caption{Complete character table of $S_3$. The representations above the doublestruck line are irreducibles, and those below are composed. Some compositions are presented in the right-most column.}
 		\label{table:completecharS3}
@@ -69,50 +68,54 @@
 %\end{example}
 
 \begin{example}[Characters of $\Sym_4$]
-	This section follows the same methods from the previous section on $\Sym_3$. So far, we have that the trivial, the alternating and the standard representations are irreducibles, see Table~\ref{table:chartableSym4}. Their respective degrees are 1, 1 and 3, and their square sum is $1+1+9 = 11$, which is less $24 = |\Sym_4|$, hence by Corollary~\ref{cor:sqsumirreds} we are expected to find additional irreducible representations of $\Sym_4$. We will find them along the way while we construct new representations and decompose them.
+	This section follows the same methods from the previous section on $\Sym_3$. So far, we have that the trivial, the alternating and the standard representations are irreducibles, see Table~\ref{table:chartableSym4}. Their respective degrees are 1, 1 and 3, with the square sum $1+1+9 = 11$, which is less than $|\Sym_4|=24$, hence by Corollary~\ref{cor:sqsumirreds} we are expected to find additional irreducible representations of $\Sym_4$. We will find them while constructing and decomposing new representations.
 	
-	\paragraph{Decomposition of $V_\Alt \otimes V_\Stan$.} Consider an ``alternating version of the standard representation'', denoted with the space $V'_\Stan$ and the character $\chi_\Alt\chi_\Stan = (3,-1,0,1,-1)$. It clearly has the same inner product with itself as $\chi_\Stan$, hence it is also irreducible. It brings the square sum up to $20$.
+	\paragraph{Decomposition of $V_\Alt \otimes V_\Stan$.} Consider an ``alternating version of the standard representation'', denoted with the space $V'_\Stan := V_\Alt \otimes V_\Stan$ and the character $\chi_\Alt\chi_\Stan = (3,-1,0,1,-1)$. It clearly has the same inner product with itself as $\chi_\Stan$, hence it is also irreducible. It increments the square sum of degrees to $11 + 3^2 = 20$.
 	
 	\paragraph{Decomposition of $V_\Stan \otimes V_\Stan$.} To find the next irreducible, we study the tensor square of the standard representation. Its character is $\chi_\Stan^2 = (9,1,0,1,1)$ and calculations will show that
 	\begin{align*}
-		(\chi_\Triv | \chi_\Stan^2) & = 1, \\
-		(\chi_\Alt | \chi_\Stan^2)  &= 0, \\
-		(\chi_\Stan | \chi_\Stan^2)  &= 1 \text{ and} \\
-		(\chi_\Alt\chi_\Stan | \chi_\Stan^2)  &= 1.
+		(\chi_\Triv | \chi_\Stan^2) & = \frac{1}{24}(9 + 6 + 0 + 6 + 3) = 1, \\
+		(\chi_\Alt | \chi_\Stan^2)  &= \frac{1}{24}(9-6-6+2) = 0, \\
+		(\chi_\Stan | \chi_\Stan^2)  &= \frac{1}{24}(27+6+0-6-3) = 1 \text{ and} \\
+		(\chi_\Alt\chi_\Stan | \chi_\Stan^2)  &= \frac{1}{24}(27-6+0+6-3) = 1.
 	\end{align*}
-	However these subrepresentations of non-zero multiplicity are of degrees 1, 3, and 3, and then their direct sum is of degree 7, which is less than the dimension of $V_\Stan \otimes V_\Stan$, hence by Proposition~\ref{prop:complsubrepr} there is another (not necessarily irreducible) subrepresentation complementing them. Denoting this representation by $W$, its character is $\chi_W = \chi_\Stan^2 - \chi_\Triv - \chi_\Stan - \chi_\Alt\chi_\Stan = (2,0,-1,0,2)$, which is found to be such that $(\chi_V|\chi_V) = 1$, hence $V$ is irreducible and  the tensor square of the standard representation is decomposed to 
+	However these subrepresentations of non-zero multiplicity are of degrees 1, 3, and 3, and then their direct sum is of degree 7, which is less than the dimension of $V_\Stan \otimes V_\Stan$, hence by Proposition~\ref{prop:complsubrepr} there is another (not necessarily irreducible) subrepresentation complementing them. Denoting this representation by $W$, its character is $\chi_W = \chi_\Stan^2 - \chi_\Triv - \chi_\Stan - \chi_\Alt\chi_\Stan = (2,0,-1,0,2)$, which is found to be such that 
+	\begin{align*}
+		(\chi_W|\chi_W) = \frac{1}{24}(4 + 0 + 8 + 0 + 12) = 1,
+	\end{align*}
+	hence $W$ is irreducible and the tensor square of the standard representation is decomposed to 
 	\begin{align*}
 		V_\Stan \otimes V_\Stan = V_\Triv \oplus W \oplus V_\Stan \oplus V'_\Stan.
 	\end{align*}
 	We have now found all five irreducible representations of $\Sym_4$, since $1^2 + 1^2 +  2^2 + 3^2 + 3^2 = 24$, the order of $\Sym_4$.
-	
 %	\paragraph{Decomposition of $\SymP^2S$ and $\AltP^2S$.} The character of $\SymP^2S$ is 
 %	\begin{align*}
 %		\frac{1}{2}\left[ (9,1,0,1,1)-(3,3,0,-1,3) \right] = (3,-1,0,1,-1)
 %	\end{align*}
 %	which is the character of $S'$. Likewise, the character of $\AltP^2S$ is $(6,2,0,0,2)$ which is found to be the sum of the characters of $T, V$ and $S$, hence $\AltP^2S = T \oplus V \oplus S$.
-	
-	\paragraph{Decomposition of the $n$th tensor power of $V$.}	The character of $V^{\otimes n}$ is
+	\paragraph{Decomposition of the $n$th tensor power of $W$.}	The character of $W^{\otimes n}$ is
 	\begin{align*}
-		(\chi_{V})^n = (2^n, 0, (-1)^n, 0, 2^n).
+		\chi_{W}^n = (2^n, 0, (-1)^n, 0, 2^n).
 	\end{align*}
 	
-	Its overlap with $T, A, V, S$ and $S'$ are found to respectively be $a_n, a_n, a_{n+1}, 0$ and $0$, where 
+	Its inner product with the irreducible characters are found to be $a_n, a_n, a_{n+1}, 0$ and $0$, where 
 	\begin{align*}
-		a_n := \frac{1}{6}\left( 2^n + 2 \cdot (-1)^n \right),
+		(\chi_\Triv| \chi_{W}^n) = (\chi_\Alt | \chi_{W}^n) &= \frac{1}{6} \left(2^n + 2 \cdot (-1)^n\right), \\
+		(\chi_W | \chi_{W}^n) &= \frac{1}{6}\left(2^{n+1} + 2 \cdot (-1)^{n+1}\right), \text{ and}\\
+		(\chi_\Stan | \chi_{W}^n) = (\chi'_\Stan | \chi_{W}^n) &= 0,
 	\end{align*}
-	so the decomposition is
+	hence the decomposition is
 	\begin{align*}
-		V^{\otimes n} = a_n (T \oplus A) \oplus a_{n+1} V.
+		W^{\otimes n} = a_n (T \oplus A) \oplus a_{n+1} W, \quad \text{where} \quad a_n := \frac{1}{6}\left( 2^n + 2 \cdot (-1)^n \right).
 	\end{align*}
 	
-	\paragraph{Decomposition of the $n$th tensor power of $S$.} The character of $S^{\otimes n}$ is 
+	\paragraph{Decomposition of the $n$th tensor power of $V_\Stan$.} The character of $V_\Stan^{\otimes n}$ is 
 	\begin{align*}
-		(\chi_\Stan)^n = (3^n, 1, 0, (-1)^n, (-1)^n),
+		\chi_\Stan^n = (3^n, 1, 0, (-1)^n, (-1)^n),
 	\end{align*}
-	and after projecting it on the characters of the irreducible representations from table \ref{table:completecharS4}, we find that
+	and after projecting it on the irreducible characters we find that
 	\begin{align}\label{eq:nthpowerS}
-		S^{\otimes n} = a_n T \oplus b_n A \oplus c_n V \oplus a_{n+1} S \oplus b_{n+1} S',
+		V_\Stan^{\otimes n} = a_n V_\Triv \oplus b_n V_\Alt \oplus c_n W \oplus a_{n+1} V_\Stan \oplus b_{n+1} V'_\Stan,
 	\end{align}
 	where 
 	\begin{align*}
@@ -123,42 +126,42 @@
 		\end{cases}
 	\end{align*}
 	
-	\paragraph{Decomposition of the $n$th tensor powers of $S'$.} Since $S' = A \otimes S$, the character of $S'^{\otimes n}$ is the $n$th power of the character $\chi_\Alt \chi_\Stan$, which of course is $(\chi_\Alt)^n(\chi_\Stan)^n$, hence% is the tensor product of $n$ factors of $A \otimes S$. Since the tensor product is a commutative operation, we can rearrange it as
+	\paragraph{Decomposition of the $n$th tensor powers of $V'_\Stan$.} Since $V'_\Stan = V_\Alt \otimes V_\Stan$, the character of $(V'_\Stan)^{\otimes n}$ is the $n$th power of the character $\chi_\Alt \chi_\Stan$, which of course is $\chi_\Alt^n\chi_\Stan^n$, hence% is the tensor product of $n$ factors of $A \otimes S$. Since the tensor product is a commutative operation, we can rearrange it as
 	\begin{align*}
-		(A \otimes S)^{\otimes n} = S^{\otimes n} \otimes A^{\otimes n}
+		(V'_\Stan)^{\otimes n} = V_\Stan^{\otimes n} \otimes V_\Alt^{\otimes n}.
 	\end{align*}
-	The $n$th tensor power of $A$ is $T$ if $n$ is even and $A$ if $n$ is odd, so for even $n$, $S'^{\otimes n}$ is isomorphic to $S^{\otimes n}$, and for odd $n$, $S'^{\otimes n}$ is isomorphic to $ S^{\otimes n} \otimes A$. Then the character is 
+	By Example~\ref{example:nthpoweralternating}, the $n$th tensor power of $V_\Alt$ is $V_\Triv$ if $n$ is even and $V_\Alt$ if $n$ is odd, so for even $n$, $(V'_\Stan)^{\otimes n}$ is isomorphic to $V_\Stan^{\otimes n}$, and for odd $n$, it is isomorphic to $ V_\Stan^{\otimes n} \otimes V_\Alt$. Tensor multiplying Equation~\ref{eq:nthpowerS} with $V_\Alt$, we have:
 	\begin{align*}
-		\chi_{S'^{\otimes n}} = \begin{cases}
-			\big(3^n,1,0,(-1)^{n}, (-1)^n\big), \text{ if } n \text{ is even, or} \\
-			\big(3^n,-1,0,(-1)^{n+1}, (-1)^n\big), \text{ if } n \text{ is odd.}
-		\end{cases}
+		V_\Stan^{\otimes n} \otimes V_\Alt &= \Big(a_n V_\Triv \oplus b_n V_\Alt \oplus c_n W \oplus a_{n+1} V_\Stan \oplus b_{n+1} V'_\Stan\Big)\otimes V_\Alt \\
+		&= b_n V_\Triv \oplus a_n V_\Alt \oplus c_n W \oplus b_{n+1} V_\Stan \oplus a_{n+1} V'_\Stan,
 	\end{align*}
-	Tensor multiplying Equation~\ref{eq:nthpowerS} with $A$, we have:
+	since 
 	\begin{align*}
-		S^{\otimes n} \otimes A &= \Big(a_n T \oplus b_n A \oplus c_n V \oplus a_{n+1} S \oplus b_{n+1} S'\Big)\otimes A \\
-		&= b_n T \oplus a_n A \oplus c_n V \oplus b_{n+1} S \oplus a_{n+1} S',
+		V_\Triv \otimes V_\Alt &= V_\Alt, \\
+		V_\Alt \otimes V_\Alt &= V_\Triv, \\
+		V_\Stan \otimes V_\Alt &= V'_\Stan, \quad \text{and} \\
+		V'_\Stan \otimes V_\Alt &= V_\Stan \otimes V_\Alt^{\otimes 2} = V_\Stan.
 	\end{align*}
-	and then we have found the decomposition of all tensor powers of $S'$. For even $n$, it is the same as $S^{\otimes n}$, for odd $n$, $A$ and $T$, and $S$ and $S'$ switch multiplicities.
+	Then we have found the decomposition of all tensor powers of $V'_\Stan$. For even $n$, it is the same as $V_\Stan^{\otimes n}$, and lastly for odd $n$, $V_\Triv$ switch multiplicities with $V_\Alt$, and $V_\Stan$ switch with $V'_\Stan$.
 	
 	\paragraph{} The findings of the last few paragraphs (except those on larger tensor powers) are presented in table \ref{table:completecharS4}.
 	
 	\begin{table}[hbt!]
 		\centering
-		\begin{tabular}{c | c c c c c | l}
-			$\Sym_4$         & $[(1)]$   & $[(1,2)]$  & $[(1,2,3)]$ & $[(1,2,3,4)]$ & $[(1,2)(3,4)]$ &                                                              \\
-			$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 6$ & $\Ss 8$ & $\Ss 6$  & $\Ss 3$      & \textit{Alternate compositions}                              \\ \hline
-			$\chi_T$       & 1       & 1       & 1       & 1        & 1            &                                                              \\
-			$\chi_A$       & 1       & -1      & 1       & -1       & 1            &                                                              \\
-			$\chi_V$       & 2       & 0       & -1      & 0        & 2            &                                                              \\
-			$\chi_S$       & 3       & 1       & 0       & -1       & -1           &                                                              \\
-			$\chi_{S'}$ & 3       & -1      & 0       & 1        & -1           & $S' :\cong A \otimes S$                                  \\ \hline\hline
-			$\chi_P$       & 4       & 2       & 1       & 0        & 0            & $P \cong T \oplus S$                                         \\
+		\begin{tabular}{c | c c c c c}
+			$\Sym_4$         & $[(1)]$   & $[(1,2)]$  & $[(1,2,3)]$ & $[(1,2,3,4)]$ & $[(1,2)(3,4)]$ \\
+			$\Ss|[\sigma]|$    & $\Ss 1$ & $\Ss 6$ & $\Ss 8$ & $\Ss 6$  & $\Ss 3$      \\ \hline
+			$\chi_\Triv$       & 1       & 1       & 1       & 1        & 1            \\
+			$\chi_\Alt$       & 1       & -1      & 1       & -1       & 1            \\
+			$\chi_W$       & 2       & 0       & -1      & 0        & 2            \\
+			$\chi_\Stan$       & 3       & 1       & 0       & -1       & -1           \\
+			$\chi'_\Stan$ & 3       & -1      & 0       & 1        & -1           \\ \hline\hline
+			$\chi_\Perm$       & 4       & 2       & 1       & 0        & 0            \\
 			%$\chi_{\bigwedge^2S}$    & 6       & 2       & 0       & 0        & 2            & $\bigwedge^2S \cong T \oplus S \oplus V$                     \\
-			$\chi_{S \otimes S}$ & 9       & 1       & 0       & 1        & 1            & $S \otimes S \cong T \oplus V \oplus S \oplus S'$ \\
+			$\chi_\Stan^2$ & 9       & 1       & 0       & 1        & 1            \\
 %			$\chi_R$       & 24      & 0       & 0       & 0        & 0            & $R \cong T \oplus A \oplus 2V \oplus 3S \oplus 3S'$
 		\end{tabular}
-		\caption{Complete character table of $\Sym_4$. The representations above the dashed line are irreducibles, and those below are composed. Some compositions are presented in the right-most column.}
+		\caption{Complete character table of $\Sym_4$. The representations above the dashed line are irreducibles, and those below are composed.}
 		\label{table:completecharS4}
 	\end{table}
 \end{example}
@@ -205,3 +208,4 @@
 %$\Dih_8$ is a 2-Sylow subgroup of $S_4$. Restrict the character table of $S_4$ to $\Dih_8$. 
 %
 %$\Dih_8$ has its non-trivial                                                                                                                                                                                                                                                              center $Z(\Dih_8) = \{e, r^2\}$ as a normal subgroup. The quotient $\Dih_8/\{e, r^2\}$ is isomorphic to the Klein 4-group. The character table of the Klein 4-group is a ``subset'' of the character table of $\Dih_8$.
+}
