@@ -41,7 +41,7 @@ The results from Proposition~\ref{prop:complsubrepr} invites the notion of \text
 %\begin{example}[Decomposition of regular representation of $\Sym_n$]
 %	Again, let $G = \Sym_n$, and let $R$ be the regular representation space, 
 %\end{example}
-Maschke's theorem allows us to decompose any arbitrary representation into the direct sum of irreducible representations, however it does not say anything about the \textit{uniqueness} of a given composition. We need to study which kinds of $G$-linear maps that are permitted between two irreducible representations, a key insight of Schur's Lemma.
+Maschke's theorem tells us it is possible to decompose any arbitrary representation into the direct sum of irreducible representations, however it does not say anything about the \textit{uniqueness} of a given composition. We need to study which kinds of $G$-linear maps that are permitted between two irreducible representations, a key insight of Schur's Lemma.
 
 \begin{theorem}[Schur's Lemma]\cite[Lemma.1.7.]{FultonHarris}, \cite[Prop.2.4.]{Serre}\label{thm:schur}
 	Let $V$ and $W$ be irreducible representations of a group and let $\varphi: V \rightarrow W$ be a $G$-linear map. Then:
@@ -73,10 +73,10 @@ In other words, there are no non-trivial maps between two inequivalent irreducib
 Schur's lemma also allows us to say something about the irreducible representations of an abelian group, that is a group in which every element commutes with every other element (for example $\Cyc_n$).
 
 \begin{corollary}\label{cor:abelianirred}
-	Let $G$ be an abelian group. Then any irreducible representation of $G$ is of degree 1.
+	Any irreducible representation of an abelian group is of degree 1.
 \end{corollary}
 \begin{proof}\cite[\textit{Mentioned in passing in} Sect.1.3.]{FultonHarris}
-	Let $\rho: G \rightarrow \GL(V)$ be an irreducible representation of $G$. Consider the linear map $\rho_h$ of some $h \in G$, then for any $g \in G$ we have
+	Let $\rho: G \rightarrow \GL(V)$ be an irreducible representation of an abelian group $G$. Consider the linear map $\rho_h$ of some $h \in G$, then for any $g \in G$ we have
 	\begin{align*}
 		\rho_h \cdot \rho_g &= \rho_{gh} & \text{($\rho$ is a homomorphism)} \\
 		&= \rho_{hg} & \text{($G$ abelian)} \\

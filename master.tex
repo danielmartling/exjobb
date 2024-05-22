@@ -13,6 +13,7 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 \usepackage{tikz-cd}
 %\usepackage{}
 \usepackage{lipsum}
+\usepackage{url}
 
 \setpapersize{A4}
 \setmarginsrb{30mm}{20mm}{30mm}{30mm}%left top right bottom
@@ -226,14 +227,15 @@ geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig
 %The section with references.
 
 \clearpage{\thispagestyle{empty}}
-\bibliographystyle{alphaurl} %This style prints the urls of online sources.
-
+%\bibliographystyle{alphaurl} %This style prints the urls of online sources.
+\bibliographystyle{alpha}
+\bibliography{bibFile}
 
 % All references are to be stored in the file bibliographyFile.bib! 
 % It is in the same folder as your main .tex file.
 % It is using the bibtex syntax, and you can get these entries from google scholar, etc.
 % Your supervisor should know,
-\bibliography{bibFile}
+
 %\bibliography{bibliographyFile} 
 
 \end{document}

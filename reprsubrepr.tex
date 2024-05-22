@@ -5,7 +5,7 @@ As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representation
 \begin{definition}[$G$-linear map]\cite[Sect.1.1.]{FultonHarris}
 	Let $V$ and $W$ be two representation spaces of a group $G$. A vector space map 
 		$\varphi: V \rightarrow W$
-	is called a $G$-linear map if it commutes with, or respects, the group action of $G$, ie. for any $\vvec \in V$ and $g \in G$ we have
+	is called a $G$-linear map if it commutes with, the group action of $G$, ie. for any $\vvec \in V$ and $g \in G$ we have
 	\begin{align*}
 		\varphi( g \cdot \vvec ) = g \cdot \varphi (\vvec),
 	\end{align*}
@@ -38,7 +38,7 @@ As laid out in~\cite[Sect.1.2.]{FultonHarris}, we are looking for representation
 Consider the case where $W$ is a subspace of $V$ left fixed by $G$, that is $gW \subseteq W$ for all $g \in G$. Such a subspace is called \textit{$G$-invariant}. Let $\rho^V$ be a representation of $G$, then the restriction of $\rho^V$ to $W$, here denoted $\rho^{V|_W}$, is a isomorphism (and then also a homomorphism) of $W$ onto itself since $W$ is $G$-invariant, hence $\rho^{V|_W}: G \rightarrow \GL(W)$ is a representation of $G$ in the subspace $W$ of $V$, motivating the following definition:
 
 \begin{definition}[Subrepresentation]\label{def:subrepr}
-	Let $G$ be a finite group and $\rho$ be a representation of $G$ in a vector space $V$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
+	Let $G$ be a finite group and let $\rho$ be a representation of $G$ in a vector space $V$. A restriction of $\rho$ to a $G$-invariant vector subspace $W$ of $V$ is called a subrepresentation of $\rho$.
 \end{definition}
 
 %In other words, a subrepresentation is a $G$-invariant vector subspace of a ``parent'' representation. 
@@ -47,7 +47,7 @@ Consider the case where $W$ is a subspace of $V$ left fixed by $G$, that is $gW 
 	Any representation has itself as well as the zero space as subrepresentations. These are referred to as non-proper or trivial subrepresentations and usually omitted.
 \end{example}
 
-\subsubsection{Finally some proper subrepresentations}
+\subsubsection{Proper subrepresentations}
 
 Let $G$ be any group and let us study its permutation and regular representations. 
 
@@ -55,7 +55,7 @@ Let $G$ be any group and let us study its permutation and regular representation
 	Let $G$ act on a set $X = \{x_1, x_2, \dots, x_k\}$, where $k = |X|$, and let $V$ be the vector space spanned by the basis $(\xhat_1, \xhat_2, \dots, \xhat_k)$. Consider the one-dimensional subspace of $V$ spanned by the sum of all basis vectors, ie. 
 	\begin{align*}	
 		W = \Span\{ \xhat_1 + \xhat_2 + \dots + \xhat_k \}.
-	\end{align*}A vector $\wvec \in W$ is a scalar multiple of this sum, and for any $g \in G$, the action of $g$ on $\wvec$ will simply reorder this sum and return the same $\wvec$, that is for any $g \in G$, we have that $\rho_g|_W = 1$. Thus $W$ is a $G$-invariant subspace of $V$ and the permutation representation has the trivial representation as a subrepresentation.
+	\end{align*}A vector $\wvec \in W$ is a scalar multiple of this sum, and for any $g \in G$, the action of $g$ on $\wvec$ will simply reorder this sum and return the same $\wvec$, that is for any $g \in G$, we have that $\rho_g^{V|_W} = 1$. Thus $W$ is a $G$-invariant subspace of $V$ and the permutation representation has the trivial representation as a subrepresentation.
 \end{example}
 
 \begin{example}[Trivial representation inside the regular representation]\cite[Example 1.4.4.]{Sagan}
@@ -208,7 +208,7 @@ If the trivial representation corresponds to the one-dimensional sum of all basi
 		with corresponding change-of-basis matrix
 		\begin{align*}
 			P = \begin{pmatrix}
-				1&1&0 \\ 1&-1&0 \\ 1&0&-1
+				1&1&0 \\ 1&-1&1 \\ 1&0&-1
 			\end{pmatrix}, \quad P^{-1} =  \frac{1}{3}\begin{pmatrix}
 			1&1&1\\2&-1&-1\\1&1&-2
 			\end{pmatrix},

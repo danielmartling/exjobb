@@ -1,9 +1,11 @@
 \clearpage{\thispagestyle{empty}}
 \section{Character Theory}
 
+%We have so far composed representations with the direct sum and tensor product of other representations, we have decomposed representations into subrepresentations and eventually into irreducible representations.
+
 This section is based on \cite[Ch.2.]{Serre}, as well as \cite[Sect.2.2.]{FultonHarris}.
 
-Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \rightarrow \GL(V)$ be a representation. Now, for each $g \in G$, define a function $\chi: G \rightarrow \CC$ to be the trace of the matrix of $g$ in $V$. In other words $\chi(g) = \Tr(\rho_g)$. This function is called the \emph{character} of a representation. Why is it useful when studying representations?
+Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \rightarrow \GL(V)$ be a representation. Now, for each $g \in G$, we define a function $\chi: G \rightarrow \CC$ to be the trace of the matrix of $g$ in $V$. In other words $\chi(g) = \Tr(\rho_g)$. This function is called the \emph{character} of a representation. Why is it useful when studying representations?
 
 \subsection{Basic properties of characters}
 
@@ -18,7 +20,7 @@ Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \righta
 \begin{proof}
 	\begin{enumerate}
 		\item[i)] By Proposition~\ref{prop:homoidinv}, $\rho_e$ is the $n \times n$ identity matrix, where $n = \dim V$, hence $\chi(e) = \Tr \id = n = \dim V$.
-		\item[ii)] We are free to choose a orthonormal basis, then $\rho_g$ is a unitary matrix with roots of unity $\{\lambda_i\}$ as eigenvalues \cite[Exercise.8.6.15.]{Nicholson}. The character of $g^{-1}$ is then
+		\item[ii)] We are free to choose an orthonormal basis, then $\rho_g$ is a unitary matrix with roots of unity $\{\lambda_i\}$ as eigenvalues \cite[Exercise.8.6.15.]{Nicholson}. The character of $g^{-1}$ is then
 		\begin{align*}
 			\chi(g^{-1}) &= \Tr \rho_{g^{-1}} & \text{(Def. of character)} \\
 			&= \Tr \rho_g^{-1} & \text{(Prop.\ref{prop:homoidinv}.)} \\
@@ -46,7 +48,7 @@ Now we properly introduce the character.
 
 
 \begin{notation}[Group character]
-	A ``character vector'', simply called the (group) character, of $G$ can be defined as the tuple containing the character of every element of $G$, ie. $\chi = (\chi(g))_{g \in G}$. If the group $G$ is partitioned into the conjugacy classes $[k_1], [k_2], \dots, [k_l]$, then the group character can be abbreviated to contain one representative $k_i$ from every class $[k_i]$, ie. $\chi= (\chi(k_i))_{i=1}^l$, since the character is fixed under conjugation.%, any elements of a group that are conjugate have the same character, ie. for a conjugate pair $g,g' \in G$ there exists an $h \in G$ such that $g' = hgh^{-1}$, and their characters are
+	A ``character vector'', simply called the (group) character, of $G$ can be defined as the tuple containing the character of every element of $G$, ie. $\chi = (\chi(g))_{g \in G}$. If the group $G$ is partitioned into the conjugacy classes $[k_1], [k_2], \dots, [k_l]$, then as an ink-saving measure the group character can be abbreviated to contain one representative $k_i$ from every class $[k_i]$, ie. $\chi= (\chi(k_i))_{i=1}^l$, since the character is fixed under conjugation.%, any elements of a group that are conjugate have the same character, ie. for a conjugate pair $g,g' \in G$ there exists an $h \in G$ such that $g' = hgh^{-1}$, and their characters are
 %	\begin{align*}%
 %		\chi(g') = \chi(h%gh^{-1}) = \chi(g).
 %	\end{align*}%
@@ -136,7 +138,7 @@ Now we properly introduce the character.
 \begin{example}[$\Sym_4$ so far]
 	For $\Sym_4$, we of course know the trivial representation and the alternating representation. 
 	
-	Using Example~\ref{example:charperm}, we can find the permutation character $(4,2,1,0,0)$ by counting the number of fixed points of every class, equivalently we count the number of ones on the integer partitions of Table~\ref{table:elementsSym4}. 
+	Using Example~\ref{example:charperm}, we can find the permutation character $(4,2,1,0,0)$ by counting the number of fixed points of every class, equivalently we count the number of ones in the integer partitions of Table~\ref{table:elementsSym4}. 
 	
 	We may also calculate the character of the standard representation by subtracting the trivial character from the permutation character. These representations are presented in Table~\ref{table:chartableSym4}.
 \end{example}
@@ -198,7 +200,7 @@ The character of the direct sum or tensor product of an arbitrary number of repr
 \begin{example}[Tensor power of alternating representation]\label{example:nthpoweralternating}
 	The character of the alternating representation of a symmetric group is $\chi_\Alt = (1, -1, 1, -1, \dots, 1)$, hence the $n$th tensor power of the alternating representation has the character
 	\begin{align*}
-		\chi_\Alt^n &= (1, (-1)^n), 1, (-1)^n, \cdots, 1) \\
+		\chi_\Alt^n &= (1, (-1)^n), 1, (-1)^n, \dots, 1) \\
 		&= \begin{cases}
 			\chi_\Triv \text{, if $n$ is even, and } \\
 			\chi_\Alt \text{, if $n$ is odd.}
@@ -215,7 +217,7 @@ We denote by $\Hom (V,W)$ the set of all homomorphisms from $V$ to $W$, and by t
 \begin{align}\label{eq:defVG}
 	V^G = \left\lbrace \vvec \in V \ \middle\vert \ g\cdot \vvec = \vvec, \ \forall g \in G \right\rbrace
 \end{align} 
-is the subspace of $V$ in which every element is fixed by every $G$. Also, then $\Hom(V,W)^G$ is the set of all $G$-linear maps $V \rightarrow W$.
+is the subspace of $V$ in which every element is fixed by every $G$. Also,  $\Hom(V,W)^G$ is the set of all $G$-linear maps $V \rightarrow W$.
 
 \begin{proposition}
 	The multiplicity of $W$ in $V$ is $\dim \Hom(W,V)^G$, that is the number of (linearly independent) $G$-linear maps from $W$ to $V$. Conversely, if $W$ is arbitrary and $V$ is irreducible, then $\dim \Hom (V,W)^G$ is the multiplicity of $V$ in $W$. If both $V$ and $W$ are irreducible, then by Schur's Lemma we must have that
@@ -227,7 +229,7 @@ is the subspace of $V$ in which every element is fixed by every $G$. Also, then 
 	\end{align}
 \end{proposition}
 
-Now, let $V^G$ be defined as the fixed points of $V$ under the action of $G$, as defined in Equation~\ref{eq:defVG}. A a map from $V^G$ to itself is called an \textit{endomorphism of $V^G$} and we set $\End(V^G) := \Hom(V^G, V^G)$. Such a map is not just a representation of $G$, but also a trivial representation by definition, then the number of all such maps, denoted $\dim \End(V^G)$ is the multiplicity of the trivial representation in $V$. 
+Now, let $V^G$ be defined as the fixed points of $V$ under the action of $G$, as defined in Equation~\ref{eq:defVG}. A map from $V^G$ to itself is called an \textit{endomorphism of $V^G$} and we set $\End(V^G) := \Hom(V^G, V^G)$. Such a map is not just a representation of $G$, but also a trivial representation by definition, then the number of all such maps, denoted $\dim \End(V^G)$ is the multiplicity of the trivial representation in $V$. 
 
 The map associated with any $g$ is not generally a $G$-linear map, however as we have previously seen, we can construct such a map by averaging over $G$, that is we define a map $\varphi: V \rightarrow V$ by
 \begin{align*}
@@ -270,19 +272,19 @@ It is an inner product since it satisfies the expected properties:
 \begin{enumerate}
 	\item[i)] We have 
 	\begin{align*}
-		\overline{(\varphi|\psi)} &= \frac{1}{|G|} \sum_{g \in G} \overline{\overline{\varphi(g)} {\psi(g)}} & \text{(Def.)}\\
+		\overline{(\varphi|\psi)} &= \frac{1}{|G|} \sum_{g \in G} \overline{\overline{\varphi(g)} {\psi(g)}} & \text{(Def. inner product)}\\
 		&= \frac{1}{|G|} \sum_{g \in G} \varphi(g) \overline{\psi(g)} & \text{($\overline{\overline{a}}=a$ for all $a \in \CC$)}\\
 		&= \frac{1}{|G|} \sum_{g \in G} \overline{\psi(g)} {\varphi(g)} & \text{(Scalars commute)}\\
-		&= (\psi|\varphi). &\text{(Def.)}
+		&= (\psi|\varphi). &\text{(Def. inner product)}
 	\end{align*}
 	\item[ii)] For $a,b \in \CC$ we have 
 	\begin{align*}
-		(\varphi | a\psi_1 + b\psi_2) &= \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} \left({a\psi_1(g) + b\psi_2(g)}\right) \\
+		(\varphi | a\psi_1 + b\psi_2) &= \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} \left({a\psi_1(g) + b\psi_2(g)}\right) & \text{(Def.)}\\
 		&= a\frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\psi_1(g)}  +b \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\psi_2(g)}  \\
-		&= a(\varphi | \psi_1 )  +b (\varphi |\psi_2) 
+		&= a(\varphi | \psi_1 )  +b (\varphi |\psi_2) & \text{(Def.)}
 	\end{align*}
 	for any characters $\varphi, \psi_1$ and $\psi_2$, hence it is linear in $\psi$.
-	\item[iii)] We have 
+	\item[iii)] Lastly, we have 
 	\begin{align*}
 		(\varphi|\varphi) &= \frac{1}{|G|} \sum_{g \in G} \overline{\varphi(g)} {\varphi(g)} \\
 		&= \frac{1}{|G|} \sum_{g \in G} |\varphi(g)|^2 & \text{(Def. modulus)}
@@ -313,11 +315,7 @@ Now, let $V$ be the direct sum of irreducible representations $W_i$ of $G$ such 
 \begin{align*}
 	V = \bigoplus_i W_i.
 \end{align*}
-If $\chi_i$ is the character of $W_i$, then by Proposition~\ref{prop:charplustimes}.i the character of $V$ is
-\begin{align*}
-	\varphi = \sum_i \chi_i.
-\end{align*}
-
+If $\chi_i$ is the character of $W_i$, then by Proposition~\ref{prop:charplustimes} the character of $V$ is $\varphi = \sum_i \chi_i$.
 Let $\chi$ be the character of an irreducible representation of $G$, then we have that
 \begin{align*}
 	(\varphi|\chi) = \sum_i (\chi_i|\chi).
@@ -393,9 +391,9 @@ For a $g \in G$, it will act on a basis vector $\bas_h$ of the regular represent
 \end{align}
 and the character of the regular representation is then
 \begin{align*}
-	\chi_{\Reg} = (|G|, 0, \dots, 0).
+	\chi_{\Reg} = (|G|, 0, \dots, 0)
 \end{align*}
-Now taking the inner product of it with itself we have,
+For any group $G$. Now taking the inner product of it with itself we have,
 \begin{align*}
 	(\chi_{\Reg}|\chi_{\Reg}) &= \frac{1}{|G|} \sum_{g \in G} \overline{\chi^{\Reg}(g)}\chi^{\Reg}(g) \\
 	&=  \frac{1}{|G|}  \overline{\chi^\Reg}\chi^\Reg & \text{(All vanish except $g=e$.)} \\
@@ -407,7 +405,7 @@ Applying Equation~\ref{eq:innerprodself}, we have that $(\chi^\Reg|\chi^\Reg) $ 
 \begin{align}\label{eq:sqsummult}
 	\sum_i m_i^2 = |G|.
 \end{align}
-To find what the multiplicities are we make an ansatz that if $\{W_i\}$ is the family of all irreducible representations of a group with respective characters $\chi_i$, then the regular representation $V$ is a direct sum of these with (not-necessarily non-zero) multiplicities $\{m_i\}$. Then we have that the multiplicity of some irreducible $W_j$ with character $\chi_j$ in $\chi^\Reg$ is
+If $\{W_i\}$ is the family of all irreducible representations of a group with respective characters $\{\chi_i\}$, then the regular representation $V$ is a direct sum of these with (not-necessarily non-zero) multiplicities $\{m_i\}$. Then we have that the multiplicity of some irreducible $W_j$ with character $\chi_j$ in $\chi^\Reg$ is
 {\allowdisplaybreaks\begin{align*}
 	m_j &= (\chi_\Reg|\chi_j) \\ &=  \sum_i m_i  (\chi_i|\chi_j)   & \text{(Reg. is sum of $m_i\chi_i$)}\\
 	&= \frac{1}{|G|} \sum_i  m_i \sum_{g \in G} \overline{\chi_i(g) }{\chi_j(g)}. & \text{(Def. of inner product.)} \\
