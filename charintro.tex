@@ -167,6 +167,8 @@ To apply character theory on the tensor toolbox presented in Section~\ref{sect:t
 	\end{enumerate}
 \end{proof}
 
+The character of the direct sum or tensor product of an arbitrary number of representations are defined similarly.
+
 \begin{example}[$\Sym_3$ again]
 	The permutation representation was earlier found to be the direct sum of the trivial and the standard representations, in fact
 	\begin{align*}
@@ -174,7 +176,7 @@ To apply character theory on the tensor toolbox presented in Section~\ref{sect:t
 	\end{align*}
 \end{example}
 
-The character of the direct sum or tensor product of an arbitrary number of representations are defined similarly.
+
 
 \begin{example}[$\Sym_4$ so far]
 	For $\Sym_4$, we know the trivial representation and the alternating representation. 
@@ -255,7 +257,7 @@ hence \begin{align}\label{eq:multVG}
 	\dim V^G = \frac{1}{|G|} \sum_g \chi_V(g).
 \end{align}
 
-Now, let's apply Equation~\ref{eq:multVG} to the set of all maps $V \rightarrow W$, ie. $V$ becomes $\Hom (V,W)$, where both $V$ and $W$ are irreducible representations of $G$. Earlier in Section~\ref{sect:tensoralgebra}, $\Hom(V,W)$ was identified with $V^* \otimes W$, hence the character of $\Hom(V,W)$ is $\overline{\chi_V(g)}\cdot\chi_W(g)$, then by Equations~\ref{eq:dimhomVWG} and~\ref{eq:multVG} we have:
+Now, let's apply Equation~\ref{eq:multVG} to the set of all maps $V \rightarrow W$, that is $V$ becomes $\Hom (V,W)$, where both $V$ and $W$ are irreducible representations of $G$. Earlier in Section~\ref{sect:tensoralgebra}, $\Hom(V,W)$ was identified with $V^* \otimes W$, hence the character of $\Hom(V,W)$ is $\overline{\chi_V(g)}\cdot\chi_W(g)$, then by Equations~\ref{eq:dimhomVWG} and~\ref{eq:multVG} we have:
 \begin{align*}
 	\dim \Hom(V,W)^G = \frac{1}{|G|} \sum_g \overline{\chi_V(g)}\cdot\chi_W(g) = \begin{cases}
 		1, \text{ if $V \cong W$, and} \\
@@ -263,7 +265,7 @@ Now, let's apply Equation~\ref{eq:multVG} to the set of all maps $V \rightarrow 
 	\end{cases}
 \end{align*}
 
-We have arrived at an expression that looks suspiciously familiar, interpreting characters as complex-valued vectors in some vector space, we have found an \textit{inner product of characters}.
+We have arrived at an expression that looks familiar, interpreting characters as complex-valued vectors in some vector space, we have found an \textit{inner product of characters}.
 
 \begin{definition}[Inner product of characters]
 	Let $\varphi$ and $\psi$ be the group characters of a group $G$, then we define the inner product of characters as
@@ -321,13 +323,11 @@ Now, let $V$ be the direct sum of irreducible representations $W_i$ of $G$ such 
 \end{align*}
 If $\chi_i$ is the character of $W_i$, then by Proposition~\ref{prop:charplustimes} the character of $V$ is $\varphi = \sum_i \chi_i$.
 Let $\chi$ be the character of an irreducible representation of $G$, then we have that
-\begin{align*}
-	(\varphi|\chi) = \sum_i (\chi_i|\chi).
-\end{align*}
+	$(\varphi|\chi) = \sum_i (\chi_i|\chi)$.
 Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inner products $(\chi_i|\chi)$ are either 1 or 0, depending on if $\chi$ and $\chi_i$ are of isomorphic representations. Hence, $(\varphi|\chi)$ will return the multiplicity of $\chi$ in $\varphi$. 
 
 \begin{remark}
-	This also means that the composition of a representation $\varphi$ into a direct sum of irreducible subrepresentations $\chi_i$ is unique up to isomorphism, since two isomorphic compositions would have the same decomposition, ie. be constructed the same way of the same irreducibles.
+	This also means that the composition of a representation $\varphi$ into a direct sum of irreducible subrepresentations $\chi_i$ is unique up to isomorphism, since two isomorphic compositions would have the same decomposition, that is it would be constructed the same way of the same irreducibles.
 \end{remark}
 
 \begin{remark}
@@ -399,7 +399,7 @@ and the character of the regular representation is then
 For any group $G$. Now taking the inner product of it with itself we have,
 \begin{align*}
 	(\chi_{\Reg}|\chi_{\Reg}) &= \frac{1}{|G|} \sum_{g \in G} \overline{\chi^{\Reg}(g)}\chi^{\Reg}(g) \\
-	&=  \frac{1}{|G|}  \overline{\chi^\Reg}\chi^\Reg & \text{(All vanish except $g=e$.)} \\
+	&=  \frac{1}{|G|}  \overline{\chi^\Reg(e)}\chi^\Reg(e) & \text{(All vanish except $g=e$.)} \\
 	&= \frac{1}{|G|} \left(\dim V \right)^2  & \text{(Prop.~\ref{prop:charidinvconj}).}\\
 	&= \frac{1}{|G|}|G|^2 & \text{(From def of $V$.)} \\
 	&= |G|.

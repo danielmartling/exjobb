@@ -117,7 +117,14 @@
 	\begin{align}\label{eq:nthpowerS}
 		V_\Stan^{\otimes n} = a_n V_\Triv \oplus b_n V_\Alt \oplus c_n W \oplus a_{n+1} V_\Stan \oplus b_{n+1} V'_\Stan,
 	\end{align}
-	where $a_n = \frac{1}{24}(3^n + 9\cdot(-1)^n+6)$, $b_n = \frac{1}{24}(3^n - 3\cdot(-1)^n -6)$ and $c_n = \frac{1}{24}(2\cdot 3^n + 6\cdot(-1)^n)$.
+	where 
+\begin{align*}
+		\begin{cases}
+		a_n = \frac{1}{24}(3^n + 9\cdot(-1)^n+6), \\
+		b_n = \frac{1}{24}(3^n - 3\cdot(-1)^n -6), \quad \text{and} \\
+		c_n = \frac{1}{12}(3^n + 3\cdot(-1)^n).
+	\end{cases}
+\end{align*}
 	
 	\paragraph{Decomposition of the $n$th tensor powers of $V'_\Stan$.} Since $V'_\Stan = V_\Alt \otimes V_\Stan$, the character of $(V'_\Stan)^{\otimes n}$ is the $n$th power of the character $\chi_\Alt \chi_\Stan$, which is $\chi_\Alt^n\chi_\Stan^n$, hence $(V'_\Stan)^{\otimes n} = V_\Stan^{\otimes n} \otimes V_\Alt^{\otimes n}$.
 	
@@ -133,7 +140,7 @@
 		V_\Stan \otimes V_\Alt &= V'_\Stan, \quad \text{and} \\
 		V'_\Stan \otimes V_\Alt &= V_\Stan \otimes V_\Alt^{\otimes 2} = V_\Stan.
 	\end{align*}
-	Then we have found the decomposition of all tensor powers of $V'_\Stan$. For even $n$, it is the same as $V_\Stan^{\otimes n}$, and lastly for odd $n$, $V_\Triv$ switch multiplicities with $V_\Alt$, and $V_\Stan$ switch with $V'_\Stan$.
+	Then we have found the decomposition of all tensor powers of $V'_\Stan$: For even $n$, it is the same as $V_\Stan^{\otimes n}$, and lastly for odd $n$, $V_\Triv$ switch multiplicities with $V_\Alt$, and $V_\Stan$ switch with $V'_\Stan$.
 	
 	\paragraph{} The findings of the last few paragraphs (except those on larger tensor powers) are presented in table \ref{table:completecharS4}.
 %	 \vspace{2cm}
