@@ -10,7 +10,7 @@ Let $V$ be a vector space with basis $(\bas_i)_{i=1}^n$ and let $\rho: G \righta
 \subsection{Basic properties of characters}
 
 \begin{proposition}\cite[Prop.2.1.]{Serre}\label{prop:charidinvconj}
-	The trace function \emph{characterizes} the representation in some useful ways:
+	The trace function \emph{characterizes} the representation in some relevant ways:
 	\begin{enumerate}
 		\item[i)] The character of the identity element of $G$ is the degree of the representation, $\chi(e) = \dim V$.
 		\item[ii)] The character of an element in $G$ is the complex conjugate of the character of the inverse element, $\chi(g^{-1}) = \overline{\chi(g)}$.
@@ -135,39 +135,18 @@ Now we properly introduce the character.
 
 
 
-\begin{example}[$\Sym_4$ so far]
-	For $\Sym_4$, we of course know the trivial representation and the alternating representation. 
-	
-	Using Example~\ref{example:charperm}, we can find the permutation character $(4,2,1,0,0)$ by counting the number of fixed points of every class, equivalently we count the number of ones in the integer partitions of Table~\ref{table:elementsSym4}. 
-	
-	We may also calculate the character of the standard representation by subtracting the trivial character from the permutation character. These representations are presented in Table~\ref{table:chartableSym4}.
-\end{example}
 
-\begin{table}[hbt!]
-		\centering
-		\begin{tabular}{c | c c c c c}
-			  $\Sym_4$   & $[(1)]$ & $[(1,2)]$ & $[(1,2,3)]$ & $[(1,2,3,4)]$ & $[(1,2)(3,4)]$ \\
-			 $\Ss|[\sigma]|$ & $\Ss1$       & $\Ss6$         & $\Ss3$           & $\Ss6$             & $\Ss8$              \\ \hline
-			   \Triv.    & 1       & 1         & 1           & 1             & 1              \\
-			   \Alt.     & 1       & -1        & 1           & -1            & 1              \\
-			   \Stan.    & 3       & 1         & 0           & -1            & -1             \\
-			   \Perm.    & 4       & 2         & 1           & 0             & 0              \\ %$\chi_R$     & 24      & 0       & 0       & 0        & 0
-			 %$\chi_R$   & 24      & 0         & 0           & 0             & 0
-		\end{tabular}
-		\caption{Character table of $\Sym_4$.}
-		\label{table:chartableSym4}
-\end{table}
 
 
 \subsection{Characters and tensor operations}
 
-Addition and multiplication of characters is defined component-wise thusly:
+Addition and multiplication of two characters $\chi$ and $\psi$ are defined component-wise thusly:
 \begin{align*}
 	\chi + \psi &=  (\chi(g) + \psi(g))_{g \in G}, \text{ and} \\
 	\chi \cdot \psi &= (\chi(g) \cdot \psi(g))_{g \in G}.
 \end{align*}
 
-We apply character theory on the tensor toolbox presented in Section~\ref{sect:tensorrepr}. We propose the following:
+To apply character theory on the tensor toolbox presented in Section~\ref{sect:tensorrepr}, we propose the following:
 
 \begin{proposition}\label{prop:charplustimes}
 	Let $V$ and $W$ be representation spaces of a group $G$ and let $\chi_V$ and $\chi_W$ be its characters in those representations. Then we propose:
@@ -188,7 +167,7 @@ We apply character theory on the tensor toolbox presented in Section~\ref{sect:t
 	\end{enumerate}
 \end{proof}
 
-\begin{example}[$\Sym_3$]
+\begin{example}[$\Sym_3$ again]
 	The permutation representation was earlier found to be the direct sum of the trivial and the standard representations, in fact
 	\begin{align*}
 		\chi_\Triv + \chi_\Stan = (1,1,1) + (2,0,-1) = (3,1,0) = \chi_\Perm.
@@ -196,6 +175,29 @@ We apply character theory on the tensor toolbox presented in Section~\ref{sect:t
 \end{example}
 
 The character of the direct sum or tensor product of an arbitrary number of representations are defined similarly.
+
+\begin{example}[$\Sym_4$ so far]
+	For $\Sym_4$, we know the trivial representation and the alternating representation. 
+	
+	Using Example~\ref{example:charperm}, we can find the permutation character $(4,2,1,0,0)$ by counting the number of fixed points of every class, equivalently we count the number of ones in the integer partitions of Table~\ref{table:elementsSym4}. 
+	
+	We may also calculate the character of the standard representation by subtracting the trivial character from the permutation character. These representations are presented in Table~\ref{table:chartableSym4}.
+\end{example}
+
+\begin{table}[hbt!]
+	\centering
+	\begin{tabular}{c | c c c c c}
+		$\Sym_4$   & $[(1)]$ & $[(1,2)]$ & $[(1,2,3)]$ & $[(1,2,3,4)]$ & $[(1,2)(3,4)]$ \\
+		$\Ss|[\sigma]|$ & $\Ss1$       & $\Ss6$         & $\Ss3$           & $\Ss6$             & $\Ss8$              \\ \hline
+		\Triv.    & 1       & 1         & 1           & 1             & 1              \\
+		\Alt.     & 1       & -1        & 1           & -1            & 1              \\
+		\Stan.    & 3       & 1         & 0           & -1            & -1             \\
+		\Perm.    & 4       & 2         & 1           & 0             & 0              \\ %$\chi_R$     & 24      & 0       & 0       & 0        & 0
+		%$\chi_R$   & 24      & 0         & 0           & 0             & 0
+	\end{tabular}
+	\caption{Character table of $\Sym_4$.}
+	\label{table:chartableSym4}
+\end{table}
 
 \begin{example}[Tensor power of alternating representation]\label{example:nthpoweralternating}
 	The character of the alternating representation of a symmetric group is $\chi_\Alt = (1, -1, 1, -1, \dots, 1)$, hence the $n$th tensor power of the alternating representation has the character
@@ -211,13 +213,15 @@ The character of the direct sum or tensor product of an arbitrary number of repr
 
 \subsection{Orthogonality relations of characters}
 
+This section is based on \cite[Sect.2.2.]{FultonHarris}.
+
 Continuing the discussion of Section~\ref{sect:irredreprs}, we want find characters of irreducible representations. We call those irreducible characters. Let $V$ be an arbitrary representation and let $W$ be an irreducible representation of some group $G$. 
 
 We denote by $\Hom (V,W)$ the set of all homomorphisms from $V$ to $W$, and by the superscript $(\cdot) ^G$ we denote a subset which is fixed by $G$, for example 
 \begin{align}\label{eq:defVG}
 	V^G = \left\lbrace \vvec \in V \ \middle\vert \ g\cdot \vvec = \vvec, \ \forall g \in G \right\rbrace
 \end{align} 
-is the subspace of $V$ in which every element is fixed by every $G$. Also,  $\Hom(V,W)^G$ is the set of all $G$-linear maps $V \rightarrow W$.
+is the subspace of $V$ in which every element is fixed by all of $G$. Also,  $\Hom(V,W)^G$ is the set of all $G$-linear maps $V \rightarrow W$, and the set of linearly independent $G$-linear maps for a basis for $\Hom(V,W)^G$.
 
 \begin{proposition}
 	The multiplicity of $W$ in $V$ is $\dim \Hom(W,V)^G$, that is the number of (linearly independent) $G$-linear maps from $W$ to $V$. Conversely, if $W$ is arbitrary and $V$ is irreducible, then $\dim \Hom (V,W)^G$ is the multiplicity of $V$ in $W$. If both $V$ and $W$ are irreducible, then by Schur's Lemma we must have that
@@ -299,7 +303,7 @@ It is an inner product since it satisfies the expected properties:
 %	\end{align*}
 %\end{notation}
 
-We have also shown the following property on irreducible representations:
+We have also shown the following property of irreducible representations:
 
 \begin{theorem}[Irreducibility criterion]\label{thm:irredcrit}
 	The characters of irreducible representations are orthonormal. In other words, let $\chi \neq \psi$ be characters of irreducible representations of $G$ (called irreducible characters), then we have that 
@@ -377,7 +381,6 @@ Since $\chi$ and all of the $\chi_i$ are irreducible characters, all of the inne
 \end{example}
 %\textit{Something on the characters are basis of class function space, hence the number of irreducible representations of a group is at most the number of conjugacy classes in the group.
 %Using these criteria and relations as a character calculus toolbox, we can study some groups, determine all of their irreducible representations and decompose any arbitrary representation.
-
 \subsection{Decomposition of the regular representation}
 
 Earlier, the regular representation of any group where found have the trivial representation as a subrepresentation, likewise, the alternating group was found in the regular representation of $\Sym_n$. Now, we will completely decompose the regular representation of any group.
