@@ -1,0 +1,245 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\title{Errata and Questions}
+\author{Daniel Martling}
+\date{}
+%--Packages--
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{showkeys}
+
+\usepackage{latexsym,amsmath,amsthm,amssymb,bm,lmodern,titlesec,xcolor,graphicx,setspace,pdfpages,
+	geometry,marginnote,caption,array,sectsty,siunitx,eurosym,colortbl,float,wrapfig,vmargin,tikz,hyperref}
+\usepackage[nottoc]{tocbibind}
+\usepackage{tikz-cd}
+%\usepackage{}
+\usepackage{lipsum}
+\usepackage{url}
+
+\setpapersize{A4}
+\setmarginsrb{30mm}{20mm}{30mm}{30mm}%left top right bottom
+{8mm}{6mm}{10mm}{10mm}%headheight headsep footheight footskip
+
+% Some useful colors
+\definecolor{Rosso}{RGB}{232,61,61}
+\definecolor{Viola}{RGB}{188,30,188}
+\definecolor{Celeste}{RGB}{34,186,211}
+\definecolor{Arancione}{RGB}{232,181,19}
+\definecolor{Blu}{RGB}{0, 44, 92}
+\definecolor{Azzurro}{RGB}{57,186,238}
+
+
+\hypersetup{colorlinks=true,linkcolor=Blu,allbordercolors=white, urlcolor=blue, citecolor=Viola}
+\usepackage{enumitem} 
+\renewcommand\labelitemi{\textbullet} 
+
+
+% math environments
+%  we use \newtheorem to specify our theorem-like environments
+% (theorem, definition, etc.) and how to display and number them.
+%
+% Note: The \theoremstyle declarations affect the appearance of the
+% Theorems, Definitions, etc.
+% Note 2: If you want swedish names you have to go and change the argument in brackets e.g. \newtheorem{thm}[defi]{Theorem} should become \newtheorem{thm}[defi]{Sats}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+%\newtheorem{hottake}{Hot Take}[section]
+
+\newtheorem*{problem}{Problem}
+\newtheorem{conjecture}[definition]{Conjecture}
+
+%\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+%\newtheorem*{remark}{Remark}%[definition]{Remark}
+%\newtheorem{example}[definition]{Example}
+%\newtheorem*{notation}{Notation}
+%\newtheorem*{note}{Note}
+
+\theoremstyle{remark}
+\newtheorem*{question}{Question}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+\newtheorem*{notation}{Notation}
+\newtheorem*{note}{Note}
+
+%\onehalfspacing
+\numberwithin{equation}{section}
+
+%--Heading of  section--
+\titleformat{\section}[display]
+{\normalfont\bfseries\color{Blu}}
+{\filleft
+	\begin{tikzpicture}
+		\node[
+		outer sep=0pt,
+		text width=2.5cm,
+		minimum height=3cm,
+		fill=white,
+		font=\color{Blu}\fontsize{80}{0}\selectfont,
+		align=center
+		] (num) {\thesection};
+		\node[
+		rotate=90,
+		anchor=south,
+		font=\color{black}\large\normalfont
+		] at ([xshift=-5pt]num.west) {\Huge\textsc{}};  
+	\end{tikzpicture}%
+}
+{10pt}
+{\titlerule\vskip4pt\Huge\sc\sffamily}
+
+%--Heading of subsection--
+\newcommand*\numb[1]{%
+	\begin{tikzpicture}[baseline=-0.7ex]
+		\node[
+		outer sep=0pt,
+		text width=0.6cm,
+		minimum height=0.6cm,
+		fill=Blu,
+		font=\color{white}\fontsize{12}{20}\selectfont,
+		align=center
+		] (num) {\thesubsection};
+	\end{tikzpicture}%
+}
+\titleformat{\subsection}
+{\normalfont\color{Blu}\large\sc\sffamily}{\numb{\thesubsection}}{0.8em}{}
+
+%--Heading subsubsection--
+\newcommand*\stocaz[1]{%
+	\begin{tikzpicture}[baseline=-0.7ex]
+		\node[
+		outer sep=0pt,
+		text width=0.8cm,
+		minimum height=0.5cm,
+		fill=Blu,
+		font=\color{white}\fontsize{10}{20}\selectfont,
+		align=center
+		] (num) {\thesubsubsection};
+	\end{tikzpicture}%
+}
+\titleformat{\subsubsection}
+{\normalfont\color{Blu}\bfseries\sc\sffamily}{\stocaz{\thesubsubsection}}{0.8em}{}
+
+% Blackboard Boldface
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\FF}{\mathbb{F}}
+
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\0}{\mathbf{0}}
+
+% Text
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\SymP}{\text{Sym}}
+\newcommand{\AltP}{{\bigwedge}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\End}{\text{End}}
+\newcommand{\SO}{\text{SO}}
+\newcommand{\SU}{\text{SU}}
+\newcommand{\id}{\text{id}}
+\newcommand{\Stab}{\text{Stab}}
+\newcommand{\Cent}{\text{Cent}}
+\newcommand{\Norm}{\text{Norm}}
+\newcommand{\Type}{\text{Type}}
+\newcommand{\Dih}{\text{D}}
+\newcommand{\Sym}{\mathcal{S}} %{\mathfrak{S}} % \text{S}
+%\newcommand{\Alt}{\text{A}}
+\newcommand{\Klein}{\text{V}}
+\newcommand{\Cyc}{\mathcal{C}}%{\text{C}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\im}{\text{im }}
+\newcommand{\Tr}{\text{Tr }}
+\newcommand{\Reg}{\text{Reg}}
+\newcommand{\Triv}{\text{Triv}}
+\newcommand{\Alt}{\text{Alt}}
+\newcommand{\Perm}{\text{Perm}}
+\newcommand{\Stan}{\text{Stan}}
+% Vectors
+\newcommand{\bas}{\mathbf{\hat{e}}}
+\newcommand{\fbas}{\mathbf{\hat{f}}}
+
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\ghat}{\mathbf{\hat{g}}}
+\newcommand{\hhat}{\mathbf{\hat{h}}}
+\newcommand{\vhat}{\mathbf{\hat{v}}}
+\newcommand{\what}{\mathbf{\hat{w}}}
+\newcommand{\uhat}{\mathbf{\hat{u}}}
+\newcommand{\xhat}{\mathbf{\hat{x}}}
+
+\newcommand{\vvec}{\mathbf{v}}
+\newcommand{\uvec}{\mathbf{u}}
+\newcommand{\wvec}{\mathbf{w}}
+
+
+\newcommand{\Ss}{\scriptstyle}
+
+%\newcommand{\barpi}{\overline{\pi}}
+\newcommand{\barpi}{\bar{\pi}}
+
+\allowdisplaybreaks
+
+\begin{document}
+	\maketitle
+	
+	\section*{Errors courtesy of Håkan Granath}
+	
+		\paragraph{Page 6, Sammanfattning.} Irreducible representation is translated to ``irreducibla representationer'' in Swedish, not ``oreducerbara representationer''.
+		
+		\paragraph{Page 13, Example 2.9.} Property iii) of a projection should be ``$\pi(\vvec) = \0$ for any $\vvec$ in $V$ but not in $W$''.
+		
+	\section*{Other errors found}
+	
+		\paragraph{}
+		
+	\section*{Questions from Håkan}
+	
+		\textbf{1. På s.25, exempel 3.17: Vad är den precisa ekvationen för $\tau(\wvec)$ som du borde visat här?}
+		
+			\textbf{Answer:} Let $G = \Sym_n$ and $V$ be the regular representation space spanned by the basis $\{\bas_\sigma\}_{\sigma \in \Sym_n}$. Let $W$ be the subspace of $V$ spanned by the sum
+			\begin{align*}
+				\sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_\sigma.
+			\end{align*}
+			A vector $\wvec \in W$ is a scalar multiple of this sum, that is for some $a \in \CC$,
+			\begin{align*}
+				\wvec = a \sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_\sigma.
+			\end{align*}
+			The action of a $\tau \in \Sym_n$ in this $\wvec$ is
+			\begin{align*}
+				\tau(\wvec) &= \tau \cdot a \sum_{\sigma \in \Sym_n} \sgn(\sigma) \bas_\sigma \\
+				&= a \sum_{\sigma \in \Sym_n} \sgn(\sigma) \tau \cdot \bas_\sigma & \text{($\tau$ is linear)} \\
+				&= a \sum_{\sigma \in \Sym_n} \sgn(\sigma) \cdot \bas_{\tau\sigma} & \text{(Action of $\Sym_n$ on basis)}.
+			\end{align*}
+			Now, let $\sigma' = \tau\sigma$, then we can let the sum be indexed over these $\sigma'$, also $\sgn(\sigma') = \sgn(\tau)\sgn(\sigma)$ and $\sgn(\sigma) = \sgn(\tau)^{-1}\sgn(\sigma')$ but since $\sgn(\tau) = \pm 1$ we have that $\sgn(\tau)^{-1} = \sgn(\tau)$ hence
+			\begin{align*}
+				\tau(\wvec) &= \sgn(\tau) \cdot a \sum_{\sigma' \in \Sym_n} \sgn(\sigma') \bas_{\sigma'} \\
+				&= \sgn(\tau)\wvec,
+			\end{align*}
+			hence $W$ is a $\Sym_n$-invariant subspace of $V$.
+		
+		\textbf{2. Vad kan man säga om totala antalet irreducibla representationer för en ändlig grupp $G$?}
+			
+			\textbf{Answer:} Since the irreducible characters of the group create an orthonormal system, analogous to a basis in a vector space. In this analogy, the dimension of the vector space is likened to the number of entries in the character which is the number of conjugacy classes, since the trace is a class function (=constant over classes). It could then be said that there are as many irreducible representations of a finite group as there are conjugacy classes in that group. 
+			
+			For example, for the abelian $\Cyc_n$, every element has its own conjugacy class, hence there are $n$ irreducible (degree one) representations of $\Cyc_n$. Another example is the symmetric groups where the number of irreducible representations of $\Sym_n$ are the number of integer partitions of $n$.
+			
+		\textbf{3. Du visar att en abelsk grupp bara har 1-dimensionella representationer. Vad kan man säga i allmänhet om antalet 1-dimensionella representationer av en grupp $G$?}
+		
+			\textbf{Answer:} Commutator subgroup $[G,G]$ - subgroup of $G$ generated by all elements $g^{-1}h^{-1}gh$. For abelian group, $[G,G] = \{e\}$. Number of degree one representations of $G$ is the size of the quotient group $G/[G,G]$. Every symmetric group $\Sym_n$ has a normal subgroup $\text{A}_n$ of index 2 isomorphic to $[\Sym_n, \Sym_n]$, hence the number of degree one irreducible representations of $\Sym_n$ is 2.
+			
+		\textbf{4. Kan du bestämma karaktärstabellen för någon annan grupp, t ex för den alternerande gruppen $\text{A}_4$, utifrån de egenskaper vi vet karaktärerna har?}
+		
+			
+				
+\end{document}
