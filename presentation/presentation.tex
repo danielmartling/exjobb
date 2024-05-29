@@ -1,56 +1,322 @@
-\documentclass[12pt]{beamer}
+\documentclass[handout,  12pt]{beamer}
 \mode<presentation>
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-%\usetheme{metropolis}
+\usetheme{metropolis}
+
+
+
+
+% Blackboard Boldface
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\FF}{\mathbb{F}}
+
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\0}{\mathbf{0}}
+
+% Text
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\SymP}{\text{Sym}}
+\newcommand{\AltP}{{\bigwedge}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\End}{\text{End}}
+\newcommand{\SO}{\text{SO}}
+\newcommand{\SU}{\text{SU}}
+\newcommand{\id}{\text{id}}
+\newcommand{\Stab}{\text{Stab}}
+\newcommand{\Cent}{\text{Cent}}
+\newcommand{\Norm}{\text{Norm}}
+\newcommand{\Type}{\text{Type}}
+\newcommand{\Dih}{\text{D}}
+\newcommand{\Sym}{\mathcal{S}} %{\mathfrak{S}} % \text{S}
+%\newcommand{\Alt}{\text{A}}
+\newcommand{\Klein}{\text{V}}
+\newcommand{\Cyc}{\mathcal{C}}%{\text{C}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\im}{\text{im }}
+\newcommand{\Tr}{\text{Tr }}
+\newcommand{\Reg}{\text{Reg}}
+\newcommand{\Triv}{\text{Triv}}
+\newcommand{\Alt}{\text{Alt}}
+\newcommand{\Perm}{\text{Perm}}
+\newcommand{\Stan}{\text{Stan}}
+% Vectors
+\newcommand{\bas}{\mathbf{\hat{e}}}
+\newcommand{\fbas}{\mathbf{\hat{f}}}
+
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\ghat}{\mathbf{\hat{g}}}
+\newcommand{\hhat}{\mathbf{\hat{h}}}
+\newcommand{\vhat}{\mathbf{\hat{v}}}
+\newcommand{\what}{\mathbf{\hat{w}}}
+\newcommand{\uhat}{\mathbf{\hat{u}}}
+\newcommand{\xhat}{\mathbf{\hat{x}}}
+
+\newcommand{\vvec}{\mathbf{v}}
+\newcommand{\uvec}{\mathbf{u}}
+\newcommand{\wvec}{\mathbf{w}}
+
+
+\newcommand{\Ss}{\scriptstyle}
+
+%\newcommand{\barpi}{\overline{\pi}}
+\newcommand{\barpi}{\bar{\pi}}
+
+%\allowdisplaybreaks
+
 \begin{document}
 	\author{Daniel Martling}
 	\title{Introduction to Representation Theory of Finite Groups}
 	%\subtitle{}
-	\logo{l\includegraphics[height=0.5cm]{logo.pdf}}
+	\logo{\includegraphics[height=0.5cm]{logo.pdf}}
 	%\institute{}
 	\date{2024-06-12}
 	%\subject{}
-	\setbeamercovered{transparent}
-	\setbeamertemplate{navigation symbols}{}
-	\begin{frame}[plain]
+%	\setbeamercovered{transparent}
+%	\setbeamertemplate{navigation symbols}{}
+	\begin{frame}
 		\maketitle
 	\end{frame}
+	\begin{frame}{Dagordning}
+		\begin{itemize}
+			\item First definitions
+			\item Tensor operations
+			\item Typical representations
+			\item Subrepresentations
+			\item Irreducible representations
+			\item Decomposition of a representation (Maschke's theorem)
+			\item Uniqueness of the decomposition (Schur's Lemma)
+			\item Characters
+		\end{itemize}
+	\end{frame}
 	
-	\begin{frame}[plain]
-		\frametitle{Initial definitions}
-		\framesubtitle{Representations}
+	
+	\begin{frame}{Initial definitions}
+%		\framesubtitle{Representations}
 		Let $G$ be a finite group and let $V$ be a finite-dimensional vector space over $\mathbb{C}$. \pause
 		
 		\begin{definition}
 			A representation of $G$ in $V$ is a homomorphism
 			\begin{align*}
-				\rho : G \rightarrow \text{GL} (V),
+				\rho : G \rightarrow \GL(V),
 			\end{align*}
-			that assigns a linear map $\rho_g$ to every $g \in G$.
+			that assigns a linear map $\rho_g: V \rightarrow V$ to every $g \in G$.
 		\end{definition} \pause
 		
-		\begin{definition}
-			$\dim V$ is referred to as the \textit{degree} of the representation 
-		\end{definition} \pause
+		Homomorphism: 
+			$\rho_g \rho_h = \rho_{gh}$ \pause
 		
 		Some consequences:
-		\begin{align*}
+		$
 			\rho_e = \text{id}, \quad \text{and} \quad \rho_{g^{-1}} = \rho_g^{-1}.
-		\end{align*}
+		$\pause
 		
-		
-		
+		$\dim V =$ the \textit{degree} of the representation.
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{Hej}
-		\begin{align*}
-			:\hspace{-3pt}3 \quad
-			\varepsilon\hspace{-3pt}: 
-		\end{align*}
+	\begin{frame}{Initial definitions}
+		\begin{definition}
+			A vector space provided with such a map is called a \textit{representation space of $G$}.
+		\end{definition} \pause
 		
+		\textit{Note:} $\rho$, the family $\{\rho_g\}_{g\in G}$ and $V$ are all referred to as the \textit{representation of $G$.} \pause
 		
+		\textit{Note:} A choice of basis gives us a \textit{matrix representation}. It is not canonical and dependent on this basis. 
+
 	\end{frame}
+	
+	\begin{frame}{Tensor operations}
+		Let $V$ and $W$ be vector spaces. Then:
+		\begin{itemize}
+			\item their direct sum $V \oplus W$ and
+			\item their tensor product $V \otimes W$
+		\end{itemize}
+		are also vector spaces.
+%		\begin{tabular}{c c c}
+%			                  & $\ddot{\omega}$ &                             \\
+%			$:\hspace{-3pt}3$ &                 & $\varepsilon\hspace{-3pt}:$ \\
+%			                  &    $\varpi$             &
+%		\end{tabular}
+
+		If $v = (v_i)_{i=1}^{\dim V} \in V$ and $w = (w_j)_{j=1}^{\dim W} \in W$, then:
+		\begin{itemize}
+			\item $v \oplus w = \begin{pmatrix}
+				v \\ w
+			\end{pmatrix} \in V \oplus W \quad \Ss (\dim V \oplus W = \dim V + \dim W)$
+			\item $v \otimes w = (v_iw)_{i=1}^{\dim V} \in V \otimes W \quad \Ss(\dim V \otimes W = \dim V \cdot \dim W)$
+		\end{itemize}
+		
+		
+%		Also, $\dim V \oplus W = \dim V + \dim W$ and $\dim V \otimes W = \dim V \cdot \dim W$.
+
+	\end{frame}
+	\begin{frame}{Tensor operations}
+		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations, then 
+		\begin{itemize}
+			\item $\rho^{V \oplus W} = \rho^V \oplus \rho^W$ is a repr. in $V \oplus W$ by 
+			\begin{align*}
+			(	\rho^V \oplus \rho^W) \cdot (v \oplus w) &= \begin{pmatrix}
+				\rho^V & 0 \\ 0 & \rho^W
+			\end{pmatrix} \cdot \begin{pmatrix}
+			v \\ w
+			\end{pmatrix} \\
+			&= \begin{pmatrix}
+				\rho^V  v \\ \rho^W  w
+			\end{pmatrix} \\
+			&= (\rho^V v) \oplus (\rho^W w).
+			\end{align*}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Tensor operations}
+		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations, then 
+		\begin{itemize}
+			\item $\rho^V \otimes \rho^W$ is a repr. in $V \otimes W$ by
+			\begin{align*}
+				(\rho^V \otimes \rho^W) \cdot (v \otimes w) &= (\rho^V_{ij} \rho^W) \cdot (v_i w) \\
+				&= (\rho^V_{ij}v_i \rho^Ww) \\
+				&= (\rho^V v) \otimes (\rho^W w).
+			\end{align*}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Typical representations}
+		\begin{itemize}
+			\item For any group, \textbf{Trivial representation}: $\rho_g = 1, \quad \forall g \in G$.
+			\item In any vector space: $\rho_g = \id_n = \bigoplus_{i=1}^{n} (1)$.
+			\item For $\Sym_n$, \textbf{Alternating representation}:
+			\begin{align*}
+				\rho_\sigma = \sgn(\sigma), \quad \forall \sigma \in \Sym_n.
+			\end{align*}
+			It is a homomorphism: for $\sigma, \tau \in \Sym_n$,
+			\begin{align*}
+				\sgn(\sigma)\sgn(\tau) &= (-1)^s(-1)^t \\
+				&= (-1)^{s+t} \\
+				&= \sgn(\sigma\tau).
+			\end{align*}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Degree one representations of $\Cyc_n$}
+		Recall $\Cyc_n = \{e, g, g^2, \dots, g^{n-1}\}$ where $g^n = e$.
+		
+		Consider $\rho: \Cyc_n \rightarrow \CC^\times$,
+		\begin{align*}
+			&\rho_e = 1 \quad \text{implies} \quad \rho_{g^n} = 1 \\
+			&\text{but} \quad \rho_{g^n} = (\rho_g)^n \quad \text{by recursion on} \quad \rho_g\rho_g = \rho_{g^2} \\
+			&\text{hence} \quad (\rho_g)^n = 1 \\
+			&\text{and} \quad g \quad \text{is mapped to an $n$th root of unity.}
+		\end{align*}
+	\end{frame}
+	
+	\begin{frame}{Degree one representations of $\Cyc_n$}
+		\begin{table}
+			\parbox[s]{.45\linewidth}{
+			\begin{table}
+				\centering
+				\begin{tabular}{c | c c c}
+					$\Cyc_3$ & $e$ & $g$        & $g^2$      \\ \hline
+					$\rho_0$          & 1   & 1          & 1          \\
+					$\rho_1$          & 1   & $\omega$   & $\omega^2$ \\
+					$\rho_2$          & 1   & $\omega^2$ & $\omega$
+				\end{tabular} 
+				\caption{$\omega = e^{2 \pi i/3}$.}
+				\label{table:Cyc3}
+				\begin{tabular}{c | c c cl}
+					$\Cyc_4$ & $e$ & $g$  & $g^2$ & $g^3$ \\ \hline
+					$\rho_0$           & 1   & 1    & 1     & 1     \\
+					$\rho_1$           & 1   & $i$  & $-1$  & $-i$  \\
+					$\rho_2$           & 1   & $-1$ & $1$  & $-1$   \\
+					$\rho_3$           & 1   & $-i$ & $-1$   & $i$
+				\end{tabular}
+				\caption{$\omega = e^{\pi i/2}$.}
+				\label{tbl:cyc4}
+			\end{table}
+			}
+			\hfill
+			\parbox[s]{.45\linewidth}{
+				\begin{table}
+					\centering
+					\begin{tabular}{c | c c c c c}
+						$\Cyc_5$ & $e$ & $g$        & $g^2$      & $g^3$      & $g^4$      \\ \hline
+						$\rho_0$            & 1   & 1          & 1          & 1          & 1          \\
+						$\rho_1$            & 1   & $\omega$ & $\omega^2$ & $\omega^3$ & $\omega^4$ \\
+						$\rho_2$            & 1   & $\omega^2$ & $\omega^4$ & $\omega$ & $\omega^3$ \\
+						$\rho_3$            & 1   & $\omega^3$ & $\omega$ & $\omega^4$ & $\omega^2$ \\
+						$\rho_4$            & 1   & $\omega^4$ & $\omega^3$ & $\omega^2$ & $\omega$
+					\end{tabular}
+					\caption{$\omega = e^{2 \pi i/5}$.}
+					\label{table:Cyc5}
+				\end{table}
+			}
+		\end{table}
+	\end{frame}
+	
+	\begin{frame}{Permutation representations}
+		Let $G$ act on a set $X$ by permutation.
+		
+		Let $V = \Span (\bas_x)_{x \in X}$
+		
+		Then
+		\begin{align*}
+			\rho^\Perm &: G \rightarrow \GL(V) \\
+			\rho^\Perm_g &: \bas_x \mapsto \bas_{gx}.
+		\end{align*}
+		is called the \textbf{permutation representation}.
+		
+		$\rho_g^\Perm$ are \textit{permutation matrices}
+	\end{frame}
+	
+	\begin{frame}{Permutation representation of $\Sym_n$}
+		content...
+	\end{frame}
+	
+	\begin{frame}{$Sym_3$}
+		content...
+	\end{frame}
+	
+	\begin{frame}{$Sym_4$}
+		content...
+	\end{frame}
+	
+	\begin{frame}{Regular representation}
+		Let $G$ act on itself ($X = G$).
+		
+		Basis $(\bas_g)_{g \in G}$.
+		
+		$\rho^\Reg : G \rightarrow \GL(V)$.
+		
+		For $G = \Cyc_3$:
+		\begin{align*}
+			\rho^\Reg_e = \id, \quad \rho^\Reg_g = \begin{pmatrix}
+				0&0&1\\1&0&0\\0&1&0
+			\end{pmatrix}, \quad \text{and} \quad \rho^\Reg_{g^2}\begin{pmatrix}
+			0&1&0\\0&0&1\\1&0&0
+			\end{pmatrix}.
+		\end{align*}		
+	\end{frame}
+	
+	\begin{frame}{$\Cyc_3$ cont'd.}
+		Basis change...
+	\end{frame}
+	
+	\begin{frame}{Subrepresentations}
+		\begin{definition}
+			A subrepresentation of a representation $\rho: G \rightarrow \GL(V)$ is a restriction of $\rho$ to a $G$-invariant subspace $W$ of $V$, that is
+			\begin{align*}
+				\rho^{V|_W}: G \rightarrow W
+			\end{align*}
+			is a representation of $G$ in $W$.
+		\end{definition}
+	\end{frame}
+	
 \end{document}
