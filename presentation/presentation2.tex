@@ -1,0 +1,293 @@
+\documentclass[handout, 10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{mystyle} % See mystyle.sty for packages and own commands
+%------------------------------------------------------------
+%Title page
+\title[Representation Theory]{Introduction to Representation Theory of Finite Groups}
+%\subtitle{(Your Sub Title)}
+\titlegraphic{\includegraphics[height=2.0cm]{Logos/widelogo.png}}
+\author[Daniel Martling]{
+	Daniel Martling}% ,
+%	2nd Author,
+%	3rd Author }
+%\institute[]{Department of Physics \\Stockholm University}
+\date{2024-06-12}
+
+\newcommand{\GL}{\text{GL}}
+\newcommand{\Sym}{\mathcal{S}}
+\newcommand{\sgn}{\text{sgn}}
+
+%---------------------TITLE PAGE---------------------------------------
+\begin{document}
+	\begin{frame}
+		\maketitle
+	\end{frame}
+	%------------------------------------------------------------
+	
+	\logo{\includegraphics[height=1cm]{Logos/circlelogo.png}~%
+	}
+	
+	
+	%-------------------------------------------------------------------
+	\section{Introduction}
+	
+	%-------------------------------------------------------------------
+	
+	\begin{frame}
+		\frametitle{Table of Contents}
+		\tableofcontents
+	\end{frame}
+	
+	\section{Representation Theory}
+	\subsection{Initial definitions}
+	
+	\begin{frame}{Initial definitions}
+		Let $G$ be a finite group and let $V$ be a finite-dimensional vector space over $\mathbb{C}$. \pause
+		
+		\begin{definition}
+			A representation of $G$ in $V$ is a homomorphism
+			\begin{align*}
+				\rho : G \rightarrow \GL(V),
+			\end{align*}
+			that assigns a linear map $\rho_g: V \rightarrow V$ to every $g \in G$.
+		\end{definition} \pause
+		
+		\begin{itemize}
+			\item Homomorphism: 
+			$\rho_g \rho_h = \rho_{gh} \quad\pause \& \quad \rho_e = \text{id}, \quad \text{and} \quad \rho_{g^{-1}} = \rho_g^{-1}$.
+			
+			\item $\dim V =$ the \textit{degree} of the representation. 
+			
+			\item A vector space with such a map is called a \alert{representation space of $G$}.
+			
+			\item $\rho$, $\{\rho_g\}_{g\in G}$ and $V$ are all referred to as the \alert{representation of $G$.} \pause
+			
+			\item A choice of basis gives us a \alert{matrix representation}. It is not canonical and dependent on this basis. 
+		\end{itemize}		
+	\end{frame}
+	
+	\subsection{Tensor algebra}
+	
+	\begin{frame}{Tensor operations}
+		\framesubtitle{Quick introduction}
+		
+		Let $V$ and $W$ be vector spaces.
+		
+		Let $v = (v_1, \dots, v_m)^T \in V$ and $w = (w_1, \dots, w_n)^T \in W$. 
+		
+		Then the following are also vector spaces:
+		
+		\vfill
+		
+		\begin{exampleblock}{Direct sum $V \oplus W$}
+			\begin{itemize}
+				\item $v \oplus w = \begin{pmatrix}
+					v \\ w
+				\end{pmatrix} = (v_1, \dots, v_m, w_1, \dots, w_n)^T \in V \oplus W$
+				\item $\dim V \oplus W = \dim V + \dim W$
+			\end{itemize}
+		\end{exampleblock}
+		\vfill
+		\begin{exampleblock}{Tensor product $V \otimes W$}
+			\begin{itemize}
+				\item $v \otimes w = (v_iw)_{i=1}^{m} = (v_1 w_1, \dots, v_m w_1, v_1 w_2, \dots, v_m w_2, \dots, v_1 w_n, \dots, v_m w_n)^T \in V \otimes W$
+				\item $\dim V \otimes W = \dim V \cdot \dim W$
+			\end{itemize}
+		\end{exampleblock}		
+	\end{frame}
+	
+	\begin{frame}{Tensor operations on representation spaces}
+		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations. 
+		
+%		Remember: The $\rho^V_g$ and $\rho^W_g$ are matrices. 
+		
+		Then the following are also representations:
+		\vfill
+		\begin{exampleblock}{Direct sum of representations}
+			\begin{itemize}
+				\item $\rho^{V \oplus W} = \rho^V \oplus \rho^W$ is the block matrix $\begin{pmatrix}
+					\rho^V & 0 \\ 0 & \rho^W
+				\end{pmatrix}$.
+				
+				\item It is a repr. given by 
+				\begin{align*}
+%					(	\rho^V \oplus \rho^W) \cdot (v \oplus w) &= 
+					\begin{pmatrix}
+						\rho^V & 0 \\ 0 & \rho^W
+					\end{pmatrix} \cdot \begin{pmatrix}
+						v \\ w
+					\end{pmatrix} 
+					= \begin{pmatrix}
+						\rho^V  v \\ \rho^W  w
+					\end{pmatrix} 
+					= (\rho^V v) \oplus (\rho^W w).
+				\end{align*}
+			\end{itemize}
+		\end{exampleblock}
+		
+		\begin{exampleblock}{Tensor product of representations}
+			\begin{itemize}
+				\item $\rho^{V \otimes W} = \rho^V \otimes \rho^W$ is the block matrix $(\rho^V_{ij} \rho^W)$.
+				
+				\item It is a repr. given by 
+				\begin{align*}
+				(\rho^V_{ij} \rho^W) \cdot (v_i w)
+					= (\rho^V_{ij}v_i \rho^Ww)
+					= (\rho^V v) \otimes (\rho^W w).
+				\end{align*}
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}
+	
+	\subsection{Examples}
+	\begin{frame}{Examples}
+		\begin{exampleblock}{Trivial representation}
+			\begin{itemize}
+				\item For any group, the trivial representation is a map
+				\begin{align*}
+					\rho_g = 1, \quad \text{for all $g \in G$.}
+				\end{align*}
+				
+				\item Trivially a homomorphism.
+				
+				\item Degree = 1.
+			\end{itemize}
+			
+		\end{exampleblock}
+	\end{frame}
+	\begin{frame}{Examples cont'd.}
+		\begin{exampleblock}{Alternating representation}
+			\begin{itemize}
+				\item For $\Sym_n$, the alternating representation is the ``sign'' map
+				\begin{align*}
+						\sgn &: \Sym_n \rightarrow \{\pm 1\} \\
+					\rho &: \sigma \mapsto \sgn(\sigma), \quad \text{for all } \sigma \in \Sym_n.
+					%				\sgn &: \Sym_n \rightarrow \{\pm 1\} \\
+					%				\sgn &: \sigma \mapsto (-1)^s,
+				\end{align*}
+				
+				\item It is a homomorphism: for any $\sigma, \tau \in \Sym_n$,
+				\begin{align*}
+					\sgn(\sigma)\sgn(\tau) &= (-1)^s(-1)^t \\
+					&= (-1)^{s+t} \\
+					&= \sgn(\sigma\tau).
+				\end{align*}
+				
+				\item Degree = 1.
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{Examples cont'd.}
+		\begin{exampleblock}{Permutation representation}
+			Let $G$ be any finite group and let $X$ be a finite set.
+		\end{exampleblock}
+	\end{frame}
+	
+	
+	
+	%-------------------------------------------------------------------
+	
+	%---------------------EXEMPELSLIDES---------------------------------------
+	\begin{frame}{Equations of motion} 
+		
+		\begin{columns}
+			\column{0.4\textwidth}
+			\begin{block}{Newton's second law}
+				$m\ddot{x} = F(\dot{x}, x, t)$
+			\end{block}
+			\begin{block}{Schrödinger's equation}
+				${\displaystyle i\hbar {\frac {d}{dt}}\vert \Psi (t)\rangle ={\hat {H}}\vert \Psi (t)\rangle }$
+			\end{block}
+			\begin{block}{Ampère's circuital law}
+				$ \nabla \times \mathbf{B}=\frac{1}{c}\left(4 \pi \mathbf{J}+\frac{\partial \mathbf{E}}{\partial t}\right)$
+			\end{block}
+		\end{columns}
+	\end{frame}
+	%---------------------SLIDE---------------------------------------
+	\begin{frame}{Important question}
+		Important question again
+	\end{frame}
+	%---------------------SLIDE---------------------------------------
+	\section{Important section}
+	\begin{frame}{Bullet points}
+		\begin{itemize}
+			\item Item A
+			\item Item B
+			\item Item C
+		\end{itemize}
+	\end{frame}
+	%---------------------SLIDE---------------------------------------
+	\begin{frame}{Using pause}
+		This is a sentence. \pause 
+		And this too. \pause
+		\alert{Bye}. 
+	\end{frame}
+	
+	%---------------------SLIDE--------------------------------------
+	\begin{frame}{A Theorem}
+		\begin{theorem}[Freshman's Dream] 
+			$(a+b)^p \equiv a^p + b^p \, (mod \,p)$ if p is a prime number.
+		\end{theorem} \pause
+		\begin{proof}
+			A valid proof.
+		\end{proof}
+		\begin{example}
+			Maybe an example?
+		\end{example}
+	\end{frame}
+	
+	%-----------------------------SLIDE --------------------------------------
+	
+	%Below must be compiled using LuLaTex (for emoji package):
+	
+	% \begin{frame}{Summary}
+		
+		% \begin{itemize}
+			%     \item[\emoji{check-mark-button}] Concept A
+			%      \item[\emoji{check-mark-button}] Concept B
+			%      \item[\emoji{check-mark-button}] Concept C
+			% \end{itemize}
+		% \end{frame}
+	
+	
+	%-----------------------------SLIDE --------------------------------------
+	
+	\begin{frame}{How do you write a thesis?}
+		
+		\begin{enumerate}
+			\item Eat
+			\item Sleep
+			\item Rave
+			\item Repeat
+		\end{enumerate}
+	\end{frame}
+	
+	
+	%-----------------------------SLIDE --------------------------------------
+	
+%	\begin{frame}{Frame title}{Frame subtitle}
+%		This is how you can cite \cite{Dirac}.
+%	\end{frame}
+	%-----------------------------SLIDE --------------------------------------
+	\begin{frame}{The end.}
+		\begin{columns}
+			\column{0.4\textwidth}
+			This is a column.
+			
+			\column{0.4\textwidth}
+			\includegraphics[width=0.9\textwidth]{Figures/meme.png}    
+		\end{columns}    
+		
+		
+	\end{frame}
+	
+	%---------------------------------------------------------
+%	\section{References}
+%	\begin{frame}[allowframebreaks]\frametitle{References}
+%		\bibliographystyle{apalike}
+%		\bibliography{bib}
+%	\end{frame}
+	
+	
+\end{document}

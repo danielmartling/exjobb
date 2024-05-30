@@ -100,40 +100,40 @@
 	\end{frame}
 	
 	
-	\begin{frame}{Initial definitions}
-%		\framesubtitle{Representations}
-		Let $G$ be a finite group and let $V$ be a finite-dimensional vector space over $\mathbb{C}$. \pause
-		
-		\begin{definition}
-			A representation of $G$ in $V$ is a homomorphism
-			\begin{align*}
-				\rho : G \rightarrow \GL(V),
-			\end{align*}
-			that assigns a linear map $\rho_g: V \rightarrow V$ to every $g \in G$.
-		\end{definition} \pause
-		
-		Homomorphism: 
-			$\rho_g \rho_h = \rho_{gh}$ \pause
-		
-		Some consequences:
-		$
-			\rho_e = \text{id}, \quad \text{and} \quad \rho_{g^{-1}} = \rho_g^{-1}.
-		$\pause
-		
-		$\dim V =$ the \textit{degree} of the representation.
-	\end{frame}
-	
-	\begin{frame}{Initial definitions}
-		\begin{definition}
-			A vector space provided with such a map is called a \textit{representation space of $G$}.
-		\end{definition} \pause
-		
-		\textit{Note:} $\rho$, the family $\{\rho_g\}_{g\in G}$ and $V$ are all referred to as the \textit{representation of $G$.} \pause
-		
-		\textit{Note:} A choice of basis gives us a \textit{matrix representation}. It is not canonical and dependent on this basis. 
-
-	\end{frame}
-	
+%	\begin{frame}{Initial definitions}
+%%		\framesubtitle{Representations}
+%		Let $G$ be a finite group and let $V$ be a finite-dimensional vector space over $\mathbb{C}$. \pause
+%		
+%		\begin{definition}
+%			A representation of $G$ in $V$ is a homomorphism
+%			\begin{align*}
+%				\rho : G \rightarrow \GL(V),
+%			\end{align*}
+%			that assigns a linear map $\rho_g: V \rightarrow V$ to every $g \in G$.
+%		\end{definition} \pause
+%		
+%		Homomorphism: 
+%			$\rho_g \rho_h = \rho_{gh}$ \pause
+%		
+%		Some consequences:
+%		$
+%			\rho_e = \text{id}, \quad \text{and} \quad \rho_{g^{-1}} = \rho_g^{-1}.
+%		$\pause
+%		
+%		$\dim V =$ the \textit{degree} of the representation.
+%	\end{frame}
+%	
+%	\begin{frame}{Initial definitions}
+%		\begin{definition}
+%			A vector space provided with such a map is called a \textit{representation space of $G$}.
+%		\end{definition} \pause
+%		
+%		\textit{Note:} $\rho$, the family $\{\rho_g\}_{g\in G}$ and $V$ are all referred to as the \textit{representation of $G$.} \pause
+%		
+%		\textit{Note:} A choice of basis gives us a \textit{matrix representation}. It is not canonical and dependent on this basis. 
+%
+%	\end{frame}
+%	
 	\begin{frame}{Tensor operations}
 		Let $V$ and $W$ be vector spaces. Then:
 		\begin{itemize}
@@ -146,49 +146,49 @@
 %			$:\hspace{-3pt}3$ &                 & $\varepsilon\hspace{-3pt}:$ \\
 %			                  &    $\varpi$             &
 %		\end{tabular}
-
-		If $v = (v_i)_{i=1}^{\dim V} \in V$ and $w = (w_j)_{j=1}^{\dim W} \in W$, then:
-		\begin{itemize}
-			\item $v \oplus w = \begin{pmatrix}
-				v \\ w
-			\end{pmatrix} \in V \oplus W \quad \Ss (\dim V \oplus W = \dim V + \dim W)$
-			\item $v \otimes w = (v_iw)_{i=1}^{\dim V} \in V \otimes W \quad \Ss(\dim V \otimes W = \dim V \cdot \dim W)$
-		\end{itemize}
+%
+%		If $v = (v_i)_{i=1}^{\dim V} \in V$ and $w = (w_j)_{j=1}^{\dim W} \in W$, then:
+%		\begin{itemize}
+%			\item $v \oplus w = \begin{pmatrix}
+%				v \\ w
+%			\end{pmatrix} \in V \oplus W \quad \Ss (\dim V \oplus W = \dim V + \dim W)$
+%			\item $v \otimes w = (v_iw)_{i=1}^{\dim V} \in V \otimes W \quad \Ss(\dim V \otimes W = \dim V \cdot \dim W)$
+%		\end{itemize}
 		
 		
 %		Also, $\dim V \oplus W = \dim V + \dim W$ and $\dim V \otimes W = \dim V \cdot \dim W$.
-
-	\end{frame}
-	\begin{frame}{Tensor operations}
-		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations, then 
-		\begin{itemize}
-			\item $\rho^{V \oplus W} = \rho^V \oplus \rho^W$ is a repr. in $V \oplus W$ by 
-			\begin{align*}
-			(	\rho^V \oplus \rho^W) \cdot (v \oplus w) &= \begin{pmatrix}
-				\rho^V & 0 \\ 0 & \rho^W
-			\end{pmatrix} \cdot \begin{pmatrix}
-			v \\ w
-			\end{pmatrix} \\
-			&= \begin{pmatrix}
-				\rho^V  v \\ \rho^W  w
-			\end{pmatrix} \\
-			&= (\rho^V v) \oplus (\rho^W w).
-			\end{align*}
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{Tensor operations}
-		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations, then 
-		\begin{itemize}
-			\item $\rho^V \otimes \rho^W$ is a repr. in $V \otimes W$ by
-			\begin{align*}
-				(\rho^V \otimes \rho^W) \cdot (v \otimes w) &= (\rho^V_{ij} \rho^W) \cdot (v_i w) \\
-				&= (\rho^V_{ij}v_i \rho^Ww) \\
-				&= (\rho^V v) \otimes (\rho^W w).
-			\end{align*}
-		\end{itemize}
-	\end{frame}
-	
+%
+%	\end{frame}
+%	\begin{frame}{Tensor operations}
+%		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations, then 
+%		\begin{itemize}
+%			\item $\rho^{V \oplus W} = \rho^V \oplus \rho^W$ is a repr. in $V \oplus W$ by 
+%			\begin{align*}
+%			(	\rho^V \oplus \rho^W) \cdot (v \oplus w) &= \begin{pmatrix}
+%				\rho^V & 0 \\ 0 & \rho^W
+%			\end{pmatrix} \cdot \begin{pmatrix}
+%			v \\ w
+%			\end{pmatrix} \\
+%			&= \begin{pmatrix}
+%				\rho^V  v \\ \rho^W  w
+%			\end{pmatrix} \\
+%			&= (\rho^V v) \oplus (\rho^W w).
+%			\end{align*}
+%		\end{itemize}
+%	\end{frame}
+%	
+%	\begin{frame}{Tensor operations}
+%		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations, then 
+%		\begin{itemize}
+%			\item $\rho^V \otimes \rho^W$ is a repr. in $V \otimes W$ by
+%			\begin{align*}
+%				(\rho^V \otimes \rho^W) \cdot (v \otimes w) &= (\rho^V_{ij} \rho^W) \cdot (v_i w) \\
+%				&= (\rho^V_{ij}v_i \rho^Ww) \\
+%				&= (\rho^V v) \otimes (\rho^W w).
+%			\end{align*}
+%		\end{itemize}
+%	\end{frame}
+%	
 	\begin{frame}{Typical representations}
 		\begin{itemize}
 			\item For any group, \textbf{Trivial representation}: $\rho_g = 1, \quad \forall g \in G$.
@@ -280,11 +280,11 @@
 		content...
 	\end{frame}
 	
-	\begin{frame}{$Sym_3$}
+	\begin{frame}{$\Sym_3$}
 		content...
 	\end{frame}
 	
-	\begin{frame}{$Sym_4$}
+	\begin{frame}{$\Sym_4$}
 		content...
 	\end{frame}
 	
@@ -313,10 +313,30 @@
 		\begin{definition}
 			A subrepresentation of a representation $\rho: G \rightarrow \GL(V)$ is a restriction of $\rho$ to a $G$-invariant subspace $W$ of $V$, that is
 			\begin{align*}
-				\rho^{V|_W}: G \rightarrow W
+				\rho^{V|_W}: G \rightarrow \GL(W)
 			\end{align*}
 			is a representation of $G$ in $W$.
 		\end{definition}
+		
+		\begin{example}
+			Every representation has itself and the zero space as trivial subrepresentations.
+		\end{example}
+	\end{frame}
+	
+	\begin{frame}{Subrepresentations}
+		\begin{example}
+			The trivial representation is a subrepresentation of the permutation representation.
+			
+			The sum of all basis vectors $\sum_{x \in X} \bas_x$ is fixed by any $g \in G$ (it is a permutation).
+		\end{example}
+		
+		\begin{example}
+			Likewise for the regular representation.
+		\end{example}
+	\end{frame}
+	
+	\begin{frame}
+		content...
 	\end{frame}
 	
 \end{document}
