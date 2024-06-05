@@ -149,7 +149,7 @@
 	\end{frame}
 	
 	\subsection{Examples}
-	\begin{frame}{Examples}
+	\begin{frame}[allowframebreaks]{Examples}
 		\begin{block}{Trivial representation}
 			\begin{itemize}
 				\item For any group, the trivial representation is a map
@@ -163,8 +163,7 @@
 			\end{itemize}
 			
 		\end{block}
-	\end{frame}
-	\begin{frame}{Examples cont'd.}
+
 		\begin{block}{Alternating representation}
 			\begin{itemize}
 				\item For $\Sym_n$, the alternating representation is the ``sign'' map
@@ -185,9 +184,11 @@
 				\item Degree = 1.
 			\end{itemize}
 		\end{block}
-	\end{frame}
-	
-	\begin{frame}{Examples cont'd.}
+		
+		\begin{block}{Degree 1 representations of $\Cyc_n$}
+			content...
+		\end{block}
+
 		\begin{block}{Permutation representation}
 			\begin{itemize}
 				\item Let $G$ be a finite group and let $X$ be a finite set.
@@ -209,9 +210,7 @@
 				\item The matrices $\rho_g$ are \alert{permutation matrices}.
 			\end{itemize}
 		\end{block}
-	\end{frame}
-	
-	\begin{frame}{Examples cont'd.}
+		
 		\begin{block}{Symmetric group $\Sym_n$}
 			\begin{itemize}
 				\item Let $G = \Sym_n$, the set of permutations of $X = \{1, 2, \dots, n\}$.
@@ -269,9 +268,7 @@
 %				\label{table:permS3}
 %			\end{table}
 		\end{example}
-	\end{frame}
-	
-	\begin{frame}{Examples cont'd.}
+
 		\begin{example}[Matrix representations of $\Sym_4$]
 		
 %		\begin{table}[hbt\Perm!]
@@ -315,9 +312,7 @@
 %			\label{table:permS4}
 %		\end{table}
 \end{example}
-	\end{frame}
-	
-	\begin{frame}{Examples cont'd.}
+
 		\begin{block}{Regular representation}
 			\begin{itemize}
 				\item Let $X = G$. \textit{($G$ acts on itself.)}
@@ -338,9 +333,7 @@
 				\item $g \cdot g^a = g^{a+1}$.
 			\end{itemize}
 		\end{block}
-	\end{frame}
-	
-	\begin{frame}{Examples cont'd.}
+
 		\begin{example}[Matrix representations of $\Cyc_3$]
 			\begin{itemize}
 				\item In $e, g, g^2$-basis:
@@ -375,15 +368,16 @@
 
 				\item Clearly, $\rho_g = (1) \oplus (\omega) \oplus (\omega^2) = \rho_g^0 \oplus \rho_g^1 \oplus \rho_g^2$.
 				
-				\item That is, $\{\text{Regular repr.}\} = \bigoplus \{\text{Deg. 1 repr.}\}$
+				\item That is, \begin{align*}
+					\{\text{Regular repr.}\} = \bigoplus_i \{\text{Deg. 1 repr.}\}
+				\end{align*}
 			\end{itemize}
 			
 		\end{example}
 	\end{frame}
 	
 	\subsection{Subrepresentations and irreducible representations}
-	
-	\begin{frame}{Subrepresentations}
+	\begin{frame}[allowframebreaks]{Subrepresentations}
 		\begin{definition}[$G$-linear map]
 			A vector space map $\varphi : V \rightarrow W$ is called $G$-linear if it commutes with the action $G$.
 			\begin{columns}
@@ -408,9 +402,7 @@
 		\begin{definition}[$G$-invariant subspace]
 			A vector subspace $W$ of $V$ is called $G$-invariant if it is left fixed by the action of $G$.
 		\end{definition}
-	\end{frame}	
-	
-	\begin{frame}{Subrepresentations cont'd.}
+
 		\begin{block}{Now:}
 			\begin{itemize}
 				\item Let $\rho^V : G \rightarrow \GL(V)$.
@@ -430,9 +422,7 @@
 		\begin{example}[Trivial subspaces]
 			Any representation has itself and the zero space as trivial, non-proper subrepresentations.
 		\end{example}
-	\end{frame}
-	
-	\begin{frame}{Subrepresentations cont'd.}
+
 		\begin{example}[Trivial repr. inside permutation repr.]
 			\begin{itemize}
 				\item Let $V$ be the permutation representation. 
@@ -449,8 +439,8 @@
 		\end{example}
 	\end{frame}
 	
-	\begin{frame}{Subrepresentations cont'd}
-		\begin{example}[Alternating repr. inside regular repr. of $\Sym_n$]
+	\begin{frame}[allowframebreaks]{Subrepresentations cont'd}
+		\begin{example}[Alternating repr. inside regular repr. of $\Sym_n$]Alternating repr. inside regular repr. of $\Sym_n$
 			\begin{itemize}
 				\item Let $V$ be the regular representation of $\Sym_n$.
 				
@@ -459,12 +449,27 @@
 					W = \Span \left\lbrace \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma \right\rbrace.
 				\end{align*}
 				
-				\item An element $w \in W$ is $a \cdot \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma $, for some $ a \in \CC$.
+				\item An $w \in W$ is $a \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma $, $ a \in \CC$.
 				
-				\item The action of a $\tau \in \Sym_n$ on a $w \in W$ is
-
+				
 			\end{itemize}
 		\end{example}
+		The action of a $\tau \in \Sym_n$ on $w \in W$ is \begin{align*}
+			\tau \cdot w &= \tau \cdot \left(a \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma\right) \\
+			&=  a \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_{\tau\sigma}) & \text{(Linear action of $\tau$)} \\
+			&= a \frac{1}{\sgn(\tau)}\sum_{\sigma \in \Sym_n} \sgn(\tau)\sgn(\sigma)\bas_{\tau\sigma} \\
+			&= a \frac{1}{\sgn(\tau)}\sum_{\sigma \in \Sym_n} \sgn(\tau\sigma)\bas_{\tau\sigma} & \text{(sgn homom.)}
+		\end{align*}
+		
+		Let $\sigma' = \tau\sigma$. Let sum be over $\sigma'$.
+		
+		Also, $\sgn(\tau) = \pm 1 = 1/\sgn(\tau)$.
+		
+		Hence \begin{align*}
+			\tau \cdot w &= {\sgn(\tau)}a\sum_{\sigma' \in \Sym_n} \sgn(\sigma')\bas_{\sigma'} \\
+			&= \sgn(\tau) w.
+		\end{align*}
+		And $W$ is a $\Sym_n$-invariant subspace of the regular representation.
 	\end{frame}
 	
 	\begin{frame}{Subrepresentations cont'd.}
