@@ -24,6 +24,7 @@
 \newcommand{\id}{\text{id}}
 \newcommand{\Span}{\text{Span}}
 \newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
 \newcommand{\wvec}{w}
 
 %---------------------TITLE PAGE---------------------------------------
@@ -77,50 +78,30 @@
 	
 	\subsection{Tensor algebra}
 	
-	\begin{frame}{Tensor operations}
-		\framesubtitle{Quick introduction}
+	\begin{frame}[allowframebreaks]{Tensor operations}
+%		\framesubtitle{Quick introduction}
 		
 		Let $V$ and $W$ be vector spaces.
 		
 		Let $v = (v_1, \dots, v_m)^T \in V$ and $w = (w_1, \dots, w_n)^T \in W$. 
 		
-		Then the following are also vector spaces:
-		
-		\vfill
-		
+		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations.
+
 		\begin{block}{Direct sum $V \oplus W$}
 			\begin{itemize}
 				\item $v \oplus w = \begin{pmatrix}
 					v \\ w
-				\end{pmatrix} = (v_1, \dots, v_m, w_1, \dots, w_n)^T \in V \oplus W$
-				\item $\dim V \oplus W = \dim V + \dim W$
-			\end{itemize}
-		\end{block}
-		\vfill
-		\begin{block}{Tensor product $V \otimes W$}
-			\begin{itemize}
-				\item $v \otimes w = (v_iw)_{i=1}^{m} = (v_1 w_1, \dots, v_m w_1, v_1 w_2, \dots, v_m w_2, \dots, v_1 w_n, \dots, v_m w_n)^T \in V \otimes W$
-				\item $\dim V \otimes W = \dim V \cdot \dim W$
-			\end{itemize}
-		\end{block}		
-	\end{frame}
-	
-	\begin{frame}{Tensor operations on representation spaces}
-		Let $\rho^V: G \rightarrow \GL(V)$ and $\rho^W: G \rightarrow \GL(W)$ be representations. 
-		
-%		Remember: The $\rho^V_g$ and $\rho^W_g$ are matrices. 
-		
-		Then the following are also representations:
-		\vfill
-		\begin{block}{Direct sum of representations}
-			\begin{itemize}
+				\end{pmatrix} = (v_1, \dots, v_m, w_1, \dots, w_n)^T \in V \oplus W$.
+				
+				\item $\dim V \oplus W = \dim V + \dim W$.
+				
 				\item $\rho^{V \oplus W} = \rho^V \oplus \rho^W$ is the block matrix $\begin{pmatrix}
 					\rho^V & 0 \\ 0 & \rho^W
 				\end{pmatrix}$.
 				
-				\item It is a repr. given by 
+				\item $\rho^{V \oplus W}: G \rightarrow \GL(V \oplus W)$ is given by 
 				\begin{align*}
-%					(	\rho^V \oplus \rho^W) \cdot (v \oplus w) &= 
+					%					(	\rho^V \oplus \rho^W) \cdot (v \oplus w) &= 
 					\begin{pmatrix}
 						\rho^V & 0 \\ 0 & \rho^W
 					\end{pmatrix} \cdot \begin{pmatrix}
@@ -134,18 +115,69 @@
 			\end{itemize}
 		\end{block}
 		
-		\begin{block}{Tensor product of representations}
+%		\begin{example}[$\RR^3$]
+%			\begin{align*}
+%				\RR^3 = \RR \oplus \RR \oplus \RR
+%			\end{align*}
+%		\end{example}
+		
+%		\begin{block}{Direct sum of representations}
+%			\begin{itemize}
+%				\item $\rho^{V \oplus W} = \rho^V \oplus \rho^W$ is the block matrix $\begin{pmatrix}
+%					\rho^V & 0 \\ 0 & \rho^W
+%				\end{pmatrix}$.
+%				
+%				\item $\rho^{V \oplus W}: G \rightarrow \GL(V \oplus W)$ is a representation given by 
+%				\begin{align*}
+%					%					(	\rho^V \oplus \rho^W) \cdot (v \oplus w) &= 
+%					\begin{pmatrix}
+%						\rho^V & 0 \\ 0 & \rho^W
+%					\end{pmatrix} \cdot \begin{pmatrix}
+%						v \\ w
+%					\end{pmatrix} 
+%					= \begin{pmatrix}
+%						\rho^V  v \\ \rho^W  w
+%					\end{pmatrix} 
+%					= (\rho^V v) \oplus (\rho^W w).
+%				\end{align*}
+%			\end{itemize}
+%		\end{block}
+		
+		\framebreak
+		
+		\begin{block}{Tensor product $V \otimes W$}
 			\begin{itemize}
+				\item $v \otimes w = (v_iw)_{i=1}^{m} = (v_1 w_1, \dots, v_m w_1, v_1 w_2, \dots, v_m w_2, \dots, v_1 w_n, \dots, v_m w_n)^T \in V \otimes W$.
+				
+				\item $\dim V \otimes W = \dim V \cdot \dim W$.
+				
 				\item $\rho^{V \otimes W} = \rho^V \otimes \rho^W$ is the block matrix $(\rho^V_{ij} \rho^W)$.
 				
-				\item It is a repr. given by 
+				\item $\rho^{V \otimes W}: G \rightarrow \GL(V \otimes W)$ is given by 
 				\begin{align*}
-				(\rho^V_{ij} \rho^W) \cdot (v_i w)
+					(\rho^V_{ij} \rho^W) \cdot (v_i w)
 					= (\rho^V_{ij}v_i \rho^Ww)
 					= (\rho^V v) \otimes (\rho^W w).
 				\end{align*}
 			\end{itemize}
-		\end{block}
+		\end{block}		
+
+		
+
+		
+		
+%		\begin{block}{Tensor product of representations}
+%			\begin{itemize}
+%				\item $\rho^{V \otimes W} = \rho^V \otimes \rho^W$ is the block matrix $(\rho^V_{ij} \rho^W)$.
+%				
+%				\item It is a repr. given by 
+%				\begin{align*}
+%				(\rho^V_{ij} \rho^W) \cdot (v_i w)
+%					= (\rho^V_{ij}v_i \rho^Ww)
+%					= (\rho^V v) \otimes (\rho^W w).
+%				\end{align*}
+%			\end{itemize}
+%		\end{block}
 	\end{frame}
 	
 	\subsection{Examples}
@@ -158,17 +190,25 @@
 				\end{align*}
 				
 				\item Trivially a homomorphism.
-				
-				\item Degree = 1.
 			\end{itemize}
 			
+		\end{block}
+		\framebreak
+		\begin{block}{Symmetric group $\Sym_n$}
+			\begin{itemize}
+				\item Set of permutations of $\{1, 2, \dots, n\}$.
+				
+				\item Group under composition of permutations. 
+				
+				\item $|\Sym_n| = n!$.
+			\end{itemize}
 		\end{block}
 
 		\begin{block}{Alternating representation}
 			\begin{itemize}
 				\item For $\Sym_n$, the alternating representation is the ``sign'' map
 				\begin{align*}
-						\sgn &: \Sym_n \rightarrow \{\pm 1\} \\
+%						\sgn &: \Sym_n \rightarrow \{\pm 1\} \\ 
 					\rho &: \sigma \mapsto \sgn(\sigma), \quad \text{for all } \sigma \in \Sym_n.
 					%				\sgn &: \Sym_n \rightarrow \{\pm 1\} \\
 					%				\sgn &: \sigma \mapsto (-1)^s,
@@ -180,14 +220,71 @@
 					&= (-1)^{s+t} \\
 					&= \sgn(\sigma\tau).
 				\end{align*}
+			\end{itemize}
+		\end{block}
+		
+		\begin{block}{Cyclic group $\Cyc_n$}
+			\begin{itemize}
+				\item $\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}$.
 				
-				\item Degree = 1.
+				\item $g^n = e$.
+				
+				\item $g \cdot g^a = g^{a+1}$.
 			\end{itemize}
 		\end{block}
 		
 		\begin{block}{Degree 1 representations of $\Cyc_n$}
-			content...
+			\begin{itemize}
+				\item Consider $\rho: \Cyc_n \rightarrow \CC^\times$.
+				
+				\item $g$ is mapped to $n$th root of unity since
+				\begin{align*}
+					\rho_e = 1, \quad g^n = e \quad \text{and} \quad \rho_{g^n} = \rho_g^n.
+				\end{align*}
+			\end{itemize}
 		\end{block}
+		
+		\begin{example}[$\Cyc_3$]
+			The third roots of unity are $1$, $\omega = \frac{-1+i\sqrt{3}}{2}$ and $w^2 = \frac{-1-i\sqrt{3}}{2}$.
+			\begin{table}
+				\centering
+				\begin{tabular}{c | c c c}
+					$\Cyc_3$ & $e$ & $g$        & $g^2$      \\ \hline
+					$\rho_0$          & 1   & 1          & 1          \\
+					$\rho_1$          & 1   & $\omega$   & $\omega^2$ \\
+					$\rho_2$          & 1   & $\omega^2$ & $\omega$
+				\end{tabular}
+			\end{table}
+		\end{example}
+		
+		\begin{example}[$\Cyc_4$]
+			The fourth roots of unity are $1,i,-1$ and $-i$.
+			\begin{table}
+				\centering
+				\begin{tabular}{c | c c cl}
+					$\Cyc_4$ & $e$ & $g$  & $g^2$ & $g^3$ \\ \hline
+					$\rho_0$           & 1   & 1    & 1     & 1     \\
+					$\rho_1$           & 1   & $i$  & $-1$  & $-i$  \\
+					$\rho_2$           & 1   & $-1$ & $1$  & $-1$   \\
+					$\rho_3$           & 1   & $-i$ & $-1$   & $i$
+				\end{tabular}
+			\end{table}
+		\end{example}
+		
+		\begin{example}[$\Cyc_5$]
+			The fifth roots of unity are $e^{{2\pi im}/{5}}$, $0 \leq m \leq 4$.
+			\begin{table}
+				\centering
+				\begin{tabular}{c | c c c c c}
+					$\Cyc_5$ & $e$ & $g$        & $g^2$      & $g^3$      & $g^4$      \\ \hline
+					$\rho_0$            & 1   & 1          & 1          & 1          & 1          \\
+					$\rho_1$            & 1   & $\omega$ & $\omega^2$ & $\omega^3$ & $\omega^4$ \\
+					$\rho_2$            & 1   & $\omega^2$ & $\omega^4$ & $\omega$ & $\omega^3$ \\
+					$\rho_3$            & 1   & $\omega^3$ & $\omega$ & $\omega^4$ & $\omega^2$ \\
+					$\rho_4$            & 1   & $\omega^4$ & $\omega^3$ & $\omega^2$ & $\omega$
+				\end{tabular}
+			\end{table}
+		\end{example}
 
 		\begin{block}{Permutation representation}
 			\begin{itemize}
@@ -201,7 +298,7 @@
 				
 				\item Let the basis $(\bas_x)_{x \in X}$ span $V$.
 				
-				\item Then the permutation representation is a map
+				\item Then the permutation representation is
 				\begin{align*}
 					\rho &: G \rightarrow \GL(V), \\
 					\rho_g &: \bas_x \mapsto \bas_{gx}.
@@ -324,15 +421,7 @@
 				\end{align*}
 			\end{itemize}
 		\end{block}
-		\begin{block}{Cyclic group $\Cyc_n$}
-			\begin{itemize}
-				\item $\Cyc_n = \{ e, g, g^2, \dots, g^{n-1}\}$.
-				
-				\item $g^n = e$.
-				
-				\item $g \cdot g^a = g^{a+1}$.
-			\end{itemize}
-		\end{block}
+		
 
 		\begin{example}[Matrix representations of $\Cyc_3$]
 			\begin{itemize}
@@ -378,26 +467,26 @@
 	
 	\subsection{Subrepresentations and irreducible representations}
 	\begin{frame}[allowframebreaks]{Subrepresentations}
-		\begin{definition}[$G$-linear map]
-			A vector space map $\varphi : V \rightarrow W$ is called $G$-linear if it commutes with the action $G$.
-			\begin{columns}
-				\column{0.4\linewidth}
-				\[\begin{tikzcd}[ampersand replacement=\&]
-					V \&\& W \\
-					\\
-					V \&\& W
-					\arrow["\varphi", from=1-1, to=1-3]
-					\arrow["g"', from=1-1, to=3-1]
-					\arrow["g", from=1-3, to=3-3]
-					\arrow["\varphi", from=3-1, to=3-3]
-				\end{tikzcd}\]
-				\column{0.4\linewidth}
-				\begin{align*}
-					\varphi(g \cdot v) = g \cdot \varphi(v)
-				\end{align*}
-			\end{columns}
-			% https://q.uiver.app/#q=WzAsNCxbMCwwLCJWIl0sWzAsMiwiViJdLFsyLDIsIlciXSxbMiwwLCJXIl0sWzAsMywiXFx2YXJwaGkiXSxbMSwyLCJcXHZhcnBoaSJdLFswLDEsImciLDJdLFszLDIsImciXV0=
-		\end{definition}
+%		\begin{definition}[$G$-linear map]
+%			A vector space map $\varphi : V \rightarrow W$ is called $G$-linear if it commutes with the action $G$.
+%			\begin{columns}
+%				\column{0.4\linewidth}
+%				\[\begin{tikzcd}[ampersand replacement=\&]
+%					V \&\& W \\
+%					\\
+%					V \&\& W
+%					\arrow["\varphi", from=1-1, to=1-3]
+%					\arrow["g"', from=1-1, to=3-1]
+%					\arrow["g", from=1-3, to=3-3]
+%					\arrow["\varphi", from=3-1, to=3-3]
+%				\end{tikzcd}\]
+%				\column{0.4\linewidth}
+%				\begin{align*}
+%					\varphi(g \cdot v) = g \cdot \varphi(v)
+%				\end{align*}
+%			\end{columns}
+%			% https://q.uiver.app/#q=WzAsNCxbMCwwLCJWIl0sWzAsMiwiViJdLFsyLDIsIlciXSxbMiwwLCJXIl0sWzAsMywiXFx2YXJwaGkiXSxbMSwyLCJcXHZhcnBoaSJdLFswLDEsImciLDJdLFszLDIsImciXV0=
+%		\end{definition}
 			
 		\begin{definition}[$G$-invariant subspace]
 			A vector subspace $W$ of $V$ is called $G$-invariant if it is left fixed by the action of $G$.
@@ -437,17 +526,15 @@
 				\item Hence, the trivial representation is a subrepresentation of the permutation representation (and the regular representation).
 			\end{itemize}		
 		\end{example}
-	\end{frame}
-	
-	\begin{frame}[allowframebreaks]{Subrepresentations cont'd}
+
 		\begin{example}[Alternating repr. inside regular repr. of $\Sym_n$]Alternating repr. inside regular repr. of $\Sym_n$
 			\begin{itemize}
 				\item Let $V$ be the regular representation of $\Sym_n$.
 				
-				\item Consider
-				\begin{align*}
-					W = \Span \left\lbrace \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma \right\rbrace.
-				\end{align*}
+				\item 
+				
+				\item Consider $w = \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma$.
+
 				
 				\item An $w \in W$ is $a \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma $, $ a \in \CC$.
 				

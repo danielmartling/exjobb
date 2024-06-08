@@ -195,13 +195,31 @@
 	
 	\section*{Errors courtesy of Håkan}
 	
-		\paragraph{Page 6, Sammanfattning.} Irreducible representation is usually translated to ``irreducibla representationer'' in Swedish, not ``oreducerbara representationer''.
+		\paragraph{Page 6, Sammanfattning.} Irreducible representation is translated to ``irreducibla representationer'' in Swedish, not ``oreducerbara representationer''.
 		
 		\paragraph{Page 13, Example 2.9.} Property iii) of a projection should be ``$\pi(\vvec) = \0$ for any $\vvec$ in $V$ but not in $W$''.
 		
 	\section*{Other errors found}
 	
 		\paragraph{Page 19, Degree one repr. of $\Cyc_n$.} The map should be to the multiplicative group of complex numbers, that is $\rho: \Cyc_n \rightarrow \CC^\times$.
+		
+		\paragraph{Page 31, Proof of Corollary 3.26.} $h$ and $g$ should be exchanged in the left hand side of the calculation, that is it should be \begin{align*}
+			\rho_g \cdot \rho_h &= \rho_{gh} \\
+			&= \rho_{hg} \\
+			&= \rho_h \cdot \rho_g.
+		\end{align*}
+		
+		\paragraph{Page 38, Inner product property iii).} The expression for $(\varphi|\varphi)$ holds for \textit{any} character $\varphi$, however in particular for non-zero characters we have that $(\varphi|\varphi) > 0$ and $(\varphi|\varphi) \in \RR$.
+		
+		\paragraph{Page 40, Example 4.17.} The calculation for the standard character should be 
+		\begin{align*}
+			(\chi_\Stan|\chi_\Stan) &= \frac{1}{24}\left( 3^2 + 6 \cdot 1^2 + 8 \cdot 0^2 + 6 \cdot (-1)^2 + 3 \cdot (-1)^2 \right) \\
+			&= 1.
+		\end{align*}
+		
+		\paragraph{Page 41, Multiplicities in regular representation decomposition.} The summation sign in the comment on the seventh row of the calculation for $m_j$ should be a direct sum sign, that is \begin{align*}
+			V = \bigoplus_i m_i V_i.
+		\end{align*}
 		
 		\paragraph{Page 44, Decomposition of $V_\Stan \otimes V_\Stan$.} The calculation for $(\chi_\Alt|\chi_\Stan^2)$ should be \begin{align*}
 			\frac{1}{24}\left(9-6+0-6+{\emph{3}}\right) = 0.
