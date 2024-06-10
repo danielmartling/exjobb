@@ -5,7 +5,7 @@
 %Title page
 \title[Representation Theory]{Introduction to Representation Theory of Finite Groups}
 %\subtitle{(Your Sub Title)}
-\titlegraphic{\includegraphics[height=2.0cm]{Logos/widelogo.png}}
+%\titlegraphic{\includegraphics[height=2.0cm]{Logos/widelogo.png}}
 \author[Daniel Martling]{
 	Daniel Martling}% ,
 %	2nd Author,
@@ -33,6 +33,8 @@
 \newcommand{\Perm}{\text{Perm}}
 \newcommand{\Stan}{\text{Stan}}
 
+\newtheorem{proposition}{Proposition}[theorem]
+
 %---------------------TITLE PAGE---------------------------------------
 \begin{document}
 	\begin{frame}
@@ -40,8 +42,8 @@
 	\end{frame}
 	%------------------------------------------------------------
 	
-	\logo{\includegraphics[height=1cm]{Logos/circlelogo.png}~%
-	}
+%	\logo{\includegraphics[height=1cm]{Logos/circlelogo.png}~%
+%	}
 	
 	
 	%-------------------------------------------------------------------
@@ -71,18 +73,20 @@
 	
 	\begin{frame}{Initial definitions}
 		\begin{itemize}
-			\item Homomorphism: \begin{align*}
-				\rho_g \rho_h &= \rho_{gh}, \\
+			\item $\rho$ is a homomorphism: \begin{align*}
+				\rho_g \rho_h &= \rho_{gh}, 
+			\end{align*}\pause
+			\begin{align*}
 				\quad \rho_e &= \text{id}, \\
 				\rho_{g^{-1}} &= (\rho_g)^{-1}.
 			\end{align*}\pause
-			
+			\vfill
 			\item A vector space with such a map is called a \alert{representation space of $G$}.\pause
-			
+			\vfill
 			\item $\rho$, $\{\rho_g\}_{g\in G}$ and $V$ are all referred to as the \alert{representation of $G$.}\pause
-			
+			\vfill
 			\item $\dim V =$ the \textit{degree} of the representation.\pause
-			
+			\vfill
 			\item A choice of basis gives us a \alert{matrix representation}. It is not canonical and dependent on this basis.
 		\end{itemize}		
 	\end{frame}
@@ -223,10 +227,10 @@
 
 		\begin{block}{Alternating representation}
 			\begin{itemize}
-				\item For $\Sym_n$, the alternating representation is the ``sign'' map
+				\item For $\Sym_n$, recall the ``sign'' map
 				\begin{align*}
 %						\sgn &: \Sym_n \rightarrow \{\pm 1\} \\ 
-					\rho &: \sigma \mapsto \sgn(\sigma), \quad \text{for all } \sigma \in \Sym_n.
+					\sgn &: \sigma \mapsto \{\pm 1\}, \quad \text{for any } \sigma \in \Sym_n.
 					%				\sgn &: \Sym_n \rightarrow \{\pm 1\} \\
 					%				\sgn &: \sigma \mapsto (-1)^s,
 				\end{align*}\pause
@@ -236,7 +240,9 @@
 					\sgn(\sigma)\sgn(\tau) &= (-1)^s(-1)^t \\
 					&= (-1)^{s+t} \\
 					&= \sgn(\sigma\tau).
-				\end{align*}
+				\end{align*}\pause
+				
+				\item $\rho_\sigma = \sgn(\sigma)$ is a representation.
 			\end{itemize}
 		\end{block}
 	\end{frame}
@@ -251,9 +257,11 @@
 %		
 		\begin{block}{Degree 1 representations of $\Cyc_n$}
 			\begin{itemize}
-				\item Consider $\rho: \Cyc_n \rightarrow \CC^\times$.
+				\item Consider $\rho: \Cyc_n \rightarrow \CC^\times$.\pause
 				
-				\item For $g$, $g^n = e$, hence $(\rho_g)^n = \rho_{g^n} = \rho_e = 1$.
+				\item For $g$, $g^n = e$, hence $\rho_{g^n} = 1$. 
+				
+				\item Also, $(\rho_g)^n = \rho_{g^n}$, hence $(\rho_g)^n = 1$.\pause
 				
 				\item That is: $g$ is mapped to $n$th root of unity.
 			\end{itemize}
@@ -312,7 +320,7 @@
 %					\sigma_g &: x \mapsto gx.
 %				\end{align*}
 				
-				\item Let the basis $(\bas_x)_{x \in X}$ span $V$.
+				\item Let the basis $(\bas_x)_{x \in X}$ span $V$.\pause
 				
 				\item Then the permutation representation is
 				\begin{align*}
@@ -331,7 +339,7 @@
 			\begin{itemize}
 				\item Let $G = \Sym_n$ act on $X = \{1, 2, \dots, n\}$.
 				
-				\item $\rho : \Sym_n \rightarrow \GL(V)$ is defined by $\rho_\sigma : \bas_i \rightarrow \bas_{\sigma(i)}$.\pause
+				\item $\rho : \Sym_n \rightarrow \GL(V)$ is defined by $\rho_\sigma : \bas_i \rightarrow \bas_{\sigma(i)}$.
 				
 %				\item $\rho_\sigma = (r_{ij})_{n \times n}$, where $r_{ij} = \begin{cases}
 %					1, \quad \text{if} \quad j = \sigma(i), \\
@@ -432,7 +440,7 @@
 	\begin{frame}{Examples}
 		\begin{block}{Regular representation}
 			\begin{itemize}
-				\item Let $X = G$. \textit{($G$ acts on itself.)}\pause
+				\item Special case: Let $X = G$. \textit{($G$ acts on itself.)}\pause
 				
 				\item The regular representation is a map
 				\begin{align*}
@@ -453,7 +461,7 @@
 					\end{pmatrix}, \quad \rho_{g^2} = \begin{pmatrix}
 						0&1&0 \\ 0&0&1 \\ 1&0&0 
 					\end{pmatrix}.
-					$\pause
+					$
 %				\end{align*}
 				
 %				\item Switch basis: $\begin{cases}
@@ -477,11 +485,11 @@
 %
 %				\item Clearly, $\rho_g = (1) \oplus (\omega) \oplus (\omega^2) = \rho_g^0 \oplus \rho_g^1 \oplus \rho_g^2$.
 				
-				\item It is the direct sum of the degree one repr. found earlier.\pause
-				
-				\item That is, \begin{align*}
-					\{\text{Regular repr.}\} = \bigoplus_i \{\text{Deg. 1 repr.}\}
-				\end{align*}
+%				\item It is the direct sum of the degree one repr. found earlier.\pause
+%				
+%				\item That is, \begin{align*}
+%					\{\text{Regular repr.}\} = \bigoplus_i \{\text{Deg. 1 repr.}\}
+%				\end{align*}
 			\end{itemize}
 			
 		\end{example}
@@ -512,15 +520,37 @@
 		
 		\begin{example}[Trivial subspaces]
 			Any representation has itself and the zero space as trivial, non-proper subrepresentations.
-		\end{example}\pause
-		
+		\end{example}
+	\end{frame}
+%	\begin{frame}{Subrepresentations and irreducible representations}
+%		\begin{example}[Regular representation of $\Cyc_3$]
+%			\begin{itemize}
+%				\item In $e, g, g^2$-basis:
+%				%				\begin{align*}
+%					$
+%					\rho_e = \id, \quad \rho_g = \begin{pmatrix}
+%						0&0&1 \\ 1&0&0 \\ 0&1&0
+%					\end{pmatrix}, \quad \rho_{g^2} = \begin{pmatrix}
+%						0&1&0 \\ 0&0&1 \\ 1&0&0 
+%					\end{pmatrix}.
+%					$\pause
+%					%				\end{align*}
+%				
+%
+%				
+%								\item It is the direct sum of the degree one repr. found earlier.
+%								
+%								\item That is, \begin{align*}
+%										\{\text{Regular repr.}\} = \bigoplus_i \{\text{Deg. 1 repr.}\}
+%									\end{align*}
+%			\end{itemize}
+%		\end{example}
+%	\end{frame}
+	\begin{frame}{Subrepresentations and irreducible representations}		
 		\begin{definition}[Irreducible representation]
 			If there are no $G$-invariant subspaces of a representation other than itself and the zero space, than it is called \alert{irreducible}.
-		\end{definition}
-	\end{frame}
-	\begin{frame}{Subrepresentations and irreducible representations}
-
-		
+		\end{definition}\pause
+	
 		\begin{example}[Degree one representations are irreducible]
 			\begin{itemize}
 				\item Any vector space of dimension one has no proper subspaces, hence they are irreducible.
@@ -547,40 +577,25 @@
 			\end{itemize}		
 		\end{example}
 	\end{frame}
-	\begin{frame}{Subrepresentations and irreducible representations}
-		\begin{example}[Alternating repr. inside regular repr. of $\Sym_n$]
-			\begin{itemize}
-				\item<1-> Let $V$ be the regular representation of $\Sym_n$.
-				
-				\item<1-> Consider $w = \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma$.
-				
-				\item<2-> The action of a $\tau \in \Sym_n$ on $w$ is \begin{align*}
-					\tau \cdot w &= \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_{\tau\sigma} & \text{(Linear action of $\tau$)} \\ 
-					&= \sgn(\tau)\sum_{\sigma \in \Sym_n} \sgn(\tau)\sgn(\sigma)\bas_{\tau\sigma} & \text{($\sgn^2 = 1$)}\\
-					&= \sgn(\tau)\sum_{\sigma \in \Sym_n} \sgn(\tau\sigma)\bas_{\tau\sigma} & \text{(sgn homom.)} \\
-					&= \sgn(\tau)\sum_{\sigma' \in \Sym_n} \sgn(\sigma')\bas_{\sigma'} & \text{(Let $\sigma' = \tau\sigma$)} \\
-					&= \sgn(\tau) w.
-				\end{align*}				
-			\end{itemize}
-		\end{example}
-	\end{frame}
-	\begin{frame}{Subrepresentations and irreducible representations}
-		\begin{example}[cont'd.]
-			\begin{itemize}
-				\item<1-> We have that \begin{align*}
-					\tau \cdot w = \sgn(\tau) w,
-				\end{align*}
-				
-				\item<2-> $\Span(w)$ is 1-dimensional
-				
-				\item<2-> $\Span(w)$ is a $\Sym_n$-invariant subspace of the regular representation.
-				
-				\item<2-> Its action is identical to the alternating representation.
-			\end{itemize}
-		\end{example}
-	\end{frame}
+%	\begin{frame}{Subrepresentations and irreducible representations}
+%		\begin{example}[Alternating repr. inside regular repr. of $\Sym_n$]
+%			\begin{itemize}
+%				\item Let $V$ be the regular representation of $\Sym_n$.
+%				
+%				\item Consider $w = \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma$.\pause
+%				
+%				\item The action of a $\tau \in \Sym_n$ on $w$ is $\sgn(\tau) w$.\pause
+%				
+%				\item The 1-dimensional spanned by  $w$ is a $\Sym_n$-invariant subspace.
+%			\end{itemize}
+%		\end{example}
+%	\end{frame}
 	
 	\begin{frame}{Subrepresentations as a kernel}
+		
+		\begin{itemize}
+			\item We want to ``divide'' or ``decompose'' a representations into two subrepresentations.
+		\end{itemize}\pause
 		
 		\begin{definition}[$G$-linear map]
 			A vector space map $\varphi : V \rightarrow W$ is called $G$-linear if it commutes with the group action of $G$.
@@ -603,37 +618,40 @@
 			% https://q.uiver.app/#q=WzAsNCxbMCwwLCJWIl0sWzAsMiwiViJdLFsyLDIsIlciXSxbMiwwLCJXIl0sWzAsMywiXFx2YXJwaGkiXSxbMSwyLCJcXHZhcnBoaSJdLFswLDEsImciLDJdLFszLDIsImciXV0=
 		\end{definition}\pause
 		
-		\begin{theorem}
+		\begin{proposition}
 			Let $V$ and $W$ be representation spaces of some group $G$.
 			
-			Let $\varphi: V \rightarrow W$ be a $G$-linear map. \pause
+			Let $\varphi: V \rightarrow W$ be a $G$-linear map. 
 			
 			Then $\ker \varphi \leq V$ and $\text{im } \varphi \leq W$ are subrepresentations.
-		\end{theorem}
+		\end{proposition}
 	\end{frame}
 	\begin{frame}{Subrepresentations as a kernel}
-		\begin{theorem}
+		\begin{proposition}
 			Let $V$ be a representation space and let $W$ be a subrepresentation of $V$.
 			
 			Then there exists a subrepresentation $W'$ of $V$ complementary to $W$ such that \begin{align*}
 				V = W \oplus W'.
 			\end{align*}
-		\end{theorem}
-	\end{frame}
-	\begin{frame}{Subrepresentations as a kernel}
-		\begin{proof}
-			\begin{itemize}
-				\item Let $\pi: V \rightarrow W$ be a projection.\pause
-				\item Then the \alert{average}\begin{align*}
-					\bar{\pi} = \frac{1}{|G|}\sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1}
-				\end{align*} is a G-linear map, and also a projection $V \rightarrow W$.\pause
-				\item Then $\ker \bar{\pi}$ is a subrepresentation of $V$ complementary to $W$, ie. \begin{align*}
-					V = W \oplus \ker \bar{\pi}.
-				\end{align*}
-			\end{itemize}
-		\end{proof}
-	\end{frame}
-	\begin{frame}{Subrepresentations as a kernel}
+		\end{proposition}\pause
+%	\end{frame}
+%	\begin{frame}{Subrepresentations as a kernel}
+%		\begin{proof}
+%			\begin{itemize}
+%				\item Let $\pi: V \rightarrow W$ be a projection.\pause \textit{\alert{Not necessarily $G$-linear!}}\pause
+%				\item But the \alert{average}\begin{align*}
+%					\bar{\pi} = \frac{1}{|G|}\sum_{g \in G} \rho_g \cdot \pi \cdot \rho_g^{-1}
+%				\end{align*} is a G-linear map, and also a projection $V \rightarrow W$.
+%				
+%				\item $\text{im } \varphi = W$. \pause
+%				
+%				\item Then $\ker \bar{\pi}$ is a subrepresentation of $V$ complementary to $W$, ie. \begin{align*}
+%					V = W \oplus \ker \bar{\pi}.
+%				\end{align*}
+%			\end{itemize}
+%		\end{proof}
+%	\end{frame}
+%	\begin{frame}{Subrepresentations as a kernel}
 		\begin{example}[Standard representation of $\Sym_3$]
 			\begin{itemize}
 				\item $V$ = Permutation representation of $\Sym_3$.
@@ -646,15 +664,15 @@
 				\item Then $W'$ is the complement of $W$ in $V$, 
 				\begin{align*}
 					W' = \Span \left\lbrace \bas_1 - \bas_2 , \bas_2 - \bas_3 \right\rbrace.
-				\end{align*}\pause
+				\end{align*}
 								
-				\item This is called the \alert{standard representation of $\Sym_n$}.
+%				\item This is called the \alert{standard representation of $\Sym_3$}.
 			\end{itemize}
 		\end{example}
 %		Example Decomp $\Sym_3$
 		
 	\end{frame}
-	\begin{frame}{Subrepresentations as a kernel}
+	\begin{frame}{Complete decomposition}
 		\begin{corollary}[Maschke's theorem]
 			Any representation $V$ is a direct sum of a finite number of irreducible subrepresentations. \begin{align*}
 				V = \bigoplus_{i=1}^k W_i
@@ -682,7 +700,7 @@
 			\end{itemize}
 		\end{theorem}
 	\end{frame}
-	\begin{frame}{Subrepresentations as a kernel}
+	\begin{frame}{Complete decomposition}
 		\begin{proof}
 			\begin{itemize}
 				\item[i)] \begin{itemize}
@@ -705,12 +723,12 @@
 					
 					\item But its kernel is non-empty (contains eigenvector of $\lambda$).\pause
 					
-					\item Hence $\varphi - \lambda \cdot \id$ is the zero map, or $\varphi = \lambda \cdot \id$. \qedhere
+					\item Hence $\varphi - \lambda \cdot \id = 0$, or $\varphi = \lambda \cdot \id$. \qedhere
 				\end{itemize}
 			\end{itemize}
 		\end{proof}
 	\end{frame}
-	\begin{frame}{Subrepresentations as a kernel}
+	\begin{frame}{Complete decomposition}
 		\begin{block}{Corollary of Schur's Lemma}
 			If $V$ is an arbitrary representation of some group, then it is decomposed into the direct sum of a finite number of irreducibles $W_i$ by 
 			\begin{align*}
@@ -753,7 +771,7 @@
 				\item It is constant under conjugation
 			\end{itemize}
 		\end{block}\pause
-		\begin{block}{Properties of the character function}\pause
+		\begin{proposition}{Properties of the character function}
 			\begin{itemize}
 				
 				\item $\chi(e) = \dim(V)$.\pause
@@ -763,9 +781,9 @@
 				\item If $g,h \in G$ are conjugate, then $\chi(g) = \chi(h)$.
 				
 			\end{itemize}
-		\end{block}
+		\end{proposition}
 	\end{frame}
-	\begin{frame}{Properties of characters}
+	\begin{frame}{Group characters}
 		\begin{definition}[Group character]
 			\begin{itemize}
 				\item The tuple
@@ -776,30 +794,23 @@
 			
 				\item Usually abbreviated to one representative from every conjugacy class of $G$.
 			\end{itemize}
-		\end{definition}
-	\end{frame}
-	\begin{frame}{Character calculus}
-		\begin{block}{Character calculus}
-			Addition and multiplication of characters are defined by component-wise addition or multiplication, ie.\pause
-			\begin{itemize}
-				\item $\chi + \psi = \left(\chi(g) + \psi(g)\right)_{g \in G},$ \pause
-				\item $\chi \cdot \psi = \left(\chi(g) \cdot \psi(g)\right)_{g \in G}$.
-			\end{itemize}
-		\end{block}\pause
+		\end{definition}\pause
 		
-		\begin{block}{Tensor operations}
+		\begin{proposition}{Tensor operations}
 			Let $\chi_V$ and $\chi_W$ be characters of some group in the spaces $V$ and $W$.\pause
 			
 			\begin{itemize}
 				\item The character in $V \oplus W$ is $\chi_V + \chi_W$,\pause
 				\item The character in $V \otimes W$ is $\chi_V \cdot \chi_W$.
 			\end{itemize}
-		\end{block}
+		\end{proposition}
 	\end{frame}
-	
-	\begin{frame}{Character tables} 
+	\begin{frame}{Character tables}
+		
+		
 		\begin{definition}[Character table]
 			\begin{table}[hbt!]
+				
 				\centering
 				\parbox[t]{.45\linewidth}{
 					\centering
@@ -817,20 +828,30 @@
 				\hfill
 				\parbox[t]{.45\linewidth}{
 					\centering
-					\begin{tabular}{c | c c c }
-						$\Sym_3$  & $[(1)]$ & $[(1,2)]$ & $[(1,2,3)]$ \\ 
-						$|[\sigma]|$ & $1$ & $3$ & $2$ \\ \hline
-						Triv.. & $1$     & 1         & $1$       \\
-						Alt.  & 1       & $-1$      & 1         \\
-						Perm. & $3$     & $1$       & $0$       \\
-						Stan. & 2       & 0         & -1        
-						%	Reg.  & 4       & 0         & 0
-					\end{tabular}
+						\begin{tabular}{c | c c c }
+							$\Sym_3$  & $[(1)]$ & $[(1,2)]$ & $[(1,2,3)]$ \\ 
+							$|[\sigma]|$ & $1$ & $3$ & $2$ \\ \hline
+							Triv.. & $1$     & 1         & $1$       \\
+							Alt.  & 1       & $-1$      & 1         \\
+							Perm. & $3$     & $1$       & $0$       \\
+							Stan. & 2       & 0         & -1        
+							%	Reg.  & 4       & 0         & 0
+						\end{tabular}
 					%					\caption{Character table of $\Sym_3$.}
 					%					\label{table:chartableSym3}
 				}
 			\end{table}
 		\end{definition}
+	
+%		\begin{block}{Character calculus}
+%			Addition and multiplication of characters are defined by component-wise addition or multiplication, ie.\pause
+%			\begin{itemize}
+%				\item $\chi + \psi = \left(\chi(g) + \psi(g)\right)_{g \in G},$ \pause
+%				\item $\chi \cdot \psi = \left(\chi(g) \cdot \psi(g)\right)_{g \in G}$.
+%			\end{itemize}
+%		\end{block}\pause
+		
+		
 	\end{frame}
 	
 	\begin{frame}{Orthogonality of characters}		
@@ -844,22 +865,60 @@
 			\end{itemize}
 		\end{definition}
 		
-		\begin{block}{Note on orthogonality}
+		\begin{theorem}[Irreducibility criterion]
 			\begin{itemize}
-				\item A representation is irreducible if and only if its character $\varphi$ is such that \begin{align*}
-				(\varphi|\varphi) = 1.
-			\end{align*}\pause
+%				\item A representation is irreducible if and only if its character $\varphi$ is such that \begin{align*}
+%				(\varphi|\varphi) = 1.
+%			\end{align*}\pause
 			
-				\item Two irreducible characters are orthonormal, $(\varphi|\psi) = \begin{cases}
-						1, \quad \varphi = \psi, \\
-						0, \quad \varphi \neq \psi.
-					\end{cases}$
-					
+				\item Characters of irreducible representations are orthonormal.
 				
+				\item Let $\chi, \psi$ be irreducible characters. Then \begin{align*}
+					(\chi|\psi) = \begin{cases}
+						1, \quad \chi = \psi, \\
+						0, \quad \chi \neq \psi.
+					\end{cases}
+				\end{align*}
+			\end{itemize}
+		\end{theorem}
+	\end{frame}
+	\begin{frame}{Decomposition of representations}
+		\begin{block}{Character of an arbitrary representation.}
+			\begin{itemize}
+				
+				\item Let $\{W_i\}$ be every irreducible reprs. of a group.
+				
+				\item Let $\{\chi_i\}$ be their characters.
+				
+				\item Let $V$ be any representation of the group, then \begin{align*}
+					V = \bigoplus_i m_i W_i.
+				\end{align*}
+				
+				\item The character in $V$ is \begin{align*}
+					\chi_V = \sum_i m_i \chi_i.
+				\end{align*}
+  				
+				\item Then we have: \begin{align*}
+					(\chi_V|\chi_V) = \sum_i m_i^2.
+				\end{align*}
 			\end{itemize}
 		\end{block}
 	\end{frame}
 	
+	\begin{frame}{Decomposition of representations}
+		\begin{theorem}
+			The character $\chi$ is irreducible if and only if $(\chi|\chi) = 1$.
+		\end{theorem}
+		
+		\begin{example}[Standard representation is irreducible]
+			For $\Sym_3$: 
+			\begin{itemize}
+				\item $\chi_\Stan = (2,0,-1)$.
+				\item $(\chi_\Stan|\chi_\Stan) = \frac{1}{6}\left(2^2 + 3 \cdot 0 + 2 \cdot (-1)^2\right) = 1$.
+			\end{itemize}
+		\end{example}
+		
+	\end{frame}	
 %	\begin{frame}{Complete decomposition}
 %		\begin{block}{Remark}
 %			The decomposition of a representation into direct sum of irreducibles is unique up to isomorphism.
@@ -877,14 +936,15 @@
 %	\end{frame}
 	
 	\begin{frame}{Decomposition of the regular representation}
-		\begin{itemize}\pause
-			\item The matrices of the regular representation are permutation matrices.
+		\begin{block}{Character of regular representation}
+			\begin{itemize}
+%			\item The matrices of the regular representation are permutation matrices.
 			
-			\item The character is the sum along the diagonal.
+%			\item The character is the sum along the diagonal.
 			
-			\item The diagonal elements are 1 if and only if it represents a fixed point.\pause
+			\item The diagonal elements are 1 if and only if it represents a fixed point for every $g \in G$.\pause
 			
-			\item In $\rho_g$, the $h$th column in will have a 1 in $h$th row if and only if $gh=h$, which holds only for $g = e$.\pause
+%			\item In $\rho_g$, the ``$h$th'' column in will have a 1 in ``$h$th'' row if and only if $gh=h$, which holds only for $g = e$.\pause
 			
 			\item Hence: 
 			\begin{align*}
@@ -896,8 +956,11 @@
 			
 			\item And $(\chi_\Reg|\chi_\Reg) = |G|$.
 			
+			
 %			\item Which leads us to: $m_i^2 = |G|$.
 		\end{itemize}
+		\end{block}
+%		
 	\end{frame}
 	\begin{frame}{Decomposition of the regular representation}
 		\begin{block}{Multiplicities in regular representation}
@@ -908,7 +971,17 @@
 				
 				\item Hence $V_\Reg = \bigoplus_i \dim(W_i)W_i$.
 			\end{itemize}
-		\end{block}
+		\end{block}\pause
+		\begin{block}{Square sum of multiplicities}
+			 We know:
+						\begin{itemize}
+								\item But then \begin{align*}
+										\sum_i (\dim W_i)^2 = |G|.
+									\end{align*}
+								\item The square sum of the degrees of every irreducible representation of a group is the order of the group.
+							\end{itemize}
+					\end{block}
+		
 	\end{frame}
 	
 	\begin{frame}[allowframebreaks]{Characters of cyclic groups}
@@ -957,7 +1030,7 @@
 				$\chi_\Alt$       & 1       & -1      & 1       \\
 				$\chi_\Stan$       & 2       & 0       & -1      \\ \hline\hline
 				$\chi_\Perm$       & 3       & 1       & 0       \\
-				$\chi_\Stan^2$ & 4       & 0       & 1       \\
+%				$\chi_\Stan^2$ & 4       & 0       & 1       \\
 				$\chi_\Reg$       & 6       & 0       & 0       		\end{tabular}
 			
 %			\caption{Complete character table of $S_3$. The representations above the doublestruck line are irreducibles, and those below are composed.}
@@ -968,6 +1041,13 @@
 	
 	\begin{frame}{Character table of $\Sym_4$}
 		\begin{example}[$\Sym_4$]
+			
+			\begin{itemize}
+				\item We know: Trivial, Alternating, Standard.
+			
+				
+			\end{itemize}
+			
 			\begin{table}[hbt!]
 				\centering
 				\begin{tabular}{c | c c c c c}
@@ -975,18 +1055,44 @@
 					$|[\sigma]|$    & $ 1$ & $ 6$ & $ 8$ & $ 6$  & $ 3$      \\ \hline
 					$\chi_\Triv$       & 1       & 1       & 1       & 1        & 1            \\
 					$\chi_\Alt$       & 1       & -1      & 1       & -1       & 1            \\
-					$\chi_W$       & 2       & 0       & -1      & 0        & 2            \\
-					$\chi_\Stan$       & 3       & 1       & 0       & -1       & -1           \\
-					$\chi'_\Stan$ & 3       & -1      & 0       & 1        & -1           \\ \hline\hline
-					$\chi_\Perm$       & 4       & 2       & 1       & 0        & 0            \\
+%					$\chi_W$       & 2       & 0       & -1      & 0        & 2            \\
+					$\chi_\Stan$       & 3       & 1       & 0       & -1       & -1           \\ \hline\hline
+%					$\chi'_\Stan$ & 3       & -1      & 0       & 1        & -1           \\ 
+					$\chi_\Perm$       & 4       & 2       & 1       & 0        & 0            
 					%$\chi_{\bigwedge^2S}$    & 6       & 2       & 0       & 0        & 2            & $\bigwedge^2S \cong T \oplus S \oplus V$                     \\
-					$\chi_\Stan^2$ & 9       & 1       & 0       & 1        & 1            \\
+%					$\chi_\Stan^2$ & 9       & 1       & 0       & 1        & 1            \\
 					%			$\chi_R$       & 24      & 0       & 0       & 0        & 0            & $R \cong T \oplus A \oplus 2V \oplus 3S \oplus 3S'$
 				\end{tabular}
 %				\caption{Complete character table of $\Sym_4$. The representations above the doublestruck line are irreducibles, and those below are composed.}
 %				\label{table:completecharS4}
-			\end{table}
+			\end{table}\pause
+			\begin{itemize}
+				\item Standard$'$ = Alternating $\otimes$ Standard.\pause
+				
+				\item Standard $\otimes$ Standard = Trivial $\oplus$ Standard $\oplus$ Standard$'$ $\oplus$ Unknown.
+			\end{itemize}
 		\end{example}
+	\end{frame}
+	\begin{frame}{Character table of $\Sym_4$}
+		\begin{example}[$\Sym_4$]
+		\begin{table}[hbt!]
+			\centering
+			\begin{tabular}{c | c c c c c}
+				$\Sym_4$         & $[(1)]$   & $[(1,2)]$  & $[(1,2,3)]$ & $[(1,2,3,4)]$ & $[(1,2)(3,4)]$ \\
+				$|[\sigma]|$    & $ 1$ & $ 6$ & $ 8$ & $ 6$  & $ 3$      \\ \hline
+				$\chi_\Triv$       & 1       & 1       & 1       & 1        & 1            \\
+				$\chi_\Alt$       & 1       & -1      & 1       & -1       & 1            \\
+				$\chi_W$       & 2       & 0       & -1      & 0        & 2            \\
+				$\chi_\Stan$       & 3       & 1       & 0       & -1       & -1           \\
+				$\chi'_\Stan$ & 3       & -1      & 0       & 1        & -1           \\ \hline\hline
+				$\chi_\Perm$       & 4       & 2       & 1       & 0        & 0            \\
+				%$\chi_{\bigwedge^2S}$    & 6       & 2       & 0       & 0        & 2            & $\bigwedge^2S \cong T \oplus S \oplus V$                     \\
+				$\chi_\Stan^2$ & 9       & 1       & 0       & 1        & 1            \\
+				%			$\chi_R$       & 24      & 0       & 0       & 0        & 0            & $R \cong T \oplus A \oplus 2V \oplus 3S \oplus 3S'$
+			\end{tabular}
+			%				\caption{Complete character table of $\Sym_4$. The representations above the doublestruck line are irreducibles, and those below are composed.}
+			%				\label{table:completecharS4}
+		\end{table}\end{example}
 	\end{frame}
 	
 	\begin{frame}
@@ -997,48 +1103,137 @@
 	\end{frame}
 	
 	
-	\begin{frame}[allowframebreaks]{Further discussion}
-		
-		\begin{block}{Expected number of irreducible representations}
-			\begin{itemize}
-				\item \item The irreducible characters create an orthonormal system, analogous to the basis of a vector space.
-			
-				\item Hence, \begin{align*}
-					\{\text{\# Irreducible representations}\} &= \{\text{\# Entries in the character}\} \\
-					&= \{\text{\# Conjugacy classes}\}.
-				\end{align*}
-			\end{itemize}
-		\end{block}
-		\begin{block}{Characters of $\Sym_5$}
-			\begin{itemize}
-				\item There are $120$ elements in $\Sym_5$ and 7 conjugacy classes.
-				
-				\item We can find the trivial, alternating and the standard representations easily.
-				
-				\item There also is the tensor poduct of alternating and the standard.
-				
-				\item Square sum of these 4 repr. = $1^2 + 1^2 + 4^2 + 4^2 = 34 < 120$
-			\end{itemize}
-		\end{block}
-				
-		\begin{block}{Abelian group}
-			The map $\rho_g$ is $G$-linear: \begin{align*}
-				\rho_g \rho_h &= \rho_{gh} \\
-				&= \rho_{hg} \\
-				&= \rho_h \rho_g.
-			\end{align*}
-			By Schur's lemma: $\rho_g : V \rightarrow V$, and $\rho_g = \lambda \cdot \id$. 
-		\end{block}
-		
-		Hence:
-		\begin{theorem}
-			Any irreducible representation of an abelian group is of degree 1.
-		\end{theorem}
-		
-		
-		The number of degree one representations of any group is the index of the largest abelian subgroup of that group, ie. the index of the commutator subgroup in the group $[G:[G,G]]$.
-	\end{frame}
+%	\begin{frame}[allowframebreaks]{Further discussion}
+%		
+%		\begin{block}{Expected number of irreducible representations}
+%			\begin{itemize}
+%				\item \item The irreducible characters create an orthonormal system, analogous to the basis of a vector space.
+%			
+%				\item Hence, \begin{align*}
+%					\{\text{\# Irreducible representations}\} &= \{\text{\# Entries in the character}\} \\
+%					&= \{\text{\# Conjugacy classes}\}.
+%				\end{align*}
+%			\end{itemize}
+%		\end{block}
+%		\begin{block}{Characters of $\Sym_5$}
+%			\begin{itemize}
+%				\item There are $120$ elements in $\Sym_5$ and 7 conjugacy classes.
+%				
+%				\item We can find the trivial, alternating and the standard representations easily.
+%				
+%				\item There also is the tensor poduct of alternating and the standard.
+%				
+%				\item Square sum of these 4 repr. = $1^2 + 1^2 + 4^2 + 4^2 = 34 < 120$
+%			\end{itemize}
+%		\end{block}
+%		\begin{example}[Alternating repr. inside regular repr. of $\Sym_n$]
+%\begin{itemize}
+%	\item Let $V$ be the regular representation of $\Sym_n$.
+%	
+%	\item Consider $w = \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma$.\pause
+%	
+%	\item The action of a $\tau \in \Sym_n$ on $w$ is $\sgn(\tau) w$.\pause
+%	
+%	\item The 1-dimensional spanned by  $w$ is a $\Sym_n$-invariant subspace.
+%\end{itemize}
+%\end{example}
+%		
+%		\begin{example}[Alternating repr. inside regular repr. of $\Sym_n$]
+%			\begin{itemize}
+%				\item<1-> Let $V$ be the regular representation of $\Sym_n$.
+%				
+%				\item<1-> Consider $w = \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma$.
+%				
+%				\item<2-> The action of a $\tau \in \Sym_n$ on $w$ is \begin{align*}
+%					\tau \cdot w &= \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_{\tau\sigma} & \text{(Linear action of $\tau$)} \\ 
+%					&= \sgn(\tau)\sum_{\sigma \in \Sym_n} \sgn(\tau)\sgn(\sigma)\bas_{\tau\sigma} & \text{($\sgn^2 = 1$)}\\
+%					&= \sgn(\tau)\sum_{\sigma \in \Sym_n} \sgn(\tau\sigma)\bas_{\tau\sigma} & \text{(sgn homom.)} \\
+%					&= \sgn(\tau)\sum_{\sigma' \in \Sym_n} \sgn(\sigma')\bas_{\sigma'} & \text{(Let $\sigma' = \tau\sigma$)} \\
+%					&= \sgn(\tau) w.
+%				\end{align*}				
+%			\end{itemize}
+%		\end{example}
+%				
+%		\begin{block}{Abelian group}
+%			The map $\rho_g$ is $G$-linear: \begin{align*}
+%				\rho_g \rho_h &= \rho_{gh} \\
+%				&= \rho_{hg} \\
+%				&= \rho_h \rho_g.
+%			\end{align*}
+%			By Schur's lemma: $\rho_g : V \rightarrow V$, and $\rho_g = \lambda \cdot \id$. 
+%		\end{block}
+%		
+%		Hence:
+%		\begin{theorem}
+%			Any irreducible representation of an abelian group is of degree 1.
+%		\end{theorem}
+%		
+%		
+%		The number of degree one representations of any group is the index of the largest abelian subgroup of that group, ie. the index of the commutator subgroup in the group $[G:[G,G]]$.
+%	\end{frame}
 	
+\section{Further questions}
 
+\begin{frame}{Further questions}
+	\begin{example}[Precise equation for $\tau \cdot w$]
+		\begin{itemize}
+			\item Let $V$ be the regular representation of $\Sym_n$.
+			
+			\item Consider $w = \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_\sigma$.
+			
+			\item The action of a $\tau \in \Sym_n$ on $w$ is \begin{align*}
+				\tau \cdot w &= \sum_{\sigma \in \Sym_n} \sgn(\sigma)\bas_{\tau\sigma} & \text{(Linear action of $\tau$)} \\ 
+				&= \sgn(\tau)\sum_{\sigma \in \Sym_n} \sgn(\tau)\sgn(\sigma)\bas_{\tau\sigma} & \text{($\sgn^2 = 1$)}\\
+				&= \sgn(\tau)\sum_{\sigma \in \Sym_n} \sgn(\tau\sigma)\bas_{\tau\sigma} & \text{(sgn homom.)} \\
+				&= \sgn(\tau)\sum_{\sigma' \in \Sym_n} \sgn(\sigma')\bas_{\sigma'} & \text{(Let $\sigma' = \tau\sigma$)} \\
+				&= \sgn(\tau) w. & \text{\alert{Identical to alt. repr.!}}
+			\end{align*}	
+			
+%			\item That is, $\tau \cdot w = \sgn(\tau) \cdot w$.
+			
+			\item $\Span(w)$ is a $\Sym_n$-invariant subspace.
+		\end{itemize}
+		\end{example}
+\end{frame}
+
+\begin{frame}{Further questions}
+	\begin{block}{What could be said of total number of irreducible representations of a group?}
+		\begin{itemize}
+			\item Firstly, square sum of degrees = size of group.
+			
+			\item The irreducible characters create an orthonormal system, analogous to the basis of a vector space:
+			\begin{align*}
+									\{\text{\# Irreducible representations}\} &= \{\text{\# Entries in the character}\} \\
+									&= \{\text{\# Conjugacy classes}\}.
+			\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Further questions}
+	\begin{corollary}
+		Any representation of an abelian group is of degree 1.
+	\end{corollary}
 	
+	\begin{block}{In general, how many degree one representations are there of any group $G$?}
+		\begin{itemize}
+			\item For example $\Sym_3$¸ there is an abelian subgroup $\text{A}_3$ of index 2, hence there are 2 degree one representations.
+			
+			\item Recall commutator subgroup $[G,G]$.
+			
+			\item In general, the number of degree one representations is the size of the quotient group $G/[G,G]$.
+			
+			\item For any abelian group $G$, $[G,G]=e$, hence there are $|G|$ degree one representations.
+			
+			\item For $\Sym_n$, $[\Sym_n,\Sym_n] = \text{A}_n$, and $[\Sym_n:\text{A}_n] = 2$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}{Further questions}
+	\begin{block}{Can we find the character table for other groups, for example $\text{A}_4$?}
+		
+	\end{block}
+	
+\end{frame}	
+
 \end{document}
