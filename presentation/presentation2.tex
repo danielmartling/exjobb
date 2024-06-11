@@ -201,7 +201,7 @@
 	
 	\subsection{Examples}
 
-	\begin{frame}{Examples}
+	\begin{frame}{Examples}\pause
 		\begin{block}{Trivial representation}
 			\begin{itemize}
 				\item For any group, the trivial representation is a map
@@ -571,7 +571,7 @@
 					W = \Span\left\lbrace \sum_i \bas_i \right\rbrace.
 				\end{align*}\pause
 				
-				\item Any $g \in G$ will reorder the sum, hence $W$ is $G$-invariant, and $\rho_g = 1$.
+				\item Any $g \in G$ will reorder the sum, hence $W$ is $G$-invariant and $\rho_g = 1$.
 				
 %				\item Hence, the trivial representation is a subrepresentation of the permutation representation (and the regular representation).
 			\end{itemize}		
@@ -599,31 +599,34 @@
 		
 		\begin{definition}[$G$-linear map]
 			A vector space map $\varphi : V \rightarrow W$ is called $G$-linear if it commutes with the group action of $G$.
-			\begin{columns}
-				\column{0.4\linewidth}
-				\[\begin{tikzcd}[ampersand replacement=\&]
-					V \&\& W \\
-					\\
-					V \&\& W
-					\arrow["\varphi", from=1-1, to=1-3]
-					\arrow["g"', from=1-1, to=3-1]
-					\arrow["g", from=1-3, to=3-3]
-					\arrow["\varphi", from=3-1, to=3-3]
-				\end{tikzcd}\]
-				\column{0.4\linewidth}
-				\begin{align*}
-					\varphi(g \cdot v) = g \cdot \varphi(v)
-				\end{align*}
-			\end{columns}
+							\begin{align*}
+									\varphi(g \cdot v) = g \cdot \varphi(v)
+								\end{align*}
+%			\begin{columns}
+%				\column{0.4\linewidth}
+%				\[\begin{tikzcd}[ampersand replacement=\&]
+%					V \&\& W \\
+%					\\
+%					V \&\& W
+%					\arrow["\varphi", from=1-1, to=1-3]
+%					\arrow["g"', from=1-1, to=3-1]
+%					\arrow["g", from=1-3, to=3-3]
+%					\arrow["\varphi", from=3-1, to=3-3]
+%				\end{tikzcd}\]
+%				\column{0.4\linewidth}
+%				\begin{align*}
+%					\varphi(g \cdot v) = g \cdot \varphi(v)
+%				\end{align*}
+%			\end{columns}
 			% https://q.uiver.app/#q=WzAsNCxbMCwwLCJWIl0sWzAsMiwiViJdLFsyLDIsIlciXSxbMiwwLCJXIl0sWzAsMywiXFx2YXJwaGkiXSxbMSwyLCJcXHZhcnBoaSJdLFswLDEsImciLDJdLFszLDIsImciXV0=
 		\end{definition}\pause
 		
 		\begin{proposition}
 			Let $V$ and $W$ be representation spaces of some group $G$.
 			
-			Let $\varphi: V \rightarrow W$ be a $G$-linear map. \pause
+			Let $\varphi: V \rightarrow W$ be a $G$-linear map. 
 			
-			Then $\ker \varphi \leq V$ and $\text{im } \varphi \leq W$ are subrepresentations.
+			Then $\ker \varphi \leq V$ and $\text{im } \varphi \leq W$\pause are subrepresentations of $V$ and $W$.
 		\end{proposition}
 	\end{frame}
 	\begin{frame}{Subrepresentations as a kernel}
@@ -674,7 +677,7 @@
 	\end{frame}
 	\begin{frame}{Complete decomposition}
 		\begin{corollary}[Maschke's theorem]
-			Any representation $V$ is a direct sum of a finite number of irreducible subrepresentations. \begin{align*}
+			Any representation $V$ is a direct sum of a finite number of irreducible subrepresentations $W_i$. \begin{align*}
 				V = \bigoplus_{i=1}^k W_i
 			\end{align*}
 		\end{corollary}\pause
@@ -721,7 +724,7 @@
 					
 					\item The map $\varphi - \lambda \cdot \id$ is also a $G$-linear map.\pause
 					
-					\item But its kernel is non-empty (contains eigenvector of $\lambda$).\pause
+					\item But its kernel is non-trivial (contains eigenvector of $\lambda$).\pause
 					
 					\item Hence $\varphi - \lambda \cdot \id = 0$, or $\varphi = \lambda \cdot \id$. \qedhere
 				\end{itemize}
@@ -771,12 +774,12 @@
 				\item It is constant under conjugation
 			\end{itemize}
 		\end{block}\pause
-		\begin{proposition}{Properties of the character function}
+		\begin{proposition}[Properties of the character function]
 			\begin{itemize}
 				
-				\item $\chi(e) = \dim(V)$.\pause
+				\item $\chi(e) = \dim(V)$.
 				
-				\item $\chi(g^{-1}) = \overline{\chi(g)}$.\pause
+				\item $\chi(g^{-1}) = \overline{\chi(g)}$.
 				
 				\item If $g,h \in G$ are conjugate, then $\chi(g) = \chi(h)$.
 				
@@ -854,6 +857,7 @@
 		
 	\end{frame}
 	
+	\subsection{Decomposition}
 	\begin{frame}{Orthogonality of characters}		
 		\begin{definition}[Inner product of characters]\pause
 			\begin{itemize}
@@ -864,20 +868,25 @@
 				fulfilling the expected properties.\pause
 			\end{itemize}
 		\end{definition}
-		
+	\end{frame}
+	\begin{frame}{Orthogonality of characters}		
 		\begin{theorem}[Irreducibility criterion]
 			\begin{itemize}
 %				\item A representation is irreducible if and only if its character $\varphi$ is such that \begin{align*}
 %				(\varphi|\varphi) = 1.
 %			\end{align*}\pause
 			
-				\item Characters of irreducible representations are orthonormal.
+				\item Characters of irreducible representations are orthonormal.\pause
 				
 				\item Let $\chi, \psi$ be irreducible characters. Then \begin{align*}
 					(\chi|\psi) = \begin{cases}
 						1, \quad \chi = \psi, \\
 						0, \quad \chi \neq \psi.
 					\end{cases}
+				\end{align*}\pause
+				
+				\item Let $\varphi$ be arbitrary and let $\chi$ be irreducible, then \begin{align*}
+					(\varphi|\chi) = \text{Multiplicity of $\chi$ in $\varphi$}.
 				\end{align*}
 			\end{itemize}
 		\end{theorem}
@@ -888,7 +897,7 @@
 				
 				\item Let $\{W_i\}$ be every irreducible reprs. of a group.
 				
-				\item Let $\{\chi_i\}$ be their characters.
+				\item Let $\{\chi_i\}$ be their characters.\pause
 				
 				\item Let $V$ be any representation of the group, then \begin{align*}
 					V = \bigoplus_i m_i W_i.
@@ -896,7 +905,7 @@
 				
 				\item The character in $V$ is \begin{align*}
 					\chi_V = \sum_i m_i \chi_i.
-				\end{align*}
+				\end{align*}\pause
   				
 				\item Then we have: \begin{align*}
 					(\chi_V|\chi_V) = \sum_i m_i^2.
@@ -908,7 +917,7 @@
 	\begin{frame}{Decomposition of representations}
 		\begin{theorem}
 			The character $\chi$ is irreducible if and only if $(\chi|\chi) = 1$.
-		\end{theorem}
+		\end{theorem}\pause
 		
 		\begin{example}[Standard representation is irreducible]
 			For $\Sym_3$: 
@@ -967,28 +976,29 @@
 			\begin{itemize}
 				\item Let $ V_\Reg = \bigoplus_i m_i W_i$.\pause
 				
-				\item The multiplicity of some $W_j$ in $V_\Reg$ is $m_j = (\chi_\Reg|\chi_j) \pause = \dim W_j$.\pause
+				\item The multiplicity of some $W_j$ is $m_j = (\chi_\Reg|\chi_j) \pause = \dim W_j$.\pause
 				
 				\item Hence $V_\Reg = \bigoplus_i \dim(W_i)W_i$.
 			\end{itemize}
 		\end{block}\pause
-		\begin{block}{Square sum of multiplicities}
+		\begin{block}{Square sum of multiplicities}\pause
 						\begin{itemize}
 								\item But then \begin{align*}
-										\sum_i (\dim W_i)^2 = |G|.
-									\end{align*}
+										\sum_i m_i^2 = \boxed{\sum_i (\dim W_i)^2 = |G|}.
+									\end{align*}\pause
 								\item The square sum of the degrees of every irreducible representation of a group is the order of the group.
 							\end{itemize}
 					\end{block}
 		
 	\end{frame}
 	
-	\begin{frame}[allowframebreaks]{Characters of cyclic groups}
+	\subsection{Examples}
+	\begin{frame}{Characters of cyclic groups}
 		
 		\begin{itemize}
 			\item Earlier we found $n$ degree one representations of $\Cyc_n$.
-			\item Hence those are all irreducible representations of $\Cyc_n$.\pause
-		\end{itemize}
+			\item Hence those are all irreducible representations of $\Cyc_n$.
+		\end{itemize}\pause
 		\begin{example}[$\Cyc_3$]
 			\begin{table}
 				\centering
@@ -1206,7 +1216,7 @@
 									&= \{\text{\# Conjugacy classes}\}.
 			\end{align*}
 			
-			\item Assuming no non-zero class functions orthogonal to the irreducible characters (Fulton Harris prove this).
+			\item Assuming no non-zero characters orthogonal to the irreducible characters (Fulton \& Harris prove this in proposition 2.30).
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -1220,11 +1230,11 @@
 		\begin{itemize}
 			\item For example $\Sym_3$¸ there is an abelian subgroup $\text{A}_3$ of index 2, hence there are 2 degree one representations.
 			
-			\item The index of the largest abelian subgroup = number of degree one reprs.
+%			\item The index of the largest abelian subgroup = number of degree one reprs.
 			
-			\item Recall commutator subgroup $[G,G]$.
+%			\item The largest possible abelian subgroup commutator subgroup $[G,G]$.
 			
-			\item In general, the number of degree one representations is the size of the quotient group $G/[G,G]$.
+			\item In general, the number of degree one representations is the index of $[G,G]$ in $G$.
 			
 			\item For any abelian group $G$, $[G,G]=e$, hence there are $|G|$ degree one representations.
 			
@@ -1235,13 +1245,13 @@
 \begin{frame}{Further questions}
 	\begin{block}{Can we find the character table for other groups, for example $\text{A}_4$?}
 		\begin{itemize}
-			\item The restriction of the representations of $\Sym_4$ to $\text{A}_4$ gives us only the trivial, and standard reprs. Conjugacy classes split! 
+			\item The restriction of the representations of $\Sym_4$ to $\text{A}_4$ gives us only the trivial, and standard reprs. $[\text{A}_4,\text{A}_4] = V$, hence there are 3 degree 1 reprs.
 			
-			\item For $\Sym_5$, we need the notion of $\text{Sym}^2(V)$ and $\bigwedge^2(V)$ to find additional representations.
+			\item For $\Sym_5$, we need the notion of $\text{Sym}^2(\cdot)$ and $\bigwedge^2(\cdot)$ to find additional representations.
 			
 			\item For $V$, abelian! 
 			
-			\item $\text{D}_{2n} = \Cyc_2 \times \Cyc_n$.
+			\item $\text{D}_{2 \cdot 4}$ has $V$ as a subgroup, hence there are four degree one reprs.
 		\end{itemize}
 	\end{block}
 	
