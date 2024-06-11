@@ -571,9 +571,9 @@
 					W = \Span\left\lbrace \sum_i \bas_i \right\rbrace.
 				\end{align*}\pause
 				
-				\item Any $g \in G$ will reorder the sum, hence $W$ is $G$-invariant, and $\rho_g = 1$.\pause
+				\item Any $g \in G$ will reorder the sum, hence $W$ is $G$-invariant, and $\rho_g = 1$.
 				
-				\item Hence, the trivial representation is a subrepresentation of the permutation representation (and the regular representation).
+%				\item Hence, the trivial representation is a subrepresentation of the permutation representation (and the regular representation).
 			\end{itemize}		
 		\end{example}
 	\end{frame}
@@ -621,7 +621,7 @@
 		\begin{proposition}
 			Let $V$ and $W$ be representation spaces of some group $G$.
 			
-			Let $\varphi: V \rightarrow W$ be a $G$-linear map. 
+			Let $\varphi: V \rightarrow W$ be a $G$-linear map. \pause
 			
 			Then $\ker \varphi \leq V$ and $\text{im } \varphi \leq W$ are subrepresentations.
 		\end{proposition}
@@ -796,7 +796,7 @@
 			\end{itemize}
 		\end{definition}\pause
 		
-		\begin{proposition}{Tensor operations}
+		\begin{proposition}[Tensor operations]
 			Let $\chi_V$ and $\chi_W$ be characters of some group in the spaces $V$ and $W$.\pause
 			
 			\begin{itemize}
@@ -973,7 +973,6 @@
 			\end{itemize}
 		\end{block}\pause
 		\begin{block}{Square sum of multiplicities}
-			 We know:
 						\begin{itemize}
 								\item But then \begin{align*}
 										\sum_i (\dim W_i)^2 = |G|.
@@ -1206,6 +1205,8 @@
 									\{\text{\# Irreducible representations}\} &= \{\text{\# Entries in the character}\} \\
 									&= \{\text{\# Conjugacy classes}\}.
 			\end{align*}
+			
+			\item Assuming no non-zero class functions orthogonal to the irreducible characters (Fulton Harris prove this).
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -1219,6 +1220,8 @@
 		\begin{itemize}
 			\item For example $\Sym_3$¸ there is an abelian subgroup $\text{A}_3$ of index 2, hence there are 2 degree one representations.
 			
+			\item The index of the largest abelian subgroup = number of degree one reprs.
+			
 			\item Recall commutator subgroup $[G,G]$.
 			
 			\item In general, the number of degree one representations is the size of the quotient group $G/[G,G]$.
@@ -1231,7 +1234,15 @@
 \end{frame}
 \begin{frame}{Further questions}
 	\begin{block}{Can we find the character table for other groups, for example $\text{A}_4$?}
-		
+		\begin{itemize}
+			\item The restriction of the representations of $\Sym_4$ to $\text{A}_4$ gives us only the trivial, and standard reprs. Conjugacy classes split! 
+			
+			\item For $\Sym_5$, we need the notion of $\text{Sym}^2(V)$ and $\bigwedge^2(V)$ to find additional representations.
+			
+			\item For $V$, abelian! 
+			
+			\item $\text{D}_{2n} = \Cyc_2 \times \Cyc_n$.
+		\end{itemize}
 	\end{block}
 	
 \end{frame}	
